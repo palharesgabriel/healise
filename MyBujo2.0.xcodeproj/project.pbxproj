@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		30AD9B20230AE14E00B39434 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B1F230AE14E00B39434 /* Placeholder.swift */; };
+		6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */; };
+		63B0C0749EFE28F00D8E2D68 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
 		AB6A65AE230AD990009CFE7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AD230AD990009CFE7E /* ViewController.swift */; };
 		AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65B2230AD990009CFE7E /* MyBujo2_0.xcdatamodeld */; };
@@ -28,9 +30,11 @@
 
 /* Begin PBXFileReference section */
 		30AD9B1F230AE14E00B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
-		30AD9B21230AE15300B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		30AD9B22230AE15400B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		30AD9B23230AE15800B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
+		5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB6A65A8230AD990009CFE7E /* MyBujo2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBujo2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65AB230AD990009CFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6A65AD230AD990009CFE7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +45,9 @@
 		AB6A65BF230AD994009CFE7E /* MyBujo2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBujo2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBujo2_0Tests.swift; sourceTree = "<group>"; };
 		AB6A65C5230AD994009CFE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
+		ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
+		FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B0C0749EFE28F00D8E2D68 /* Pods_MyBujo2_0Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +89,7 @@
 		30AD9B1D230AE11800B39434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				30AD9B21230AE15300B39434 /* Placeholder.swift */,
+				AB6A65AD230AD990009CFE7E /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -93,12 +102,23 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		4EB0A2306CA8B58B2EC642AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */,
+				FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AB6A659F230AD990009CFE7E = {
 			isa = PBXGroup;
 			children = (
 				AB6A65AA230AD990009CFE7E /* MyBujo2.0 */,
 				AB6A65C2230AD994009CFE7E /* MyBujo2.0Tests */,
 				AB6A65A9230AD990009CFE7E /* Products */,
+				B10888BBE6C5CE81382D8853 /* Pods */,
+				4EB0A2306CA8B58B2EC642AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,7 +139,6 @@
 				30AD9B1C230AE10C00B39434 /* Views */,
 				30AD9B1B230AE10600B39434 /* Models */,
 				AB6A65AB230AD990009CFE7E /* AppDelegate.swift */,
-				AB6A65AD230AD990009CFE7E /* ViewController.swift */,
 				AB6A65B5230AD994009CFE7E /* Assets.xcassets */,
 				AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */,
 				AB6A65BA230AD994009CFE7E /* Info.plist */,
@@ -137,6 +156,17 @@
 			path = MyBujo2.0Tests;
 			sourceTree = "<group>";
 		};
+		B10888BBE6C5CE81382D8853 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */,
+				D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */,
+				5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */,
+				47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +174,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB6A65C8230AD994009CFE7E /* Build configuration list for PBXNativeTarget "MyBujo2.0" */;
 			buildPhases = (
+				0EB5B137F22F963265EEDB22 /* [CP] Check Pods Manifest.lock */,
 				AB6A65A4230AD990009CFE7E /* Sources */,
 				AB6A65A5230AD990009CFE7E /* Frameworks */,
 				AB6A65A6230AD990009CFE7E /* Resources */,
+				634A580F365AC6056F273931 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +193,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB6A65CB230AD994009CFE7E /* Build configuration list for PBXNativeTarget "MyBujo2.0Tests" */;
 			buildPhases = (
+				8256DC58375C90401BCD579D /* [CP] Check Pods Manifest.lock */,
 				AB6A65BB230AD994009CFE7E /* Sources */,
 				AB6A65BC230AD994009CFE7E /* Frameworks */,
 				AB6A65BD230AD994009CFE7E /* Resources */,
@@ -231,6 +264,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EB5B137F22F963265EEDB22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBujo2.0-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		634A580F365AC6056F273931 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8256DC58375C90401BCD579D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBujo2.0Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AB6A65A4230AD990009CFE7E /* Sources */ = {
@@ -392,6 +489,7 @@
 		};
 		AB6A65C9230AD994009CFE7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -410,6 +508,7 @@
 		};
 		AB6A65CA230AD994009CFE7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -428,6 +527,7 @@
 		};
 		AB6A65CC230AD994009CFE7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -449,6 +549,7 @@
 		};
 		AB6A65CD230AD994009CFE7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
