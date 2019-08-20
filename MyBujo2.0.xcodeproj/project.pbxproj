@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511F769230C3E9C0056E715 /* MasterViewController.swift */; };
 		30AD9B20230AE14E00B39434 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B1F230AE14E00B39434 /* Placeholder.swift */; };
 		6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */; };
 		63B0C0749EFE28F00D8E2D68 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1511F769230C3E9C0056E715 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		30AD9B1F230AE14E00B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		30AD9B22230AE15400B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		30AD9B23230AE15800B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				AB6A65AD230AD990009CFE7E /* ViewController.swift */,
+				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* ViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
