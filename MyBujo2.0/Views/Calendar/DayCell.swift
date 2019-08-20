@@ -56,8 +56,8 @@ class DayCell: JTACDayCell{
         contentView.addSubview(selectedView)
         selectedView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            selectedView.widthAnchor.constraint(equalTo: contentView.heightAnchor),
-            selectedView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            selectedView.widthAnchor.constraint(equalTo: label.heightAnchor, multiplier: 2.5),
+            selectedView.heightAnchor.constraint(equalTo: selectedView.widthAnchor),
             selectedView.centerXAnchor.constraint(equalTo: label.centerXAnchor),
             selectedView.centerYAnchor.constraint(equalTo: label.centerYAnchor)
             ])

@@ -37,9 +37,9 @@ class MonthHeader: JTACMonthReusableView{
         weekDaysHeader.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             weekDaysHeader.leadingAnchor.constraint(equalTo: leadingAnchor),
-            weekDaysHeader.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            weekDaysHeader.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             weekDaysHeader.trailingAnchor.constraint(equalTo: trailingAnchor),
-            weekDaysHeader.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 16),
+            weekDaysHeader.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             ])
     }
     
