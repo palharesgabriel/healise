@@ -9,20 +9,21 @@
 import UIKit
 import JTAppleCalendar
 class ViewController: UIViewController {
-    var calendarView: JTACMonthView!
+    var calendarView: CalendarView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
         constraintCalendarView()
-        calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
-        calendarView.calendarDelegate = self
-        calendarView.calendarDataSource = self
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        calendarView.viewWillTransition(to: size, with: coordinator)
     }
     
+    
     func constraintCalendarView(){
-        calendarView = JTACMonthView()
+        calendarView = CalendarView()
         view.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -31,24 +32,7 @@ class ViewController: UIViewController {
             calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             calendarView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
             ])
-        calendarView.backgroundColor = .clear
     }
 }
 
-extension ViewController: JTACMonthViewDelegate, JTACMonthViewDataSource{
-    func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-        let configParameters = ConfigurationParameters(startDate: (CalendarManager.shared.year.months[1]?.days.first)!, endDate: (CalendarManager.shared.year.months[12]?.days.last)!, numberOfRows: 6, calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
-        return configParameters
-    }
-    
-    func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        //
-    }
-    
-    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
-        guard let cell = calendarView.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as? DayCell else { return JTACDayCell()}
-        cell.label.text = cellState.text
-        return cell
-    }
-}
 

@@ -38,7 +38,7 @@ class CalendarManager: NSObject{
             self.year.months[i]?.representation = i
         }
         
-        for i in 1...365{
+        for _ in 1...365{
             if Calendar.current.component(.year, from: date) == currentYear{
                 self.year.months[Calendar.current.component(.month, from: date)]?.days.append(date)
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
