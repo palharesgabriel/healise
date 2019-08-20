@@ -17,14 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        let splitViewController = UISplitViewController()
-        let masterViewController = MasterViewController()
-        let detailViewController = ViewController()
-        let masterNavigationController = UINavigationController(rootViewController: masterViewController)
-        masterNavigationController.navigationBar.isHidden = true
-        let detailNavigationController = UINavigationController(rootViewController: detailViewController)
-        detailNavigationController.navigationBar.isHidden = true
-        splitViewController.viewControllers = [masterNavigationController,detailNavigationController]
+        let splitViewController = CustomSplitViewController()
         window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()
         // Override point for customization after application launch.
