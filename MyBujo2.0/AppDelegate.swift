@@ -10,14 +10,28 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow()
-        let splitViewController = CustomSplitViewController()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let splitViewController = UISplitViewController()
+        splitViewController.delegate = self
+        
+        let masterViewController = MasterViewController()
+        let detailViewController = ViewController()
+        
+        let masterNavigationController = UINavigationController(rootViewController: masterViewController)
+        masterNavigationController.navigationBar.isHidden = true
+       
+        let detailNavigationController = UINavigationController(rootViewController: detailViewController)
+        detailNavigationController.navigationBar.isHidden = true
+    
+        splitViewController.viewControllers = [masterNavigationController,detailNavigationController]
+        
+        splitViewController.preferredPrimaryColumnWidthFraction = 0.2
         window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()
         // Override point for customization after application launch.
@@ -92,6 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+        return true
+    }
 }
 

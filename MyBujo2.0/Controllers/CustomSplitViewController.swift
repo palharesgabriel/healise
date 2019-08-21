@@ -13,16 +13,7 @@ class CustomSplitViewController: UISplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let masterViewController = MasterViewController()
-        let detailViewController = ViewController()
         
-        let masterNavigationController = UINavigationController(rootViewController: masterViewController)
-        masterNavigationController.navigationBar.isHidden = true
-        
-        let detailNavigationController = UINavigationController(rootViewController: detailViewController)
-        detailNavigationController.navigationBar.isHidden = true
-     
-        self.viewControllers = [masterNavigationController,detailNavigationController]
     }
     
 
