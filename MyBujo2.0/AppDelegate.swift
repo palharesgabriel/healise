@@ -17,21 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
+        
         let splitViewController = UISplitViewController()
+        
         splitViewController.delegate = self
         
         let masterViewController = MasterViewController()
-        let detailViewController = ViewController()
+        let detailViewController = MyJourneyViewController()
+        let myTodayViewController = MyTodayViewController()
         
         let masterNavigationController = UINavigationController(rootViewController: masterViewController)
         masterNavigationController.navigationBar.isHidden = true
        
         let detailNavigationController = UINavigationController(rootViewController: detailViewController)
         detailNavigationController.navigationBar.isHidden = true
+        
     
-        splitViewController.viewControllers = [masterNavigationController,detailNavigationController]
+        splitViewController.viewControllers = [masterNavigationController,detailNavigationController, myTodayViewController]
         
         splitViewController.preferredPrimaryColumnWidthFraction = 0.2
+        
         window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()
         // Override point for customization after application launch.

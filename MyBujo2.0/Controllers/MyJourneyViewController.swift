@@ -8,7 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
-class ViewController: UIViewController {
+class MyJourneyViewController: UIViewController {
     var calendarView: CalendarView!
 
     override func viewDidLoad() {

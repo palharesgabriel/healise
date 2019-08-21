@@ -11,6 +11,7 @@ import UIKit
 class WeekDaysView: UIStackView {
     
     let daysNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,7 +20,7 @@ class WeekDaysView: UIStackView {
         
         for i in daysNames{
             let label = UILabel()
-            label.lineBreakMode = .byClipping
+//            label.lineBreakMode = .byCharWrapping
             label.font = UIFont(name: "AvenirNext-Medium", size: 16)
             label.textAlignment = .center
             label.text = i
