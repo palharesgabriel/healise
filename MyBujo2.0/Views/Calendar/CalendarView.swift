@@ -59,7 +59,9 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
     }
     
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
-        let configParameters = ConfigurationParameters(startDate: (CalendarManager.shared.year.months[1]?.days.first)!, endDate: (CalendarManager.shared.year.months[12]?.days.last)!, numberOfRows: 6, calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy MM dd"
+        let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: 6,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
         return configParameters
     }
     
@@ -88,7 +90,7 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
     }
     
     func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
-        return MonthSize(defaultSize: 96)
+        return MonthSize(defaultSize: 88)
     }
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
