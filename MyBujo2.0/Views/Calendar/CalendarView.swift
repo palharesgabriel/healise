@@ -90,7 +90,7 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
     }
     
     func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
-        return MonthSize(defaultSize: 88)
+        return MonthSize(defaultSize: 90)
     }
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
