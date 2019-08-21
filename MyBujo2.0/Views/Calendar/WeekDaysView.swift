@@ -10,7 +10,7 @@ import UIKit
 
 class WeekDaysView: UIStackView {
     
-    let daysNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let daysNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
 
     override init(frame: CGRect) {

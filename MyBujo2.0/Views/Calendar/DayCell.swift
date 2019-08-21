@@ -43,7 +43,7 @@ class DayCell: JTACDayCell{
         moodIndicator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             moodIndicator.centerXAnchor.constraint(equalTo: label.centerXAnchor),
-            moodIndicator.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 4),
+            moodIndicator.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 2),
             moodIndicator.widthAnchor.constraint(equalToConstant: 4),
             moodIndicator.heightAnchor.constraint(equalToConstant: 4),
             ])
@@ -55,8 +55,10 @@ class DayCell: JTACDayCell{
     func constraintSelectedView(){
         contentView.addSubview(selectedView)
         selectedView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         NSLayoutConstraint.activate([
-            selectedView.widthAnchor.constraint(equalTo: label.heightAnchor, multiplier: 2.5),
+            selectedView.widthAnchor.constraint(equalTo: label.heightAnchor, multiplier: 2.0),
             selectedView.heightAnchor.constraint(equalTo: selectedView.widthAnchor),
             selectedView.centerXAnchor.constraint(equalTo: label.centerXAnchor),
             selectedView.centerYAnchor.constraint(equalTo: label.centerYAnchor)
