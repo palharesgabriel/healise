@@ -21,7 +21,6 @@ class MyJourneyViewController: UIViewController {
         calendarView.viewWillTransition(to: size, with: coordinator)
     }
     
-    
     func constraintCalendarView(){
         calendarView = CalendarView()
         view.addSubview(calendarView)

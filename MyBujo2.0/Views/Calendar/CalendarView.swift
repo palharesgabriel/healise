@@ -20,8 +20,10 @@ class CalendarView: UIView, Shadow {
         calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "monthHeader")
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
-        calendarView.scrollToDate(Date())
+        calendarView.scrollToDate(Date(), animateScroll: false)
     }
+    
+    
     
     func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let visibleDates = calendarView.visibleDates()
@@ -86,6 +88,7 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
         
         guard let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "monthHeader", for: indexPath) as? MonthHeader else { return  JTACMonthReusableView()}
         header.configureHeader(start: range.start)
+        print(indexPath)
         return header
     }
     
