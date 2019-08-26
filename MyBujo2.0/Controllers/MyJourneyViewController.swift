@@ -22,7 +22,7 @@ class MyJourneyViewController: UIViewController {
     }
     
     func constraintCalendarView(){
-        calendarView = CalendarView(with: .Month)
+        calendarView = CalendarView(with: .month)
         view.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

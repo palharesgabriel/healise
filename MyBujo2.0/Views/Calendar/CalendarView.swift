@@ -10,12 +10,12 @@ import UIKit
 import JTAppleCalendar
 
 enum CalendarType{
-    case Month
-    case Week
+    case month
+    case week
     
     var number: Int {
         switch self {
-        case .Month:
+        case .month:
             return 6
         default:
             return 1
