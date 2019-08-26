@@ -13,6 +13,5 @@ class CustomSplitViewController: UISplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
 }

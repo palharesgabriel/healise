@@ -21,6 +21,7 @@ class MyJourneyViewController: UIViewController {
         constraintCalendarView()
         // Do any additional setup after loading the view.
     }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         calendarView.viewWillTransition(to: size, with: coordinator)
     }
