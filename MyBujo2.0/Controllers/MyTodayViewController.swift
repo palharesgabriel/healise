@@ -14,6 +14,10 @@ class MyTodayViewController: UIViewController, ViewCode {
     
     var calendarView = CalendarView(with: .week)
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -29,7 +33,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     func setupConstraints() {
         constraintCalendar()
         NSLayoutConstraint.activate([
-            goalsView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            goalsView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 16),
             goalsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             goalsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             goalsView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5)
@@ -47,7 +51,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     }
 
     func setupAdditionalConfigurantion() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor(named: "BlueBackground")
         
     }
-
+}

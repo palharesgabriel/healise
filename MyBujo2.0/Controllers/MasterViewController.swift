@@ -53,6 +53,8 @@ class MasterViewController: UIViewController, ViewCode {
     let supportButton = UIButton(title: "⛑ Support")
     let settingsButton = UIButton(title: "⚙️ Settings")
     
+    var viewControllers: [UINavigationController] = []
+    
     let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
@@ -77,7 +79,7 @@ class MasterViewController: UIViewController, ViewCode {
         settingsButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
         myTodayButton.addTarget(self, action: #selector(didShowMyTodayViewController(_:)), for: .touchDown)
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
-
+        
     }
     
     
@@ -127,18 +129,14 @@ class MasterViewController: UIViewController, ViewCode {
     }
     
     @objc func didShowMyJourneyViewController(_ sender: UIButton) {
-        print(sender)
-        let myJourneyViewController = MyJourneyViewController()
-        let navigationController = UINavigationController(rootViewController: myJourneyViewController)
+        let navigationController = viewControllers[0]
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
 
     }
     
     @objc func didShowMyTodayViewController(_ sender: UIButton) {
         self.splitViewController?.preferredDisplayMode = .automatic
-        let myTodayViewController = MyTodayViewController()
-        let navigationController = UINavigationController(rootViewController: myTodayViewController)
-        navigationController.navigationBar.isHidden = true
+        let navigationController = viewControllers[1]
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
     }
 }

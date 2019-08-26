@@ -11,6 +11,10 @@ import JTAppleCalendar
 class MyJourneyViewController: UIViewController {
     var calendarView: CalendarView!
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BlueBackground")

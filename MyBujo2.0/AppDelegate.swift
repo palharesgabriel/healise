@@ -29,9 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let masterNavigationController = UINavigationController(rootViewController: masterViewController)
         masterNavigationController.navigationBar.isHidden = true
         let detailNavigationController = UINavigationController(rootViewController: detailViewController)
+        let myTodayNavigationController  = UINavigationController(rootViewController: myTodayViewController)
         
-    
-        splitViewController.viewControllers = [masterNavigationController,detailNavigationController, myTodayViewController]
+        masterViewController.viewControllers = [detailNavigationController, myTodayNavigationController]
+        
+        splitViewController.viewControllers = [masterNavigationController,detailNavigationController, myTodayNavigationController]
         
         splitViewController.preferredPrimaryColumnWidthFraction = 0.2
         

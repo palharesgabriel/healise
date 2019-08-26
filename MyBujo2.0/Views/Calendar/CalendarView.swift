@@ -23,7 +23,7 @@ enum CalendarType{
     }
 }
 
-class CalendarView: UIView, Shadow {
+class CalendarView: UIView, Shadow, ViewCode {
     var calendarView: JTACMonthView!
     var type: CalendarType!
     override init(frame: CGRect) {
