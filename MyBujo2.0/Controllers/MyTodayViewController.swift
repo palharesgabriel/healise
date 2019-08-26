@@ -18,6 +18,10 @@ class MyTodayViewController: UIViewController, ViewCode {
         self.navigationController!.navigationBar.isHidden = true
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        calendarView.viewWillTransition(to: size, with: coordinator)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
