@@ -9,21 +9,35 @@
 import UIKit
 import JTAppleCalendar
 
-class CalendarView: UIView, ViewCode, Shadow {
+enum CalendarType{
+    case month
+    case week
     
-    
+    var number: Int {
+        switch self {
+        case .month:
+            return 6
+        default:
+            return 1
+        }
+    }
+}
+
+class CalendarView: UIView, Shadow {
     var calendarView: JTACMonthView!
+    var type: CalendarType!
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
-        addShadow()
-        setupView()
-        calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
-        calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "monthHeader")
-        calendarView.calendarDelegate = self
-        calendarView.calendarDataSource = self
-        calendarView.scrollToDate(Date())
+        setupCell()
     }
+    
+    init(with type: CalendarType) {
+        super.init(frame: .zero)
+        self.type = type
+        setupCell()
+    }
+    
+    
     
     func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let visibleDates = calendarView.visibleDates()
@@ -32,6 +46,17 @@ class CalendarView: UIView, ViewCode, Shadow {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupCell(){
+        backgroundColor = .white
+        addShadow()
+        setupView()
+        calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
+        calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "monthHeader")
+        calendarView.calendarDelegate = self
+        calendarView.calendarDataSource = self
+        calendarView.scrollToDate(Date(), animateScroll: false)
     }
     
     func buildViewHierarchy() {
@@ -64,14 +89,16 @@ class CalendarView: UIView, ViewCode, Shadow {
 
 extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        guard let cell = calendarView.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as? DayCell else { return }
+        guard let cell = cell as? DayCell else { return }
         cell.configureCell(cellState: cellState)
     }
     
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy MM dd"
-        let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: 6,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
+        
+        
+        let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
         return configParameters
     }
     
@@ -96,11 +123,12 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
         
         guard let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "monthHeader", for: indexPath) as? MonthHeader else { return  JTACMonthReusableView()}
         header.configureHeader(start: range.start)
+        print(indexPath)
         return header
     }
     
     func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
-        return MonthSize(defaultSize: 88)
+        return MonthSize(defaultSize: 90)
     }
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {

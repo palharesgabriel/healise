@@ -29,7 +29,7 @@ class MonthHeader: JTACMonthReusableView{
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
             ])
-        titleLabel.textColor = .black
+        titleLabel.textColor = UIColor(named:"TitleColor")!
     }
     
     func constraintWeekDaysHeader(){

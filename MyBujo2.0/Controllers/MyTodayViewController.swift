@@ -11,7 +11,9 @@ import UIKit
 class MyTodayViewController: UIViewController, ViewCode {
    
     let goalsView = GoalsView()
-
+    
+    var calendarView = CalendarView(with: .week)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -20,10 +22,12 @@ class MyTodayViewController: UIViewController, ViewCode {
     }
     
     func buildViewHierarchy() {
+        view.addSubview(calendarView)
         view.addSubview(goalsView)
     }
        
     func setupConstraints() {
+        constraintCalendar()
         NSLayoutConstraint.activate([
             goalsView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
             goalsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
@@ -31,11 +35,19 @@ class MyTodayViewController: UIViewController, ViewCode {
             goalsView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5)
         ])
     }
-       
+  
+    func constraintCalendar(){
+        calendarView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            calendarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            calendarView.heightAnchor.constraint(equalToConstant: 176)
+            ])
+    }
+
     func setupAdditionalConfigurantion() {
         self.view.backgroundColor = .white
         
     }
-}
-
 

@@ -13,7 +13,7 @@ class MyJourneyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "BlueBackground")
         constraintCalendarView()
         // Do any additional setup after loading the view.
     }
@@ -21,9 +21,8 @@ class MyJourneyViewController: UIViewController {
         calendarView.viewWillTransition(to: size, with: coordinator)
     }
     
-    
     func constraintCalendarView(){
-        calendarView = CalendarView()
+        calendarView = CalendarView(with: .month)
         view.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -32,6 +31,7 @@ class MyJourneyViewController: UIViewController {
             calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             calendarView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
             ])
+        
     }
 }
 
