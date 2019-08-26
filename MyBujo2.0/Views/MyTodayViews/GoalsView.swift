@@ -21,6 +21,9 @@ class GoalsView: UIView, ViewCode, Shadow {
         super.init(frame: frame)
         setupView()
         addShadow()
+        goalsTableView.delegate = self
+        goalsTableView.dataSource = self
+        goalsTableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: "goalsIdentifier")
     }
     
     required init?(coder: NSCoder) {
@@ -34,10 +37,10 @@ class GoalsView: UIView, ViewCode, Shadow {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            goalsTableView.topAnchor.constraint(equalTo: topAnchor),
-            goalsTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            goalsTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            goalsTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            goalsTableView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            goalsTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            goalsTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            goalsTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
     }
     
@@ -45,4 +48,36 @@ class GoalsView: UIView, ViewCode, Shadow {
         backgroundColor = .white
         self.goalsTableView.backgroundColor = .clear
     }
+}
+
+extension GoalsView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "goalsIdentifier", for: indexPath) as! GoalsTableViewCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if let oldIndex = tableView.indexPathForSelectedRow {
+            let cell = tableView.cellForRow(at: oldIndex)
+            cell?.accessoryType = .none
+            cell?.selectionStyle = .none
+            cell?.selectedBackgroundView = UIView()
+            
+        }
+        let cell = tableView.cellForRow(at: indexPath)
+        cell!.accessoryType = .checkmark
+        cell?.selectionStyle = .none
+        cell?.selectedBackgroundView = UIView()
+        
+        return indexPath
+    }
+    
 }

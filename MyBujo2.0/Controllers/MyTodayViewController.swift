@@ -12,7 +12,7 @@ class MyTodayViewController: UIViewController, ViewCode {
    
     let goalsView = GoalsView()
     
-    var calendarView = CalendarView(with: .week)
+    var calendarView:CalendarView!
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.navigationBar.isHidden = true
@@ -20,6 +20,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendarView = CalendarView(with: .week)
         setupView()
         
         // Do any additional setup after loading the view.
@@ -45,9 +46,9 @@ class MyTodayViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate([
             calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            calendarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             calendarView.heightAnchor.constraint(equalToConstant: 176)
-            ])
+        ])
     }
 
     func setupAdditionalConfigurantion() {
