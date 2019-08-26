@@ -120,7 +120,7 @@ class MasterViewController: UIViewController, ViewCode {
 
             settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
             settingsButton.leadingAnchor.constraint(equalTo: supportButton.leadingAnchor),
-            settingsButton.widthAnchor.constraint(equalTo: supportButton.widthAnchor),
+            settingsButton.widthAnchor.constraint(equalTo: supportButton.widthAnchor)
         ])
     }
     

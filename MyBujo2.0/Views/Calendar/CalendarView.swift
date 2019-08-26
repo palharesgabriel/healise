@@ -48,7 +48,8 @@ class CalendarView: UIView, Shadow, ViewCode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupCell(){
+    
+    func setupCell() {
         backgroundColor = .white
         addShadow()
         setupView()
@@ -87,7 +88,7 @@ class CalendarView: UIView, Shadow, ViewCode {
     }
 }
 
-extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
+extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource {
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? DayCell else { return }
         cell.configureCell(cellState: cellState)
@@ -132,10 +133,9 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
     }
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
-        if cellState.dateBelongsTo == .thisMonth{
+        if cellState.dateBelongsTo == .thisMonth {
             return true
         }
         return false
     }
 }
-

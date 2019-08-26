@@ -18,12 +18,12 @@ class WeekDaysView: UIStackView {
         
         distribution = .fillEqually
         
-        for i in daysNames{
+        for index in daysNames {
             let label = UILabel()
 //            label.lineBreakMode = .byCharWrapping
             label.font = UIFont(name: "AvenirNext-Medium", size: 16)
             label.textAlignment = .center
-            label.text = i
+            label.text = index
             label.textColor = UIColor(named:"TitleColor")!
             self.addArrangedSubview(label)
         }

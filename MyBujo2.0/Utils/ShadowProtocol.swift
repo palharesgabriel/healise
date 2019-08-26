@@ -13,8 +13,8 @@ protocol Shadow: UIView {
     func addShadow()
 }
 
-extension Shadow{
-    func addShadow(){
+extension Shadow {
+    func addShadow() {
         clipsToBounds = true
         layer.masksToBounds = false
         layer.cornerRadius = 16

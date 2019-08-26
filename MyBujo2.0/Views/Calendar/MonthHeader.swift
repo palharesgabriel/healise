@@ -9,7 +9,7 @@
 import Foundation
 import JTAppleCalendar
 
-class MonthHeader: JTACMonthReusableView{
+class MonthHeader: JTACMonthReusableView {
     var titleLabel = UILabel()
     var weekDaysHeader = WeekDaysView()
     override init(frame: CGRect) {
@@ -22,7 +22,7 @@ class MonthHeader: JTACMonthReusableView{
         fatalError("init(coder:) has not been implemented")
     }
     
-    func constraintTitleLabel(){
+    func constraintTitleLabel() {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -32,18 +32,18 @@ class MonthHeader: JTACMonthReusableView{
         titleLabel.textColor = UIColor(named:"TitleColor")!
     }
     
-    func constraintWeekDaysHeader(){
+    func constraintWeekDaysHeader() {
         addSubview(weekDaysHeader)
         weekDaysHeader.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             weekDaysHeader.leadingAnchor.constraint(equalTo: leadingAnchor),
             weekDaysHeader.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
             weekDaysHeader.trailingAnchor.constraint(equalTo: trailingAnchor),
-            weekDaysHeader.bottomAnchor.constraint(equalTo: bottomAnchor),
+            weekDaysHeader.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
     }
     
-    func configureHeader(start: Date){
+    func configureHeader(start: Date) {
         let formatter = DateFormatter()  // Declare this outside, to avoid instancing this heavy class multiple times.
         formatter.dateFormat = "MMMM"
         titleLabel.text = formatter.string(from: start)
