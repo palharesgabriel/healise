@@ -18,7 +18,6 @@ extension Shadow {
         clipsToBounds = true
         layer.masksToBounds = false
         layer.cornerRadius = 16
-        
         layer.shadowRadius = 8
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowOpacity = 0.2

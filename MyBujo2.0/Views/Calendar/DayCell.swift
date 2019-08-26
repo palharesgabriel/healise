@@ -76,7 +76,7 @@ class DayCell: JTACDayCell {
     
     func handleCellTextColor(cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
-            label.textColor = UIColor.black
+            label.textColor = UIColor(named:"TitleColor")!
         } else {
             label.textColor = UIColor.gray
         }

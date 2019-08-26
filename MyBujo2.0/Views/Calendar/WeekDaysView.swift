@@ -24,7 +24,7 @@ class WeekDaysView: UIStackView {
             label.font = UIFont(name: "AvenirNext-Medium", size: 16)
             label.textAlignment = .center
             label.text = index
-            label.textColor = .black
+            label.textColor = UIColor(named:"TitleColor")!
             self.addArrangedSubview(label)
         }
         
