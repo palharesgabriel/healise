@@ -56,7 +56,7 @@ class CalendarView: UIView, Shadow {
 
 extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        guard let cell = calendarView.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as? DayCell else { return }
+        guard let cell = cell as? DayCell else { return }
         cell.configureCell(cellState: cellState)
     }
     
