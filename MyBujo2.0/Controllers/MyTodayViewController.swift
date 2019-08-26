@@ -9,16 +9,19 @@
 import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
+    
+    var calendarView = CalendarView(with: .week)
+    
     func buildViewHierarchy() {
-        
+        view.addSubview(calendarView)
     }
     
     func setupConstraints() {
-        
+        constraintCalendar()
     }
     
     func setupAdditionalConfigurantion() {
-        view.backgroundColor = .yellow
+        view.backgroundColor = UIColor(named: "BlueBackground")
     }
     
 
@@ -28,15 +31,14 @@ class MyTodayViewController: UIViewController, ViewCode {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func constraintCalendar(){
+        calendarView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            calendarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            calendarView.heightAnchor.constraint(equalToConstant: 176)
+            ])
     }
-    */
 
 }

@@ -31,9 +31,9 @@ extension UIButton {
 
 class MasterViewController: UIViewController, ViewCode {
     
-    let monthLabel = UILabel(text: "Tuesday", font: "Avenir Next", fontSize: 30, textColor: .init(red: 225/255, green: 225/255, blue: 225/255, alpha: 1))
-    let dayLabel = UILabel(text: "13/08", font: "Avenir Next", fontSize: 60, textColor: .white)
-    let yearLabel = UILabel(text: "2019", font: "Avenir Next", fontSize: 30, textColor:  .init(red: 225/255, green: 225/255, blue: 225/255, alpha: 1))
+    let monthLabel = UILabel(text: "Tuesday", font: "Avenir Next", fontSize: 30, textColor: UIColor(named:"TitleColor")!)
+    let dayLabel = UILabel(text: "13/08", font: "Avenir Next", fontSize: 60, textColor: UIColor(named:"TitleColor")!)
+    let yearLabel = UILabel(text: "2019", font: "Avenir Next", fontSize: 30, textColor:  UIColor(named:"TitleColor")!)
 
     let myJourneyButton = UIButton(title: "🏠 My Journey")
     let myTodayButton = UIButton(title: "📅 My Today")
@@ -57,6 +57,10 @@ class MasterViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         view.backgroundColor = .blue
         setupView()
+        myJourneyButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
+        myTodayButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
+        supportButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
+        settingsButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
         myTodayButton.addTarget(self, action: #selector(didShowMyTodayViewController(_:)), for: .touchDown)
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
 
@@ -105,7 +109,7 @@ class MasterViewController: UIViewController, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        view.backgroundColor = .init(red: 83/255, green: 112/255, blue: 237/255, alpha: 1)
+        view.backgroundColor = UIColor(named: "BlueBackground")
     }
     
     @objc func didShowMyJourneyViewController(_ sender: UIButton) {
@@ -120,6 +124,7 @@ class MasterViewController: UIViewController, ViewCode {
         
         let myTodayViewController = MyTodayViewController()
         let navigationController = UINavigationController(rootViewController: myTodayViewController)
+        navigationController.navigationBar.isHidden = true
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
     }
 }

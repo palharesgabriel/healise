@@ -35,8 +35,6 @@ class CalendarView: UIView, Shadow {
         super.init(frame: .zero)
         self.type = type
         setupCell()
-        
-        
     }
     
     
