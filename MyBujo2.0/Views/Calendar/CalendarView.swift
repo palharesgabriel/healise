@@ -9,18 +9,34 @@
 import UIKit
 import JTAppleCalendar
 
+enum CalendarType{
+    case Month
+    case Week
+    
+    var number: Int {
+        switch self {
+        case .Month:
+            return 6
+        default:
+            return 1
+        }
+    }
+}
+
 class CalendarView: UIView, Shadow {
     var calendarView: JTACMonthView!
+    var type: CalendarType!
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
-        addShadow()
-        constraintCalendarView()
-        calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
-        calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "monthHeader")
-        calendarView.calendarDelegate = self
-        calendarView.calendarDataSource = self
-        calendarView.scrollToDate(Date(), animateScroll: false)
+        setupCell()
+    }
+    
+    init(with type: CalendarType) {
+        super.init(frame: .zero)
+        self.type = type
+        setupCell()
+        
+        
     }
     
     
@@ -32,6 +48,17 @@ class CalendarView: UIView, Shadow {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupCell(){
+        backgroundColor = .white
+        addShadow()
+        constraintCalendarView()
+        calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
+        calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "monthHeader")
+        calendarView.calendarDelegate = self
+        calendarView.calendarDataSource = self
+        calendarView.scrollToDate(Date(), animateScroll: false)
     }
     
     func constraintCalendarView(){
@@ -63,7 +90,9 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
     func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy MM dd"
-        let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: 6,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
+        
+        
+        let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
         return configParameters
     }
     
