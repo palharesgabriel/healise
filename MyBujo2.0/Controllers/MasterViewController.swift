@@ -25,6 +25,19 @@ extension UIButton {
         self.init()
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setTitle(title, for: .normal)
+        self.setBackgroundColor(color: .black, forState: .selected)
+    }
+    
+    func setBackgroundColor(color: UIColor, forState: UIControl.State) {
+        self.clipsToBounds = true
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        if let context = UIGraphicsGetCurrentContext() {
+            context.setFillColor(color.cgColor)
+            context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+            let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            self.setBackgroundImage(colorImage, for: forState)
+        }
     }
 }
 
@@ -54,6 +67,7 @@ class MasterViewController: UIViewController, ViewCode {
 
         
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         view.backgroundColor = .blue
         setupView()
@@ -111,13 +125,13 @@ class MasterViewController: UIViewController, ViewCode {
     @objc func didShowMyJourneyViewController(_ sender: UIButton) {
         print(sender)
         let myJourneyViewController = MyJourneyViewController()
-        self.splitViewController?.showDetailViewController(myJourneyViewController, sender: nil)
+        let navigationController = UINavigationController(rootViewController: myJourneyViewController)
+        self.splitViewController?.showDetailViewController(navigationController, sender: nil)
 
     }
     
     @objc func didShowMyTodayViewController(_ sender: UIButton) {
         self.splitViewController?.preferredDisplayMode = .automatic
-        
         let myTodayViewController = MyTodayViewController()
         let navigationController = UINavigationController(rootViewController: myTodayViewController)
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)

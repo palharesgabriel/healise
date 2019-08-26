@@ -9,34 +9,33 @@
 import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
-    func buildViewHierarchy() {
-        
-    }
-    
-    func setupConstraints() {
-        
-    }
-    
-    func setupAdditionalConfigurantion() {
-        view.backgroundColor = .yellow
-    }
-    
+   
+    let goalsView = GoalsView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func buildViewHierarchy() {
+        view.addSubview(goalsView)
     }
-    */
-
+       
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            goalsView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            goalsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            goalsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            goalsView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5)
+        ])
+    }
+       
+    func setupAdditionalConfigurantion() {
+        self.view.backgroundColor = .white
+        
+    }
 }
+
+

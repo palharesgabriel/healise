@@ -28,9 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         let masterNavigationController = UINavigationController(rootViewController: masterViewController)
         masterNavigationController.navigationBar.isHidden = true
-       
         let detailNavigationController = UINavigationController(rootViewController: detailViewController)
-        detailNavigationController.navigationBar.isHidden = true
         
     
         splitViewController.viewControllers = [masterNavigationController,detailNavigationController, myTodayViewController]

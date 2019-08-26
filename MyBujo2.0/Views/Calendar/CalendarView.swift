@@ -9,13 +9,15 @@
 import UIKit
 import JTAppleCalendar
 
-class CalendarView: UIView, Shadow {
+class CalendarView: UIView, ViewCode, Shadow {
+    
+    
     var calendarView: JTACMonthView!
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
         addShadow()
-        constraintCalendarView()
+        setupView()
         calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
         calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "monthHeader")
         calendarView.calendarDelegate = self
@@ -32,9 +34,13 @@ class CalendarView: UIView, Shadow {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func constraintCalendarView(){
+    func buildViewHierarchy() {
         calendarView = JTACMonthView()
         addSubview(calendarView)
+        
+    }
+    
+    func setupConstraints() {
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             calendarView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
@@ -42,6 +48,10 @@ class CalendarView: UIView, Shadow {
             calendarView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             calendarView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
             ])
+        
+    }
+    
+    func setupAdditionalConfigurantion() {
         calendarView.backgroundColor = .clear
         calendarView.scrollingMode = .stopAtEachCalendarFrame
         calendarView.scrollDirection = .horizontal
