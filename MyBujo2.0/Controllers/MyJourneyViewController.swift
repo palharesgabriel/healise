@@ -21,7 +21,7 @@ class MyJourneyViewController: UIViewController {
         calendarView.viewWillTransition(to: size, with: coordinator)
     }
     
-    func constraintCalendarView(){
+    func constraintCalendarView() {
         calendarView = CalendarView()
         view.addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,5 +33,3 @@ class MyJourneyViewController: UIViewController {
             ])
     }
 }
-
-

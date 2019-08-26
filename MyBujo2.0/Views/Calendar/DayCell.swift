@@ -9,7 +9,7 @@
 import Foundation
 import JTAppleCalendar
 
-class DayCell: JTACDayCell{
+class DayCell: JTACDayCell {
     var label = UILabel()
     var moodIndicator = UIView()
     var selectedView = UIView()
@@ -26,7 +26,7 @@ class DayCell: JTACDayCell{
         constraintLabel()
     }
     
-    func constraintLabel(){
+    func constraintLabel() {
         contentView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -38,21 +38,21 @@ class DayCell: JTACDayCell{
         label.font = UIFont(name: "AvenirNext-Medium", size: 16)
     }
     
-    func constraintMoodIndicator(){
+    func constraintMoodIndicator() {
         contentView.addSubview(moodIndicator)
         moodIndicator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             moodIndicator.centerXAnchor.constraint(equalTo: label.centerXAnchor),
             moodIndicator.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 2),
             moodIndicator.widthAnchor.constraint(equalToConstant: 4),
-            moodIndicator.heightAnchor.constraint(equalToConstant: 4),
+            moodIndicator.heightAnchor.constraint(equalToConstant: 4)
             ])
         moodIndicator.clipsToBounds = true
         moodIndicator.layer.cornerRadius = 2
         moodIndicator.backgroundColor = .green
     }
     
-    func constraintSelectedView(){
+    func constraintSelectedView() {
         contentView.addSubview(selectedView)
         selectedView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -85,8 +85,7 @@ class DayCell: JTACDayCell{
     func handleCellSelected(cellState: CellState) {
         if cellState.isSelected {
             selectedView.isHidden = false
-        }
-        else {
+        } else {
             selectedView.isHidden = true
         }
         selectedView.layer.cornerRadius = selectedView.frame.size.width/2

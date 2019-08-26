@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CalendarManager: NSObject{
+class CalendarManager: NSObject {
     
     private override init() {
         super.init()
@@ -25,7 +25,7 @@ class CalendarManager: NSObject{
     var currentYear = Calendar.current.component(.year, from: Date())
     
     
-    func fillYear(year: Int){
+    func fillYear(year: Int) {
         let diff = year - currentYear
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy MM dd"
@@ -33,32 +33,32 @@ class CalendarManager: NSObject{
         
         
         
-        for i in 1...12{
-            self.year.months[i] = Month()
-            self.year.months[i]?.representation = i
+        for index in 1...12 {
+            self.year.months[index] = Month()
+            self.year.months[index]?.representation = index
         }
         
-        for _ in 1...365{
-            if Calendar.current.component(.year, from: date) == currentYear{
+        for _ in 1...365 {
+            if Calendar.current.component(.year, from: date) == currentYear {
                 self.year.months[Calendar.current.component(.month, from: date)]?.days.append(date)
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             }
         }
         
-        for i in 1...12{
-            fillDaysInAndOut(month: i)
+        for index in 1...12 {
+            fillDaysInAndOut(month: index)
         }
     }
     
     
-    func fillDaysInAndOut(month: Int){
+    func fillDaysInAndOut(month: Int) {
         var monthReference = year.months[month]!
         var firstDay = monthReference.days.first!
         var lastDay = monthReference.days.last!
         let firstWeekDay = getFirstWeekDayOfMonth(month: month)
         
         
-        for i in 0..<firstWeekDay-1{
+        for _ in 0..<firstWeekDay - 1 {
             firstDay = Calendar.current.date(byAdding: .day, value: -1, to: firstDay)!
             monthReference.daysIn.append(firstDay)
         }
@@ -68,24 +68,24 @@ class CalendarManager: NSObject{
         
         
         let numberOfDaysOut = 6 * 7 - monthReference.days.count - monthReference.daysIn.count
-        for i in 0..<numberOfDaysOut{
+        for _ in 0..<numberOfDaysOut {
             lastDay = Calendar.current.date(byAdding: .day, value: 1, to: lastDay)!
             monthReference.daysOut.append(lastDay)
         }
         year.months[month] = monthReference
     }
     
-    func getDaysInMonth(month: Int) -> Int{
+    func getDaysInMonth(month: Int) -> Int {
         return (year.months[month]?.days.count)!
     }
     
-    func getFirstWeekDayOfMonth(month: Int) -> Int{
+    func getFirstWeekDayOfMonth(month: Int) -> Int {
         return Calendar.current.component(.weekday, from: (year.months[month]?.days.first)!)
     }
 }
 
 
-struct Year{
+struct Year {
     var months: [Int: Month]
     var representation: Int
     init() {
@@ -95,13 +95,13 @@ struct Year{
     
 }
 
-struct Month{
+struct Month {
     var daysIn: [Date]
     var daysOut: [Date]
     var days: [Date]
     var representation: Int
     
-    init(){
+    init() {
         daysIn = [Date]()
         daysOut = [Date]()
         days = [Date]()

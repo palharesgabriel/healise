@@ -34,7 +34,7 @@ class CalendarView: UIView, Shadow {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func constraintCalendarView(){
+    func constraintCalendarView() {
         calendarView = JTACMonthView()
         addSubview(calendarView)
         calendarView.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +54,7 @@ class CalendarView: UIView, Shadow {
     }
 }
 
-extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
+extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource {
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         guard let cell = calendarView.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as? DayCell else { return }
         cell.configureCell(cellState: cellState)
@@ -97,10 +97,9 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource{
     }
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
-        if cellState.dateBelongsTo == .thisMonth{
+        if cellState.dateBelongsTo == .thisMonth {
             return true
         }
         return false
     }
 }
-
