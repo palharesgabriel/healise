@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511F769230C3E9C0056E715 /* MasterViewController.swift */; };
-		30AD9B20230AE14E00B39434 /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B1F230AE14E00B39434 /* Placeholder.swift */; };
+		153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */; };
+		15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C339C4230D8A14009ED5CD /* ViewCode.swift */; };
+		15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */; };
+		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
+		30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B26230AE98B00B39434 /* CalendarManager.swift */; };
+		30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B28230AEF9100B39434 /* DayCell.swift */; };
+		30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D4230C239100D56A41 /* MonthHeader.swift */; };
+		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
+		30CBF8DD230C40C800D56A41 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8DC230C40C800D56A41 /* CalendarView.swift */; };
 		6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */; };
 		63B0C0749EFE28F00D8E2D68 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
-		AB6A65AE230AD990009CFE7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AD230AD990009CFE7E /* ViewController.swift */; };
+		AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */; };
 		AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65B2230AD990009CFE7E /* MyBujo2_0.xcdatamodeld */; };
 		AB6A65B6230AD994009CFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B5230AD994009CFE7E /* Assets.xcassets */; };
 		AB6A65B9230AD994009CFE7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */; };
@@ -31,15 +39,25 @@
 
 /* Begin PBXFileReference section */
 		1511F769230C3E9C0056E715 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitViewController.swift; sourceTree = "<group>"; };
+		15C339C4230D8A14009ED5CD /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
+		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		30AD9B1F230AE14E00B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
-		30AD9B22230AE15400B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		30AD9B23230AE15800B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		30AD9B26230AE98B00B39434 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
+		30AD9B28230AEF9100B39434 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
+		30CBF8D4230C239100D56A41 /* MonthHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeader.swift; sourceTree = "<group>"; };
+		30CBF8D7230C347200D56A41 /* WeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
+		30CBF8D9230C34F100D56A41 /* AvenirNextLTPro-MediumCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumCn.otf"; sourceTree = "<group>"; };
+		30CBF8DA230C34F100D56A41 /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
+		30CBF8DC230C40C800D56A41 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB6A65A8230AD990009CFE7E /* MyBujo2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBujo2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65AB230AD990009CFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AB6A65AD230AD990009CFE7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJourneyViewController.swift; sourceTree = "<group>"; };
 		AB6A65B3230AD990009CFE7E /* MyBujo2_0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyBujo2_0.xcdatamodel; sourceTree = "<group>"; };
 		AB6A65B5230AD994009CFE7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB6A65B8230AD994009CFE7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +90,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15C339C3230D8A04009ED5CD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				15C339C4230D8A14009ED5CD /* ViewCode.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		15EF7187230DA302001F79D9 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				30AD9B1F230AE14E00B39434 /* Placeholder.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		30AD9B1B230AE10600B39434 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +117,7 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				30AD9B22230AE15400B39434 /* Placeholder.swift */,
+				30CBF8DB230C40B000D56A41 /* Calendar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,8 +125,10 @@
 		30AD9B1D230AE11800B39434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AB6A65AD230AD990009CFE7E /* ViewController.swift */,
+				AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */,
 				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
+				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
+				15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -100,9 +136,30 @@
 		30AD9B1E230AE12100B39434 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				30AD9B1F230AE14E00B39434 /* Placeholder.swift */,
+				30AD9B26230AE98B00B39434 /* CalendarManager.swift */,
+				3050424D230C879D0037AFB0 /* ShadowProtocol.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		30CBF8D6230C344600D56A41 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				30CBF8D9230C34F100D56A41 /* AvenirNextLTPro-MediumCn.otf */,
+				30CBF8DA230C34F100D56A41 /* AvenirNextLTPro-Regular.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		30CBF8DB230C40B000D56A41 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				30CBF8D7230C347200D56A41 /* WeekDaysView.swift */,
+				30AD9B28230AEF9100B39434 /* DayCell.swift */,
+				30CBF8D4230C239100D56A41 /* MonthHeader.swift */,
+				30CBF8DC230C40C800D56A41 /* CalendarView.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		4EB0A2306CA8B58B2EC642AA /* Frameworks */ = {
@@ -122,6 +179,7 @@
 				AB6A65A9230AD990009CFE7E /* Products */,
 				B10888BBE6C5CE81382D8853 /* Pods */,
 				4EB0A2306CA8B58B2EC642AA /* Frameworks */,
+				15EF7187230DA302001F79D9 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +195,8 @@
 		AB6A65AA230AD990009CFE7E /* MyBujo2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				15C339C3230D8A04009ED5CD /* Protocols */,
+				30CBF8D6230C344600D56A41 /* fonts */,
 				30AD9B1E230AE12100B39434 /* Utils */,
 				30AD9B1D230AE11800B39434 /* Controllers */,
 				30AD9B1C230AE10C00B39434 /* Views */,
@@ -182,6 +242,7 @@
 				AB6A65A5230AD990009CFE7E /* Frameworks */,
 				AB6A65A6230AD990009CFE7E /* Resources */,
 				634A580F365AC6056F273931 /* [CP] Embed Pods Frameworks */,
+				AB3FBDD9231412F30072A5EC /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -330,6 +391,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AB3FBDD9231412F30072A5EC /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -338,10 +417,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */,
-				AB6A65AE230AD990009CFE7E /* ViewController.swift in Sources */,
+				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
+				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
+				30CBF8DD230C40C800D56A41 /* CalendarView.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
-				30AD9B20230AE14E00B39434 /* Placeholder.swift in Sources */,
+				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
+				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
+				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
+				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
+				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
+				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
+				3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2BTWK9QR9;
+				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -516,7 +603,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2BTWK9QR9;
+				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

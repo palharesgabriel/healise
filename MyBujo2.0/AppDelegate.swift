@@ -10,21 +10,33 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
         let splitViewController = UISplitViewController()
+        
+        splitViewController.delegate = self
+        
         let masterViewController = MasterViewController()
-        let detailViewController = ViewController()
+        let detailViewController = MyJourneyViewController()
+        let myTodayViewController = MyTodayViewController()
+        
         let masterNavigationController = UINavigationController(rootViewController: masterViewController)
         masterNavigationController.navigationBar.isHidden = true
+       
         let detailNavigationController = UINavigationController(rootViewController: detailViewController)
         detailNavigationController.navigationBar.isHidden = true
-        splitViewController.viewControllers = [masterNavigationController,detailNavigationController]
+        
+    
+        splitViewController.viewControllers = [masterNavigationController,detailNavigationController, myTodayViewController]
+        
+        splitViewController.preferredPrimaryColumnWidthFraction = 0.2
+        
         window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()
         // Override point for customization after application launch.
@@ -65,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "MyBujo2_0")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -99,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+        return true
+    }
 }
-
