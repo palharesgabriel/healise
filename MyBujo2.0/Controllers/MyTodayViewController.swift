@@ -23,6 +23,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     func setupAdditionalConfigurantion() {
         self.view.backgroundColor = UIColor(named: "BlueBackground")
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
+        tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: "MediaTableCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
@@ -41,7 +42,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         // Do any additional setup after loading the view.
     }
     
-    func constraintTableView(){
+    func constraintTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -51,9 +52,10 @@ class MyTodayViewController: UIViewController, ViewCode {
             ])
     }
 }
-extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
+
+extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,9 +63,22 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
-        cell.setupCell(calendarType: .week)
-        return cell
+        
+        switch indexPath.section {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
+            cell.setupCell(calendarType: .week)
+            return cell
+        case 1:
+            print("Tava")
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MediaTableCell") as? MediaTableViewCell else { return UITableViewCell()}
+            cell.setupCell()
+            return cell
+        default:
+            print("trolou")
+        }
+        return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {

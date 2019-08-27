@@ -36,7 +36,7 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         
     }
     
-    func setupCell(calendarType: CalendarType){
+    func setupCell(calendarType: CalendarType) {
         calendarView = CalendarView(with: calendarType)
         backgroundColor = .clear
         contentView.backgroundColor = .clear
@@ -54,7 +54,7 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         // Configure the view for the selected state
     }
     
-    func constraintCalendar(){
+    func constraintCalendar() {
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             calendarView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),

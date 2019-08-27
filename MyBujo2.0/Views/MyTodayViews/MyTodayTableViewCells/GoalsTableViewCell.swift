@@ -21,7 +21,7 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
         //
     }
     
-    func setupCell(){
+    func setupCell() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         setupView()

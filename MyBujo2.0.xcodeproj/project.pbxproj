@@ -101,8 +101,8 @@
 		154EEE2F231408EF003B0EAF /* MyTodayViews */ = {
 			isa = PBXGroup;
 			children = (
-				30A348CF23145A840018DB13 /* MyTodayTableViewCells */,
 				154EEE302314090B003B0EAF /* GoalsView.swift */,
+				30A348CF23145A840018DB13 /* MyTodayTableViewCells */,
 			);
 			path = MyTodayViews;
 			sourceTree = "<group>";

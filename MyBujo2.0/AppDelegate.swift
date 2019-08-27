@@ -22,17 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         splitViewController.delegate = self
         
-        var controllers = [MasterViewController(),MyTodayViewController(),MyJourneyViewController()]
+        let controllers = [MasterViewController(),MyTodayViewController(),MyJourneyViewController()]
         var navigationControllers = controllers.map({ (controller) -> UINavigationController in
             let nav = UINavigationController(rootViewController: controller)
             controller.navigationController?.navigationBar.isHidden = true
             return nav
         })
         
+        // tirei o force cast: by palhares
         
-        (controllers[0] as! MasterViewController).viewControllers = [navigationControllers[1], navigationControllers[2]]
+        if let masterViewController = controllers.first as? MasterViewController {
+            masterViewController.viewControllers = [navigationControllers[1], navigationControllers[2]]
+        }
         
-        splitViewController.viewControllers = [navigationControllers[0],navigationControllers[1]]
+        splitViewController.viewControllers = [navigationControllers[0], navigationControllers[1]]
         
         splitViewController.preferredPrimaryColumnWidthFraction = 0.2
         splitViewController.setValue(0.0, forKey: "gutterWidth")
