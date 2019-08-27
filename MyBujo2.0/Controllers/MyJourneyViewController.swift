@@ -11,12 +11,17 @@ import JTAppleCalendar
 class MyJourneyViewController: UIViewController {
     var calendarView: CalendarView!
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BlueBackground")
         constraintCalendarView()
         // Do any additional setup after loading the view.
     }
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         calendarView.viewWillTransition(to: size, with: coordinator)
     }
@@ -29,7 +34,7 @@ class MyJourneyViewController: UIViewController {
             calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            calendarView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+            calendarView.heightAnchor.constraint(equalToConstant: 336)
             ])
         
     }

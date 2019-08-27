@@ -26,7 +26,7 @@ class MonthHeader: JTACMonthReusableView {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
             ])
         titleLabel.textColor = UIColor(named:"TitleColor")!

@@ -18,7 +18,7 @@ protocol ViewCode {
 extension ViewCode {
     func setupView() {
         buildViewHierarchy()
-        setupConstraints()
         setupAdditionalConfigurantion()
+        setupConstraints()
     }
 }

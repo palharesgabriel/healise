@@ -9,36 +9,86 @@
 import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
+    var tableView = UITableView(frame: .zero)
+    let goalsView = GoalsView()
     
-    var calendarView = CalendarView(with: .week)
-    
-    func buildViewHierarchy() {
-        view.addSubview(calendarView)
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.isHidden = true
     }
     
-    func setupConstraints() {
-        constraintCalendar()
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        guard let calendarView  = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
+        calendarView.viewWillTransition(to: .zero, with: coordinator)
     }
     
-    func setupAdditionalConfigurantion() {
-        view.backgroundColor = UIColor(named: "BlueBackground")
-    }
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        // Do any additional setup after loading the view.
     }
     
-    func constraintCalendar(){
-        calendarView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            calendarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
-            calendarView.heightAnchor.constraint(equalToConstant: 176)
-            ])
+    func buildViewHierarchy() {
+        view.addSubview(tableView)
     }
 
+    func setupConstraints() {
+        constraintTableView()
+    }
+
+    func setupAdditionalConfigurantion() {
+        self.view.backgroundColor = UIColor(named: "BlueBackground")
+        tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
+        tableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: "goalsCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+    }
+    
+    func constraintTableView(){
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+}
+extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        switch indexPath.section {
+        case 0:
+            guard let calendarCell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath) as? CalendarTableViewCell else { return UITableViewCell()}
+            
+            calendarCell.setupCell(calendarType: .week)
+            return calendarCell
+        case 1:
+            guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: "goalsCell", for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
+            goalsCell.setupCell()
+            return goalsCell
+        default:
+            return UITableViewCell()
+        }
+        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return 192
+        case 1:
+            return tableView.frame.size.height/3
+        default:
+            return 0
+        }
+    }
+    
 }
