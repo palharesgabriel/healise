@@ -54,7 +54,7 @@ class CalendarView: UIView, Shadow, ViewCode {
         addShadow()
         setupView()
         calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
-        calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "monthHeader")
+        calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "monthHeader")
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
         calendarView.scrollToDate(Date(), animateScroll: false)

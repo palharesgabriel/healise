@@ -10,7 +10,6 @@ import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
     var tableView = UITableView(frame: .zero)
-    let goalsView = GoalsView()
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.navigationBar.isHidden = true
