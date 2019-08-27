@@ -23,7 +23,7 @@ enum CalendarType{
     }
 }
 
-class CalendarView: UIView, Shadow {
+class CalendarView: UIView, Shadow, ViewCode {
     var calendarView: JTACMonthView!
     var type: CalendarType!
     override init(frame: CGRect) {
@@ -52,7 +52,7 @@ class CalendarView: UIView, Shadow {
     func setupCell() {
         backgroundColor = .white
         addShadow()
-        constraintCalendarView()
+        setupView()
         calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
         calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "monthHeader")
         calendarView.calendarDelegate = self
@@ -60,10 +60,13 @@ class CalendarView: UIView, Shadow {
         calendarView.scrollToDate(Date(), animateScroll: false)
     }
     
-
-    func constraintCalendarView() {
+    func buildViewHierarchy() {
         calendarView = JTACMonthView()
         addSubview(calendarView)
+        
+    }
+    
+    func setupConstraints() {
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             calendarView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
@@ -71,6 +74,10 @@ class CalendarView: UIView, Shadow {
             calendarView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             calendarView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
             ])
+        
+    }
+    
+    func setupAdditionalConfigurantion() {
         calendarView.backgroundColor = .clear
         calendarView.scrollingMode = .stopAtEachCalendarFrame
         calendarView.scrollDirection = .horizontal
@@ -91,9 +98,15 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy MM dd"
         
+        if type.number == 6{
+            let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
+            return configParameters
+        }
+        else{
+            let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forFirstMonthOnly, generateOutDates: .tillEndOfRow, firstDayOfWeek: .sunday)
+            return configParameters
+        }
         
-        let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
-        return configParameters
     }
     
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
@@ -122,7 +135,7 @@ extension CalendarView: JTACMonthViewDelegate, JTACMonthViewDataSource {
     }
     
     func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
-        return MonthSize(defaultSize: 90)
+        return MonthSize(defaultSize: 82)
     }
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
