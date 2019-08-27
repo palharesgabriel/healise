@@ -107,16 +107,16 @@ class MasterViewController: UIViewController, ViewCode {
             yearLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 0),
             yearLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-            myJourneyButton.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 32),
-            myJourneyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myTodayButton.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 32),
+            myTodayButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
-            myTodayButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 8),
-            myTodayButton.leadingAnchor.constraint(equalTo: myJourneyButton.leadingAnchor),
-            myTodayButton.widthAnchor.constraint(equalTo: myJourneyButton.widthAnchor),
+            myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 8),
+            myJourneyButton.leadingAnchor.constraint(equalTo: myTodayButton.leadingAnchor),
+            myJourneyButton.widthAnchor.constraint(equalTo: myTodayButton.widthAnchor),
             
-            supportButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 8),
-            supportButton.leadingAnchor.constraint(equalTo: myTodayButton.leadingAnchor),
-            supportButton.widthAnchor.constraint(equalTo: myTodayButton.widthAnchor),
+            supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 8),
+            supportButton.leadingAnchor.constraint(equalTo: myJourneyButton.leadingAnchor),
+            supportButton.widthAnchor.constraint(equalTo: myJourneyButton.widthAnchor),
 
             settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
             settingsButton.leadingAnchor.constraint(equalTo: supportButton.leadingAnchor),
@@ -129,14 +129,16 @@ class MasterViewController: UIViewController, ViewCode {
     }
     
     @objc func didShowMyJourneyViewController(_ sender: UIButton) {
-        let navigationController = viewControllers[0]
-        self.splitViewController?.showDetailViewController(navigationController, sender: nil)
-
-    }
-    
-    @objc func didShowMyTodayViewController(_ sender: UIButton) {
         self.splitViewController?.preferredDisplayMode = .automatic
         let navigationController = viewControllers[1]
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
+    }
+    
+    @objc func didShowMyTodayViewController(_ sender: UIButton) {
+        
+        
+        let navigationController = viewControllers[0]
+        self.splitViewController?.showDetailViewController(navigationController, sender: nil)
+
     }
 }
