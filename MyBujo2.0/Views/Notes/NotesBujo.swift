@@ -9,11 +9,7 @@
 import UIKit
 
 class NotesBujo: UIView {
-    let scrollNotes: UIScrollView = {
-        let scrollRegister = UIScrollView()
-        scrollRegister.translatesAutoresizingMaskIntoConstraints = false
-        return scrollRegister
-    }()
+    
     let contentView: UIView  = {
         let view = UIView()
         view.backgroundColor = .white
@@ -58,7 +54,6 @@ class NotesBujo: UIView {
         super.init(frame: frame)
         self.backgroundColor = .clear
         buildViewHierachy()
-        scrollFuncionalities()
         addConstraints()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -66,10 +61,9 @@ class NotesBujo: UIView {
     }
     
     fileprivate func buildViewHierachy() {
-        addSubviews([scrollNotes, contentView, noteButton, noteTextFiel, labelNote])
+        addSubviews([contentView, noteButton, noteTextFiel, labelNote])
     }
     func addConstraints() {
-        addConstraintsScrollRegister()
         addContraintsContencView()
         btnContraints()
         textFieldContraints()
@@ -86,72 +80,36 @@ class NotesBujo: UIView {
         NSLayoutConstraint.activate([
             noteButton.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 4),
             noteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -4),
-            noteButton.heightAnchor.constraint(equalToConstant: 50),
-            noteButton.widthAnchor.constraint(equalToConstant: 50)
+            noteButton.heightAnchor.constraint(equalToConstant: 48),
+            noteButton.widthAnchor.constraint(equalToConstant: 48)
             ])
         
     }
     func textFieldContraints() {
         NSLayoutConstraint.activate([
-            noteTextFiel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 50),
-            noteTextFiel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            noteTextFiel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            noteTextFiel.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height)
+            noteTextFiel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 48),
+            noteTextFiel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 16),
+            noteTextFiel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            noteTextFiel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -16)
+            
             
             ])
     }
-    func scrollFuncionalities() {
-        scrollNotes.contentSize = CGSize(width: UIScreen.main.bounds.width,
-                                         height: UIScreen.main.bounds.height)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow),
-                                               name: UIResponder.keyboardWillShowNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillHide),
-                                               name: UIResponder.keyboardWillHideNotification,
-                                               object: nil)
-    }
-    func addConstraintsScrollRegister() {
-        NSLayoutConstraint.activate([
-            scrollNotes.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            scrollNotes.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            scrollNotes.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            scrollNotes.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
-            ])
-    }
+    
+    
     func addContraintsContencView() {
-        let contraintHeightContentView = contentView.heightAnchor.constraint(
-            equalTo: scrollNotes.heightAnchor)
-        contraintHeightContentView.priority = UILayoutPriority.defaultLow
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: scrollNotes.topAnchor,constant: 8),
-            contentView.leadingAnchor.constraint(equalTo: scrollNotes.leadingAnchor,constant: 8),
-            contentView.trailingAnchor.constraint(equalTo: scrollNotes.trailingAnchor,constant: -8),
-            contentView.bottomAnchor.constraint(equalTo: scrollNotes.bottomAnchor,constant: -8),
-            contentView.widthAnchor.constraint(equalTo: scrollNotes.widthAnchor, constant: -16),
-            contraintHeightContentView
+            contentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 8),
+            contentView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 8),
+            contentView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -8),
+            contentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -8),
+            contentView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, constant: -16)
             ])
     }
     @objc func btnExit() {
         print("exit")
     }
-    @objc func keyboardWillShow(notification: NSNotification) {
-        let keyboard = notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey]
-        guard let keyboardFrameValue = keyboard  as? NSValue else {
-            return
-        }
-        let keyboardFrame = self.convert(keyboardFrameValue.cgRectValue, from: nil)
-        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
-        scrollNotes.contentInset = contentInsets
-        scrollNotes.scrollIndicatorInsets = contentInsets
-    }
-    @objc func keyboardWillHide(notification: NSNotification) {
-        scrollNotes.contentOffset = .zero
-    }
 }
-
-
 extension UIView {
     func addSubviews(_ views: [UIView]) {
         views.forEach { (view) in
