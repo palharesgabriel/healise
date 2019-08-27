@@ -52,6 +52,7 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
         
         goalsTableView.clipsToBounds = true
         goalsTableView.layer.cornerRadius = 16
+        goalsTableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: -8, right: 0)
     }
     
     func setupCell(){
