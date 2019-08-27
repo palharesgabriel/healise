@@ -30,6 +30,8 @@
 		AB6A65B6230AD994009CFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B5230AD994009CFE7E /* Assets.xcassets */; };
 		AB6A65B9230AD994009CFE7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */; };
 		AB6A65C4230AD994009CFE7E /* MyBujo2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */; };
+		E8535A0223156252009AB979 /* NotesBujo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A0123156252009AB979 /* NotesBujo.swift */; };
+		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBujo2_0Tests.swift; sourceTree = "<group>"; };
 		AB6A65C5230AD994009CFE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
+		E8535A0123156252009AB979 /* NotesBujo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesBujo.swift; sourceTree = "<group>"; };
+		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
 		FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -153,6 +157,7 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8535A0023156234009AB979 /* Notes */,
 				300B16C923155BB20070F7A7 /* MyJourneyViews */,
 				154EEE2F231408EF003B0EAF /* MyTodayViews */,
 				30CBF8DB230C40B000D56A41 /* Calendar */,
@@ -165,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */,
+				E8535A03231562AB009AB979 /* NotesViewController.swift */,
 				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
 				15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */,
@@ -267,6 +273,14 @@
 				47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E8535A0023156234009AB979 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				E8535A0123156252009AB979 /* NotesBujo.swift */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,6 +475,7 @@
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				1516C18F231555E5002EC623 /* GoalsTableViewHeaderView.swift in Sources */,
+				E8535A0223156252009AB979 /* NotesBujo.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
@@ -470,6 +485,8 @@
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
+				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
+				154EEE312314090B003B0EAF /* GoalsView.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */,
