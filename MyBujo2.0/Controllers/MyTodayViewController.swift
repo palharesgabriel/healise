@@ -9,27 +9,31 @@
 import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
-    
     var tableView = UITableView(frame: .zero)
+    let goalsView = GoalsView()
+    let calendarView = CalendarView(with: .week)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.isHidden = true
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
     
     func buildViewHierarchy() {
         view.addSubview(tableView)
     }
-    
+
     func setupConstraints() {
         constraintTableView()
-        
-        NSLayoutConstraint.activate([
-            goalsView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 16),
-            goalsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
-            goalsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            goalsView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.5)
-            ])
     }
-    
+
     func setupAdditionalConfigurantion() {
         self.view.backgroundColor = UIColor(named: "BlueBackground")
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
+        tableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: "goalsCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
@@ -37,11 +41,6 @@ class MyTodayViewController: UIViewController, ViewCode {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController!.navigationBar.isHidden = true
-    }
-    
-    override func viewDidLoad() {
     func constraintTableView(){
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -49,19 +48,12 @@ class MyTodayViewController: UIViewController, ViewCode {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
-        calendarView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            calendarView.heightAnchor.constraint(equalToConstant: 176)
         ])
     }
 }
 extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,14 +61,29 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
-        cell.setupCell(calendarType: .week)
-        return cell
+       
+        switch indexPath.section {
+        case 0:
+            guard let calendarCell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath) as? CalendarTableViewCell else { return UITableViewCell()}
+            
+            calendarCell.setupCell(calendarType: .week)
+            return calendarCell
+        case 1:
+            guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: "goalsCell", for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
+            goalsCell.setupCell()
+            return goalsCell
+        default:
+            return UITableViewCell()
+        }
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
             return 176
+        case 1:
+            guard let height = tableView.cellForRow(at: indexPath)?.frame.height else {return 400}
+            return height
         default:
             return 0
         }

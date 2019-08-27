@@ -40,6 +40,7 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         calendarView = CalendarView(with: calendarType)
         backgroundColor = .clear
         contentView.backgroundColor = .clear
+        selectionStyle = .none
         setupView()
     }
     
@@ -57,10 +58,10 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     func constraintCalendar(){
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            calendarView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            calendarView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            calendarView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            calendarView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            calendarView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            calendarView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            calendarView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            calendarView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
 //            calendarView.heightAnchor.constraint(equalToConstant: 168)
             ])
     }

@@ -20,6 +20,5 @@ extension ViewCode {
         buildViewHierarchy()
         setupAdditionalConfigurantion()
         setupConstraints()
-        
     }
 }

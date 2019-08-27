@@ -8,8 +8,8 @@
 
 import UIKit
 
-class GoalsTableViewCell: UITableViewCell, ViewCode {
-    static let reuseIdentifier = "GoalsTableViewCell"
+class GoalTableViewCell: UITableViewCell, ViewCode {
+    static let reuseIdentifier = "GoalTableViewCell"
     
     let goalDescription: UILabel = {
         let lbl = UILabel()

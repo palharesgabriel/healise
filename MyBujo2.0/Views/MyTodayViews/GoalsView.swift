@@ -23,7 +23,7 @@ class GoalsView: UIView, ViewCode, Shadow {
         addShadow()
         goalsTableView.delegate = self
         goalsTableView.dataSource = self
-        goalsTableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: "goalsIdentifier")
+        goalsTableView.register(GoalTableViewCell.self, forCellReuseIdentifier: GoalTableViewCell.reuseIdentifier)
     }
     
     required init?(coder: NSCoder) {
@@ -52,16 +52,16 @@ class GoalsView: UIView, ViewCode, Shadow {
 
 extension GoalsView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "goalsIdentifier", for: indexPath) as! GoalsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: GoalTableViewCell.reuseIdentifier, for: indexPath) as! GoalTableViewCell
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 64
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
