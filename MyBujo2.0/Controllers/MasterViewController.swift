@@ -25,7 +25,8 @@ extension UIButton {
         self.init()
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setTitle(title, for: .normal)
-        self.setBackgroundColor(color: .black, forState: .selected)
+        self.contentHorizontalAlignment = .left
+        
     }
     
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {
@@ -55,23 +56,9 @@ class MasterViewController: UIViewController, ViewCode {
     
     var viewControllers: [UINavigationController] = []
     
-    let scrollView: UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        return scroll
-    }()
-    
-    let contentView: UIView = {
-       let view = UIView()
-       view.translatesAutoresizingMaskIntoConstraints = false
-       return view
-   }()
-
         
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        view.backgroundColor = .blue
         setupView()
        
         myTodayButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
@@ -107,21 +94,21 @@ class MasterViewController: UIViewController, ViewCode {
 
             yearLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 0),
             yearLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
+            
             myTodayButton.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 32),
-            myTodayButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
+            myTodayButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            myTodayButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+            
             myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 8),
-            myJourneyButton.leadingAnchor.constraint(equalTo: myTodayButton.leadingAnchor),
-            myJourneyButton.widthAnchor.constraint(equalTo: myTodayButton.widthAnchor),
+            myJourneyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 8),
-            supportButton.leadingAnchor.constraint(equalTo: myJourneyButton.leadingAnchor),
             supportButton.widthAnchor.constraint(equalTo: myJourneyButton.widthAnchor),
+            supportButton.centerXAnchor.constraint(equalTo: myJourneyButton.centerXAnchor),
 
             settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
-            settingsButton.leadingAnchor.constraint(equalTo: supportButton.leadingAnchor),
-            settingsButton.widthAnchor.constraint(equalTo: supportButton.widthAnchor)
+            settingsButton.widthAnchor.constraint(equalTo: supportButton.widthAnchor),
+            settingsButton.centerXAnchor.constraint(equalTo: myJourneyButton.centerXAnchor)
         ])
     }
     

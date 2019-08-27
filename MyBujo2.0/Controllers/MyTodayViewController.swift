@@ -93,21 +93,11 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        switch section {
-        case 1:
-            return GoalsTableViewHeaderView()
-        default:
-            return nil
-        }
+        return HeaderViewFactory.build(section: section)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 1:
-            return 30
-        default:
-            return 0
-        }
+        return HeaderViewFactory.getHeight(section: section)
     }
     
 }
