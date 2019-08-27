@@ -39,14 +39,14 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     }
     
     func buildViewHierarchy() {
-        addSubview(goalDescription)
-        addSubview(goalBullet)
+        contentView.addSubview(goalDescription)
+        contentView.addSubview(goalBullet)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            goalBullet.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            goalBullet.centerYAnchor.constraint(equalTo: centerYAnchor),
+            goalBullet.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            goalBullet.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             goalBullet.heightAnchor.constraint(equalToConstant: 4),
             goalBullet.widthAnchor.constraint(equalToConstant: 4)
         ])
@@ -54,7 +54,9 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         NSLayoutConstraint.activate([
             goalDescription.leadingAnchor.constraint(equalTo: goalBullet.trailingAnchor, constant: 16),
             goalDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            goalDescription.centerYAnchor.constraint(equalTo: centerYAnchor)
+            goalDescription.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            goalDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+
         ])
     }
     

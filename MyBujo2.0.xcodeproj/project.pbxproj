@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511F769230C3E9C0056E715 /* MasterViewController.swift */; };
 		1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1516C18B23154851002EC623 /* GoalsTableViewCell.swift */; };
+		1516C18F231555E5002EC623 /* GoalsTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1516C18E231555E5002EC623 /* GoalsTableViewHeaderView.swift */; };
 		153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */; };
 		154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B139223143B3600F03C6C /* GoalTableViewCell.swift */; };
 		154EEE312314090B003B0EAF /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154EEE302314090B003B0EAF /* GoalsView.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		1511F769230C3E9C0056E715 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		1516C18B23154851002EC623 /* GoalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewCell.swift; sourceTree = "<group>"; };
+		1516C18E231555E5002EC623 /* GoalsTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewHeaderView.swift; sourceTree = "<group>"; };
 		153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitViewController.swift; sourceTree = "<group>"; };
 		154B139223143B3600F03C6C /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		154EEE302314090B003B0EAF /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
@@ -100,12 +102,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1516C18D23155580002EC623 /* GoalsViews */ = {
+			isa = PBXGroup;
+			children = (
+				154EEE302314090B003B0EAF /* GoalsView.swift */,
+				154B139223143B3600F03C6C /* GoalTableViewCell.swift */,
+				1516C18E231555E5002EC623 /* GoalsTableViewHeaderView.swift */,
+			);
+			path = GoalsViews;
+			sourceTree = "<group>";
+		};
 		154EEE2F231408EF003B0EAF /* MyTodayViews */ = {
 			isa = PBXGroup;
 			children = (
 				30A348CF23145A840018DB13 /* MyTodayTableViewCells */,
-				154EEE302314090B003B0EAF /* GoalsView.swift */,
-				154B139223143B3600F03C6C /* GoalTableViewCell.swift */,
 			);
 			path = MyTodayViews;
 			sourceTree = "<group>";
@@ -129,6 +139,7 @@
 		30A348CF23145A840018DB13 /* MyTodayTableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				1516C18D23155580002EC623 /* GoalsViews */,
 				30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */,
 				30A348D52314609C0018DB13 /* MediaTableViewCell.swift */,
 				1516C18B23154851002EC623 /* GoalsTableViewCell.swift */,
@@ -453,6 +464,7 @@
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
 				30CBF8DD230C40C800D56A41 /* CalendarView.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
+				1516C18F231555E5002EC623 /* GoalsTableViewHeaderView.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,

@@ -38,7 +38,6 @@ class MyTodayViewController: UIViewController, ViewCode {
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        
     }
     
     func constraintTableView(){

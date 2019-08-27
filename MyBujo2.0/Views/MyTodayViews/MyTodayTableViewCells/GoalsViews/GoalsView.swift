@@ -47,6 +47,7 @@ class GoalsView: UIView, ViewCode, Shadow {
     func setupAdditionalConfigurantion() {
         backgroundColor = .white
         self.goalsTableView.backgroundColor = .clear
+        self.goalsTableView.showsVerticalScrollIndicator = false
     }
 }
 
@@ -58,10 +59,6 @@ extension GoalsView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GoalTableViewCell.reuseIdentifier, for: indexPath) as! GoalTableViewCell
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
