@@ -22,21 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         splitViewController.delegate = self
         
-        let masterViewController = MasterViewController()
-        let detailViewController = MyJourneyViewController()
-        let myTodayViewController = MyTodayViewController()
+        var controllers = [MasterViewController(),MyTodayViewController(),MyJourneyViewController()]
+        var navigationControllers = controllers.map({ (controller) -> UINavigationController in
+            let nav = UINavigationController(rootViewController: controller)
+            controller.navigationController?.navigationBar.isHidden = true
+            return nav
+        })
         
-        let masterNavigationController = UINavigationController(rootViewController: masterViewController)
-        masterNavigationController.navigationBar.isHidden = true
-       
-        let detailNavigationController = UINavigationController(rootViewController: detailViewController)
-        detailNavigationController.navigationBar.isHidden = true
         
-    
-        splitViewController.viewControllers = [masterNavigationController,detailNavigationController, myTodayViewController]
+        (controllers[0] as! MasterViewController).viewControllers = [navigationControllers[1], navigationControllers[2]]
+        
+        splitViewController.viewControllers = [navigationControllers[0],navigationControllers[1]]
         
         splitViewController.preferredPrimaryColumnWidthFraction = 0.2
-        
+        splitViewController.setValue(0.0, forKey: "gutterWidth")
         window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()
         // Override point for customization after application launch.
