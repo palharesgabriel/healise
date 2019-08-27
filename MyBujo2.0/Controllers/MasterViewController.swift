@@ -73,8 +73,9 @@ class MasterViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         view.backgroundColor = .blue
         setupView()
-        myJourneyButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
+       
         myTodayButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
+        myJourneyButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
         supportButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
         settingsButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
         myTodayButton.addTarget(self, action: #selector(didShowMyTodayViewController(_:)), for: .touchDown)

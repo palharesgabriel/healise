@@ -54,6 +54,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         ])
     }
 }
+
 extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2

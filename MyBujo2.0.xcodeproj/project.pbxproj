@@ -105,6 +105,7 @@
 		1516C18D23155580002EC623 /* GoalsViews */ = {
 			isa = PBXGroup;
 			children = (
+				1516C18B23154851002EC623 /* GoalsTableViewCell.swift */,
 				154EEE302314090B003B0EAF /* GoalsView.swift */,
 				154B139223143B3600F03C6C /* GoalTableViewCell.swift */,
 				1516C18E231555E5002EC623 /* GoalsTableViewHeaderView.swift */,
@@ -115,7 +116,8 @@
 		154EEE2F231408EF003B0EAF /* MyTodayViews */ = {
 			isa = PBXGroup;
 			children = (
-				30A348CF23145A840018DB13 /* MyTodayTableViewCells */,
+				1516C18D23155580002EC623 /* GoalsViews */,
+				30A348D52314609C0018DB13 /* MediaTableViewCell.swift */,
 			);
 			path = MyTodayViews;
 			sourceTree = "<group>";
@@ -136,15 +138,11 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		30A348CF23145A840018DB13 /* MyTodayTableViewCells */ = {
+		300B16C923155BB20070F7A7 /* MyJourneyViews */ = {
 			isa = PBXGroup;
 			children = (
-				1516C18D23155580002EC623 /* GoalsViews */,
-				30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */,
-				30A348D52314609C0018DB13 /* MediaTableViewCell.swift */,
-				1516C18B23154851002EC623 /* GoalsTableViewCell.swift */,
 			);
-			path = MyTodayTableViewCells;
+			path = MyJourneyViews;
 			sourceTree = "<group>";
 		};
 		30AD9B1B230AE10600B39434 /* Models */ = {
@@ -158,6 +156,7 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				300B16C923155BB20070F7A7 /* MyJourneyViews */,
 				154EEE2F231408EF003B0EAF /* MyTodayViews */,
 				30CBF8DB230C40B000D56A41 /* Calendar */,
 			);
@@ -196,6 +195,7 @@
 		30CBF8DB230C40B000D56A41 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */,
 				30CBF8D7230C347200D56A41 /* WeekDaysView.swift */,
 				30AD9B28230AEF9100B39434 /* DayCell.swift */,
 				30CBF8D4230C239100D56A41 /* MonthHeader.swift */,
@@ -632,7 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37CT2CQ23H;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -651,7 +651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37CT2CQ23H;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
