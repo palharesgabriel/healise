@@ -13,9 +13,9 @@
 		15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15341D832315C28B005E7328 /* HeaderViewFactory.swift */; };
 		153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */; };
 		154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B139223143B3600F03C6C /* GoalTableViewCell.swift */; };
-		154EEE312314090B003B0EAF /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154EEE302314090B003B0EAF /* GoalsView.swift */; };
 		15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C339C4230D8A14009ED5CD /* ViewCode.swift */; };
 		15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */; };
+		301149102315721C0099E845 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3011490F2315721C0099E845 /* ShadowView.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
 		30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */; };
 		30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D52314609C0018DB13 /* MediaTableViewCell.swift */; };
@@ -23,7 +23,6 @@
 		30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B28230AEF9100B39434 /* DayCell.swift */; };
 		30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D4230C239100D56A41 /* MonthHeader.swift */; };
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
-		30CBF8DD230C40C800D56A41 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8DC230C40C800D56A41 /* CalendarView.swift */; };
 		6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */; };
 		63B0C0749EFE28F00D8E2D68 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
@@ -32,6 +31,8 @@
 		AB6A65B6230AD994009CFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B5230AD994009CFE7E /* Assets.xcassets */; };
 		AB6A65B9230AD994009CFE7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */; };
 		AB6A65C4230AD994009CFE7E /* MyBujo2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */; };
+		E8535A0223156252009AB979 /* NotesBujo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A0123156252009AB979 /* NotesBujo.swift */; };
+		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +52,9 @@
 		15341D832315C28B005E7328 /* HeaderViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewFactory.swift; sourceTree = "<group>"; };
 		153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitViewController.swift; sourceTree = "<group>"; };
 		154B139223143B3600F03C6C /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
-		154EEE302314090B003B0EAF /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		15C339C4230D8A14009ED5CD /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
+		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		30A348D52314609C0018DB13 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		30CBF8D7230C347200D56A41 /* WeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
 		30CBF8D9230C34F100D56A41 /* AvenirNextLTPro-MediumCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumCn.otf"; sourceTree = "<group>"; };
 		30CBF8DA230C34F100D56A41 /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
-		30CBF8DC230C40C800D56A41 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +80,8 @@
 		AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBujo2_0Tests.swift; sourceTree = "<group>"; };
 		AB6A65C5230AD994009CFE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
+		E8535A0123156252009AB979 /* NotesBujo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesBujo.swift; sourceTree = "<group>"; };
+		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
 		FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				1516C18B23154851002EC623 /* GoalsTableViewCell.swift */,
-				154EEE302314090B003B0EAF /* GoalsView.swift */,
 				154B139223143B3600F03C6C /* GoalTableViewCell.swift */,
 				1516C18E231555E5002EC623 /* GoalsTableViewHeaderView.swift */,
 			);
@@ -159,9 +160,11 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8535A0023156234009AB979 /* Notes */,
 				300B16C923155BB20070F7A7 /* MyJourneyViews */,
 				154EEE2F231408EF003B0EAF /* MyTodayViews */,
 				30CBF8DB230C40B000D56A41 /* Calendar */,
+				3011490F2315721C0099E845 /* ShadowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */,
+				E8535A03231562AB009AB979 /* NotesViewController.swift */,
 				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
 				15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */,
@@ -202,7 +206,6 @@
 				30CBF8D7230C347200D56A41 /* WeekDaysView.swift */,
 				30AD9B28230AEF9100B39434 /* DayCell.swift */,
 				30CBF8D4230C239100D56A41 /* MonthHeader.swift */,
-				30CBF8DC230C40C800D56A41 /* CalendarView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -273,6 +276,14 @@
 				47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E8535A0023156234009AB979 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				E8535A0123156252009AB979 /* NotesBujo.swift */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,9 +476,9 @@
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
-				30CBF8DD230C40C800D56A41 /* CalendarView.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				1516C18F231555E5002EC623 /* GoalsTableViewHeaderView.swift in Sources */,
+				E8535A0223156252009AB979 /* NotesBujo.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
@@ -478,8 +489,10 @@
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
+				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
 				154EEE312314090B003B0EAF /* GoalsView.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
+				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

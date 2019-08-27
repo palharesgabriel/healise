@@ -47,7 +47,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            goalBullet.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            goalBullet.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             goalBullet.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             goalBullet.heightAnchor.constraint(equalToConstant: 4),
             goalBullet.widthAnchor.constraint(equalToConstant: 4)
