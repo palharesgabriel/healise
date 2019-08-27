@@ -37,13 +37,14 @@ class MyTodayViewController: UIViewController, ViewCode {
         self.view.backgroundColor = UIColor(named: "BlueBackground")
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
         tableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: "goalsCell")
+        tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: "MediaTableCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
     }
     
-    func constraintTableView(){
+    func constraintTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -54,9 +55,9 @@ class MyTodayViewController: UIViewController, ViewCode {
     }
 }
 
-extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
+extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,11 +76,16 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
             guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: "goalsCell", for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
             goalsCell.setupCell()
             return goalsCell
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MediaTableCell") as? MediaTableViewCell else { return UITableViewCell()}
+            cell.setupCell()
+            return cell
         default:
             return UITableViewCell()
         }
-        
     }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
@@ -91,6 +97,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 1:
@@ -99,6 +106,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
             return nil
         }
     }
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {

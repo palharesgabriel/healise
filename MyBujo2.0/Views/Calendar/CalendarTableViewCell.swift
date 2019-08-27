@@ -9,7 +9,7 @@
 import UIKit
 import JTAppleCalendar
 
-enum CalendarType{
+enum CalendarType {
     case month
     case week
     
@@ -119,11 +119,10 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy MM dd"
         
-        if type.number == 6{
+        if type.number == 6 {
             let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .monday)
             return configParameters
-        }
-        else{
+        } else {
             let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forFirstMonthOnly, generateOutDates: .tillEndOfRow, firstDayOfWeek: .sunday)
             return configParameters
         }
