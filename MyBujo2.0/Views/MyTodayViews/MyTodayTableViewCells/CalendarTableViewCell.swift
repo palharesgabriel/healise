@@ -44,6 +44,10 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         setupView()
     }
     
+    func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        calendarView.viewWillTransition(to: .zero, with: coordinator)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
