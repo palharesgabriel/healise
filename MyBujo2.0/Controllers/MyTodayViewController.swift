@@ -11,10 +11,14 @@ import UIKit
 class MyTodayViewController: UIViewController, ViewCode {
     var tableView = UITableView(frame: .zero)
     let goalsView = GoalsView()
-    let calendarView = CalendarView(with: .week)
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.navigationBar.isHidden = true
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        guard let calendarView  = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
+        calendarView.viewWillTransition(to: .zero, with: coordinator)
     }
     
     override func viewDidLoad() {
@@ -79,10 +83,9 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 176
+            return 192
         case 1:
-            guard let height = tableView.cellForRow(at: indexPath)?.frame.height else {return 400}
-            return height
+            return tableView.frame.size.height/3
         default:
             return 0
         }

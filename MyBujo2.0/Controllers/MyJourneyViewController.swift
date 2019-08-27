@@ -34,7 +34,7 @@ class MyJourneyViewController: UIViewController {
             calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            calendarView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+            calendarView.heightAnchor.constraint(equalToConstant: 336)
             ])
         
     }
