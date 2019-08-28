@@ -20,18 +20,18 @@ class NotesBujo: UIView {
     }()
     let noteTextFiel: UITextView = {
         let textField = UITextView()
-        textField.text = " Create a Note Here "
+        textField.text = "Create a Note Here 😀"
         textField.textAlignment = .left
         textField.backgroundColor = .clear
-        textField.font = UIFont.systemFont(ofSize: 16)
+        textField.font = UIFont.systemFont(ofSize: 24)
+        textField.textColor = UIColor(red: 51/255, green: 90/255, blue: 126/255, alpha: 1.0)
         textField.keyboardType = UIKeyboardType.default
         textField.returnKeyType = UIReturnKeyType.done
-        textField.layer.cornerRadius = 4
+        
         textField.clipsToBounds = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-    
     let noteButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("X", for: .normal)
@@ -45,7 +45,7 @@ class NotesBujo: UIView {
     let labelNote: UILabel = {
         let label = UILabel()
         label.text = "Note Day"
-        label.font = UIFont.systemFont(ofSize: 30)
+        label.font = UIFont.systemFont(ofSize: 32)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -55,6 +55,7 @@ class NotesBujo: UIView {
         self.backgroundColor = .clear
         buildViewHierachy()
         addConstraints()
+        
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -72,7 +73,7 @@ class NotesBujo: UIView {
     func labelContraints() {
         NSLayoutConstraint.activate([
             labelNote.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            labelNote.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8)
+            labelNote.leadingAnchor.constraint(equalTo: noteTextFiel.leadingAnchor, constant: 8)
             ])
         
     }
@@ -117,3 +118,15 @@ extension UIView {
         }
     }
 }
+
+
+extension UITextView {
+    func underlined(){
+        let border = CALayer()
+        let width = CGFloat(10.0)
+        border.borderColor = UIColor.gray.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: self.frame.size.height)
+        border.borderWidth = width
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+    }}
