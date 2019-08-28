@@ -27,7 +27,22 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     
     
     let shadowView = ShadowView(frame: .zero)
-    var calendarView: JTACMonthView = JTACMonthView(frame: .zero)
+    
+    var calendarView: JTACMonthView = {
+        let calendarView = JTACMonthView(frame: .zero)
+        calendarView.backgroundColor = .clear
+        calendarView.scrollingMode = .stopAtEachCalendarFrame
+        calendarView.scrollDirection = .horizontal
+        calendarView.showsHorizontalScrollIndicator = false
+        calendarView.clipsToBounds = true
+        calendarView.layer.cornerRadius = 16
+        calendarView.backgroundColor = .white
+        
+        calendarView.minimumLineSpacing = 0
+        calendarView.minimumInteritemSpacing = 0
+        return calendarView
+    }()
+    
     var type: CalendarType!
     
     func buildViewHierarchy() {
@@ -55,28 +70,18 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        calendarView.backgroundColor = .clear
-        calendarView.scrollingMode = .stopAtEachCalendarFrame
-        calendarView.scrollDirection = .horizontal
-        calendarView.showsHorizontalScrollIndicator = false
-        calendarView.clipsToBounds = true
-        calendarView.layer.cornerRadius = 16
-        calendarView.backgroundColor = .white
-        
-        calendarView.minimumLineSpacing = 0
-        calendarView.minimumInteritemSpacing = 0
-    }
-    
-    func setupCell(calendarType: CalendarType){
-        type = calendarType
         contentView.backgroundColor = .clear
         selectionStyle = .none
         calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
         calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "monthHeader")
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
-        calendarView.scrollToDate(Date(), animateScroll: false)
+    }
+    
+    func setupCell(calendarType: CalendarType){
+        type = calendarType
         setupView()
+        calendarView.scrollToDate(Date(), animateScroll: false)
         
     }
     
