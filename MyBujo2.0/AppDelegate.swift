@@ -10,27 +10,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let splitViewController = UISplitViewController()
+        let splitViewController = CustomSplitViewController()
         
         splitViewController.delegate = self
-        
-        let controllers = [MasterViewController(),MyTodayViewController(),MyJourneyViewController()]
-        var navigationControllers = controllers.map({ (controller) -> UINavigationController in
-            let nav = UINavigationController(rootViewController: controller)
-            controller.navigationController?.navigationBar.isHidden = true
-            return nav
-        })
-        
-        // tirei o force cast: by palhares
-        
-        if let masterViewController = controllers.first as? MasterViewController {
-            masterViewController.viewControllers = [navigationControllers[1], navigationControllers[2]]
-        }
-        
-        splitViewController.viewControllers = [navigationControllers[0], navigationControllers[1]]
-        
-        splitViewController.preferredPrimaryColumnWidthFraction = 0.2
-        splitViewController.setValue(0.0, forKey: "gutterWidth")
         window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()
         // Override point for customization after application launch.

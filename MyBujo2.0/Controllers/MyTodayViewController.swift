@@ -9,7 +9,7 @@
 import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
-    var tableView = UITableView(frame: .zero)
+    var tableView = UITableView(frame: .zero, style: .grouped)
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.navigationBar.isHidden = true
@@ -49,7 +49,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
@@ -93,7 +93,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return tableView.frame.size.height/3
         case 2:
-            return tableView.frame.size.height/3
+            return 168
         default:
             return 0
         }
@@ -101,7 +101,9 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return HeaderViewFactory.build(section: section)
+        guard let headerView = HeaderViewFactory.build(section: section) else { return nil}
+        headerView.delegate = self
+        return headerView
     }
     
     
@@ -109,4 +111,15 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
         return HeaderViewFactory.getHeight(section: section)
     }
     
+}
+
+extension MyTodayViewController:TableViewHeaderViewDelegate {
+    func addGoal() {
+        guard let vc = splitViewController?.viewControllers[1] else { return }
+        vc.definesPresentationContext = true
+        
+        let newGoalViewController = NewGoalViewController()
+        newGoalViewController.modalPresentationStyle = .overCurrentContext
+        vc.present(newGoalViewController, animated: true, completion: nil)
+    }
 }

@@ -14,6 +14,8 @@
 		153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */; };
 		154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B139223143B3600F03C6C /* GoalTableViewCell.swift */; };
 		15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C339C4230D8A14009ED5CD /* ViewCode.swift */; };
+		15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */; };
+		15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C62316FB8200F70860 /* Blurable.swift */; };
 		15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */; };
 		301149102315721C0099E845 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3011490F2315721C0099E845 /* ShadowView.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
@@ -55,6 +57,8 @@
 		153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitViewController.swift; sourceTree = "<group>"; };
 		154B139223143B3600F03C6C /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		15C339C4230D8A14009ED5CD /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
+		15DFF5C62316FB8200F70860 /* Blurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurable.swift; sourceTree = "<group>"; };
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
@@ -122,10 +126,9 @@
 		154EEE2F231408EF003B0EAF /* MyTodayViews */ = {
 			isa = PBXGroup;
 			children = (
-				AB67AB252316A06800AACE89 /* MediaViews */,
 				1516C18E231555E5002EC623 /* TableViewHeaderView.swift */,
+				AB67AB252316A06800AACE89 /* MediaViews */,
 				1516C18D23155580002EC623 /* GoalsViews */,
-				30A348D52314609C0018DB13 /* MediaTableViewCell.swift */,
 			);
 			path = MyTodayViews;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			children = (
 				3050424D230C879D0037AFB0 /* ShadowProtocol.swift */,
 				15C339C4230D8A14009ED5CD /* ViewCode.swift */,
+				15DFF5C62316FB8200F70860 /* Blurable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -182,6 +186,7 @@
 				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
 				15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */,
+				15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 		AB67AB252316A06800AACE89 /* MediaViews */ = {
 			isa = PBXGroup;
 			children = (
+				30A348D52314609C0018DB13 /* MediaTableViewCell.swift */,
 				ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */,
 			);
 			path = MediaViews;
@@ -504,6 +510,7 @@
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
 				ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */,
+				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
@@ -516,6 +523,7 @@
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
+				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,
 				3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,7 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2BTWK9QR9;
+				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -691,7 +699,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2BTWK9QR9;
+				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

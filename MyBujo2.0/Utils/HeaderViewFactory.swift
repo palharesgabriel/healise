@@ -16,7 +16,7 @@ enum HeaderView: Int {
 }
 
 struct HeaderViewFactory {
-    static func build(section: Int) -> UITableViewHeaderFooterView? {
+    static func build(section: Int) -> TableViewHeaderView? {
         switch section {
         case HeaderView.calendar.rawValue:
             return CalendarTableViewHeaderView(headerTitle: "Calendar")
