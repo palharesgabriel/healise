@@ -10,6 +10,7 @@
 		1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1511F769230C3E9C0056E715 /* MasterViewController.swift */; };
 		1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1516C18B23154851002EC623 /* GoalsTableViewCell.swift */; };
 		1516C18F231555E5002EC623 /* GoalsTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1516C18E231555E5002EC623 /* GoalsTableViewHeaderView.swift */; };
+		15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15341D832315C28B005E7328 /* HeaderViewFactory.swift */; };
 		153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */; };
 		154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B139223143B3600F03C6C /* GoalTableViewCell.swift */; };
 		15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C339C4230D8A14009ED5CD /* ViewCode.swift */; };
@@ -48,6 +49,7 @@
 		1511F769230C3E9C0056E715 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		1516C18B23154851002EC623 /* GoalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewCell.swift; sourceTree = "<group>"; };
 		1516C18E231555E5002EC623 /* GoalsTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewHeaderView.swift; sourceTree = "<group>"; };
+		15341D832315C28B005E7328 /* HeaderViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewFactory.swift; sourceTree = "<group>"; };
 		153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitViewController.swift; sourceTree = "<group>"; };
 		154B139223143B3600F03C6C /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		15C339C4230D8A14009ED5CD /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		15C339C3230D8A04009ED5CD /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				3050424D230C879D0037AFB0 /* ShadowProtocol.swift */,
 				15C339C4230D8A14009ED5CD /* ViewCode.swift */,
 			);
 			path = Protocols;
@@ -183,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				30AD9B26230AE98B00B39434 /* CalendarManager.swift */,
-				3050424D230C879D0037AFB0 /* ShadowProtocol.swift */,
+				15341D832315C28B005E7328 /* HeaderViewFactory.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
+				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
