@@ -17,11 +17,12 @@ class MediaTableViewCell: UITableViewCell {
     let mediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
-        
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         collectionView.register(MediaCollectionViewCell.self, forCellWithReuseIdentifier: "MediaCell")
         return collectionView
     }()
@@ -62,10 +63,10 @@ extension MediaTableViewCell: ViewCode {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            self.mediaCollectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
-            self.mediaCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 16),
-            self.mediaCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
-            self.mediaCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16)
+            self.mediaCollectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            self.mediaCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.mediaCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.mediaCollectionView.heightAnchor.constraint(equalToConstant: 160)
         ])
     }
     
@@ -79,7 +80,7 @@ extension MediaTableViewCell: ViewCode {
 extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 143, height: 143)
+        return CGSize(width: 160, height: 160)
     }
     
 }
@@ -93,7 +94,6 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = self.mediaCollectionView.dequeueReusableCell(withReuseIdentifier: "MediaCell", for: indexPath) as? MediaCollectionViewCell else { return MediaCollectionViewCell() }
         cell.iconImageView.image = images[indexPath.row]
-        cell.backgroundColor = .white
         return cell
     }
     

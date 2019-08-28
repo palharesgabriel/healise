@@ -18,10 +18,13 @@ class MediaCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    let shadowView = ShadowView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
         setupView()
-        addShadow()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,19 +33,25 @@ class MediaCollectionViewCell: UICollectionViewCell {
     
 }
 
-extension MediaCollectionViewCell: ViewCode, Shadow {
+extension MediaCollectionViewCell: ViewCode {
     func buildViewHierarchy() {
-        self.addSubview(iconImageView)
+        self.contentView.addSubview(shadowView)
+        self.contentView.addSubview(iconImageView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            iconImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            
+            iconImageView.centerXAnchor.constraint(equalTo: shadowView.centerXAnchor),
+            iconImageView.centerYAnchor.constraint(equalTo: shadowView.centerYAnchor)
         ])
     }
     
     func setupAdditionalConfigurantion() {
-        //
+        shadowView.translatesAutoresizingMaskIntoConstraints = false
     }
 }
