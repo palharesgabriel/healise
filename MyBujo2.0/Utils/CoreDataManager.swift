@@ -10,17 +10,48 @@ import Foundation
 import UIKit
 import CoreData
 
-class CoreDataManager: NSObject{
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+enum EntityType{
+    case day(_: Date)
+    case media
+    case goal
     
-    func getDay(date: Date) -> DayCD?{
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "DayCD")
-        request.predicate = NSPredicate(format: "date == %@", date as NSDate)
+    var predicate: NSPredicate{
+        switch self {
+        case .day(let date):
+            return NSPredicate(format: "date == %@", date as NSDate)
+        default:
+            return NSPredicate(value: true)
+        }
+    }
+    
+    var name: String{
+        switch self {
+        case .day(_):
+            return "DayCD"
+        default:
+            return "NULL"
+        }
+    }
+}
+
+class CoreDataManager: NSObject{
+    static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    static func fetch(entityType: EntityType) -> Any?{
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityType.name)
+        request.predicate = entityType.predicate
         
         do{
             let result = try? context.fetch(request)
-            guard let day = result?.first as? DayCD  else { return nil }
-            return day
+            return result
+        }
+    }
+    
+    static func save(){
+        do {
+            try context.save()
+        } catch {
+            print("Failed saving")
         }
     }
 }

@@ -3,7 +3,13 @@
     <entity name="DayCD" representedClassName="DayCD" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="feeling" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoalCD" inverseName="day" inverseEntity="GoalCD" syncable="YES"/>
         <relationship name="media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MediaCD" inverseName="day" inverseEntity="MediaCD" syncable="YES"/>
+    </entity>
+    <entity name="GoalCD" representedClassName="GoalCD" syncable="YES" codeGenerationType="class">
+        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="descript" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="day" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DayCD" inverseName="goals" inverseEntity="DayCD" syncable="YES"/>
     </entity>
     <entity name="MediaCD" representedClassName="MediaCD" syncable="YES" codeGenerationType="class">
         <attribute name="drawing" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -14,7 +20,8 @@
         <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayCD" inverseName="media" inverseEntity="DayCD" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DayCD" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="DayCD" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="MediaCD" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="GoalCD" positionX="-45" positionY="54" width="128" height="90"/>
     </elements>
 </model>

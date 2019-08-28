@@ -17,8 +17,6 @@
 		15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */; };
 		301149102315721C0099E845 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3011490F2315721C0099E845 /* ShadowView.swift */; };
 		301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F35342316AAC500AD5477 /* CoreDataManager.swift */; };
-		301F353B2316B92A00AD5477 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F353A2316B92A00AD5477 /* Day.swift */; };
-		301F353D2316B93400AD5477 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F353C2316B93400AD5477 /* Media.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
 		30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */; };
 		30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D52314609C0018DB13 /* MediaTableViewCell.swift */; };
@@ -59,8 +57,6 @@
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		301F35342316AAC500AD5477 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		301F353A2316B92A00AD5477 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		301F353C2316B93400AD5477 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		30A348D52314609C0018DB13 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
@@ -157,8 +153,6 @@
 		30AD9B1B230AE10600B39434 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				301F353A2316B92A00AD5477 /* Day.swift */,
-				301F353C2316B93400AD5477 /* Media.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -488,12 +482,10 @@
 				E8535A0223156252009AB979 /* NotesBujo.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
-				301F353B2316B92A00AD5477 /* Day.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
 				301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */,
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
-				301F353D2316B93400AD5477 /* Media.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
