@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="DayCD" representedClassName="DayCD" syncable="YES" codeGenerationType="class">
+    <entity name="Day" representedClassName="Day" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="feeling" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoalCD" inverseName="day" inverseEntity="GoalCD" syncable="YES"/>
-        <relationship name="media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MediaCD" inverseName="day" inverseEntity="MediaCD" syncable="YES"/>
+        <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="day" inverseEntity="Goal" syncable="YES"/>
+        <relationship name="media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Media" inverseName="day" inverseEntity="Media" syncable="YES"/>
     </entity>
-    <entity name="GoalCD" representedClassName="GoalCD" syncable="YES" codeGenerationType="class">
+    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
         <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="descript" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="day" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DayCD" inverseName="goals" inverseEntity="DayCD" syncable="YES"/>
+        <relationship name="day" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Day" inverseName="goals" inverseEntity="Day" syncable="YES"/>
     </entity>
-    <entity name="MediaCD" representedClassName="MediaCD" syncable="YES" codeGenerationType="class">
+    <entity name="Media" representedClassName="Media" syncable="YES" codeGenerationType="class">
         <attribute name="drawing" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photos" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="videos" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="voiceRecords" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayCD" inverseName="media" inverseEntity="DayCD" syncable="YES"/>
+        <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="media" inverseEntity="Day" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DayCD" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="MediaCD" positionX="-54" positionY="-9" width="128" height="135"/>
-        <element name="GoalCD" positionX="-45" positionY="54" width="128" height="90"/>
+        <element name="Day" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Media" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="Goal" positionX="-45" positionY="54" width="128" height="90"/>
     </elements>
 </model>

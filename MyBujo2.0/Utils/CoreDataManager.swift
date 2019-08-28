@@ -27,7 +27,7 @@ enum EntityType{
     var name: String{
         switch self {
         case .day(_):
-            return "DayCD"
+            return "Day"
         default:
             return "NULL"
         }
@@ -53,5 +53,19 @@ class CoreDataManager: NSObject{
         } catch {
             print("Failed saving")
         }
+    }
+    
+    static func create(entityType: EntityType, completion: ((NSManagedObject)->Void)? = nil){
+        let entity = NSEntityDescription.entity(forEntityName: entityType.name, in: context)
+        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
+        if let completion = completion{
+            completion(newEntity)
+            save()
+        }
+    }
+    
+    static func set(to entity: NSManagedObject, value: Any, key: String){
+        entity.setValue(value, forKey: key)
+        save()
     }
 }
