@@ -11,14 +11,18 @@ import UIKit
 class MediaTableViewCell: UITableViewCell {
     
     var images: [UIImage]
+    static let reuseIdentifier = "MediaTableCell"
+    
     
     let mediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .red
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MediaCell")
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TitleHeader")
+        collectionView.backgroundColor = .clear
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: -8)
+        
+        collectionView.register(MediaCollectionViewCell.self, forCellWithReuseIdentifier: "MediaCell")
         return collectionView
     }()
     
@@ -31,8 +35,6 @@ class MediaTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.images = [UIImage(named: "camera")!, UIImage(named: "notes")!, UIImage(named: "mic")!, UIImage(named: "videoCamera")!, UIImage(named: "pencil")!]
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,10 +62,10 @@ extension MediaTableViewCell: ViewCode {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            self.mediaCollectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            self.mediaCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            self.mediaCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            self.mediaCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor)
+            self.mediaCollectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16),
+            self.mediaCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 16),
+            self.mediaCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            self.mediaCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -16)
         ])
     }
     
@@ -77,11 +79,7 @@ extension MediaTableViewCell: ViewCode {
 extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 200)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 250, height: 50)
+        return CGSize(width: 143, height: 143)
     }
     
 }
@@ -93,15 +91,10 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.mediaCollectionView.dequeueReusableCell(withReuseIdentifier: "MediaCell", for: indexPath)
-        cell.backgroundColor = .blue
+        guard let cell = self.mediaCollectionView.dequeueReusableCell(withReuseIdentifier: "MediaCell", for: indexPath) as? MediaCollectionViewCell else { return MediaCollectionViewCell() }
+        cell.iconImageView.image = images[indexPath.row]
+        cell.backgroundColor = .white
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = self.mediaCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TitleHeader", for: indexPath)
-        headerView.backgroundColor = .purple
-        return headerView
     }
     
 }

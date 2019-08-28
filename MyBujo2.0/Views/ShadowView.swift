@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShadowView: UIView, Shadow{
+class ShadowView: UIView, Shadow {
 
     /*
     // Only override draw() if you perform custom drawing.
