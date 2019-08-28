@@ -31,6 +31,7 @@
 		AB6A65B6230AD994009CFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B5230AD994009CFE7E /* Assets.xcassets */; };
 		AB6A65B9230AD994009CFE7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */; };
 		AB6A65C4230AD994009CFE7E /* MyBujo2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */; };
+		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
 		E8535A0223156252009AB979 /* NotesBujo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A0123156252009AB979 /* NotesBujo.swift */; };
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		AB6A65BF230AD994009CFE7E /* MyBujo2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBujo2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBujo2_0Tests.swift; sourceTree = "<group>"; };
 		AB6A65C5230AD994009CFE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
 		E8535A0123156252009AB979 /* NotesBujo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesBujo.swift; sourceTree = "<group>"; };
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		154EEE2F231408EF003B0EAF /* MyTodayViews */ = {
 			isa = PBXGroup;
 			children = (
+				AB67AB252316A06800AACE89 /* MediaViews */,
 				1516C18E231555E5002EC623 /* TableViewHeaderView.swift */,
 				1516C18D23155580002EC623 /* GoalsViews */,
 				30A348D52314609C0018DB13 /* MediaTableViewCell.swift */,
@@ -217,6 +220,14 @@
 				FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB67AB252316A06800AACE89 /* MediaViews */ = {
+			isa = PBXGroup;
+			children = (
+				ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */,
+			);
+			path = MediaViews;
 			sourceTree = "<group>";
 		};
 		AB6A659F230AD990009CFE7E = {
@@ -481,6 +492,7 @@
 				E8535A0223156252009AB979 /* NotesBujo.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
+				ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
