@@ -19,11 +19,11 @@ struct HeaderViewFactory {
     static func build(section: Int) -> UITableViewHeaderFooterView? {
         switch section {
         case HeaderView.calendar.rawValue:
-            return nil
+            return CalendarTableViewHeaderView(headerTitle: "Calendar")
         case HeaderView.goals.rawValue:
-            return GoalsTableViewHeaderView()
+            return GoalsTableViewHeaderView(headerTitle: "Goals", buttonTitle: "+")
         case HeaderView.media.rawValue:
-            return nil
+            return MediaTableViewHeaderView(headerTitle: "Media")
         default:
             return nil
         }
@@ -31,7 +31,11 @@ struct HeaderViewFactory {
 
     static func getHeight(section: Int) -> CGFloat {
         switch section {
+        case HeaderView.calendar.rawValue:
+            return 30
         case HeaderView.goals.rawValue:
+            return 30
+        case HeaderView.media.rawValue:
             return 30
         default:
             return 0
