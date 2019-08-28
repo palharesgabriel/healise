@@ -24,7 +24,7 @@ enum CalendarType {
 }
 
 class CalendarTableViewCell: UITableViewCell, ViewCode {
-    
+    static let reuseIdentifier = "CalendarTableViewCellIdentifier"
     
     let shadowView = ShadowView(frame: .zero)
     

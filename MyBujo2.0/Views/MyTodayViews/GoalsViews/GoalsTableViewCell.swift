@@ -8,7 +8,7 @@
 import UIKit
 
 class GoalsTableViewCell: UITableViewCell, ViewCode {
-    
+    static let reuseIdentifier = "GoalsTableViewCellIdentifier"
     let shadowView = ShadowView(frame: .zero)
     
     let goalsTableView: UITableView = {
