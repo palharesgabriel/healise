@@ -11,6 +11,8 @@ import UIKit
 class MediaTableViewCell: UITableViewCell {
     
     var images: [UIImage]
+    static let reuseIdentifier = "MediaTableCell"
+    
     
     let mediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

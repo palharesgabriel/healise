@@ -37,7 +37,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         self.view.backgroundColor = UIColor(named: "BlueBackground")
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: CalendarTableViewHeaderView.reuseIdentifier)
         tableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: GoalsTableViewHeaderView.reuseIdentifier)
-        tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: MediaTableViewHeaderView.reuseIdentifier)
+        tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: MediaTableViewCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
