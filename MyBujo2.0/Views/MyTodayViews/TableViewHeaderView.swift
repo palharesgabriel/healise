@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol TableViewHeaderViewDelegate {
+    func addGoal()
+}
+
 class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     var hasButton: Bool = false
+    var delegate: TableViewHeaderViewDelegate?
     
     let headerLabel: UILabel = {
         let lbl = UILabel()
@@ -73,12 +78,27 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        backgroundView = UIView()
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "backgroundBlue")
+        backgroundView = view
     }
 }
 
 class GoalsTableViewHeaderView: TableViewHeaderView {
     static let reuseIdentifier = "GoalsTableViewHeaderViewIdentifier"
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        self.buttonAddGoal.addTarget(self, action: #selector(didAddGoalsViewController), for: .touchDown)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func didAddGoalsViewController () {
+        delegate?.addGoal()
+    }
 }
 
 class CalendarTableViewHeaderView: TableViewHeaderView {
