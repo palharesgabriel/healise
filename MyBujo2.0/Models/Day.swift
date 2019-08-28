@@ -8,7 +8,15 @@
 
 import Foundation
 class Day: NSObject{
-    var coreDataDay: DayCD?
-    var feeling: String?
-    var media: Media?
+    private var coreDataDay: DayCD
+    var date: Date
+    var feeling: String
+    var media: Media
+    
+    init(coreDataDay: DayCD) {
+        self.coreDataDay = coreDataDay
+        feeling = coreDataDay.value(forKey: "feeling") as! String
+        self.media = Media()
+        self.date = Date()
+    }
 }
