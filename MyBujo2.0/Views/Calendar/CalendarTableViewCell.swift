@@ -67,7 +67,7 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         calendarView.minimumInteritemSpacing = 0
     }
     
-    func setupCell(calendarType: CalendarType){
+    func setupCell(calendarType: CalendarType) {
         type = calendarType
         contentView.backgroundColor = .clear
         selectionStyle = .none
@@ -165,4 +165,3 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         return false
     }
 }
-

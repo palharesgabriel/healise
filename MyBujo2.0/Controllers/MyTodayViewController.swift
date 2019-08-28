@@ -92,6 +92,8 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
             return 192
         case 1:
             return tableView.frame.size.height/3
+        case 2:
+            return tableView.frame.size.height/3
         default:
             return 0
         }

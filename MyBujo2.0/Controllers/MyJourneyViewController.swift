@@ -48,7 +48,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         calendarCell.viewWillTransition(to: size, with: coordinator)
     }
     
-    func constraintTableView(){
+    func constraintTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -59,7 +59,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
     }
 }
 
-extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource{
+extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

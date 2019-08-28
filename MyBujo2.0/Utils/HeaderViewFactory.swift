@@ -38,6 +38,3 @@ struct HeaderViewFactory {
         }
     }
 }
-
-
-

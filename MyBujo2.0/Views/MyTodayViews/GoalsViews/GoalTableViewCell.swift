@@ -57,7 +57,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
             goalDescription.leadingAnchor.constraint(equalTo: goalBullet.trailingAnchor, constant: 16),
             goalDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             goalDescription.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            goalDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            goalDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
 
         ])
     }
