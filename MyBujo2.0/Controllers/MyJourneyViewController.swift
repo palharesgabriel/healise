@@ -10,23 +10,32 @@ import UIKit
 import JTAppleCalendar
 class MyJourneyViewController: UIViewController, ViewCode {
     
-    var tableView = UITableView(frame: .zero)
+    var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.backgroundColor = .clear
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
+        tableView.separatorStyle = .none
+        return tableView
+    }()
     
     func buildViewHierarchy() {
         view.addSubview(tableView)
     }
     
     func setupConstraints() {
-        constraintTableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
     }
     
     func setupAdditionalConfigurantion() {
-        tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.showsHorizontalScrollIndicator = false
-        tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
-        tableView.separatorStyle = .none
     }
     
     
@@ -46,16 +55,6 @@ class MyJourneyViewController: UIViewController, ViewCode {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         guard let calendarCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
         calendarCell.viewWillTransition(to: size, with: coordinator)
-    }
-    
-    func constraintTableView(){
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
     }
 }
 

@@ -8,30 +8,42 @@
 
 import UIKit
 
-class GoalsTableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
-    static let reuseIdentifier = "GoalsTableViewHeaderViewIdentifier"
+class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
+    var hasButton: Bool = false
     
     let headerLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Goals"
         lbl.font = UIFont(name: "AvenirNext-Medium", size: 28)
         lbl.textColor = UIColor(named: "TitleColor")!
         return lbl
     }()
     
-    let buttonAddGoal: UIButton = {
+    lazy var buttonAddGoal: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitleColor(UIColor(named: "TitleColor")!, for: .normal)
-        btn.setTitle("+", for: .normal)
         btn.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 28)
         return btn
     }()
     
+    convenience init(headerTitle: String, buttonTitle: String) {
+        self.init()
+        headerLabel.text = headerTitle
+        buttonAddGoal.setTitle(buttonTitle, for: .normal)
+        hasButton = true
+        setupView()
+    }
+    
+    convenience init(headerTitle: String) {
+        self.init()
+        headerLabel.text = headerTitle
+        setupView()
+    }
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        setupView()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,7 +52,9 @@ class GoalsTableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     
     func buildViewHierarchy() {
         contentView.addSubview(headerLabel)
-        contentView.addSubview(buttonAddGoal)
+        if hasButton {
+            contentView.addSubview(buttonAddGoal)
+        }
     }
     
     func setupConstraints() {
@@ -49,13 +63,28 @@ class GoalsTableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
             headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         
-        NSLayoutConstraint.activate([
-            buttonAddGoal.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
-            buttonAddGoal.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        if hasButton {
+            NSLayoutConstraint.activate([
+                buttonAddGoal.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
+                buttonAddGoal.centerYAnchor.constraint(equalTo: centerYAnchor)
+            ])
+        }
+        
     }
     
     func setupAdditionalConfigurantion() {
         backgroundView = UIView()
     }
+}
+
+class GoalsTableViewHeaderView: TableViewHeaderView {
+    static let reuseIdentifier = "GoalsTableViewHeaderViewIdentifier"
+}
+
+class CalendarTableViewHeaderView: TableViewHeaderView {
+    static let reuseIdentifier = "CalendarTableViewHeaderViewIdentifier"
+}
+
+class MediaTableViewHeaderView: TableViewHeaderView {
+    static let reuseIdentifier = "MediaTableViewHeaderViewIdentifier"
 }

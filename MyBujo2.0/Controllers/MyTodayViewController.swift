@@ -35,9 +35,9 @@ class MyTodayViewController: UIViewController, ViewCode {
 
     func setupAdditionalConfigurantion() {
         self.view.backgroundColor = UIColor(named: "BlueBackground")
-        tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
-        tableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: "goalsCell")
-        tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: "MediaTableCell")
+        tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: CalendarTableViewHeaderView.reuseIdentifier)
+        tableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: GoalsTableViewHeaderView.reuseIdentifier)
+        tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: MediaTableViewHeaderView.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
@@ -68,12 +68,12 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
        
         switch indexPath.section {
         case 0:
-            guard let calendarCell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath) as? CalendarTableViewCell else { return UITableViewCell()}
+            guard let calendarCell = tableView.dequeueReusableCell(withIdentifier: CalendarTableViewHeaderView.reuseIdentifier, for: indexPath) as? CalendarTableViewCell else { return UITableViewCell()}
             
             calendarCell.setupCell(calendarType: .week)
             return calendarCell
         case 1:
-            guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: "goalsCell", for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
+            guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: GoalsTableViewHeaderView.reuseIdentifier, for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
             goalsCell.setupCell()
             return goalsCell
         case 2:
@@ -89,7 +89,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 192
+            return 168
         case 1:
             return tableView.frame.size.height/3
         default:

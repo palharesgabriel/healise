@@ -12,9 +12,28 @@ import JTAppleCalendar
 class DayCell: JTACDayCell, ViewCode {
 
     
-    var label = UILabel()
-    var moodIndicator = UIView()
-    var selectedView = UIView()
+    var label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        return label
+    }()
+    
+    var moodIndicator: UIView = {
+        let moodIndicator = UIView()
+        moodIndicator.clipsToBounds = true
+        moodIndicator.layer.cornerRadius = 2
+        moodIndicator.backgroundColor = .green
+        return moodIndicator
+    }()
+    
+    var selectedView: UIView = {
+        let selectedView = UIView()
+        selectedView.clipsToBounds = true
+        selectedView.backgroundColor = UIColor(displayP3Red: 1/255, green: 1/255, blue: 1/255, alpha: 0.2)
+        selectedView.isHidden = true
+        return selectedView
+    }()
     
     func buildViewHierarchy() {
         contentView.addSubview(label)
@@ -50,16 +69,7 @@ class DayCell: JTACDayCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        label.textAlignment = .center
-        label.font = UIFont(name: "AvenirNext-Medium", size: 16)
         
-        moodIndicator.clipsToBounds = true
-        moodIndicator.layer.cornerRadius = 2
-        moodIndicator.backgroundColor = .green
-        
-        selectedView.clipsToBounds = true
-        selectedView.backgroundColor = UIColor(displayP3Red: 1/255, green: 1/255, blue: 1/255, alpha: 0.2)
-        selectedView.isHidden = true
     }
     
     override init(frame: CGRect) {
