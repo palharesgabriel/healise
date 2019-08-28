@@ -71,13 +71,8 @@ class MasterViewController: UIViewController, ViewCode {
     
     
     func buildViewHierarchy() {
-        view.addSubview(monthLabel)
-        view.addSubview(dayLabel)
-        view.addSubview(yearLabel)
-        view.addSubview(myTodayButton)
-        view.addSubview(myJourneyButton)
-        view.addSubview(supportButton)
-        view.addSubview(settingsButton)
+        view.addSubviews([monthLabel, dayLabel, yearLabel, myTodayButton,
+                          myJourneyButton, supportButton, settingsButton ])
     }
     
     func setupConstraints() {
