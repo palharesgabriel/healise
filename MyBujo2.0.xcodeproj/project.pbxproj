@@ -117,6 +117,7 @@
 		154EEE2F231408EF003B0EAF /* MyTodayViews */ = {
 			isa = PBXGroup;
 			children = (
+				AB67AB252316A06800AACE89 /* MediaViews */,
 				1516C18D23155580002EC623 /* GoalsViews */,
 				30A348D52314609C0018DB13 /* MediaTableViewCell.swift */,
 			);
@@ -214,6 +215,13 @@
 				FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB67AB252316A06800AACE89 /* MediaViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MediaViews;
 			sourceTree = "<group>";
 		};
 		AB6A659F230AD990009CFE7E = {
@@ -486,7 +494,6 @@
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
-				154EEE312314090B003B0EAF /* GoalsView.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */,

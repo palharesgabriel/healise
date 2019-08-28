@@ -31,8 +31,6 @@ class MediaTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.images = [UIImage(named: "camera")!, UIImage(named: "notes")!, UIImage(named: "mic")!, UIImage(named: "videoCamera")!, UIImage(named: "pencil")!]
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

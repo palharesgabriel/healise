@@ -77,9 +77,9 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
             goalsCell.setupCell()
             return goalsCell
         case 2:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MediaTableCell") as? MediaTableViewCell else { return UITableViewCell()}
-            cell.setupCell()
-            return cell
+            guard let mediaCell = tableView.dequeueReusableCell(withIdentifier: "MediaTableCell") as? MediaTableViewCell else { return UITableViewCell() }
+            mediaCell.setupCell()
+            return mediaCell
         default:
             return UITableViewCell()
         }

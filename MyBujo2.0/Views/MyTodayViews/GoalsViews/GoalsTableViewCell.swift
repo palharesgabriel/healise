@@ -55,7 +55,7 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
         goalsTableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: -8, right: 0)
     }
     
-    func setupCell(){
+    func setupCell() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         selectionStyle = .none
