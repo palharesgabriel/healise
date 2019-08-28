@@ -15,11 +15,6 @@ enum HeaderView: Int {
     case media = 2
 }
 
-enum HeaderSender {
-    case headerView
-    case heightForRow
-}
-
 struct HeaderViewFactory {
     static func build(section: Int) -> UITableViewHeaderFooterView? {
         switch section {

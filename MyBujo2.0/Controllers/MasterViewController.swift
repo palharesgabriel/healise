@@ -26,7 +26,6 @@ extension UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setTitle(title, for: .normal)
         self.contentHorizontalAlignment = .left
-        
     }
     
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {
@@ -96,19 +95,20 @@ class MasterViewController: UIViewController, ViewCode {
             yearLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             myTodayButton.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 32),
-            myTodayButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-            myTodayButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+            myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            myTodayButton.widthAnchor.constraint(equalToConstant: 150),
             
-            myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 8),
-            myJourneyButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 16),
+            myJourneyButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
+            myJourneyButton.widthAnchor.constraint(equalToConstant: 150),
             
-            supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 8),
-            supportButton.widthAnchor.constraint(equalTo: myJourneyButton.widthAnchor),
-            supportButton.centerXAnchor.constraint(equalTo: myJourneyButton.centerXAnchor),
-
-            settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32),
-            settingsButton.widthAnchor.constraint(equalTo: supportButton.widthAnchor),
-            settingsButton.centerXAnchor.constraint(equalTo: myJourneyButton.centerXAnchor)
+            supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 16),
+            supportButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
+            supportButton.widthAnchor.constraint(equalToConstant: 150),
+            
+            settingsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32),
+            settingsButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            settingsButton.widthAnchor.constraint(equalToConstant: 150) 
         ])
     }
     
