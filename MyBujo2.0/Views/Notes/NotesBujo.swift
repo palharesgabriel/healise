@@ -111,22 +111,3 @@ class NotesBujo: UIView {
         print("exit")
     }
 }
-extension UIView {
-    func addSubviews(_ views: [UIView]) {
-        views.forEach { (view) in
-            self.addSubview(view)
-        }
-    }
-}
-
-
-extension UITextView {
-    func underlined(){
-        let border = CALayer()
-        let width = CGFloat(10.0)
-        border.borderColor = UIColor.gray.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: self.frame.size.height)
-        border.borderWidth = width
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
-    }}
