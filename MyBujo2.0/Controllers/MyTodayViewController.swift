@@ -27,17 +27,21 @@ class MyTodayViewController: UIViewController, ViewCode {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let goal1 = Goal(context: CoreDataManager.context)
-        goal1.descript = "Fazer coco na casa do pedrinho"
-        goal1.completed = true
-        let goal2 = Goal(context: CoreDataManager.context)
-        goal2.descript = "Fazer coco na casa da julinha"
-        goal2.completed = false
-        let goal3 = Goal(context: CoreDataManager.context)
-        goal3.descript = "Fazer coco na casa do tavinho"
-        goal3.completed = true
-        day.goals = [goal1, goal2, goal3]
+        
+        
         setupView()
+        
+        guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {
+            
+            CoreDataManager.create(entityType: Day.self,completion: { day in
+                guard let day = day as? Day else { return }
+                self.day.date = Date().dateWithoutTime()!
+                self.day = day
+                self.day.save()
+            })
+            return
+        }
+        self.day = result
     }
     
     func buildViewHierarchy() {
@@ -85,7 +89,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
             return calendarCell
         case 1:
             guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: GoalsTableViewCell.reuseIdentifier, for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
-            guard let goals = day.goals?.allObjects as? [Goal] else { return GoalsTableViewCell() }
+            guard let goals = day.goals?.array as? [Goal] else { return GoalsTableViewCell() }
             goalsCell.setupCell(goals: goals)
             return goalsCell
         case 2:
@@ -148,12 +152,10 @@ extension MyTodayViewController: CalendarTableViewCellDelegate{
     /// Solve Later
     func didSelectDate(date: Date) {
         //do something
-        
-//        let result = CoreDataManager.fetch(entityClass: Goal.self,predicate: EntityType.day(date).predicate)
-//
-//
-//        guard let day = result?.first as? Day else { return }
-//        self.day = day
+
+        let result = CoreDataManager.fetch(entityClass: Day.self,predicate: EntityType.day(date).predicate)
+        guard let day = result?.first as? Day else { return }
+        self.day = day
         
     }
 }

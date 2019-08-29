@@ -13,12 +13,14 @@ import CoreData
 enum EntityType {
     case day(_: Date)
     case media
-    case goal
+    case goal(_:Day)
     
     var predicate: NSPredicate {
         switch self {
         case .day(let date):
-            return NSPredicate(format: "date == %@", date as NSDate)
+            return NSPredicate(format: "date == %@", date.dateWithoutTime()! as NSDate)
+        case .goal(let day):
+            return NSPredicate(format: "day.date == %@", day.date!.dateWithoutTime()! as NSDate)
         default:
             return NSPredicate(value: true)
         }
@@ -37,10 +39,12 @@ extension NSManagedObject {
 class CoreDataManager: NSObject {
     
     static var context: NSManagedObjectContext {
-        guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
-            fatalError("Can't load appDelegate")
+        get{
+            guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
+                fatalError("Can't load appDelegate")
+            }
+            return appDelegate.persistentContainer.viewContext
         }
-        return appDelegate.persistentContainer.viewContext
     }
     
     
@@ -54,17 +58,17 @@ class CoreDataManager: NSObject {
         } catch {
             print("\(error.localizedDescription) buceta")
         }
-        
-        
         return nil
     }
     
     static func create<T: NSManagedObject>(entityType: T.Type, completion: ((NSManagedObject) -> Void)? = nil) {
+        
         let entity = T(context: context)
         if let completion = completion {
             completion(entity)
-            save()
+            
         }
+        save()
     }
     
     static func save() {

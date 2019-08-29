@@ -66,7 +66,6 @@ class MasterViewController: UIViewController, ViewCode {
         settingsButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
         myTodayButton.addTarget(self, action: #selector(didShowMyTodayViewController(_:)), for: .touchDown)
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
-        
     }
     
     

@@ -25,6 +25,10 @@
 		30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B26230AE98B00B39434 /* CalendarManager.swift */; };
 		30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B28230AEF9100B39434 /* DayCell.swift */; };
 		30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B900562317FC3B000C0089 /* CalendarTableViewCellDelegate.swift */; };
+		30B9005A2318424A000C0089 /* DayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B900592318424A000C0089 /* DayExtension.swift */; };
+		30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005B231842A0000C0089 /* GoalExtension.swift */; };
+		30B9005E23184666000C0089 /* MediaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005D23184666000C0089 /* MediaExtension.swift */; };
+		30B9006023185600000C0089 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005F23185600000C0089 /* DateExtension.swift */; };
 		30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D4230C239100D56A41 /* MonthHeader.swift */; };
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
 		6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */; };
@@ -73,6 +77,10 @@
 		30AD9B26230AE98B00B39434 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		30AD9B28230AEF9100B39434 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		30B900562317FC3B000C0089 /* CalendarTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		30B900592318424A000C0089 /* DayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExtension.swift; sourceTree = "<group>"; };
+		30B9005B231842A0000C0089 /* GoalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalExtension.swift; sourceTree = "<group>"; };
+		30B9005D23184666000C0089 /* MediaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaExtension.swift; sourceTree = "<group>"; };
+		30B9005F23185600000C0089 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		30CBF8D4230C239100D56A41 /* MonthHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeader.swift; sourceTree = "<group>"; };
 		30CBF8D7230C347200D56A41 /* WeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
 		30CBF8D9230C34F100D56A41 /* AvenirNextLTPro-MediumCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumCn.otf"; sourceTree = "<group>"; };
@@ -174,6 +182,7 @@
 				300B16C923155BB20070F7A7 /* MyJourneyViews */,
 				154EEE2F231408EF003B0EAF /* MyTodayViews */,
 				30CBF8DB230C40B000D56A41 /* Calendar */,
+				30B9005823184235000C0089 /* Models */,
 				3011490F2315721C0099E845 /* ShadowView.swift */,
 			);
 			path = Views;
@@ -198,13 +207,17 @@
 				30AD9B26230AE98B00B39434 /* CalendarManager.swift */,
 				15341D832315C28B005E7328 /* HeaderViewFactory.swift */,
 				301F35342316AAC500AD5477 /* CoreDataManager.swift */,
+				30B9005F23185600000C0089 /* DateExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		30B900512317F35A000C0089 /* Models */ = {
+		30B9005823184235000C0089 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				30B900592318424A000C0089 /* DayExtension.swift */,
+				30B9005B231842A0000C0089 /* GoalExtension.swift */,
+				30B9005D23184666000C0089 /* MediaExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,7 +291,6 @@
 				30AD9B1E230AE12100B39434 /* Utils */,
 				30AD9B1D230AE11800B39434 /* Controllers */,
 				30AD9B1C230AE10C00B39434 /* Views */,
-				30B900512317F35A000C0089 /* Models */,
 				AB6A65AB230AD990009CFE7E /* AppDelegate.swift */,
 				AB6A65B5230AD994009CFE7E /* Assets.xcassets */,
 				AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */,
@@ -510,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
 				1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
@@ -521,6 +534,7 @@
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
 				ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */,
 				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
+				30B9005E23184666000C0089 /* MediaExtension.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
 				301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */,
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
@@ -529,12 +543,14 @@
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
+				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
 				AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
+				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,
