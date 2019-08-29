@@ -28,6 +28,8 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     
     let shadowView = ShadowView(frame: .zero)
     
+    var delegate: CalendarTableViewCellDelegate!
+    
     var calendarView: JTACMonthView = {
         let calendarView = JTACMonthView(frame: .zero)
         calendarView.backgroundColor = .clear
@@ -85,12 +87,6 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         
     }
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
@@ -142,6 +138,7 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? DayCell else { return }
+        delegate.didSelectDate(date: date)
         cell.setupCell(cellState: cellState)
     }
     

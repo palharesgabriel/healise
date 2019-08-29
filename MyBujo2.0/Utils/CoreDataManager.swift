@@ -36,7 +36,7 @@ class CoreDataManager: NSObject{
     
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    static func fetch<T: NSManagedObject>(entityClass: T.Type, predicate: NSPredicate) -> Any?{
+    static func fetch<T: NSManagedObject>(entityClass: T.Type, predicate: NSPredicate) -> [Any]?{
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: T.className)
         request.predicate = predicate
         do{

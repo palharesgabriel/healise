@@ -10,11 +10,11 @@ import UIKit
 
 class GoalTableViewCell: UITableViewCell, ViewCode {
     static let reuseIdentifier = "GoalTableViewCell"
-    
+    var goal: Goal!
     let goalDescription: UILabel = {
         let lbl = UILabel()
-        lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Teste"
+        lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont(name: "AvenirNext-Medium", size: 18)
         lbl.textColor = UIColor(named: "TitleColor")!
         return lbl
@@ -32,8 +32,21 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
-        setupView()
         self.selectionStyle = .none
+    }
+    
+    func setupCell(goal: Goal){
+        self.goal = goal
+        goalDescription.text = goal.descript
+        if goal.completed{
+            accessoryType = .checkmark
+            selectedBackgroundView = UIView()
+        }
+        else{
+            accessoryType = .none
+            selectedBackgroundView = UIView()
+        }
+        setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {

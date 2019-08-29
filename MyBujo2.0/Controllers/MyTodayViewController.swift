@@ -10,6 +10,11 @@ import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
     var tableView = UITableView(frame: .zero, style: .grouped)
+    var day =  Day(context: CoreDataManager.context){
+        didSet{
+            tableView.reloadData()
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.navigationBar.isHidden = true
@@ -22,6 +27,16 @@ class MyTodayViewController: UIViewController, ViewCode {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let goal1 = Goal(context: CoreDataManager.context)
+        goal1.descript = "Fazer coco na casa do pedrinho"
+        goal1.completed = true
+        let goal2 = Goal(context: CoreDataManager.context)
+        goal2.descript = "Fazer coco na casa da julinha"
+        goal2.completed = false
+        let goal3 = Goal(context: CoreDataManager.context)
+        goal3.descript = "Fazer coco na casa do tavinho"
+        goal3.completed = true
+        day.goals = [goal1, goal2, goal3]
         setupView()
     }
     
@@ -65,12 +80,13 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let calendarCell = tableView.dequeueReusableCell(withIdentifier: CalendarTableViewCell.reuseIdentifier, for: indexPath) as? CalendarTableViewCell else { return UITableViewCell()}
-            
+            calendarCell.delegate = self
             calendarCell.setupCell(calendarType: .week)
             return calendarCell
         case 1:
             guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: GoalsTableViewCell.reuseIdentifier, for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
-            goalsCell.setupCell()
+            guard let goals = day.goals?.allObjects as? [Goal] else { return GoalsTableViewCell() }
+            goalsCell.setupCell(goals: goals)
             return goalsCell
         case 2:
             guard let mediaCell = tableView.dequeueReusableCell(withIdentifier: MediaTableViewCell.reuseIdentifier) as? MediaTableViewCell else { return UITableViewCell() }
@@ -118,4 +134,17 @@ extension MyTodayViewController:TableViewHeaderViewDelegate {
         newGoalViewController.modalPresentationStyle = .overCurrentContext
         vc.present(newGoalViewController, animated: true, completion: nil)
     }
+}
+
+extension MyTodayViewController: CalendarTableViewCellDelegate{
+    func didSelectDate(date: Date) {
+        //do something
+        
+        let result = CoreDataManager.fetch(entityClass: Goal.self, predicate: EntityType.day(date).predicate)
+        guard let day = result?.first as? Day else { return }
+        self.day = day
+        
+    }
+    
+    
 }

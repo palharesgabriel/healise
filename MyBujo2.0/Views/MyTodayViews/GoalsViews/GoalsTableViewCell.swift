@@ -11,6 +11,8 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
     static let reuseIdentifier = "GoalsTableViewCellIdentifier"
     let shadowView = ShadowView(frame: .zero)
     
+    var goals: [Goal]!
+    
     let goalsTableView: UITableView = {
         let tbView = UITableView()
         tbView.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +57,8 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
         goalsTableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
     }
     
-    func setupCell() {
+    func setupCell(goals: [Goal]) {
+        self.goals = goals
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         selectionStyle = .none
@@ -77,14 +80,12 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
 
 extension GoalsTableViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return goals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: GoalTableViewCell.reuseIdentifier, for: indexPath) as? GoalTableViewCell else {
-            return GoalTableViewCell()
-        }
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GoalTableViewCell.reuseIdentifier, for: indexPath) as? GoalTableViewCell else { return GoalTableViewCell() }
+        cell.setupCell(goal: goals[indexPath.row])
         return cell
     }
     
