@@ -10,8 +10,8 @@ import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
     var tableView = UITableView(frame: .zero, style: .grouped)
-    var day =  Day(context: CoreDataManager.context){
-        didSet{
+    var day =  Day(context: CoreDataManager.context) {
+        didSet {
             tableView.reloadData()
         }
     }

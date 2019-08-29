@@ -35,14 +35,14 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         self.selectionStyle = .none
     }
     
-    func setupCell(goal: Goal){
+    func setupCell(goal: Goal) {
         self.goal = goal
         goalDescription.text = goal.descript
-        if goal.completed{
+        if goal.completed {
             accessoryType = .checkmark
             selectedBackgroundView = UIView()
         }
-        else{
+        else {
             accessoryType = .none
             selectedBackgroundView = UIView()
         }
