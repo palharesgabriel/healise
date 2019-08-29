@@ -89,20 +89,9 @@ extension GoalsTableViewCell: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if let oldIndex = tableView.indexPathForSelectedRow {
-            let cell = tableView.cellForRow(at: oldIndex)
-            cell?.accessoryType = .none
-            cell?.selectionStyle = .none
-            cell?.selectedBackgroundView = UIView()
-            
-        }
-        let cell = tableView.cellForRow(at: indexPath)
-        cell!.accessoryType = .checkmark
-        cell?.selectionStyle = .none
-        cell?.selectedBackgroundView = UIView()
-        
-        return indexPath
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        goals[indexPath.row].completed = !goals[indexPath.row].completed
+        tableView.reloadData()
     }
     
 }

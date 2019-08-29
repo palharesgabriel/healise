@@ -26,8 +26,10 @@ enum EntityType{
 }
 
 extension NSManagedObject {
-    static var className: String {
-        return String(describing: self)
+    static var className: String{
+        get{
+            return String(describing: self)
+        }
     }
 }
 
@@ -36,13 +38,24 @@ class CoreDataManager: NSObject{
     
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    
     static func fetch<T: NSManagedObject>(entityClass: T.Type, predicate: NSPredicate) -> [Any]?{
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: T.className)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityClass.className)
         request.predicate = predicate
+        
         do{
-            let result = try? context.fetch(request)
+            
+            
+            let result = try context.fetch(request)
+            
+            
             return result
+        } catch {
+            print("\(error.localizedDescription) buceta")
         }
+        
+        
+        return nil
     }
     
     static func create<T: NSManagedObject>(entityType: T.Type, completion: ((NSManagedObject)->Void)? = nil){

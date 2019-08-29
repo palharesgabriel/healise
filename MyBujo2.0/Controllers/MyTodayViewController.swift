@@ -144,14 +144,16 @@ extension MyTodayViewController: MediaCollectionViewDelegate {
 }
 
 extension MyTodayViewController: CalendarTableViewCellDelegate{
+    
+    /// Solve Later
     func didSelectDate(date: Date) {
         //do something
         
-        let result = CoreDataManager.fetch(entityClass: Goal.self, predicate: EntityType.day(date).predicate)
-        guard let day = result?.first as? Day else { return }
-        self.day = day
+//        let result = CoreDataManager.fetch(entityClass: Goal.self,predicate: EntityType.day(date).predicate)
+//
+//
+//        guard let day = result?.first as? Day else { return }
+//        self.day = day
         
     }
-    
-    
 }
