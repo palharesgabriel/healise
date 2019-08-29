@@ -157,6 +157,7 @@
 				15DFF5C62316FB8200F70860 /* Blurable.swift */,
 				AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */,
 				AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */,
+				30B9005F23185600000C0089 /* DateExtension.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -207,7 +208,6 @@
 				30AD9B26230AE98B00B39434 /* CalendarManager.swift */,
 				15341D832315C28B005E7328 /* HeaderViewFactory.swift */,
 				301F35342316AAC500AD5477 /* CoreDataManager.swift */,
-				30B9005F23185600000C0089 /* DateExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

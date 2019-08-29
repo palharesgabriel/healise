@@ -18,9 +18,12 @@ enum EntityType {
     var predicate: NSPredicate {
         switch self {
         case .day(let date):
-            return NSPredicate(format: "date == %@", date.dateWithoutTime()! as NSDate)
+            guard let dateIgnoringTime = date.ignoringTime() else { return NSPredicate(value: false)}
+            return NSPredicate(format: "date == %@", dateIgnoringTime as NSDate)
         case .goal(let day):
-            return NSPredicate(format: "day.date == %@", day.date!.dateWithoutTime()! as NSDate)
+            guard let date = day.date else { return NSPredicate(value: false)}
+            guard let dateIgnoringTime = date.ignoringTime() else { return NSPredicate(value: false)}
+            return NSPredicate(format: "day.date == %@", dateIgnoringTime as NSDate)
         default:
             return NSPredicate(value: true)
         }

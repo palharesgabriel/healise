@@ -35,7 +35,8 @@ class MyTodayViewController: UIViewController, ViewCode {
             
             CoreDataManager.create(entityType: Day.self,completion: { day in
                 guard let day = day as? Day else { return }
-                self.day.date = Date().dateWithoutTime()!
+                guard let dateIgnoringTime = Date().ignoringTime() else { return }
+                self.day.date = dateIgnoringTime
                 self.day = day
                 self.day.save()
             })

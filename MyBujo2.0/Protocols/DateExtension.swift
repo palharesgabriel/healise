@@ -8,7 +8,7 @@
 
 import Foundation
 extension Date{
-    func dateWithoutTime() -> Date? {
+    func ignoringTime() -> Date? {
         let components = Calendar.current.dateComponents([.day,.month,.year], from: self)
         return Calendar.current.date(from: components)
     }
