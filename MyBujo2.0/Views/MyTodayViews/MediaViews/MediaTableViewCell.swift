@@ -12,7 +12,7 @@ class MediaTableViewCell: UITableViewCell {
     
     var images: [UIImage]
     static let reuseIdentifier = "MediaTableCell"
-    
+    var delegate: MediaCollectionViewDelegate?
     
     let mediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -89,6 +89,23 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            delegate?.pushViewController(viewController: NotesViewController())
+        case 1:
+            delegate?.pushViewController(viewController: NotesViewController())
+        case 2:
+            delegate?.pushViewController(viewController: NotesViewController())
+        case 3:
+            delegate?.pushViewController(viewController: NotesViewController())
+        case 4:
+            delegate?.pushViewController(viewController: NotesViewController())
+        default:
+            print("fodeu")
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

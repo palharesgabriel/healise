@@ -91,6 +91,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             guard let mediaCell = tableView.dequeueReusableCell(withIdentifier: MediaTableViewCell.reuseIdentifier) as? MediaTableViewCell else { return UITableViewCell() }
             mediaCell.setupCell()
+            mediaCell.delegate = self
             return mediaCell
         default:
             return UITableViewCell()
@@ -127,12 +128,18 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MyTodayViewController:TableViewHeaderViewDelegate {
     func addGoal() {
-        guard let vc = splitViewController?.viewControllers[1] else { return }
-        vc.definesPresentationContext = true
+        guard let viewCont = splitViewController?.viewControllers[1] else { return }
+        viewCont.definesPresentationContext = true
         
         let newGoalViewController = NewGoalViewController()
         newGoalViewController.modalPresentationStyle = .overCurrentContext
-        vc.present(newGoalViewController, animated: true, completion: nil)
+        viewCont.present(newGoalViewController, animated: true, completion: nil)
+    }
+}
+
+extension MyTodayViewController: MediaCollectionViewDelegate {
+    func pushViewController(viewController: UIViewController) {
+        self.present(viewController, animated: true, completion: nil)
     }
 }
 
