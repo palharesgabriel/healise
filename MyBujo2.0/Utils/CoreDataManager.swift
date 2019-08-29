@@ -23,27 +23,33 @@ enum EntityType{
             return NSPredicate(value: true)
         }
     }
-    
-    var name: String{
-        switch self {
-        case .day(_):
-            return "Day"
-        default:
-            return "NULL"
-        }
+}
+
+extension NSManagedObject {
+    static var className: String {
+        return String(describing: self)
     }
 }
 
+
 class CoreDataManager: NSObject{
+    
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    static func fetch(entityType: EntityType) -> Any?{
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityType.name)
-        request.predicate = entityType.predicate
-        
+    static func fetch<T: NSManagedObject>(entityClass: T.Type, predicate: NSPredicate) -> Any?{
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: T.className)
+        request.predicate = predicate
         do{
             let result = try? context.fetch(request)
             return result
+        }
+    }
+    
+    static func create<T: NSManagedObject>(entityType: T.Type, completion: ((NSManagedObject)->Void)? = nil){
+        let entity = T(context: context)
+        if let completion = completion{
+            completion(entity)
+            save()
         }
     }
     
@@ -53,19 +59,5 @@ class CoreDataManager: NSObject{
         } catch {
             print("Failed saving")
         }
-    }
-    
-    static func create(entityType: EntityType, completion: ((NSManagedObject)->Void)? = nil){
-        let entity = NSEntityDescription.entity(forEntityName: entityType.name, in: context)
-        let newEntity = NSManagedObject(entity: entity!, insertInto: context)
-        if let completion = completion{
-            completion(newEntity)
-            save()
-        }
-    }
-    
-    static func set(to entity: NSManagedObject, value: Any, key: String){
-        entity.setValue(value, forKey: key)
-        save()
     }
 }

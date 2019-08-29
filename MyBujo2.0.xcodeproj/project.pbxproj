@@ -150,13 +150,6 @@
 			path = MyJourneyViews;
 			sourceTree = "<group>";
 		};
-		30AD9B1B230AE10600B39434 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +182,13 @@
 				301F35342316AAC500AD5477 /* CoreDataManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		30B900512317F35A000C0089 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		30CBF8D6230C344600D56A41 /* fonts */ = {
@@ -249,7 +249,7 @@
 				30AD9B1E230AE12100B39434 /* Utils */,
 				30AD9B1D230AE11800B39434 /* Controllers */,
 				30AD9B1C230AE10C00B39434 /* Views */,
-				30AD9B1B230AE10600B39434 /* Models */,
+				30B900512317F35A000C0089 /* Models */,
 				AB6A65AB230AD990009CFE7E /* AppDelegate.swift */,
 				AB6A65B5230AD994009CFE7E /* Assets.xcassets */,
 				AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */,
