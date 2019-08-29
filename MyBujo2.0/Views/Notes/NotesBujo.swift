@@ -10,6 +10,8 @@ import UIKit
 
 class NotesBujo: UIView {
     
+    var delegate: DismissControllerDelegate?
+    
     let contentView: UIView  = {
         let view = UIView()
         view.backgroundColor = .white
@@ -18,6 +20,7 @@ class NotesBujo: UIView {
         view.clipsToBounds = true
         return view
     }()
+    
     let noteTextFiel: UITextView = {
         let textField = UITextView()
         textField.text = "Create a Note Here 😀"
@@ -108,6 +111,6 @@ class NotesBujo: UIView {
             ])
     }
     @objc func btnExit() {
-        print("exit")
+        self.delegate?.closeViewController()
     }
 }

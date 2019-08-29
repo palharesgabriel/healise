@@ -10,14 +10,19 @@ import UIKit
 
 class NotesViewController: UIViewController {
 
-    class NotesViewController: UIViewController {
         let controller = NotesBujo()
         override func viewDidLoad() {
             super.viewDidLoad()
             view.backgroundColor = .white
             navigationController?.navigationBar.isHidden = true
             self.view = self.controller
+            self.controller.delegate = self
         }
+    
+}
 
- }
+extension NotesViewController: DismissControllerDelegate {
+    func closeViewController() {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

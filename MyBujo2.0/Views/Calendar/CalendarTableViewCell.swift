@@ -78,7 +78,7 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         calendarView.calendarDataSource = self
     }
     
-    func setupCell(calendarType: CalendarType){
+    func setupCell(calendarType: CalendarType) {
         type = calendarType
         setupView()
         calendarView.scrollToDate(Date(), animateScroll: false)
