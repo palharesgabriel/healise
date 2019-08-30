@@ -27,16 +27,16 @@ class NotesView: UIView, ViewCode {
         
         return textField
     }()
+    
     let noteButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("X", for: .normal)
+        btn.setTitleColor(UIColor(named: "TitleColor"), for: .normal)
         btn.addTarget(self, action: #selector(btnExit), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.backgroundColor = .blue
-        btn.layer.cornerRadius = 4
-        btn.clipsToBounds = true
         return btn
     }()
+    
     let labelNote: UILabel = {
         let label = UILabel()
         label.text = "Note"

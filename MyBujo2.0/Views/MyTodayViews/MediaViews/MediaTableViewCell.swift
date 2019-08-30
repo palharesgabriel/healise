@@ -24,6 +24,7 @@ class MediaTableViewCell: UITableViewCell {
         collectionView.backgroundColor = .clear
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         collectionView.register(MediaCollectionViewCell.self, forCellWithReuseIdentifier: "MediaCell")
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     

@@ -9,7 +9,13 @@
 import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
-    var tableView = UITableView(frame: .zero, style: .grouped)
+    var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+        return tableView
+    }()
     var day =  Day(context: CoreDataManager.context) {
         didSet {
             tableView.reloadData()
@@ -63,8 +69,6 @@ class MyTodayViewController: UIViewController, ViewCode {
         tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: MediaTableViewCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .clear
-        tableView.separatorStyle = .none
     }
 }
 
