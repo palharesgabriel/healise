@@ -137,6 +137,7 @@ extension MyTodayViewController:TableViewHeaderViewDelegate {
         viewCont.definesPresentationContext = true
         
         let newGoalViewController = NewGoalViewController()
+        newGoalViewController.day = day
         newGoalViewController.modalPresentationStyle = .overCurrentContext
         viewCont.present(newGoalViewController, animated: true, completion: nil)
     }

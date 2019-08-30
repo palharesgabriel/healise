@@ -10,7 +10,7 @@ import UIKit
 
 class NotesViewController: UIViewController {
 
-        let controller = NotesBujo()
+        let controller = NotesView()
         override func viewDidLoad() {
             super.viewDidLoad()
             view.backgroundColor = .white

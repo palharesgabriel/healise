@@ -7,8 +7,9 @@
 
 import UIKit
 
-class NewGoalViewController: UIViewController, ViewCode, Blurable, FormViewDelegate {
+class NewGoalViewController: UIViewController, ViewCode, Blurable {
     
+    var day: Day!
     
     var bluredView: UIView?
     
@@ -37,6 +38,11 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable, FormViewDeleg
     func setupAdditionalConfigurantion() {
         formView.backgroundColor = .white
     }
+    
+    
+}
+
+extension NewGoalViewController: FormViewDelegate{
     
     func dismissNewGoalModal() {
         dismiss(animated: true, completion: nil)

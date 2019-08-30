@@ -43,7 +43,7 @@
 		AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */; };
 		AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */; };
 		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
-		E8535A0223156252009AB979 /* NotesBujo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A0123156252009AB979 /* NotesBujo.swift */; };
+		E8535A0223156252009AB979 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A0123156252009AB979 /* NotesView.swift */; };
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 		E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */; };
 /* End PBXBuildFile section */
@@ -104,7 +104,7 @@
 		AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissControllerDelegate.swift; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
-		E8535A0123156252009AB979 /* NotesBujo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesBujo.swift; sourceTree = "<group>"; };
+		E8535A0123156252009AB979 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Extension.swift"; sourceTree = "<group>"; };
 		ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				1516C18E231555E5002EC623 /* TableViewHeaderView.swift */,
-				E8535A0023156234009AB979 /* Notes */,
 				AB67AB252316A06800AACE89 /* MediaViews */,
 				1516C18D23155580002EC623 /* GoalsViews */,
 			);
@@ -190,11 +189,11 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1549195623193EC800766609 /* NewGoalsViews */,
-				300B16C923155BB20070F7A7 /* MyJourneyViews */,
 				154EEE2F231408EF003B0EAF /* MyTodayViews */,
+				300B16C923155BB20070F7A7 /* MyJourneyViews */,
+				1549195623193EC800766609 /* NewGoalsViews */,
+				E8535A0023156234009AB979 /* NotesViews */,
 				30CBF8DB230C40B000D56A41 /* Calendar */,
-				30B9005823184235000C0089 /* Models */,
 				3011490F2315721C0099E845 /* ShadowView.swift */,
 			);
 			path = Views;
@@ -302,6 +301,7 @@
 				30AD9B1E230AE12100B39434 /* Utils */,
 				30AD9B1D230AE11800B39434 /* Controllers */,
 				30AD9B1C230AE10C00B39434 /* Views */,
+				30B9005823184235000C0089 /* Models */,
 				AB6A65AB230AD990009CFE7E /* AppDelegate.swift */,
 				AB6A65B5230AD994009CFE7E /* Assets.xcassets */,
 				AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */,
@@ -331,12 +331,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		E8535A0023156234009AB979 /* Notes */ = {
+		E8535A0023156234009AB979 /* NotesViews */ = {
 			isa = PBXGroup;
 			children = (
-				E8535A0123156252009AB979 /* NotesBujo.swift */,
+				E8535A0123156252009AB979 /* NotesView.swift */,
 			);
-			path = Notes;
+			path = NotesViews;
 			sourceTree = "<group>";
 		};
 		E8FF9D452316C538006C2B49 /* Extension */ = {
@@ -540,7 +540,7 @@
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				1516C18F231555E5002EC623 /* TableViewHeaderView.swift in Sources */,
-				E8535A0223156252009AB979 /* NotesBujo.swift in Sources */,
+				E8535A0223156252009AB979 /* NotesView.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
 				ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */,
@@ -722,7 +722,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37CT2CQ23H;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -741,7 +741,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 37CT2CQ23H;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

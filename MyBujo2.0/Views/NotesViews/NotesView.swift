@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotesBujo: UIView {
+class NotesView: UIView {
     
     var delegate: DismissControllerDelegate?
     
