@@ -59,7 +59,7 @@ class DayCell: JTACDayCell, ViewCode {
         
         selectedView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            selectedView.widthAnchor.constraint(equalTo: label.heightAnchor, multiplier: 2.0),
+            selectedView.widthAnchor.constraint(equalToConstant: 40),
             selectedView.heightAnchor.constraint(equalTo: selectedView.widthAnchor),
             selectedView.centerXAnchor.constraint(equalTo: label.centerXAnchor),
             selectedView.centerYAnchor.constraint(equalTo: label.centerYAnchor)
@@ -101,6 +101,6 @@ class DayCell: JTACDayCell, ViewCode {
         } else {
             selectedView.isHidden = true
         }
-        selectedView.layer.cornerRadius = selectedView.frame.size.width/2
+        selectedView.layer.cornerRadius = 20
     }
 }

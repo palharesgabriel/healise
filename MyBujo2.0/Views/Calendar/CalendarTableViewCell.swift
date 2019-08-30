@@ -30,8 +30,6 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     
     var delegate: CalendarTableViewCellDelegate!
     
-    var selectedDate: Date!
-    
     var calendarView: JTACMonthView = {
         let calendarView = JTACMonthView(frame: .zero)
         calendarView.backgroundColor = .clear
@@ -86,8 +84,9 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         type = calendarType
         setupView()
         calendarView.scrollToDate(date, animateScroll: false)
-        selectedDate = date
-        
+        if calendarView.selectedDates.count == 0 {
+            calendarView.selectDates([date])
+        }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -142,8 +141,8 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? DayCell else { return }
-        delegate.didSelectDate(date: date)
         cell.setupCell(cellState: cellState)
+        delegate.didSelectDate(date: date)
     }
     
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
