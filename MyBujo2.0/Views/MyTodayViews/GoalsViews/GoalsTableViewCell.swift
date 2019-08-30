@@ -11,9 +11,22 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
     static let reuseIdentifier = "GoalsTableViewCellIdentifier"
     let shadowView = ShadowView(frame: .zero)
     
-    var goals: [Goal]!
+    var goals: [Goal]!{
+        didSet{
+            if goals.count != 0{
+                tableView.insertRows(at: [IndexPath(row: goals.count - 1, section: 0)], with: .automatic)
+                if tableView.numberOfRows(inSection: 0) != 0 {
+                    tableView.scrollToRow(at: IndexPath(row: tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .top, animated: true)
+                }
+            }
+            else{
+                tableView.reloadData()
+            }
+            
+        }
+    }
     
-    let goalsTableView: UITableView = {
+    let tableView: UITableView = {
         let tbView = UITableView()
         tbView.translatesAutoresizingMaskIntoConstraints = false
         tbView.separatorStyle = .none
@@ -22,7 +35,7 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
     
     func buildViewHierarchy() {
         contentView.addSubview(shadowView)
-        contentView.addSubview(goalsTableView)
+        contentView.addSubview(tableView)
     }
     
     func setupConstraints() {
@@ -34,27 +47,27 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
             shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
             ])
         
-        goalsTableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            goalsTableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            goalsTableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            goalsTableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            goalsTableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+            tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
         
         
     }
     
     func setupAdditionalConfigurantion() {
-        goalsTableView.delegate = self
-        goalsTableView.dataSource = self
-        goalsTableView.register(GoalTableViewCell.self, forCellReuseIdentifier: GoalTableViewCell.reuseIdentifier)
-        goalsTableView.backgroundColor = .clear
-        goalsTableView.showsVerticalScrollIndicator = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(GoalTableViewCell.self, forCellReuseIdentifier: GoalTableViewCell.reuseIdentifier)
+        tableView.backgroundColor = .clear
+        tableView.showsVerticalScrollIndicator = false
         
-        goalsTableView.clipsToBounds = true
-        goalsTableView.layer.cornerRadius = 16
-        goalsTableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        tableView.clipsToBounds = true
+        tableView.layer.cornerRadius = 16
+        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
     }
     
     func setupCell(goals: [Goal]) {
@@ -64,18 +77,12 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
         selectionStyle = .none
         setupView()
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
     }
-    
 }
 
 extension GoalsTableViewCell: UITableViewDelegate, UITableViewDataSource {

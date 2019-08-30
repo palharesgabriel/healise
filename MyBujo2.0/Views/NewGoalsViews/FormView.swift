@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol FormViewDelegate {
-    func dismissNewGoalModal()
+    func didPressDone(descript: String?)
 }
 
 class FormView: UIView, Shadow, ViewCode {
@@ -91,6 +91,6 @@ class FormView: UIView, Shadow, ViewCode {
     }
     
     @objc func tapDoneButton() {
-        delegate?.dismissNewGoalModal()
+        delegate?.didPressDone(descript: goalTextField.text)
     }
 }

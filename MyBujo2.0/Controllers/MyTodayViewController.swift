@@ -33,13 +33,11 @@ class MyTodayViewController: UIViewController, ViewCode {
         
         guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {
             
-            CoreDataManager.create(entityType: Day.self,completion: { day in
-                guard let day = day as? Day else { return }
-                guard let dateIgnoringTime = Date().ignoringTime() else { return }
-                self.day.date = dateIgnoringTime
-                self.day = day
-                self.day.save()
-            })
+            day = Day(context: CoreDataManager.context)
+            guard let dateIgnoringTime = Date().ignoringTime() else { return }
+            day.date = dateIgnoringTime
+            day.goals = []
+            day.save()
             return
         }
         self.day = result
@@ -86,7 +84,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             guard let calendarCell = tableView.dequeueReusableCell(withIdentifier: CalendarTableViewCell.reuseIdentifier, for: indexPath) as? CalendarTableViewCell else { return UITableViewCell()}
             calendarCell.delegate = self
-            calendarCell.setupCell(calendarType: .week)
+            calendarCell.setupCell(calendarType: .week, date: day.date!)
             return calendarCell
         case 1:
             guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: GoalsTableViewCell.reuseIdentifier, for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
@@ -138,6 +136,7 @@ extension MyTodayViewController:TableViewHeaderViewDelegate {
         
         let newGoalViewController = NewGoalViewController()
         newGoalViewController.day = day
+        newGoalViewController.delegate = self
         newGoalViewController.modalPresentationStyle = .overCurrentContext
         viewCont.present(newGoalViewController, animated: true, completion: nil)
     }
@@ -156,8 +155,25 @@ extension MyTodayViewController: CalendarTableViewCellDelegate{
         //do something
 
         let result = CoreDataManager.fetch(entityClass: Day.self,predicate: EntityType.day(date).predicate)
-        guard let day = result?.first as? Day else { return }
+        guard let day = result?.first as? Day else {
+            self.day = Day(context: CoreDataManager.context)
+            guard let dateIgnoringTime = date.ignoringTime() else { return }
+            self.day.date = dateIgnoringTime
+            self.day.goals = []
+            self.day.save()
+            return
+        }
         self.day = day
         
+    }
+}
+
+extension MyTodayViewController: NewGoalViewControllerDelegate{
+    func didDismissWithDescript() {
+        tableView.reloadData()
+    }
+    
+    func didDismissWithoutDescript() {
+        //
     }
 }

@@ -64,16 +64,6 @@ class CoreDataManager: NSObject {
         return nil
     }
     
-    static func create<T: NSManagedObject>(entityType: T.Type, completion: ((NSManagedObject) -> Void)? = nil) {
-        
-        let entity = T(context: context)
-        if let completion = completion {
-            completion(entity)
-            
-        }
-        save()
-    }
-    
     static func save() {
         do {
             try context.save()

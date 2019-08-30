@@ -7,6 +7,11 @@
 
 import UIKit
 
+
+protocol NewGoalViewControllerDelegate{
+    func didDismissWithDescript()
+    func didDismissWithoutDescript()
+}
 class NewGoalViewController: UIViewController, ViewCode, Blurable {
     
     var day: Day!
@@ -14,6 +19,8 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     var bluredView: UIView?
     
     let formView = FormView()
+    
+    var delegate: NewGoalViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +51,22 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
 
 extension NewGoalViewController: FormViewDelegate{
     
-    func dismissNewGoalModal() {
-        dismiss(animated: true, completion: nil)
+    func didPressDone(descript: String?) {
+        if let descript = descript{
+            let goal = Goal(context: CoreDataManager.context)
+            goal.descript = descript
+            goal.completed = false
+            day.addToGoals(goal)
+            day.save()
+            dismiss(animated: true, completion: {
+                self.delegate.didDismissWithDescript()
+            })
+        }
+        else {
+            dismiss(animated: true, completion: {
+                self.delegate.didDismissWithoutDescript()
+            })
+        }
+        
     }
 }
