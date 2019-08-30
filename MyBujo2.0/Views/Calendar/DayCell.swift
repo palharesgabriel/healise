@@ -30,15 +30,15 @@ class DayCell: JTACDayCell, ViewCode {
     var selectedView: UIView = {
         let selectedView = UIView()
         selectedView.clipsToBounds = true
-        selectedView.backgroundColor = UIColor(displayP3Red: 1/255, green: 1/255, blue: 1/255, alpha: 0.2)
+        selectedView.backgroundColor = UIColor(displayP3Red: 255/255, green: 232/255, blue: 165/255, alpha: 1)
         selectedView.isHidden = true
         return selectedView
     }()
     
     func buildViewHierarchy() {
+        contentView.addSubview(selectedView)
         contentView.addSubview(label)
         contentView.addSubview(moodIndicator)
-        contentView.addSubview(selectedView)
     }
     
     func setupConstraints() {
