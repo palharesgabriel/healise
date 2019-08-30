@@ -12,6 +12,7 @@
 		1516C18F231555E5002EC623 /* TableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1516C18E231555E5002EC623 /* TableViewHeaderView.swift */; };
 		15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15341D832315C28B005E7328 /* HeaderViewFactory.swift */; };
 		153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */; };
+		1549195823193EDD00766609 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549195723193EDD00766609 /* FormView.swift */; };
 		154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B139223143B3600F03C6C /* GoalTableViewCell.swift */; };
 		15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C339C4230D8A14009ED5CD /* ViewCode.swift */; };
 		15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */; };
@@ -63,6 +64,7 @@
 		1516C18E231555E5002EC623 /* TableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderView.swift; sourceTree = "<group>"; };
 		15341D832315C28B005E7328 /* HeaderViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewFactory.swift; sourceTree = "<group>"; };
 		153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitViewController.swift; sourceTree = "<group>"; };
+		1549195723193EDD00766609 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		154B139223143B3600F03C6C /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		15C339C4230D8A14009ED5CD /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 			path = GoalsViews;
 			sourceTree = "<group>";
 		};
+		1549195623193EC800766609 /* NewGoalsViews */ = {
+			isa = PBXGroup;
+			children = (
+				1549195723193EDD00766609 /* FormView.swift */,
+			);
+			path = NewGoalsViews;
+			sourceTree = "<group>";
+		};
 		154EEE2F231408EF003B0EAF /* MyTodayViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,7 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1549195623193EC800766609 /* NewGoalsViews */,
 				300B16C923155BB20070F7A7 /* MyJourneyViews */,
 				154EEE2F231408EF003B0EAF /* MyTodayViews */,
 				30CBF8DB230C40B000D56A41 /* Calendar */,
@@ -548,6 +559,7 @@
 				AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
+				1549195823193EDD00766609 /* FormView.swift in Sources */,
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
