@@ -13,15 +13,16 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
     
     var goals: [Goal]!{
         didSet{
-            if goals.count != 0{
-                tableView.insertRows(at: [IndexPath(row: goals.count - 1, section: 0)], with: .automatic)
-                if tableView.numberOfRows(inSection: 0) != 0 {
-                    tableView.scrollToRow(at: IndexPath(row: tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .top, animated: true)
-                }
-            }
-            else{
-                tableView.reloadData()
-            }
+//            if goals.count != 0{
+//                tableView.insertRows(at: [IndexPath(row: tableView.numberOfRows(inSection: 0) - 1, section: 0)], with: .automatic)
+//                if tableView.numberOfRows(inSection: 0) != 0 {
+//                    tableView.scrollToRow(at: IndexPath(row: tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .top, animated: true)
+//                }
+//            }
+//            else{
+//                
+//            }
+            tableView.reloadData()
             
         }
     }

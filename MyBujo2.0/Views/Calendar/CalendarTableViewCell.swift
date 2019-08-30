@@ -136,6 +136,7 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         guard let cell = calendarView.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as? DayCell else { return JTACDayCell()}
         cell.setupCell(cellState: cellState)
+        
         return cell
     }
     

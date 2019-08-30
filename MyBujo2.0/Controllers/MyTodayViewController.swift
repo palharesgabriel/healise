@@ -36,7 +36,6 @@ class MyTodayViewController: UIViewController, ViewCode {
             day = Day(context: CoreDataManager.context)
             guard let dateIgnoringTime = Date().ignoringTime() else { return }
             day.date = dateIgnoringTime
-            day.goals = []
             day.save()
             return
         }
@@ -159,7 +158,6 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
             self.day = Day(context: CoreDataManager.context)
             guard let dateIgnoringTime = date.ignoringTime() else { return }
             self.day.date = dateIgnoringTime
-            self.day.goals = []
             self.day.save()
             return
         }
