@@ -8,6 +8,6 @@
 
 import Foundation
 
-extension Goal{
+extension Goal {
     
 }

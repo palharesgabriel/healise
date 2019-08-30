@@ -41,8 +41,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         if goal.completed {
             accessoryType = .checkmark
             selectedBackgroundView = UIView()
-        }
-        else {
+        } else {
             accessoryType = .none
             selectedBackgroundView = UIView()
         }

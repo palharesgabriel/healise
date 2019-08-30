@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Day{
+extension Day {
     
-    func save(){
+    func save() {
         CoreDataManager.save()
     }
 }

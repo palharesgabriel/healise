@@ -42,7 +42,7 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     
 }
 
-extension NewGoalViewController: FormViewDelegate{
+extension NewGoalViewController: FormViewDelegate {
     
     func dismissNewGoalModal() {
         dismiss(animated: true, completion: nil)

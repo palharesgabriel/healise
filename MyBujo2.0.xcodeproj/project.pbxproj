@@ -722,7 +722,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2BTWK9QR9;
+				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -741,7 +741,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2BTWK9QR9;
+				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
