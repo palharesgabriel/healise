@@ -49,7 +49,7 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     
 }
 
-extension NewGoalViewController: FormViewDelegate{
+extension NewGoalViewController: FormViewDelegate {
     
     func didPressDone(descript: String?) {
         if let descript = descript{

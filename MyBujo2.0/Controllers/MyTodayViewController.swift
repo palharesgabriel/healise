@@ -148,7 +148,7 @@ extension MyTodayViewController: MediaCollectionViewDelegate {
     }
 }
 
-extension MyTodayViewController: CalendarTableViewCellDelegate{
+extension MyTodayViewController: CalendarTableViewCellDelegate {
     
     /// Solve Later
     func didSelectDate(date: Date) {

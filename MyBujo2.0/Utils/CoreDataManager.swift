@@ -31,10 +31,8 @@ enum EntityType {
 }
 
 extension NSManagedObject {
-    static var className: String{
-        get{
-            return String(describing: self)
-        }
+    static var className: String {
+        return String(describing: self)
     }
 }
 
@@ -42,20 +40,18 @@ extension NSManagedObject {
 class CoreDataManager: NSObject {
     
     static var context: NSManagedObjectContext {
-        get{
             guard let appDelegate = (UIApplication.shared.delegate as? AppDelegate) else {
                 fatalError("Can't load appDelegate")
             }
             return appDelegate.persistentContainer.viewContext
-        }
     }
     
     
-    static func fetch<T: NSManagedObject>(entityClass: T.Type, predicate: NSPredicate) -> [Any]?{
+    static func fetch<T: NSManagedObject>(entityClass: T.Type, predicate: NSPredicate) -> [Any]? {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityClass.className)
         request.predicate = predicate
         
-        do{
+        do {
             let result = try context.fetch(request)
             return result
         } catch {
