@@ -19,7 +19,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     let headerLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont(name: "AvenirNext-Medium", size: 28)
+        lbl.font = UIFont(name: "AvenirNext-Medium", size: 24)
         lbl.textColor = UIColor(named: "TitleColor")!
         return lbl
     }()
@@ -28,7 +28,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitleColor(UIColor(named: "TitleColor")!, for: .normal)
-        btn.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 28)
+        btn.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 24)
         return btn
     }()
     
@@ -64,13 +64,13 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
+            headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         
         if hasButton {
             NSLayoutConstraint.activate([
-                buttonAddGoal.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
+                buttonAddGoal.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
                 buttonAddGoal.centerYAnchor.constraint(equalTo: centerYAnchor)
             ])
         }

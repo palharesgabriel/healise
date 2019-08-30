@@ -20,7 +20,7 @@ class FormView: UIView, Shadow, ViewCode {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.text = "Insert a new goal for today:"
-        lbl.font = UIFont(name: "AvenirNext-Medium", size: 20)
+        lbl.font = UIFont(name: "AvenirNext-Medium", size: 24)
         lbl.textColor = UIColor(named: "TitleColor")!
         return lbl
     }()
@@ -37,6 +37,7 @@ class FormView: UIView, Shadow, ViewCode {
         txtField.layer.borderColor = UIColor(named: "AvenirNext-Medium")?.cgColor
         txtField.layer.cornerRadius = 16
         txtField.clipsToBounds = true
+        txtField.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         return txtField
     }()
     
@@ -44,7 +45,7 @@ class FormView: UIView, Shadow, ViewCode {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Done", for: .normal)
-        btn.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 20)
+        btn.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 24)
         btn.setTitleColor(UIColor(named: "TitleColor"), for: .normal)
         return btn
     }()

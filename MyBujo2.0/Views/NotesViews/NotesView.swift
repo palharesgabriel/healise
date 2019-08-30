@@ -15,7 +15,7 @@ class NotesView: UIView, ViewCode {
         let textField = UITextView()
         textField.text = "Create a note here 😀"
         textField.backgroundColor = .clear
-        textField.font = UIFont(name: "AvenirNext-Medium", size: 24)
+        textField.font = UIFont(name: "AvenirNext-Medium", size: 16)
         textField.textColor = .black
         textField.returnKeyType = UIReturnKeyType.done
         textField.clipsToBounds = true
@@ -40,7 +40,7 @@ class NotesView: UIView, ViewCode {
     let labelNote: UILabel = {
         let label = UILabel()
         label.text = "Note"
-        label.font = UIFont(name: "AvenirNext-Medium", size: 32)
+        label.font = UIFont(name: "AvenirNext-Medium", size: 24)
         label.textColor = UIColor(named: "TitleColor")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -55,8 +55,8 @@ class NotesView: UIView, ViewCode {
         NSLayoutConstraint.activate([
             noteButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 16),
             noteButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -16),
-            noteButton.heightAnchor.constraint(equalToConstant: 48),
-            noteButton.widthAnchor.constraint(equalToConstant: 48)
+            noteButton.heightAnchor.constraint(equalToConstant: 40),
+            noteButton.widthAnchor.constraint(equalToConstant: 40)
             ])
         
         NSLayoutConstraint.activate([
@@ -70,7 +70,6 @@ class NotesView: UIView, ViewCode {
             noteTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 16),
             noteTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             noteTextField.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -16)
-            
             
             ])
         
