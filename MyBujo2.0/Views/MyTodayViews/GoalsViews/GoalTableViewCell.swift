@@ -37,6 +37,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     
     func setupCell(goal: Goal) {
         self.goal = goal
+        setupView()
         goalDescription.text = goal.descript
         if goal.completed {
             accessoryType = .checkmark
@@ -45,7 +46,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
             accessoryType = .none
             selectedBackgroundView = UIView()
         }
-        setupView()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

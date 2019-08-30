@@ -99,6 +99,7 @@ extension GoalsTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         goals[indexPath.row].completed = !goals[indexPath.row].completed
+        goals[indexPath.row].save()
         tableView.reloadData()
     }
     
