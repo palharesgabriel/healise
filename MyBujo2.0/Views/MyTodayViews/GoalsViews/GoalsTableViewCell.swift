@@ -11,18 +11,22 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
     static let reuseIdentifier = "GoalsTableViewCellIdentifier"
     let shadowView = ShadowView(frame: .zero)
     
-    var goals: [Goal]!{
+    var lastNumberOfGoals = 0
+    
+    var goals: [Goal] = []{
         didSet{
-//            if goals.count != 0{
-//                tableView.insertRows(at: [IndexPath(row: tableView.numberOfRows(inSection: 0) - 1, section: 0)], with: .automatic)
-//                if tableView.numberOfRows(inSection: 0) != 0 {
-//                    tableView.scrollToRow(at: IndexPath(row: tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .top, animated: true)
-//                }
-//            }
-//            else{
-//                
-//            }
-            tableView.reloadData()
+            if lastNumberOfGoals == goals.count - 1 {
+                tableView.insertRows(at: [IndexPath(row: goals.count - 1, section: 0)], with: .automatic)
+                if tableView.numberOfRows(inSection: 0) != 0{
+                    tableView.scrollToRow(at: IndexPath(row: tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .bottom, animated: true)
+                }
+            }
+            else{
+                tableView.reloadData()
+            }
+            
+            lastNumberOfGoals = goals.count
+            
             
         }
     }
@@ -77,12 +81,8 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
         contentView.backgroundColor = .clear
         selectionStyle = .none
         setupView()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
         
-        // Configure the view for the selected state
+        
     }
 }
 
