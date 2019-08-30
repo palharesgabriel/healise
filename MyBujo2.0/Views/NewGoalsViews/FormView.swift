@@ -26,11 +26,17 @@ class FormView: UIView, Shadow, ViewCode {
     }()
     
     
-    lazy var goalTextField: UITextField = {
-        let txtField = UITextField(frame: .zero)
+    lazy var goalTextField: UITextView = {
+        let txtField = UITextView(frame: .zero)
         txtField.translatesAutoresizingMaskIntoConstraints = false
         txtField.backgroundColor = .white
-        txtField.borderStyle = .roundedRect
+        txtField.isEditable = true
+        txtField.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        txtField.textColor = UIColor(named: "TitleColor")
+        txtField.layer.borderWidth = 0.1
+        txtField.layer.borderColor = UIColor(named: "AvenirNext-Medium")?.cgColor
+        txtField.layer.cornerRadius = 16
+        txtField.clipsToBounds = true
         return txtField
     }()
     

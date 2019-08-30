@@ -8,31 +8,23 @@
 
 import UIKit
 
-class NotesView: UIView {
-    
+class NotesView: UIView, ViewCode {
     var delegate: DismissControllerDelegate?
     
-    let contentView: UIView  = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 4
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    let noteTextFiel: UITextView = {
+    let noteTextField: UITextView = {
         let textField = UITextView()
-        textField.text = "Create a Note Here 😀"
-        textField.textAlignment = .left
+        textField.text = "Create a note here 😀"
         textField.backgroundColor = .clear
-        textField.font = UIFont.systemFont(ofSize: 24)
-        textField.textColor = UIColor(red: 51/255, green: 90/255, blue: 126/255, alpha: 1.0)
-        textField.keyboardType = UIKeyboardType.default
+        textField.font = UIFont(name: "AvenirNext-Medium", size: 24)
+        textField.textColor = .black
         textField.returnKeyType = UIReturnKeyType.done
-        
         textField.clipsToBounds = true
+        textField.layer.cornerRadius = 16
+        textField.layer.borderWidth = 0.1
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.layer.borderColor = UIColor(named: "TitleColor")?.cgColor
+        textField.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        
         return textField
     }()
     let noteButton: UIButton = {
@@ -47,69 +39,62 @@ class NotesView: UIView {
     }()
     let labelNote: UILabel = {
         let label = UILabel()
-        label.text = "Note Day"
-        label.font = UIFont.systemFont(ofSize: 32)
+        label.text = "Note"
+        label.font = UIFont(name: "AvenirNext-Medium", size: 32)
+        label.textColor = UIColor(named: "TitleColor")
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    func buildViewHierarchy() {
+        addSubviews([noteButton, noteTextField, labelNote])
+    }
+    
+    func setupConstraints() {
+        
+        NSLayoutConstraint.activate([
+            noteButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 16),
+            noteButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -16),
+            noteButton.heightAnchor.constraint(equalToConstant: 48),
+            noteButton.widthAnchor.constraint(equalToConstant: 48)
+            ])
+        
+        NSLayoutConstraint.activate([
+            labelNote.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            labelNote.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            labelNote.trailingAnchor.constraint(equalTo: noteButton.leadingAnchor, constant: -16),
+            ])
+        
+        NSLayoutConstraint.activate([
+            noteTextField.topAnchor.constraint(equalTo: labelNote.bottomAnchor,constant: 16),
+            noteTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 16),
+            noteTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            noteTextField.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -16)
+            
+            
+            ])
+        
+
+        
+
+        
+        
+        
+    }
+    
+    func setupAdditionalConfigurantion() {
+        backgroundColor = .white
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .clear
-        buildViewHierachy()
-        addConstraints()
+        setupView()
         
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    fileprivate func buildViewHierachy() {
-        addSubviews([contentView, noteButton, noteTextFiel, labelNote])
-    }
-    func addConstraints() {
-        addContraintsContencView()
-        btnContraints()
-        textFieldContraints()
-        labelContraints()
-    }
-    func labelContraints() {
-        NSLayoutConstraint.activate([
-            labelNote.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            labelNote.leadingAnchor.constraint(equalTo: noteTextFiel.leadingAnchor, constant: 8)
-            ])
-        
-    }
-    func btnContraints() {
-        NSLayoutConstraint.activate([
-            noteButton.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 4),
-            noteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -4),
-            noteButton.heightAnchor.constraint(equalToConstant: 48),
-            noteButton.widthAnchor.constraint(equalToConstant: 48)
-            ])
-        
-    }
-    func textFieldContraints() {
-        NSLayoutConstraint.activate([
-            noteTextFiel.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 48),
-            noteTextFiel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 16),
-            noteTextFiel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            noteTextFiel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -16)
-            
-            
-            ])
-    }
-    
-    
-    func addContraintsContencView() {
-        NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 8),
-            contentView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 8),
-            contentView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -8),
-            contentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -8),
-            contentView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, constant: -16)
-            ])
-    }
+
     @objc func btnExit() {
         self.delegate?.closeViewController()
     }
