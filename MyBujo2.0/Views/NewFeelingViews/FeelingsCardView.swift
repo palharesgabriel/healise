@@ -15,6 +15,7 @@ class FeelingsCardView: UIView, ViewCode {
         ,FeelingView(title: "Sad", circleColor: .purple)
         ,FeelingView(title: "Anger", circleColor: .red)
         ,FeelingView(title: "Lovely", circleColor: .magenta)
+        ,FeelingView(title: "Tired", circleColor: .brown)
     ]
     
     let stackView: UIStackView = {

@@ -27,6 +27,8 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
         bluredView = addBlur()
         setupView()
         formView.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(shouldDismissModal))
+        bluredView?.addGestureRecognizer(tapGesture)
     }
     
     func buildViewHierarchy() {
@@ -50,6 +52,10 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
 }
 
 extension NewGoalViewController: FormViewDelegate {
+    
+    @objc func shouldDismissModal() {
+        dismiss(animated: true, completion: nil)
+    }
     
     func didPressDone(descript: String?) {
         if descript != ""{

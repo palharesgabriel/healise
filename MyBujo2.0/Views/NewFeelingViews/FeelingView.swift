@@ -47,8 +47,8 @@ class FeelingView: UIView, ViewCode {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             feelingCircle.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            feelingCircle.widthAnchor.constraint(equalToConstant: 50),
-            feelingCircle.heightAnchor.constraint(equalToConstant: 50),
+            feelingCircle.widthAnchor.constraint(equalToConstant: 24),
+            feelingCircle.heightAnchor.constraint(equalToConstant: 24),
             feelingCircle.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
 
@@ -63,6 +63,6 @@ class FeelingView: UIView, ViewCode {
     func setupAdditionalConfigurantion() {
         feelingCircle.clipsToBounds = true
         feelingCircle.layer.masksToBounds = false
-        feelingCircle.layer.cornerRadius = 25
+        feelingCircle.layer.cornerRadius = 12
     }
 }

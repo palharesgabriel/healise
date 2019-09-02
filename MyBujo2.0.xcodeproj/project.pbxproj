@@ -11,6 +11,7 @@
 		1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1516C18B23154851002EC623 /* GoalsTableViewCell.swift */; };
 		1516C18F231555E5002EC623 /* TableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1516C18E231555E5002EC623 /* TableViewHeaderView.swift */; };
 		15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15341D832315C28B005E7328 /* HeaderViewFactory.swift */; };
+		15347D37231D8E8F00848335 /* FeelingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15347D36231D8E8F00848335 /* FeelingsView.swift */; };
 		153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */; };
 		1549195823193EDD00766609 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549195723193EDD00766609 /* FormView.swift */; };
 		1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15491959231D44EE00766609 /* NewFeelingViewController.swift */; };
@@ -67,6 +68,7 @@
 		1516C18B23154851002EC623 /* GoalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewCell.swift; sourceTree = "<group>"; };
 		1516C18E231555E5002EC623 /* TableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeaderView.swift; sourceTree = "<group>"; };
 		15341D832315C28B005E7328 /* HeaderViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewFactory.swift; sourceTree = "<group>"; };
+		15347D36231D8E8F00848335 /* FeelingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsView.swift; sourceTree = "<group>"; };
 		153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitViewController.swift; sourceTree = "<group>"; };
 		1549195723193EDD00766609 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		15491959231D44EE00766609 /* NewFeelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeelingViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				1549195D231D4B8C00766609 /* FeelingView.swift */,
 				1549195F231D508000766609 /* FeelingsCardView.swift */,
+				15347D36231D8E8F00848335 /* FeelingsView.swift */,
 			);
 			path = NewFeelingViews;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
 				301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */,
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
+				15347D37231D8E8F00848335 /* FeelingsView.swift in Sources */,
 				30ADD66D231D396D001CAF1C /* Delegates.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
 				1549195E231D4B8C00766609 /* FeelingView.swift in Sources */,
@@ -754,7 +758,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2BTWK9QR9;
+				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -773,7 +777,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2BTWK9QR9;
+				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
