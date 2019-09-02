@@ -9,4 +9,5 @@
 import Foundation
 protocol CalendarTableViewCellDelegate {
     func didSelectDate(date: Date)
+    func shouldShowAddFeelingModal()
 }

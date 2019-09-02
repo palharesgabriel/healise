@@ -13,6 +13,9 @@
 		15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15341D832315C28B005E7328 /* HeaderViewFactory.swift */; };
 		153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */; };
 		1549195823193EDD00766609 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549195723193EDD00766609 /* FormView.swift */; };
+		1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15491959231D44EE00766609 /* NewFeelingViewController.swift */; };
+		1549195E231D4B8C00766609 /* FeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549195D231D4B8C00766609 /* FeelingView.swift */; };
+		15491960231D508000766609 /* FeelingsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549195F231D508000766609 /* FeelingsCardView.swift */; };
 		154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B139223143B3600F03C6C /* GoalTableViewCell.swift */; };
 		15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C339C4230D8A14009ED5CD /* ViewCode.swift */; };
 		15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */; };
@@ -66,6 +69,9 @@
 		15341D832315C28B005E7328 /* HeaderViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewFactory.swift; sourceTree = "<group>"; };
 		153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSplitViewController.swift; sourceTree = "<group>"; };
 		1549195723193EDD00766609 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
+		15491959231D44EE00766609 /* NewFeelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeelingViewController.swift; sourceTree = "<group>"; };
+		1549195D231D4B8C00766609 /* FeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingView.swift; sourceTree = "<group>"; };
+		1549195F231D508000766609 /* FeelingsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsCardView.swift; sourceTree = "<group>"; };
 		154B139223143B3600F03C6C /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		15C339C4230D8A14009ED5CD /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +156,15 @@
 			path = NewGoalsViews;
 			sourceTree = "<group>";
 		};
+		1549195C231D4B6E00766609 /* NewFeelingViews */ = {
+			isa = PBXGroup;
+			children = (
+				1549195D231D4B8C00766609 /* FeelingView.swift */,
+				1549195F231D508000766609 /* FeelingsCardView.swift */,
+			);
+			path = NewFeelingViews;
+			sourceTree = "<group>";
+		};
 		154EEE2F231408EF003B0EAF /* MyTodayViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +205,7 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1549195C231D4B6E00766609 /* NewFeelingViews */,
 				154EEE2F231408EF003B0EAF /* MyTodayViews */,
 				300B16C923155BB20070F7A7 /* MyJourneyViews */,
 				1549195623193EC800766609 /* NewGoalsViews */,
@@ -209,6 +225,7 @@
 				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
 				15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */,
+				15491959231D44EE00766609 /* NewFeelingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -544,6 +561,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
+				15491960231D508000766609 /* FeelingsCardView.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
 				1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
@@ -562,6 +581,7 @@
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
 				30ADD66D231D396D001CAF1C /* Delegates.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
+				1549195E231D4B8C00766609 /* FeelingView.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
