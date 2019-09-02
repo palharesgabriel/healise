@@ -25,6 +25,7 @@
 		30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D52314609C0018DB13 /* MediaTableViewCell.swift */; };
 		30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B26230AE98B00B39434 /* CalendarManager.swift */; };
 		30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B28230AEF9100B39434 /* DayCell.swift */; };
+		30ADD66D231D396D001CAF1C /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADD66C231D396D001CAF1C /* Delegates.swift */; };
 		30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B900562317FC3B000C0089 /* CalendarTableViewCellDelegate.swift */; };
 		30B9005A2318424A000C0089 /* DayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B900592318424A000C0089 /* DayExtension.swift */; };
 		30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005B231842A0000C0089 /* GoalExtension.swift */; };
@@ -78,6 +79,7 @@
 		30AD9B1F230AE14E00B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		30AD9B26230AE98B00B39434 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		30AD9B28230AEF9100B39434 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
+		30ADD66C231D396D001CAF1C /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		30B900562317FC3B000C0089 /* CalendarTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		30B900592318424A000C0089 /* DayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExtension.swift; sourceTree = "<group>"; };
 		30B9005B231842A0000C0089 /* GoalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalExtension.swift; sourceTree = "<group>"; };
@@ -201,11 +203,11 @@
 		30AD9B1D230AE11800B39434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				30ADD66B231D3947001CAF1C /* MyTodayViewController */,
 				AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */,
 				E8535A03231562AB009AB979 /* NotesViewController.swift */,
 				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
-				15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */,
 				15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */,
 			);
 			path = Controllers;
@@ -219,6 +221,15 @@
 				301F35342316AAC500AD5477 /* CoreDataManager.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		30ADD66B231D3947001CAF1C /* MyTodayViewController */ = {
+			isa = PBXGroup;
+			children = (
+				15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */,
+				30ADD66C231D396D001CAF1C /* Delegates.swift */,
+			);
+			path = MyTodayViewController;
 			sourceTree = "<group>";
 		};
 		30B9005823184235000C0089 /* Models */ = {
@@ -549,6 +560,7 @@
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
 				301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */,
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
+				30ADD66D231D396D001CAF1C /* Delegates.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
