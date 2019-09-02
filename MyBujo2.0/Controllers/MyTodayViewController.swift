@@ -9,6 +9,7 @@
 import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
+    
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .clear
@@ -16,6 +17,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
+    
     var day =  Day(context: CoreDataManager.context) {
         didSet {
             tableView.reloadData()
@@ -134,7 +136,8 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MyTodayViewController:TableViewHeaderViewDelegate {
     func addGoal() {
-        guard let viewCont = splitViewController?.viewControllers[1] else { return }
+        guard let customSplitViewController = splitViewController as? CustomSplitViewController else { return }
+        let viewCont = customSplitViewController.controllers[1]
         viewCont.definesPresentationContext = true
         
         let newGoalViewController = NewGoalViewController()
