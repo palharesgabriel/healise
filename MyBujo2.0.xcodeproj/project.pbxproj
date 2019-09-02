@@ -166,7 +166,6 @@
 				15DFF5C62316FB8200F70860 /* Blurable.swift */,
 				AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */,
 				AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */,
-				30B9005F23185600000C0089 /* DateExtension.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -342,6 +341,7 @@
 		E8FF9D452316C538006C2B49 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				30B9005F23185600000C0089 /* DateExtension.swift */,
 				E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */,
 			);
 			path = Extension;
