@@ -30,11 +30,20 @@ extension MyTodayViewController: MediaCollectionViewDelegate {
 }
 
 extension MyTodayViewController: CalendarTableViewCellDelegate {
+    func shouldShowAddFeelingModal() {
+        guard let customSplitViewController = splitViewController as? CustomSplitViewController else { return }
+        let viewCont = customSplitViewController.controllers[1]
+        viewCont.definesPresentationContext = true
+        
+        let newFeelingViewController = NewFeelingViewController()
+        newFeelingViewController.modalPresentationStyle = .overCurrentContext
+        viewCont.present(newFeelingViewController, animated: true, completion: nil)
+    }
     
     /// Solve Later
     func didSelectDate(date: Date) {
         //do something
-        
+
         let result = CoreDataManager.fetch(entityClass: Day.self,predicate: EntityType.day(date).predicate)
         guard let day = result?.first as? Day else {
             self.day = Day(context: CoreDataManager.context)

@@ -35,8 +35,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    
         setupView()
         
         guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {

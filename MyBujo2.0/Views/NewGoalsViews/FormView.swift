@@ -16,14 +16,7 @@ class FormView: UIView, Shadow, ViewCode {
     
     var delegate: FormViewDelegate?
     
-    lazy var instructionLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.text = "Insert a new goal for today:"
-        lbl.font = UIFont(name: "AvenirNext-Medium", size: 24)
-        lbl.textColor = UIColor(named: "TitleColor")!
-        return lbl
-    }()
+    lazy var instructionLabel = UILabel(text: "Insert a new goal for today", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!)
     
     
     lazy var goalTextField: UITextView = {
@@ -41,7 +34,9 @@ class FormView: UIView, Shadow, ViewCode {
         return txtField
     }()
     
-    lazy var doneButton : UIButton = {
+    
+    lazy var doneButton :
+        UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Done", for: .normal)
