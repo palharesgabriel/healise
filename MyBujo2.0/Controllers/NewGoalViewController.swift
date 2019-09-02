@@ -32,23 +32,21 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     }
     
     func buildViewHierarchy() {
-        bluredView?.addSubview(formView)
+        view.addSubview(formView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            formView.centerXAnchor.constraint(equalTo: bluredView!.centerXAnchor),
-            formView.centerYAnchor.constraint(equalTo: bluredView!.centerYAnchor),
-            formView.widthAnchor.constraint(equalTo: bluredView!.widthAnchor, multiplier: 0.9),
-            formView.heightAnchor.constraint(equalTo: bluredView!.heightAnchor, multiplier: 0.3)
+            formView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            formView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            formView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            formView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
             ])
     }
-    
+
     func setupAdditionalConfigurantion() {
         formView.backgroundColor = .white
     }
-    
-    
 }
 
 extension NewGoalViewController: FormViewDelegate {
