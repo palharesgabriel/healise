@@ -11,6 +11,10 @@ import CoreData
 
 enum Feeling: String{
     case happy = "Happy"
+    case sad = "Sad"
+    case anger = "Anger"
+    case lovely = "Lovely"
+    case tired = "Tired"
 }
 
 extension Day {

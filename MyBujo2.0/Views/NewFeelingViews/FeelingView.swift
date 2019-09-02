@@ -10,9 +10,12 @@ import UIKit
 
 class FeelingView: UIView, ViewCode {
     
+    var isSelected = false
+    
     let feelingCircle: UIView = {
        let v = UIView()
        v.translatesAutoresizingMaskIntoConstraints = false
+       
        return v
     }()
     
@@ -33,6 +36,7 @@ class FeelingView: UIView, ViewCode {
         self.init()
         feelingTitle.text = title
         feelingCircle.backgroundColor = circleColor
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,4 +69,17 @@ class FeelingView: UIView, ViewCode {
         feelingCircle.layer.masksToBounds = false
         feelingCircle.layer.cornerRadius = 12
     }
+    
+    func didSelected() {
+        if isSelected {
+            feelingCircle.layer.borderColor = UIColor.clear.cgColor
+            feelingCircle.self.layer.borderWidth = 1
+        } else {
+            feelingCircle.layer.borderColor = UIColor.black.cgColor
+            feelingCircle.self.layer.borderWidth = 5
+        }
+
+        self.isSelected = !isSelected
+    }
+    
 }

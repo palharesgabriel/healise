@@ -39,12 +39,14 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     
     func setupAdditionalConfigurantion() {
         feelingsView.backgroundColor = .white
-        
     }
     
     @objc func didDismissModal() {
+        let day = Day(context: CoreDataManager.context)
+        day.feel = feelingsView.feelingsCardView.selectedFeeling?.feelingTitle.text?.lowercased()
+        day.save()
         dismiss(animated: true) {
+            
         }
     }
-
 }

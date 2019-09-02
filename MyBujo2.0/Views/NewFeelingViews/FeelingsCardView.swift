@@ -10,6 +10,8 @@ import UIKit
 
 class FeelingsCardView: UIView, ViewCode {
     
+    var selectedFeeling: FeelingView?
+    
     let feelsStackView = [
         FeelingView(title: "Happy", circleColor: .yellow)
         ,FeelingView(title: "Sad", circleColor: .purple)
@@ -30,8 +32,11 @@ class FeelingsCardView: UIView, ViewCode {
         setupView()
         stackView.distribution = .fillEqually
         feelsStackView.forEach { view in
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didSelect(_:)))
+            view.addGestureRecognizer(tapGesture)
             stackView.addArrangedSubview(view)
         }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,6 +57,20 @@ class FeelingsCardView: UIView, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
+
+    }
+    
+    @objc func didSelect(_ sender: UITapGestureRecognizer) {
+        guard let feelingView = sender.view as? FeelingView else{
+            return
+        }
+        if selectedFeeling == nil || selectedFeeling != feelingView {
+            selectedFeeling?.didSelected()
+            selectedFeeling = feelingView
+            feelingView.didSelected()
+        } else {
+            return
+        }
 
     }
     
