@@ -32,24 +32,22 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
         return btn
     }()
     
-    convenience init(headerTitle: String, buttonTitle: String) {
-        self.init()
+    func setupHeader(headerTitle: String, buttonTitle: String? = nil) {
         headerLabel.text = headerTitle
-        buttonAddGoal.setTitle(buttonTitle, for: .normal)
-        hasButton = true
+        if let buttonTitle = buttonTitle{
+            hasButton = true
+            buttonAddGoal.setTitle(buttonTitle, for: .normal)
+        }
         setupView()
-    }
-    
-    convenience init(headerTitle: String) {
-        self.init()
-        headerLabel.text = headerTitle
-        setupView()
+        
     }
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
+       
         
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

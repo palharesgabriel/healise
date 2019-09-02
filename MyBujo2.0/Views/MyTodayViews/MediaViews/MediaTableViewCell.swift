@@ -37,6 +37,7 @@ class MediaTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         self.images = [UIImage(named: "notes")!, UIImage(named: "pencil")!, UIImage(named: "mic")!, UIImage(named: "videoCamera")!, UIImage(named: "camera")!]
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,7 +51,6 @@ class MediaTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

@@ -66,9 +66,15 @@ class MyTodayViewController: UIViewController, ViewCode {
 
     func setupAdditionalConfigurantion() {
         self.view.backgroundColor = UIColor(named: "BlueBackground")
+        
+        
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: CalendarTableViewCell.reuseIdentifier)
         tableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: GoalsTableViewCell.reuseIdentifier)
         tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: MediaTableViewCell.reuseIdentifier)
+        
+        tableView.register(CalendarTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: CalendarTableViewHeaderView.reuseIdentifier)
+        tableView.register(GoalsTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: GoalsTableViewHeaderView.reuseIdentifier)
+        tableView.register(MediaTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: MediaTableViewHeaderView.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -122,14 +128,16 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = HeaderViewFactory.build(section: section) else { return nil}
+        let headerFactory = HeaderViewFactory(tableView: tableView, section: section)
+        guard let headerView = headerFactory.build() else { return nil}
         headerView.delegate = self
         return headerView
     }
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return HeaderViewFactory.getHeight(section: section)
+        let headerFactory = HeaderViewFactory(tableView: tableView, section: section)
+        return headerFactory.height()
     }
     
 }
