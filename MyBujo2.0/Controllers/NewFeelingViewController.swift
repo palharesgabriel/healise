@@ -29,7 +29,7 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            feelingsView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            feelingsView.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
             feelingsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             feelingsView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
             feelingsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
@@ -43,7 +43,8 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     
     @objc func didDismissModal() {
         let day = Day(context: CoreDataManager.context)
-        day.feel = feelingsView.feelingsCardView.selectedFeeling?.feelingTitle.text?.lowercased()
+    
+        day.feeling = (feelingsView.feelingsCardView.selectedFeeling?.feelingTitle.text?.lowercased()).map { Feeling(rawValue: $0) }!
         day.save()
         dismiss(animated: true) {
             

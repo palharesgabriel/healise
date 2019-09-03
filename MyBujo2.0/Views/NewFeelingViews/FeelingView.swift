@@ -23,6 +23,7 @@ class FeelingView: UIView, ViewCode {
        let lbl = UILabel()
        lbl.translatesAutoresizingMaskIntoConstraints = false
        lbl.textAlignment = .center
+       lbl.adjustsFontSizeToFitWidth = true
        return lbl
     }()
     

@@ -18,6 +18,11 @@ class FeelingsCardView: UIView, ViewCode {
         ,FeelingView(title: "Anger", circleColor: .red)
         ,FeelingView(title: "Lovely", circleColor: .magenta)
         ,FeelingView(title: "Tired", circleColor: .brown)
+        ,FeelingView(title: "Happy", circleColor: .yellow)
+        ,FeelingView(title: "Sad", circleColor: .purple)
+        ,FeelingView(title: "Anger", circleColor: .red)
+        ,FeelingView(title: "Lovely", circleColor: .magenta)
+        ,FeelingView(title: "Tired", circleColor: .brown)
     ]
     
     let stackView: UIStackView = {
@@ -30,7 +35,8 @@ class FeelingsCardView: UIView, ViewCode {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         setupView()
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .
         feelsStackView.forEach { view in
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didSelect(_:)))
             view.addGestureRecognizer(tapGesture)
