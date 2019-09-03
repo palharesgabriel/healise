@@ -8,14 +8,31 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 enum Feeling: String{
     case happy = "Happy"
     case sad = "Sad"
-    case anger = "Anger"
-    case lovely = "Lovely"
-    case tired = "Tired"
+    case angry = "Angry"
+    case anxious = "Anxious"
+    case indiferent = "Indiferent"
+    
+    var color: UIColor{
+        switch self {
+        case .happy:
+            return UIColor(displayP3Red: 248/255, green: 231/255, blue: 28/255, alpha: 1)
+        case .sad:
+            return UIColor(displayP3Red: 60/255, green: 89/255, blue: 122/255, alpha: 1)
+        case .angry:
+            return UIColor(displayP3Red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+        case .anxious:
+            return UIColor(displayP3Red: 88/255, green: 86/255, blue: 214/255, alpha: 1)
+        case .indiferent:
+            return UIColor(displayP3Red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
+        }
+    }
 }
+    
 
 extension Day {
     

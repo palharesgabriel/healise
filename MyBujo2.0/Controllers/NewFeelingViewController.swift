@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol NewFeelingViewControllerDelegate {
+    func didAddFeeling()
+}
+
 
 class NewFeelingViewController: UIViewController, ViewCode, Blurable {
 
     var bluredView: UIView?
     let feelingsView = FeelingsView()
+    var day: Day!
+    
+    var delegate: NewFeelingViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +28,7 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didDismissModal))
         bluredView?.addGestureRecognizer(tapGesture)
     }
+    
     
     func buildViewHierarchy() {
         view.addSubview(feelingsView)
@@ -42,11 +50,10 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     }
     
     @objc func didDismissModal() {
-        let day = Day(context: CoreDataManager.context)
-        day.feel = feelingsView.feelingsCardView.selectedFeeling?.feelingTitle.text?.lowercased()
+        day.feeling = Feeling(rawValue: (feelingsView.feelingsCardView.selectedFeeling?.feelingTitle.text)!)
         day.save()
         dismiss(animated: true) {
-            
+            self.delegate.didAddFeeling()
         }
     }
 }

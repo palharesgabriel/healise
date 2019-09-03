@@ -13,11 +13,11 @@ class FeelingsCardView: UIView, ViewCode {
     var selectedFeeling: FeelingView?
     
     let feelsStackView = [
-        FeelingView(title: "Happy", circleColor: .yellow)
-        ,FeelingView(title: "Sad", circleColor: .purple)
-        ,FeelingView(title: "Anger", circleColor: .red)
-        ,FeelingView(title: "Lovely", circleColor: .magenta)
-        ,FeelingView(title: "Tired", circleColor: .brown)
+        FeelingView(title: "Happy", circleColor: Feeling.happy.color)
+        ,FeelingView(title: "Sad", circleColor: Feeling.sad.color)
+        ,FeelingView(title: "Angry", circleColor: Feeling.angry.color)
+        ,FeelingView(title: "Anxious", circleColor: Feeling.anxious.color)
+        ,FeelingView(title: "Indiferent", circleColor: Feeling.indiferent.color)
     ]
     
     let stackView: UIStackView = {

@@ -10,7 +10,8 @@ import Foundation
 import JTAppleCalendar
 
 class DayCell: JTACDayCell, ViewCode {
-
+    
+    var day: Day?
     
     var label: UILabel = {
         let label = UILabel()
@@ -85,6 +86,10 @@ class DayCell: JTACDayCell, ViewCode {
         label.text = cellState.text
         handleCellTextColor(cellState: cellState)
         handleCellSelected(cellState: cellState)
+        
+        guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(cellState.date.ignoringTime()!).predicate) else { return }
+        guard let day = result.first as? Day else { return }
+        handleMoodIndicator(feeling: day.feeling)
     }
     
     func handleCellTextColor(cellState: CellState) {
@@ -102,5 +107,15 @@ class DayCell: JTACDayCell, ViewCode {
             selectedView.isHidden = true
         }
         selectedView.layer.cornerRadius = 24
+    }
+    func handleMoodIndicator(feeling: Feeling?){
+        if let feeling = feeling{
+            moodIndicator.backgroundColor = feeling.color
+            moodIndicator.isHidden = false
+        }
+        else{
+            moodIndicator.isHidden = true
+        }
+        
     }
 }
