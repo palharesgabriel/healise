@@ -61,7 +61,8 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
 
 extension MyTodayViewController: NewGoalViewControllerDelegate{
     func didDismissWithDescript() {
-        tableView.reloadData()
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? GoalsTableViewCell else{ return }
+        cell.tableView.reloadData()
     }
     
     func didDismissWithoutDescript() {
@@ -70,7 +71,8 @@ extension MyTodayViewController: NewGoalViewControllerDelegate{
 }
 
 extension MyTodayViewController: NewFeelingViewControllerDelegate{
-    func didAddFeeling() {
-        tableView.reloadData()
+    func didAddFeeling(date: Date) {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else{ return }
+        cell.calendarView.reloadData(withAnchor: date, completionHandler: nil)
     }
 }

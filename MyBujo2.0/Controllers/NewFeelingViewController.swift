@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NewFeelingViewControllerDelegate {
-    func didAddFeeling()
+    func didAddFeeling(date: Date)
 }
 
 
@@ -53,7 +53,7 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
         day.feeling = Feeling(rawValue: (feelingsView.feelingsCardView.selectedFeeling?.feelingTitle.text)!)
         day.save()
         dismiss(animated: true) {
-            self.delegate.didAddFeeling()
+            self.delegate.didAddFeeling(date: self.day.date!)
         }
     }
 }
