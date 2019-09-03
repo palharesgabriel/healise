@@ -115,7 +115,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 152
+            return 160
         case 1:
             return tableView.frame.size.height/3
         case 2:

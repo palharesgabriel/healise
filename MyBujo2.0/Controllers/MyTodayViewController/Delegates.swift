@@ -36,7 +36,9 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
         viewCont.definesPresentationContext = true
         
         let newFeelingViewController = NewFeelingViewController()
+        newFeelingViewController.day = self.day
         newFeelingViewController.modalPresentationStyle = .overCurrentContext
+        newFeelingViewController.delegate = self
         viewCont.present(newFeelingViewController, animated: true, completion: nil)
     }
     
@@ -64,5 +66,11 @@ extension MyTodayViewController: NewGoalViewControllerDelegate{
     
     func didDismissWithoutDescript() {
         //
+    }
+}
+
+extension MyTodayViewController: NewFeelingViewControllerDelegate{
+    func didAddFeeling() {
+        tableView.reloadData()
     }
 }

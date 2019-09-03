@@ -41,7 +41,7 @@ class FormView: UIView, Shadow, ViewCode {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Done", for: .normal)
         btn.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 24)
-        btn.setTitleColor(UIColor(named: "TitleColor"), for: .normal)
+        btn.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
         return btn
     }()
     
