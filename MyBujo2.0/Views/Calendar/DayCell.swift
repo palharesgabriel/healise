@@ -86,7 +86,7 @@ class DayCell: JTACDayCell, ViewCode {
         label.text = cellState.text
         handleCellTextColor(cellState: cellState)
         handleCellSelected(cellState: cellState)
-        
+        moodIndicator.isHidden = true
         guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(cellState.date.ignoringTime()!).predicate) else { return }
         guard let day = result.first as? Day else { return }
         handleMoodIndicator(feeling: day.feeling)
