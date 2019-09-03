@@ -61,8 +61,7 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
 
 extension MyTodayViewController: NewGoalViewControllerDelegate{
     func didDismissWithDescript() {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? GoalsTableViewCell else{ return }
-        cell.tableView.reloadData()
+        tableView.reloadData()
     }
     
     func didDismissWithoutDescript() {
