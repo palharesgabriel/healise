@@ -9,69 +9,87 @@
 import Foundation
 import JTAppleCalendar
 
-class DayCell: JTACDayCell {
-    var label = UILabel()
-    var moodIndicator = UIView()
-    var selectedView = UIView()
+class DayCell: JTACDayCell, ViewCode {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        constraintLabel()
-        constraintMoodIndicator()
-        constraintSelectedView()
-//        contentView.backgroundColor = .white
-    }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        constraintLabel()
-    }
+    var day: Day?
     
-    func constraintLabel() {
+    var label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        return label
+    }()
+    
+    var moodIndicator: UIView = {
+        let moodIndicator = UIView()
+        moodIndicator.clipsToBounds = true
+        moodIndicator.layer.cornerRadius = 4
+        moodIndicator.isHidden = true
+        return moodIndicator
+    }()
+    
+    var selectedView: UIView = {
+        let selectedView = UIView()
+        selectedView.clipsToBounds = true
+        selectedView.backgroundColor = UIColor(named: "SelectionColor")
+        selectedView.isHidden = true
+        return selectedView
+    }()
+    
+    func buildViewHierarchy() {
+        contentView.addSubview(selectedView)
         contentView.addSubview(label)
+        contentView.addSubview(moodIndicator)
+    }
+    
+    func setupConstraints() {
         label.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             label.widthAnchor.constraint(equalTo: label.heightAnchor)
             ])
-        label.textAlignment = .center
-        label.font = UIFont(name: "AvenirNext-Medium", size: 16)
-    }
-    
-    func constraintMoodIndicator() {
-        contentView.addSubview(moodIndicator)
+        
         moodIndicator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             moodIndicator.centerXAnchor.constraint(equalTo: label.centerXAnchor),
-            moodIndicator.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 2),
-            moodIndicator.widthAnchor.constraint(equalToConstant: 4),
-            moodIndicator.heightAnchor.constraint(equalToConstant: 4)
+            moodIndicator.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 0),
+            moodIndicator.widthAnchor.constraint(equalToConstant: 8),
+            moodIndicator.heightAnchor.constraint(equalToConstant: 8)
             ])
-        moodIndicator.clipsToBounds = true
-        moodIndicator.layer.cornerRadius = 2
-        moodIndicator.backgroundColor = .green
-    }
-    
-    func constraintSelectedView() {
-        contentView.addSubview(selectedView)
+        
         selectedView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         NSLayoutConstraint.activate([
-            selectedView.widthAnchor.constraint(equalTo: label.heightAnchor, multiplier: 2.0),
+            selectedView.widthAnchor.constraint(equalToConstant: 48),
             selectedView.heightAnchor.constraint(equalTo: selectedView.widthAnchor),
             selectedView.centerXAnchor.constraint(equalTo: label.centerXAnchor),
             selectedView.centerYAnchor.constraint(equalTo: label.centerYAnchor)
             ])
-        selectedView.clipsToBounds = true
-        selectedView.backgroundColor = UIColor(displayP3Red: 1/255, green: 1/255, blue: 1/255, alpha: 0.2)
-        selectedView.isHidden = true
+        
+        
     }
     
-    func configureCell(cellState: CellState) {
+    func setupAdditionalConfigurantion() {
+        
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+//        contentView.backgroundColor = .white
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func setupCell(cellState: CellState) {
         label.text = cellState.text
         handleCellTextColor(cellState: cellState)
         handleCellSelected(cellState: cellState)
+        moodIndicator.isHidden = true
+        guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(cellState.date.ignoringTime()!).predicate) else { return }
+        guard let day = result.first as? Day else { return }
+        handleMoodIndicator(feeling: day.feeling)
     }
     
     func handleCellTextColor(cellState: CellState) {
@@ -88,6 +106,16 @@ class DayCell: JTACDayCell {
         } else {
             selectedView.isHidden = true
         }
-        selectedView.layer.cornerRadius = selectedView.frame.size.width/2
+        selectedView.layer.cornerRadius = 24
+    }
+    func handleMoodIndicator(feeling: Feeling?){
+        if let feeling = feeling{
+            moodIndicator.backgroundColor = feeling.color
+            moodIndicator.isHidden = false
+        }
+        else{
+            moodIndicator.isHidden = true
+        }
+        
     }
 }
