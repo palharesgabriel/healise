@@ -205,6 +205,14 @@
 			path = MyJourneyViews;
 			sourceTree = "<group>";
 		};
+		305F5751231E8E4400A220FD /* MyJourneyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */,
+			);
+			path = MyJourneyViewController;
+			sourceTree = "<group>";
+		};
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,8 +230,8 @@
 		30AD9B1D230AE11800B39434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				305F5751231E8E4400A220FD /* MyJourneyViewController */,
 				30ADD66B231D3947001CAF1C /* MyTodayViewController */,
-				AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */,
 				E8535A03231562AB009AB979 /* NotesViewController.swift */,
 				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
