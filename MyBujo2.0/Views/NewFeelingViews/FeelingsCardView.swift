@@ -13,16 +13,11 @@ class FeelingsCardView: UIView, ViewCode {
     var selectedFeeling: FeelingView?
     
     let feelsStackView = [
-        FeelingView(title: "Happy", circleColor: .yellow)
-        ,FeelingView(title: "Sad", circleColor: .purple)
-        ,FeelingView(title: "Anger", circleColor: .red)
-        ,FeelingView(title: "Lovely", circleColor: .magenta)
-        ,FeelingView(title: "Tired", circleColor: .brown)
-        ,FeelingView(title: "Happy", circleColor: .yellow)
-        ,FeelingView(title: "Sad", circleColor: .purple)
-        ,FeelingView(title: "Anger", circleColor: .red)
-        ,FeelingView(title: "Lovely", circleColor: .magenta)
-        ,FeelingView(title: "Tired", circleColor: .brown)
+        FeelingView(feeling: Feeling.sad, circleColor: Feeling.sad.color)
+        ,FeelingView(feeling: Feeling.angry, circleColor: Feeling.angry.color)
+        ,FeelingView(feeling: Feeling.anxious, circleColor: Feeling.anxious.color)
+        ,FeelingView(feeling: Feeling.indiferent, circleColor: Feeling.indiferent.color)
+        ,FeelingView(feeling: Feeling.happy, circleColor: Feeling.happy.color)
     ]
     
     let stackView: UIStackView = {
@@ -35,8 +30,7 @@ class FeelingsCardView: UIView, ViewCode {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         setupView()
-        stackView.distribution = .equalSpacing
-        stackView.alignment = .
+        stackView.distribution = .fillEqually
         feelsStackView.forEach { view in
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didSelect(_:)))
             view.addGestureRecognizer(tapGesture)

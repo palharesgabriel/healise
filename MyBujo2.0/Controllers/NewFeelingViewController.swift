@@ -50,7 +50,7 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     }
     
     @objc func didDismissModal() {
-        day.feeling = Feeling(rawValue: (feelingsView.feelingsCardView.selectedFeeling?.feelingTitle.text)!)
+        day.feeling = feelingsView.feelingsCardView.selectedFeeling?.feeling
         day.save()
         dismiss(animated: true) {
             self.delegate.didAddFeeling(date: self.day.date!)

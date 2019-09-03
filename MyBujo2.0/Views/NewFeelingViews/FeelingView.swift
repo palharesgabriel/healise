@@ -12,6 +12,8 @@ class FeelingView: UIView, ViewCode {
     
     var isSelected = false
     
+    var feeling: Feeling!
+    
     let feelingCircle: UIView = {
        let v = UIView()
        v.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +25,6 @@ class FeelingView: UIView, ViewCode {
        let lbl = UILabel()
        lbl.translatesAutoresizingMaskIntoConstraints = false
        lbl.textAlignment = .center
-       lbl.adjustsFontSizeToFitWidth = true
        return lbl
     }()
     
@@ -33,9 +34,10 @@ class FeelingView: UIView, ViewCode {
         setupView()
     }
     
-    convenience init(title: String, circleColor: UIColor) {
+    convenience init(feeling: Feeling, circleColor: UIColor) {
         self.init()
-        feelingTitle.text = title
+        self.feeling = feeling
+        feelingTitle.text = feeling.rawValue
         feelingCircle.backgroundColor = circleColor
         
     }
@@ -77,7 +79,7 @@ class FeelingView: UIView, ViewCode {
             feelingCircle.self.layer.borderWidth = 1
         } else {
             feelingCircle.layer.borderColor = UIColor.black.cgColor
-            feelingCircle.self.layer.borderWidth = 5
+            feelingCircle.self.layer.borderWidth = 2
         }
 
         self.isSelected = !isSelected

@@ -27,7 +27,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     lazy var buttonAddGoal: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitleColor(UIColor(named: "TitleColor")!, for: .normal)
+        btn.setTitleColor(UIColor(named: "ActionColor")!, for: .normal)
         btn.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 24)
         return btn
     }()
