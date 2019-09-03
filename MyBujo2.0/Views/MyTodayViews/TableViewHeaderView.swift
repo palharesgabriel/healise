@@ -34,7 +34,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     
     func setupHeader(headerTitle: String, buttonTitle: String? = nil) {
         headerLabel.text = headerTitle
-        if let buttonTitle = buttonTitle{
+        if let buttonTitle = buttonTitle {
             hasButton = true
             buttonAddGoal.setTitle(buttonTitle, for: .normal)
         }

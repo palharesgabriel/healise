@@ -62,7 +62,7 @@ class NotesView: UIView, ViewCode {
         NSLayoutConstraint.activate([
             labelNote.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             labelNote.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            labelNote.trailingAnchor.constraint(equalTo: noteButton.leadingAnchor, constant: -16),
+            labelNote.trailingAnchor.constraint(equalTo: noteButton.leadingAnchor, constant: -16)
             ])
         
         NSLayoutConstraint.activate([

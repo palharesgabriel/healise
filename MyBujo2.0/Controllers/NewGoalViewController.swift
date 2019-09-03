@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol NewGoalViewControllerDelegate{
+protocol NewGoalViewControllerDelegate {
     func didDismissWithDescript()
     func didDismissWithoutDescript()
 }
@@ -65,8 +65,7 @@ extension NewGoalViewController: FormViewDelegate {
             dismiss(animated: true, completion: {
                 self.delegate.didDismissWithDescript()
             })
-        }
-        else {
+        } else {
             dismiss(animated: true, completion: {
                 self.delegate.didDismissWithoutDescript()
             })

@@ -15,10 +15,10 @@ class FeelingView: UIView, ViewCode {
     var feeling: Feeling!
     
     let feelingCircle: UIView = {
-       let v = UIView()
-       v.translatesAutoresizingMaskIntoConstraints = false
+       let view = UIView()
+       view.translatesAutoresizingMaskIntoConstraints = false
        
-       return v
+       return view
     }()
     
     let feelingTitle: UILabel = {

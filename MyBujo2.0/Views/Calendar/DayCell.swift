@@ -108,12 +108,11 @@ class DayCell: JTACDayCell, ViewCode {
         }
         selectedView.layer.cornerRadius = 24
     }
-    func handleMoodIndicator(feeling: Feeling?){
-        if let feeling = feeling{
+    func handleMoodIndicator(feeling: Feeling?) {
+        if let feeling = feeling {
             moodIndicator.backgroundColor = feeling.color
             moodIndicator.isHidden = false
-        }
-        else{
+        } else {
             moodIndicator.isHidden = true
         }
         

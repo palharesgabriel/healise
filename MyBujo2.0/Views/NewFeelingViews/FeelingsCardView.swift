@@ -61,7 +61,7 @@ class FeelingsCardView: UIView, ViewCode {
     }
     
     @objc func didSelect(_ sender: UITapGestureRecognizer) {
-        guard let feelingView = sender.view as? FeelingView else{
+        guard let feelingView = sender.view as? FeelingView else {
             return
         }
         if selectedFeeling == nil || selectedFeeling != feelingView {

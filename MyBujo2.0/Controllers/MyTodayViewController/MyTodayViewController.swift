@@ -140,7 +140,3 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
-
-
-
