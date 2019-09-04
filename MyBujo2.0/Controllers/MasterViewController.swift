@@ -44,10 +44,10 @@ extension UIButton {
 
 class MasterViewController: UIViewController, ViewCode {
     
-    let monthLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 60, textColor: UIColor(named:"StartColor")!)
-    let dayLabel = UILabel(text: "Good", font: "Avenir Next", fontSize: 30, textColor: UIColor(named:"StartColor")!)
-    let yearLabel = UILabel(text: "morning.", font: "Avenir Next", fontSize: 30, textColor:  UIColor(named:"StartColor")!)
-
+    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 60, textColor: UIColor(named:"StartColor")!)
+    let goodLabel = UILabel(text: "Good", font: "Avenir Next", fontSize: 30, textColor: UIColor(named:"StartColor")!)
+    let dayStatusLabel = UILabel(text: "morning.", font: "Avenir Next", fontSize: 30, textColor:  UIColor(named:"StartColor")!)
+    
     let myJourneyButton = UIButton(title: "🏠 You Journey")
     let myTodayButton = UIButton(title: "📅 Today")
     let supportButton = UIButton(title: "⛑ Support")
@@ -55,11 +55,11 @@ class MasterViewController: UIViewController, ViewCode {
     
     var viewControllers: [UINavigationController] = []
     
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-       
+        
         myTodayButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
         myJourneyButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
         supportButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
@@ -70,30 +70,30 @@ class MasterViewController: UIViewController, ViewCode {
     
     
     func buildViewHierarchy() {
-        view.addSubviews([monthLabel, dayLabel, yearLabel, myTodayButton,
+        view.addSubviews([nameLabel, goodLabel, dayStatusLabel, myTodayButton,
                           myJourneyButton, supportButton, settingsButton ])
     }
     
     func setupConstraints() {
-     
+        
         
         NSLayoutConstraint.activate([
             
-            monthLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
-            monthLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-            dayLabel.topAnchor.constraint(equalTo: monthLabel.bottomAnchor , constant: 0),
-            dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dayLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
-            dayLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-
-            yearLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 0),
-            yearLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            yearLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
-            yearLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
+            goodLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor , constant: 0),
+            goodLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            goodLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
+            goodLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
             
-            myTodayButton.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 64),
+            
+            dayStatusLabel.topAnchor.constraint(equalTo: goodLabel.bottomAnchor, constant: 0),
+            dayStatusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
+            dayStatusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
+            
+            myTodayButton.topAnchor.constraint(equalTo: dayStatusLabel.bottomAnchor, constant: 64),
             myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             myTodayButton.widthAnchor.constraint(equalToConstant: 150),
             
@@ -109,8 +109,8 @@ class MasterViewController: UIViewController, ViewCode {
             
             settingsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32),
             settingsButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            settingsButton.widthAnchor.constraint(equalToConstant: 150) 
-        ])
+            settingsButton.widthAnchor.constraint(equalToConstant: 150)
+            ])
     }
     
     func setupAdditionalConfigurantion() {
@@ -128,6 +128,6 @@ class MasterViewController: UIViewController, ViewCode {
         
         let navigationController = viewControllers[0]
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
-
+        
     }
 }
