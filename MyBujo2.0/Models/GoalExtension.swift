@@ -10,7 +10,7 @@ import Foundation
 
 extension Goal {
     
-    func save(){
+    func save() {
         CoreDataManager.save()
     }
 }

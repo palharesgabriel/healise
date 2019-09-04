@@ -78,7 +78,7 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MyJourneyViewController: CalendarTableViewCellDelegate{
+extension MyJourneyViewController: CalendarTableViewCellDelegate {
     func didSelectDate(date: Date) {
         //
     }

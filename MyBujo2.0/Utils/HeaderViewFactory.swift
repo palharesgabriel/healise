@@ -20,7 +20,7 @@ struct HeaderViewFactory {
         self.section = section
     }
     
-    func build() -> TableViewHeaderView?{
+    func build() -> TableViewHeaderView? {
         
         switch section {
         case 0:

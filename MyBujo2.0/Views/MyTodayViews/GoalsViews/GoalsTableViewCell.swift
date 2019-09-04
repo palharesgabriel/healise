@@ -13,15 +13,14 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
     
     var lastNumberOfGoals = 0
     
-    var goals: [Goal] = []{
-        didSet{
+    var goals: [Goal] = [] {
+        didSet {
             if lastNumberOfGoals == goals.count - 1 {
                 tableView.insertRows(at: [IndexPath(row: goals.count - 1, section: 0)], with: .automatic)
-                if tableView.numberOfRows(inSection: 0) != 0{
+                if tableView.numberOfRows(inSection: 0) != 0 {
                     tableView.scrollToRow(at: IndexPath(row: tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .bottom, animated: true)
                 }
-            }
-            else{
+            } else {
                 tableView.reloadData()
             }
             

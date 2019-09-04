@@ -160,8 +160,7 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
         if cellState.dateBelongsTo == .thisMonth && !cell!.isSelected {
             return true
-        }
-        else if cellState.dateBelongsTo == .thisMonth && cell!.isSelected {
+        } else if cellState.dateBelongsTo == .thisMonth && cell!.isSelected {
             delegate.shouldShowAddFeelingModal()
             return true
         }

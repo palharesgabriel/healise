@@ -23,7 +23,7 @@ class DayCell: JTACDayCell, ViewCode {
     var moodIndicator: UIView = {
         let moodIndicator = UIView()
         moodIndicator.clipsToBounds = true
-        moodIndicator.layer.cornerRadius = 4
+        moodIndicator.layer.cornerRadius = 3
         moodIndicator.isHidden = true
         return moodIndicator
     }()
@@ -54,8 +54,8 @@ class DayCell: JTACDayCell, ViewCode {
         NSLayoutConstraint.activate([
             moodIndicator.centerXAnchor.constraint(equalTo: label.centerXAnchor),
             moodIndicator.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 0),
-            moodIndicator.widthAnchor.constraint(equalToConstant: 8),
-            moodIndicator.heightAnchor.constraint(equalToConstant: 8)
+            moodIndicator.widthAnchor.constraint(equalToConstant: 6),
+            moodIndicator.heightAnchor.constraint(equalToConstant: 6)
             ])
         
         selectedView.translatesAutoresizingMaskIntoConstraints = false
@@ -108,12 +108,11 @@ class DayCell: JTACDayCell, ViewCode {
         }
         selectedView.layer.cornerRadius = 24
     }
-    func handleMoodIndicator(feeling: Feeling?){
-        if let feeling = feeling{
+    func handleMoodIndicator(feeling: Feeling?) {
+        if let feeling = feeling {
             moodIndicator.backgroundColor = feeling.color
             moodIndicator.isHidden = false
-        }
-        else{
+        } else {
             moodIndicator.isHidden = true
         }
         
