@@ -95,28 +95,20 @@ class MasterViewController: UIViewController, ViewCode {
             
             myTodayButton.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 32),
             myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            myTodayButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
-            myTodayButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
             myTodayButton.widthAnchor.constraint(equalToConstant: 150),
             
             myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 16),
             myJourneyButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
-            myJourneyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
-            myJourneyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
             
             myJourneyButton.widthAnchor.constraint(equalToConstant: 150),
             
             supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 16),
             supportButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
             supportButton.widthAnchor.constraint(equalToConstant: 150),
-            supportButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
-            supportButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
             
             
             settingsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32),
             settingsButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            settingsButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
-            settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
             settingsButton.widthAnchor.constraint(equalToConstant: 150) 
         ])
     }
