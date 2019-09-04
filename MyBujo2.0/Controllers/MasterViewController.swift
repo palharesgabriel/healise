@@ -79,7 +79,7 @@ class MasterViewController: UIViewController, ViewCode {
         
         NSLayoutConstraint.activate([
             
-            monthLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            monthLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
             monthLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
             dayLabel.topAnchor.constraint(equalTo: monthLabel.bottomAnchor , constant: 0),
@@ -93,7 +93,7 @@ class MasterViewController: UIViewController, ViewCode {
             yearLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
             yearLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
             
-            myTodayButton.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 32),
+            myTodayButton.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 64),
             myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             myTodayButton.widthAnchor.constraint(equalToConstant: 150),
             
