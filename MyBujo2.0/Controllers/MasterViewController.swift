@@ -59,7 +59,6 @@ class MasterViewController: UIViewController, ViewCode {
             
             myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 16),
             myJourneyButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
-            
             myJourneyButton.widthAnchor.constraint(equalToConstant: 150),
             
             supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 16),

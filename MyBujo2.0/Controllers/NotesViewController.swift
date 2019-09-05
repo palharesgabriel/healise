@@ -13,7 +13,7 @@ class NotesViewController: UIViewController {
     // MARK: Properties
         let controller = NotesView()
     
-    // MARK: Main
+    // MARK: Initialization
         override func viewDidLoad() {
             super.viewDidLoad()
             view.backgroundColor = .white

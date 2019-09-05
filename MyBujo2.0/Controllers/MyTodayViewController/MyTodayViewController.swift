@@ -10,6 +10,7 @@ import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
     
+    // MARK: Properties
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .clear
@@ -17,29 +18,18 @@ class MyTodayViewController: UIViewController, ViewCode {
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
-    
     var day =  Day(context: CoreDataManager.context) {
         didSet {
             tableView.reloadData()
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController!.navigationBar.isHidden = true
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        guard let calendarView  = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
-        calendarView.viewWillTransition(to: .zero, with: coordinator)
-    }
-    
+
+    // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         setupView()
-        
         guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {
-            
             day = Day(context: CoreDataManager.context)
             guard let dateIgnoringTime = Date().ignoringTime() else { return }
             day.date = dateIgnoringTime
@@ -49,10 +39,21 @@ class MyTodayViewController: UIViewController, ViewCode {
         self.day = result
     }
     
+    
+    // MARK: Override Functions
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.isHidden = true
+    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        guard let calendarView  = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
+        calendarView.viewWillTransition(to: .zero, with: coordinator)
+    }
+    
+    
+    // MARK: Functions
     func buildViewHierarchy() {
         view.addSubview(tableView)
     }
-
     func setupConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -62,15 +63,12 @@ class MyTodayViewController: UIViewController, ViewCode {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }
-
     func setupAdditionalConfigurantion() {
         self.view.backgroundColor = UIColor(named: "BlueBackground")
-        
         
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: CalendarTableViewCell.reuseIdentifier)
         tableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: GoalsTableViewCell.reuseIdentifier)
         tableView.register(MediaTableViewCell.self, forCellReuseIdentifier: MediaTableViewCell.reuseIdentifier)
-        
         tableView.register(CalendarTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: CalendarTableViewHeaderView.reuseIdentifier)
         tableView.register(GoalsTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: GoalsTableViewHeaderView.reuseIdentifier)
         tableView.register(MediaTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: MediaTableViewHeaderView.reuseIdentifier)
@@ -80,14 +78,14 @@ class MyTodayViewController: UIViewController, ViewCode {
 }
 
 extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         switch indexPath.section {

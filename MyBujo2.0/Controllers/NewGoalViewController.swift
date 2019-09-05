@@ -45,6 +45,8 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     }
 }
 
+
+    // MARK: Extension
 extension NewGoalViewController: FormViewDelegate {
     
     @objc func shouldDismissModal() {
