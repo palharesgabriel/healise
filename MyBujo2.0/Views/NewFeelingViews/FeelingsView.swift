@@ -11,6 +11,9 @@ import UIKit
 
 class FeelingsView: UIView, Shadow, ViewCode {
     
+    
+    // MARK: Properties
+    let feelingsCardView = FeelingsCardView()
     let feelingsCardTitle = UILabel(text: "How are you feeling today?", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!)
     
     let doneButton: UIButton = {
@@ -21,22 +24,20 @@ class FeelingsView: UIView, Shadow, ViewCode {
         btn.setTitleColor(UIColor(named: "TitleColor"), for: .normal)
         return btn
     }()
-    
     let feelingsView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    let feelingsCardView = FeelingsCardView()
     
+    // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         setupView()
         addShadow()
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -47,19 +48,19 @@ class FeelingsView: UIView, Shadow, ViewCode {
         addSubview(feelingsCardView)
     }
     
+    
+    // MARK: Functions
     func setupConstraints() {
         NSLayoutConstraint.activate([
             feelingsCardTitle.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             feelingsCardTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            feelingsCardTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
-            ])
-        NSLayoutConstraint.activate([
+            feelingsCardTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            
             feelingsCardView.topAnchor.constraint(equalTo: feelingsCardTitle.bottomAnchor, constant: 8),
             feelingsCardView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             feelingsCardView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            feelingsCardView.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -8)
-            ])
-        NSLayoutConstraint.activate([
+            feelingsCardView.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -8),
+            
             doneButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             doneButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             doneButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)

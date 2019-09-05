@@ -10,6 +10,8 @@ import UIKit
 
 class FeelingsCardView: UIView, ViewCode {
     
+    
+    // MARK: Properties
     var selectedFeeling: FeelingView?
     
     let feelsStackView = [
@@ -19,13 +21,14 @@ class FeelingsCardView: UIView, ViewCode {
         ,FeelingView(feeling: Feeling.indiferent, circleColor: Feeling.indiferent.color)
         ,FeelingView(feeling: Feeling.happy, circleColor: Feeling.happy.color)
     ]
-    
     let stackView: UIStackView = {
        let stack = UIStackView()
        stack.translatesAutoresizingMaskIntoConstraints = false
        return stack
     }()
     
+    
+    // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -36,13 +39,13 @@ class FeelingsCardView: UIView, ViewCode {
             view.addGestureRecognizer(tapGesture)
             stackView.addArrangedSubview(view)
         }
-        
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: Funtions
     func buildViewHierarchy() {
         addSubview(stackView)
     }
@@ -60,6 +63,8 @@ class FeelingsCardView: UIView, ViewCode {
 
     }
     
+    
+    // MARK: Actions Button
     @objc func didSelect(_ sender: UITapGestureRecognizer) {
         guard let feelingView = sender.view as? FeelingView else {
             return
