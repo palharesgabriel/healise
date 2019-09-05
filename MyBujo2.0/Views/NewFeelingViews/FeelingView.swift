@@ -10,17 +10,16 @@ import UIKit
 
 class FeelingView: UIView, ViewCode {
     
-    var isSelected = false
     
+    // MARK: Properties
+    var isSelected = false
     var feeling: Feeling!
     
     let feelingCircle: UIView = {
        let view = UIView()
        view.translatesAutoresizingMaskIntoConstraints = false
-       
        return view
     }()
-    
     let feelingTitle: UILabel = {
        let lbl = UILabel()
        lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -28,12 +27,13 @@ class FeelingView: UIView, ViewCode {
        return lbl
     }()
     
+    
+    // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         setupView()
     }
-    
     convenience init(feeling: Feeling, circleColor: UIColor) {
         self.init()
         self.feeling = feeling
@@ -41,11 +41,12 @@ class FeelingView: UIView, ViewCode {
         feelingCircle.backgroundColor = circleColor
         
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: Functions
     func buildViewHierarchy() {
         addSubview(feelingCircle)
         addSubview(feelingTitle)
@@ -56,10 +57,8 @@ class FeelingView: UIView, ViewCode {
             feelingCircle.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             feelingCircle.widthAnchor.constraint(equalToConstant: 24),
             feelingCircle.heightAnchor.constraint(equalToConstant: 24),
-            feelingCircle.centerXAnchor.constraint(equalTo: centerXAnchor)
-        ])
-
-        NSLayoutConstraint.activate([
+            feelingCircle.centerXAnchor.constraint(equalTo: centerXAnchor),
+        
             feelingTitle.topAnchor.constraint(equalTo: feelingCircle.bottomAnchor, constant: 8),
             feelingTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             feelingTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
