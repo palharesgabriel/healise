@@ -14,7 +14,7 @@ class WeekDaysView: UIStackView {
     // MARK: Properties
     let daysNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
-    //MARK: Initialization
+    // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         distribution = .fillEqually
