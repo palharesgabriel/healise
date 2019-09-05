@@ -8,20 +8,16 @@
 import UIKit
 
 
-protocol NewGoalViewControllerDelegate {
-    func didDismissWithDescript()
-    func didDismissWithoutDescript()
-}
 class NewGoalViewController: UIViewController, ViewCode, Blurable {
     
+    // MARK: Properties
     var day: Day!
-    
     var bluredView: UIView?
-    
     let formView = FormView()
-    
     var delegate: NewGoalViewControllerDelegate!
     
+    
+    // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
         bluredView = addBlur()
@@ -31,10 +27,11 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
         bluredView?.addGestureRecognizer(tapGesture)
     }
     
+    
+    // MARK: Functions
     func buildViewHierarchy() {
         view.addSubview(formView)
     }
-    
     func setupConstraints() {
         NSLayoutConstraint.activate([
             formView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -43,7 +40,6 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
             formView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
             ])
     }
-
     func setupAdditionalConfigurantion() {
         formView.backgroundColor = .white
     }
