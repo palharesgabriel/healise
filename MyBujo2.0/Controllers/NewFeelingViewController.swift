@@ -13,7 +13,6 @@ protocol NewFeelingViewControllerDelegate {
     func didAddFeeling(date: Date)
 }
 
-
 class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     
     
