@@ -44,13 +44,11 @@ class MasterViewController: UIViewController, ViewCode {
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             goodLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor , constant: 0),
-            goodLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            goodLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
+            goodLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             goodLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
             
             dayStatusLabel.topAnchor.constraint(equalTo: goodLabel.bottomAnchor, constant: 0),
-            dayStatusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
+            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             dayStatusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
             
             myTodayButton.topAnchor.constraint(equalTo: dayStatusLabel.bottomAnchor, constant: 64),
