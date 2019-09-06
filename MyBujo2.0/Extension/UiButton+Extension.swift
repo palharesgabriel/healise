@@ -9,11 +9,17 @@
 import UIKit
 
 extension UIButton {
-    convenience init(title: String) {
+    
+    convenience init(title: String, icon: String) {
         self.init()
+        let icon = UIImage(named: icon)
+        self.setImage(icon, for: .normal)
+        self.imageView?.contentMode = .scaleAspectFit
+        self.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setTitle(title, for: .normal)
         self.contentHorizontalAlignment = .left
+        self.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
     }
     
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {
