@@ -78,8 +78,8 @@ class FeelingView: UIView, ViewCode {
             feelingCircle.layer.borderColor = UIColor.clear.cgColor
             feelingCircle.self.layer.borderWidth = 1
         } else {
-            feelingCircle.layer.borderColor = UIColor.black.cgColor
-            feelingCircle.self.layer.borderWidth = 2
+            feelingCircle.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
+            feelingCircle.self.layer.borderWidth = 3
         }
 
         self.isSelected = !isSelected
