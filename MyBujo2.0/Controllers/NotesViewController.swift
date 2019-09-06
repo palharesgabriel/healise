@@ -9,8 +9,11 @@
 import UIKit
 
 class NotesViewController: UIViewController {
-
+    
+    // MARK: Properties
         let controller = NotesView()
+    
+    // MARK: Initialization
         override func viewDidLoad() {
             super.viewDidLoad()
             view.backgroundColor = .white
@@ -21,6 +24,7 @@ class NotesViewController: UIViewController {
     
 }
 
+    // MARK: Extensions
 extension NotesViewController: DismissControllerDelegate {
     func closeViewController() {
         self.dismiss(animated: true, completion: nil)
