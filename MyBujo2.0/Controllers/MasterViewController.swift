@@ -14,10 +14,10 @@ class MasterViewController: UIViewController, ViewCode {
 
     let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"StartColor")!)
     let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"StartColor")!)
-    let myJourneyButton = UIButton(title: "   You Journey",icon: "journey")
-    let myTodayButton = UIButton(title: " Today",icon: "today")
-    let supportButton = UIButton(title: " Support",icon: "support")
-    let settingsButton = UIButton(title: " Settings",icon: "settings")
+    let myTodayButton = NavigationButton(title: "      Today",icon: "today", idColor: 0)
+    let myJourneyButton = NavigationButton(title: "        You Journey",icon: "journey", idColor: 1)
+    let supportButton = NavigationButton(title: "      Support",icon: "support", idColor: 2)
+    let settingsButton = NavigationButton(title: "      Settings",icon: "settings", idColor: 3)
     var viewControllers: [UINavigationController] = []
     
     
@@ -25,7 +25,7 @@ class MasterViewController: UIViewController, ViewCode {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        myTodayButton.addTarget(self, action: #selector(didShowMyTodayViewController(_:)), for: .touchDown)
+        myTodayButton.addTarget(self, action: #selector(didClickMyTodayButton(_:)), for: .touchDown)
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
     }
     
@@ -45,21 +45,25 @@ class MasterViewController: UIViewController, ViewCode {
             dayStatusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
             
             myTodayButton.topAnchor.constraint(equalTo: dayStatusLabel.bottomAnchor, constant: 112),
-            myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor,constant: 30),
-            myTodayButton.widthAnchor.constraint(equalToConstant: 150),
+            myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor,constant: 0),
+            myTodayButton.widthAnchor.constraint(equalToConstant: 190),
+            myTodayButton.heightAnchor.constraint(equalToConstant: 45),
             
             myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 32),
             myJourneyButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
-            myJourneyButton.widthAnchor.constraint(equalToConstant: 150),
+            myJourneyButton.widthAnchor.constraint(equalToConstant: 190),
+            myJourneyButton.heightAnchor.constraint(equalToConstant: 45),
             
             supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 32),
             supportButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
-            supportButton.widthAnchor.constraint(equalToConstant: 150),
+            supportButton.widthAnchor.constraint(equalToConstant: 190),
+            supportButton.heightAnchor.constraint(equalToConstant: 45),
             
             
             settingsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32),
             settingsButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
-            settingsButton.widthAnchor.constraint(equalToConstant: 150)
+            settingsButton.widthAnchor.constraint(equalToConstant: 190),
+            settingsButton.heightAnchor.constraint(equalToConstant: 45),
             ])
     }
     func setupAdditionalConfigurantion() {
@@ -67,14 +71,26 @@ class MasterViewController: UIViewController, ViewCode {
     }
     
     // MARK: Action Buttons
-    @objc func didShowMyJourneyViewController(_ sender: UIButton) {
+    @objc func didShowMyJourneyViewController(_ sender: NavigationButton) {
+        updateButtons(sender: sender)
         self.splitViewController?.preferredDisplayMode = .automatic
         let navigationController = viewControllers[1]
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
     }
-    @objc func didShowMyTodayViewController(_ sender: UIButton) {
+    @objc func didClickMyTodayButton(_ sender: NavigationButton) {
+        updateButtons(sender: sender)
+        
         let navigationController = viewControllers[0]
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
         
+    }
+    
+    func updateButtons(sender: NavigationButton){
+        NavigationButton.selectedId = sender.id
+        
+        myTodayButton.changeColors()
+        myJourneyButton.changeColors()
+        supportButton.changeColors()
+        settingsButton.changeColors()
     }
 }
