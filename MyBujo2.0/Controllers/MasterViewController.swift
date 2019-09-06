@@ -14,8 +14,8 @@ class MasterViewController: UIViewController, ViewCode {
     let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 60, textColor: UIColor(named:"StartColor")!)
     let goodLabel = UILabel(text: "Good", font: "Avenir Next", fontSize: 30, textColor: UIColor(named:"StartColor")!)
     let dayStatusLabel = UILabel(text: "morning.", font: "Avenir Next", fontSize: 30, textColor:  UIColor(named:"StartColor")!)
-    let myJourneyButton = UIButton(title: "🏠 You Journey")
-    let myTodayButton = UIButton(title: "📅 Today")
+    let myJourneyButton = UIButton(title: "🏠 Journey")
+    let myTodayButton = UIButton(title: "📅 Daily")
     let supportButton = UIButton(title: "⛑ Support")
     let settingsButton = UIButton(title: "⚙️ Settings")
     var viewControllers: [UINavigationController] = []
