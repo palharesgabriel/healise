@@ -10,6 +10,7 @@ import UIKit
 
 class CustomSplitViewController: UISplitViewController {
     
+    
     // MARK: Properties
     var controllers = [UIViewController]()
     

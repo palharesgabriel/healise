@@ -32,6 +32,7 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
         bluredView?.addGestureRecognizer(tapGesture)
     }
     
+    
     // MARK: Functions
     func buildViewHierarchy() {
         view.addSubview(feelingsView)
@@ -49,6 +50,7 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     func setupAdditionalConfigurantion() {
         feelingsView.backgroundColor = .white
     }
+    
     
     // MARK: Action Buttons
     @objc func didDismissModal() {

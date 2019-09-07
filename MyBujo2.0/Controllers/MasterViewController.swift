@@ -11,7 +11,6 @@ import UIKit
 class MasterViewController: UIViewController, ViewCode {
     
     // MARK: Properties
-
     let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"StartColor")!)
     let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"StartColor")!)
     let myTodayButton = NavigationButton(title: "      Today",icon: "today", idColor: 0)
@@ -29,6 +28,7 @@ class MasterViewController: UIViewController, ViewCode {
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
     }
     
+    
     // MARK: Functions
     func buildViewHierarchy() {
         view.addSubviews([nameLabel, dayStatusLabel, myTodayButton,
@@ -41,34 +41,43 @@ class MasterViewController: UIViewController, ViewCode {
 
             
             dayStatusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0),
-            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            dayStatusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
+            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
             
             myTodayButton.topAnchor.constraint(equalTo: dayStatusLabel.bottomAnchor, constant: 112),
             myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor,constant: 0),
-            myTodayButton.widthAnchor.constraint(equalToConstant: 190),
+            myTodayButton.widthAnchor.constraint(equalTo:self.view.widthAnchor,constant: -16),
             myTodayButton.heightAnchor.constraint(equalToConstant: 45),
             
             myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 32),
             myJourneyButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
-            myJourneyButton.widthAnchor.constraint(equalToConstant: 190),
+            myJourneyButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
             myJourneyButton.heightAnchor.constraint(equalToConstant: 45),
             
             supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 32),
             supportButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
-            supportButton.widthAnchor.constraint(equalToConstant: 190),
+            supportButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
             supportButton.heightAnchor.constraint(equalToConstant: 45),
             
             
             settingsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32),
             settingsButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
-            settingsButton.widthAnchor.constraint(equalToConstant: 190),
-            settingsButton.heightAnchor.constraint(equalToConstant: 45),
+            settingsButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
+            settingsButton.heightAnchor.constraint(equalToConstant: 45)
             ])
     }
     func setupAdditionalConfigurantion() {
         view.backgroundColor = UIColor(named: "BlueBackground")
     }
+    func updateButtons(sender: NavigationButton) {
+        NavigationButton.selectedId = sender.id
+        
+        myTodayButton.changeColors()
+        myJourneyButton.changeColors()
+        supportButton.changeColors()
+        settingsButton.changeColors()
+    }
+    
+    
     
     // MARK: Action Buttons
     @objc func didShowMyJourneyViewController(_ sender: NavigationButton) {
@@ -85,12 +94,5 @@ class MasterViewController: UIViewController, ViewCode {
         
     }
     
-    func updateButtons(sender: NavigationButton){
-        NavigationButton.selectedId = sender.id
-        
-        myTodayButton.changeColors()
-        myJourneyButton.changeColors()
-        supportButton.changeColors()
-        settingsButton.changeColors()
-    }
+    
 }
