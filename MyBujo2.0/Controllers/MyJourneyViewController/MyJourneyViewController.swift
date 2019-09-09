@@ -10,6 +10,7 @@ import UIKit
 import JTAppleCalendar
 class MyJourneyViewController: UIViewController, ViewCode {
     
+    // MARK: Properties
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .clear
@@ -19,10 +20,30 @@ class MyJourneyViewController: UIViewController, ViewCode {
         return tableView
     }()
     
+    
+    // MARK: Initialization
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor(named: "BlueBackground")
+        setupView()
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    // MARK: Override Functions
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController!.navigationBar.isHidden = true
+    }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        guard let calendarCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
+        calendarCell.viewWillTransition(to: size, with: coordinator)
+    }
+    
+    
+    // MARK: Functions
     func buildViewHierarchy() {
         view.addSubview(tableView)
     }
-    
     func setupConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -32,28 +53,15 @@ class MyJourneyViewController: UIViewController, ViewCode {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }
-    
     func setupAdditionalConfigurantion() {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController!.navigationBar.isHidden = true
-    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "BlueBackground")
-        setupView()
-        // Do any additional setup after loading the view.
-    }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        guard let calendarCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
-        calendarCell.viewWillTransition(to: size, with: coordinator)
-    }
 }
+
+
 
 extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,6 +94,4 @@ extension MyJourneyViewController: CalendarTableViewCellDelegate {
     func shouldShowAddFeelingModal() {
         //
     }
-    
-    
 }
