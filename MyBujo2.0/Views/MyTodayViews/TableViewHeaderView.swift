@@ -25,10 +25,11 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
         lbl.textColor = UIColor(named: "TitleColor")!
         return lbl
     }()
+    
     lazy var buttonAddGoal: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitleColor(UIColor(named: "ActionColor")!, for: .normal)
+        btn.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
         btn.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 24)
         return btn
     }()
