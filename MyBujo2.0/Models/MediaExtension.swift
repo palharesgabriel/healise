@@ -10,4 +10,7 @@ import Foundation
 
 extension Media {
     
+    func save(){
+        CoreDataManager.save()
+    }
 }

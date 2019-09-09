@@ -11,7 +11,6 @@ import UIKit
 class NewGoalViewController: UIViewController, ViewCode, Blurable {
     
     // MARK: Properties
-    var day: Day!
     var bluredView: UIView?
     let formView = FormView()
     var delegate: NewGoalViewControllerDelegate!
@@ -58,8 +57,8 @@ extension NewGoalViewController: FormViewDelegate {
             let goal = Goal(context: CoreDataManager.context)
             goal.descript = descript
             goal.completed = false
-            day.addToGoals(goal)
-            day.save()
+            CalendarManager.shared.selectedDay.addToGoals(goal)
+            CalendarManager.shared.selectedDay.save()
             dismiss(animated: true, completion: {
                 self.delegate.didDismissWithDescript()
             })

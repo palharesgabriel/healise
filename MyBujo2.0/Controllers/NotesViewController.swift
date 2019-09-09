@@ -11,22 +11,38 @@ import UIKit
 class NotesViewController: UIViewController {
     
     // MARK: Properties
-        let controller = NotesView()
+    let notesView = NotesView()
     
     // MARK: Initialization
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            view.backgroundColor = .white
-            navigationController?.navigationBar.isHidden = true
-            self.view = self.controller
-            self.controller.delegate = self
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        navigationController?.navigationBar.isHidden = true
+        self.view = self.notesView
+        self.notesView.delegate = self
+        
+        if let text =  CalendarManager.shared.selectedDay.media?.note{
+            notesView.noteTextField.text = text
         }
-    
+    }
 }
 
     // MARK: Extensions
 extension NotesViewController: DismissControllerDelegate {
     func closeViewController() {
+        
+        if let text = notesView.noteTextField.text{
+            if let media = CalendarManager.shared.selectedDay.media{
+                media.note = text
+            }
+            else{
+                let media = Media(context: CoreDataManager.context)
+                media.note = text
+                CalendarManager.shared.selectedDay.media = media
+                CalendarManager.shared.selectedDay.save()
+            }
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
 }
