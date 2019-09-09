@@ -67,9 +67,10 @@ class MasterViewController: UIViewController, ViewCode {
     }
     func setupAdditionalConfigurantion() {
         view.backgroundColor = UIColor(named: "BlueBackground")
+        updateButtons(sender: myTodayButton)
     }
     func updateButtons(sender: NavigationButton) {
-        NavigationButton.selectedId = sender.id
+        NavigationButton.selectedId = sender.identifier
         
         myTodayButton.changeColors()
         myJourneyButton.changeColors()
