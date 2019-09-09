@@ -106,9 +106,9 @@ extension GoalsTableViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             let goal = goals[indexPath.row]
-            guard let d = day else { return }
-            d.removeFromGoals(goal)
-            d.save()
+            guard let day = day else { return }
+            day.removeFromGoals(goal)
+            day.save()
             goals.remove(at: indexPath.row)
             
             tableView.reloadData()
