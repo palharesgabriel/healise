@@ -91,7 +91,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: GoalsTableViewCell.reuseIdentifier, for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
             guard let goals = day.goals?.array as? [Goal] else { return GoalsTableViewCell() }
-            goalsCell.setupCell(goals: goals)
+            goalsCell.setupCell(goals: goals, day: day)
             return goalsCell
         case 2:
             guard let mediaCell = tableView.dequeueReusableCell(withIdentifier: MediaTableViewCell.reuseIdentifier) as? MediaTableViewCell else { return UITableViewCell() }

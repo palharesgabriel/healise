@@ -38,7 +38,7 @@ class MasterViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
             nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 28),
-
+            
             
             dayStatusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0),
             dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
@@ -92,8 +92,5 @@ class MasterViewController: UIViewController, ViewCode {
         
         let navigationController = viewControllers[0]
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
-        
     }
-    
-    
 }
