@@ -70,7 +70,7 @@ class MasterViewController: UIViewController, ViewCode {
         updateButtons(sender: myTodayButton)
     }
     func updateButtons(sender: NavigationButton) {
-        NavigationButton.selectedId = sender.id
+        NavigationButton.selectedId = sender.identifier
         
         myTodayButton.changeColors()
         myJourneyButton.changeColors()
