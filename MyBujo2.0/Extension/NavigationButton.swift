@@ -37,7 +37,7 @@ class NavigationButton: UIButton {
             imageView?.tintColor = .white
             setTitleColor(UIColor.white, for: .normal)
             titleLabel?.textColor = .white
-            backgroundColor = UIColor(named: "StartColor")
+            backgroundColor = UIColor(named: "SelectionColor")
         }
             
         else {

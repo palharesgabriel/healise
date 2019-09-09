@@ -11,8 +11,8 @@ import UIKit
 class MasterViewController: UIViewController, ViewCode {
     
     // MARK: Properties
-    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"StartColor")!)
-    let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"StartColor")!)
+    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"SelectionColor")!)
+    let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"SelectionColor")!)
     let myTodayButton = NavigationButton(title: "      Today",icon: "today", idColor: 0)
     let myJourneyButton = NavigationButton(title: "        You Journey",icon: "journey", idColor: 1)
     let supportButton = NavigationButton(title: "      Support",icon: "support", idColor: 2)
@@ -67,6 +67,7 @@ class MasterViewController: UIViewController, ViewCode {
     }
     func setupAdditionalConfigurantion() {
         view.backgroundColor = UIColor(named: "BlueBackground")
+        updateButtons(sender: myTodayButton)
     }
     func updateButtons(sender: NavigationButton) {
         NavigationButton.selectedId = sender.id
