@@ -28,8 +28,21 @@ class CustomSplitViewController: UISplitViewController {
         if let masterViewController = controllers.first as? MasterViewController {
             masterViewController.viewControllers = [navigationControllers[1], navigationControllers[2]]
         }
+        if UIDevice.current.orientation.isLandscape {
+            self.preferredPrimaryColumnWidthFraction = 0.2
+        } else {
+            self.preferredPrimaryColumnWidthFraction = 0.3
+        }
         self.viewControllers = [navigationControllers[0], navigationControllers[1]]
-        self.preferredPrimaryColumnWidthFraction = 0.2
         self.setValue(0.0, forKey: "gutterWidth")
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if UIDevice.current.orientation.isLandscape {
+            self.preferredPrimaryColumnWidthFraction = 0.2
+        } else {
+            self.preferredPrimaryColumnWidthFraction = 0.3
+        }
     }
 }
