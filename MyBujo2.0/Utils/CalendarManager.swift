@@ -20,12 +20,35 @@ class CalendarManager: NSObject {
     
     var year = Year()
     
+    var currentDate: Day {
+        guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {
+            let day = Day(context: CoreDataManager.context)
+            guard let dateIgnoringTime = Date().ignoringTime() else { return day}
+            day.date = dateIgnoringTime
+            day.save()
+            return day
+        }
+         return result
+    }
+    
+    var selectedDay: Day!
+    
     var currentDay = Calendar.current.component(.day, from: Date())
     var currentMonth = Calendar.current.component(.month, from: Date())
     var currentYear = Calendar.current.component(.year, from: Date())
     
     
-    func fillYear(year: Int) {
+    
+    
+    func getDaysInMonth(month: Int) -> Int {
+        return (year.months[month]?.days.count)!
+    }
+    
+    func getFirstWeekDayOfMonth(month: Int) -> Int {
+        return Calendar.current.component(.weekday, from: (year.months[month]?.days.first)!)
+    }
+    
+    private func fillYear(year: Int) {
         let diff = year - currentYear
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy MM dd"
@@ -51,7 +74,7 @@ class CalendarManager: NSObject {
     }
     
     
-    func fillDaysInAndOut(month: Int) {
+    private func fillDaysInAndOut(month: Int) {
         var monthReference = year.months[month]!
         var firstDay = monthReference.days.first!
         var lastDay = monthReference.days.last!
@@ -73,14 +96,6 @@ class CalendarManager: NSObject {
             monthReference.daysOut.append(lastDay)
         }
         year.months[month] = monthReference
-    }
-    
-    func getDaysInMonth(month: Int) -> Int {
-        return (year.months[month]?.days.count)!
-    }
-    
-    func getFirstWeekDayOfMonth(month: Int) -> Int {
-        return Calendar.current.component(.weekday, from: (year.months[month]?.days.first)!)
     }
 }
 

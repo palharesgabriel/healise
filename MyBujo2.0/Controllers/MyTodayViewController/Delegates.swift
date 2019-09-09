@@ -16,7 +16,6 @@ extension MyTodayViewController:TableViewHeaderViewDelegate {
         viewCont.definesPresentationContext = true
         
         let newGoalViewController = NewGoalViewController()
-        newGoalViewController.day = day
         newGoalViewController.delegate = self
         newGoalViewController.modalPresentationStyle = .overCurrentContext
         viewCont.present(newGoalViewController, animated: true, completion: nil)
@@ -36,7 +35,6 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
         viewCont.definesPresentationContext = true
         
         let newFeelingViewController = NewFeelingViewController()
-        newFeelingViewController.day = self.day
         newFeelingViewController.modalPresentationStyle = .overCurrentContext
         newFeelingViewController.delegate = self
         viewCont.present(newFeelingViewController, animated: true, completion: nil)
@@ -45,17 +43,17 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
     /// Solve Later
     func didSelectDate(date: Date) {
         //do something
-
+        
         let result = CoreDataManager.fetch(entityClass: Day.self,predicate: EntityType.day(date).predicate)
         guard let day = result?.first as? Day else {
-            self.day = Day(context: CoreDataManager.context)
+            CalendarManager.shared.selectedDay = Day(context: CoreDataManager.context)
             guard let dateIgnoringTime = date.ignoringTime() else { return }
-            self.day.date = dateIgnoringTime
-            self.day.save()
+            CalendarManager.shared.selectedDay.date = dateIgnoringTime
+            CalendarManager.shared.selectedDay.save()
+            self.day = CalendarManager.shared.selectedDay
             return
         }
         self.day = day
-        
     }
 }
 

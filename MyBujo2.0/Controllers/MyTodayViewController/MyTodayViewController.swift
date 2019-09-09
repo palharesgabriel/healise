@@ -29,14 +29,8 @@ class MyTodayViewController: UIViewController, ViewCode {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {
-            day = Day(context: CoreDataManager.context)
-            guard let dateIgnoringTime = Date().ignoringTime() else { return }
-            day.date = dateIgnoringTime
-            day.save()
-            return
-        }
-        self.day = result
+        self.day = CalendarManager.shared.currentDate
+        CalendarManager.shared.selectedDay = self.day
     }
     
     

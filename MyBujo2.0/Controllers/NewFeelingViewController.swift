@@ -19,7 +19,6 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     // MARK: Properties
     var bluredView: UIView?
     let feelingsView = FeelingsView()
-    var day: Day!
     var delegate: NewFeelingViewControllerDelegate!
     
     
@@ -54,10 +53,10 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     
     // MARK: Action Buttons
     @objc func didDismissModal() {
-        day.feeling = feelingsView.feelingsCardView.selectedFeeling?.feeling
-        day.save()
+        CalendarManager.shared.selectedDay.feeling = feelingsView.feelingsCardView.selectedFeeling?.feeling
+        CalendarManager.shared.selectedDay.save()
         dismiss(animated: true) {
-            self.delegate.didAddFeeling(date: self.day.date!)
+            self.delegate.didAddFeeling(date: CalendarManager.shared.selectedDay.date!)
         }
     }
 }

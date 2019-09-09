@@ -13,8 +13,8 @@ class MasterViewController: UIViewController, ViewCode {
     // MARK: Properties
     let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"SelectionColor")!)
     let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"SelectionColor")!)
-    let myTodayButton = NavigationButton(title: "      Today",icon: "today", idColor: 0)
-    let myJourneyButton = NavigationButton(title: "        You Journey",icon: "journey", idColor: 1)
+    let myTodayButton = NavigationButton(title: "      Daily",icon: "today", idColor: 0)
+    let myJourneyButton = NavigationButton(title: "        Journey",icon: "journey", idColor: 1)
     let supportButton = NavigationButton(title: "      Support",icon: "support", idColor: 2)
     let settingsButton = NavigationButton(title: "      Settings",icon: "settings", idColor: 3)
     var viewControllers: [UINavigationController] = []
@@ -70,7 +70,7 @@ class MasterViewController: UIViewController, ViewCode {
         updateButtons(sender: myTodayButton)
     }
     func updateButtons(sender: NavigationButton) {
-        NavigationButton.selectedId = sender.id
+        NavigationButton.selectedId = sender.identifier
         
         myTodayButton.changeColors()
         myJourneyButton.changeColors()
