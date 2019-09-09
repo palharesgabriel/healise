@@ -20,17 +20,15 @@ class CalendarManager: NSObject {
     
     var year = Year()
     
-    var currentDate: Day{
-        get{
-            guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {
-                let day = Day(context: CoreDataManager.context)
-                guard let dateIgnoringTime = Date().ignoringTime() else { return day}
-                day.date = dateIgnoringTime
-                day.save()
-                return day
-            }
-            return result
+    var currentDate: Day {
+        guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {
+            let day = Day(context: CoreDataManager.context)
+            guard let dateIgnoringTime = Date().ignoringTime() else { return day}
+            day.date = dateIgnoringTime
+            day.save()
+            return day
         }
+         return result
     }
     
     var selectedDay: Day!

@@ -21,7 +21,7 @@ class NotesViewController: UIViewController {
         self.view = self.notesView
         self.notesView.delegate = self
         
-        if let text =  CalendarManager.shared.selectedDay.media?.note{
+        if let text =  CalendarManager.shared.selectedDay.media?.note {
             notesView.noteTextField.text = text
         }
     }
@@ -31,11 +31,10 @@ class NotesViewController: UIViewController {
 extension NotesViewController: DismissControllerDelegate {
     func closeViewController() {
         
-        if let text = notesView.noteTextField.text{
+        if let text = notesView.noteTextField.text {
             if let media = CalendarManager.shared.selectedDay.media{
                 media.note = text
-            }
-            else{
+            } else {
                 let media = Media(context: CoreDataManager.context)
                 media.note = text
                 CalendarManager.shared.selectedDay.media = media
