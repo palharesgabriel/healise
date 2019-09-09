@@ -11,8 +11,8 @@ import UIKit
 class MasterViewController: UIViewController, ViewCode {
     
     // MARK: Properties
-    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"StartColor")!)
-    let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"StartColor")!)
+    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"SelectionColor")!)
+    let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"SelectionColor")!)
     let myTodayButton = NavigationButton(title: "      Daily",icon: "today", idColor: 0)
     let myJourneyButton = NavigationButton(title: "        Journey",icon: "journey", idColor: 1)
     let supportButton = NavigationButton(title: "      Support",icon: "support", idColor: 2)
