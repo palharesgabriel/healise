@@ -24,6 +24,7 @@ extension MyTodayViewController:TableViewHeaderViewDelegate {
 
 extension MyTodayViewController: MediaCollectionViewDelegate {
     func pushViewController(viewController: UIViewController) {
+//        viewController.modalPresentationStyle = .overCurrentContext
         self.present(viewController, animated: true, completion: nil)
     }
 }

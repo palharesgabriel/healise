@@ -97,7 +97,11 @@ extension MediaTableViewCell: UICollectionViewDataSource {
         case 0:
             delegate?.pushViewController(viewController: NotesViewController(title: "Note"))
         case 1:
-            delegate?.pushViewController(viewController: DrawingViewController(title: "Drawing"))
+            if #available(iOS 13.0, *) {
+                delegate?.pushViewController(viewController: DrawingViewController(title: "Drawing"))
+            } else {
+                // Fallback on earlier versions
+            }
         case 2:
             delegate?.pushViewController(viewController: NotesViewController())
         case 3:

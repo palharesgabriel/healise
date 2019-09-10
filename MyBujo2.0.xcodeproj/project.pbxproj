@@ -29,6 +29,7 @@
 		308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FC92327C391008012AA /* TitleLabel.swift */; };
 		308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCB2327C4AB008012AA /* ExitButton.swift */; };
 		308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCD2327CAAD008012AA /* MediaViewController.swift */; };
+		308F6FD02327EB96008012AA /* CanvasLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCF2327EB96008012AA /* CanvasLayoutExtension.swift */; };
 		30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */; };
 		30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D52314609C0018DB13 /* MediaTableViewCell.swift */; };
 		30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B26230AE98B00B39434 /* CalendarManager.swift */; };
@@ -94,6 +95,7 @@
 		308F6FC92327C391008012AA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		308F6FCB2327C4AB008012AA /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		308F6FCD2327CAAD008012AA /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
+		308F6FCF2327EB96008012AA /* CanvasLayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasLayoutExtension.swift; sourceTree = "<group>"; };
 		30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		30A348D52314609C0018DB13 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		30AD9B1F230AE14E00B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				300CAB7A2327C1E3002F066A /* DrawingViewController.swift */,
+				308F6FCF2327EB96008012AA /* CanvasLayoutExtension.swift */,
 			);
 			path = DrawingViewController;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
 				ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */,
+				308F6FD02327EB96008012AA /* CanvasLayoutExtension.swift in Sources */,
 				E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */,
 				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
 				30B9005E23184666000C0089 /* MediaExtension.swift in Sources */,
@@ -751,7 +755,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -806,7 +810,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -824,7 +828,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -847,7 +851,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
