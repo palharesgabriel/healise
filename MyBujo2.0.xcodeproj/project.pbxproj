@@ -22,6 +22,7 @@
 		15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */; };
 		15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C62316FB8200F70860 /* Blurable.swift */; };
 		15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */; };
+		300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CAB7A2327C1E3002F066A /* DrawingViewController.swift */; };
 		301149102315721C0099E845 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3011490F2315721C0099E845 /* ShadowView.swift */; };
 		301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F35342316AAC500AD5477 /* CoreDataManager.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
@@ -83,6 +84,7 @@
 		15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
 		15DFF5C62316FB8200F70860 /* Blurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurable.swift; sourceTree = "<group>"; };
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
+		300CAB7A2327C1E3002F066A /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		301F35342316AAC500AD5477 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		30230345231EA8F7001A45F4 /* MyBujo2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBujo2.0.entitlements; sourceTree = "<group>"; };
@@ -215,6 +217,14 @@
 			path = MyJourneyViews;
 			sourceTree = "<group>";
 		};
+		300CAB792327C1C9002F066A /* DrawingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				300CAB7A2327C1E3002F066A /* DrawingViewController.swift */,
+			);
+			path = DrawingViewController;
+			sourceTree = "<group>";
+		};
 		305F5751231E8E4400A220FD /* MyJourneyViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +250,7 @@
 		30AD9B1D230AE11800B39434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				300CAB792327C1C9002F066A /* DrawingViewController */,
 				305F5751231E8E4400A220FD /* MyJourneyViewController */,
 				30ADD66B231D3947001CAF1C /* MyTodayViewController */,
 				E8535A03231562AB009AB979 /* NotesViewController.swift */,
@@ -608,6 +619,7 @@
 				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
 				30B9005E23184666000C0089 /* MediaExtension.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
+				300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */,
 				301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */,
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
 				15347D37231D8E8F00848335 /* FeelingsView.swift in Sources */,
