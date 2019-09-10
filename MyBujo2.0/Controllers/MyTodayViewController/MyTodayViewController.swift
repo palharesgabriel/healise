@@ -23,7 +23,6 @@ class MyTodayViewController: UIViewController, ViewCode {
             tableView.reloadData()
         }
     }
-    
 
     // MARK: Initialization
     override func viewDidLoad() {
