@@ -9,23 +9,30 @@ import UIKit
 
 
 class NewGoalViewController: UIViewController, ViewCode, Blurable {
-    
     // MARK: Properties
     var bluredView: UIView?
+    var effect: UIVisualEffect?
+    var visualEffect: UIVisualEffectView?
     let formView = FormView()
     var delegate: NewGoalViewControllerDelegate!
-    
     
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        bluredView = addBlur()
+        visualEffect = addBlur()
+        effect = visualEffect?.effect
+        visualEffect?.effect = nil
+        bluredView = visualEffect?.contentView
         setupView()
         formView.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(shouldDismissModal))
         bluredView?.addGestureRecognizer(tapGesture)
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        animateIn(view: formView, visualEffect: visualEffect!, effect: effect!)
+    }
     
     // MARK: Functions
     func buildViewHierarchy() {
@@ -42,6 +49,7 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     func setupAdditionalConfigurantion() {
         formView.backgroundColor = .white
     }
+
 }
 
 
@@ -49,7 +57,7 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
 extension NewGoalViewController: FormViewDelegate {
     
     @objc func shouldDismissModal() {
-        dismiss(animated: true, completion: nil)
+        self.animateOut(view: self.view, visualEffect: self.visualEffect!)
     }
     
     func didPressDone(descript: String?) {
@@ -59,13 +67,11 @@ extension NewGoalViewController: FormViewDelegate {
             goal.completed = false
             CalendarManager.shared.selectedDay.addToGoals(goal)
             CalendarManager.shared.selectedDay.save()
-            dismiss(animated: true, completion: {
-                self.delegate.didDismissWithDescript()
-            })
+            self.delegate.didDismissWithDescript()
+            self.animateOut(view: self.view, visualEffect: self.visualEffect!)
         } else {
-            dismiss(animated: true, completion: {
-                self.delegate.didDismissWithoutDescript()
-            })
+            self.delegate.didDismissWithoutDescript()
+            self.animateOut(view: self.view, visualEffect: self.visualEffect!)
         }
         
     }

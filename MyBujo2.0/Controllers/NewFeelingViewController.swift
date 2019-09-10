@@ -20,17 +20,24 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     var bluredView: UIView?
     let feelingsView = FeelingsView()
     var delegate: NewFeelingViewControllerDelegate!
-    
+    var effect: UIVisualEffect?
+    var visualEffect: UIVisualEffectView?
     
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        bluredView = addBlur()
+        visualEffect = addBlur()
+        effect = visualEffect?.effect
+        visualEffect?.effect = nil
+        bluredView = visualEffect?.contentView
         setupView()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didDismissModal))
         bluredView?.addGestureRecognizer(tapGesture)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        animateIn(view: feelingsView, visualEffect: visualEffect!, effect: effect!)
+    }
     
     // MARK: Functions
     func buildViewHierarchy() {
@@ -53,10 +60,10 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     
     // MARK: Action Buttons
     @objc func didDismissModal() {
+        
         CalendarManager.shared.selectedDay.feeling = feelingsView.feelingsCardView.selectedFeeling?.feeling
         CalendarManager.shared.selectedDay.save()
-        dismiss(animated: true) {
-            self.delegate.didAddFeeling(date: CalendarManager.shared.selectedDay.date!)
-        }
+        animateOut(view: view, visualEffect: visualEffect!)
+        
     }
 }

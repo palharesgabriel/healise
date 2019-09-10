@@ -52,7 +52,7 @@ class FeelingsView: UIView, Shadow, ViewCode {
     // MARK: Functions
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            feelingsCardTitle.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            feelingsCardTitle.topAnchor.constraint(equalTo: topAnchor, constant: 32),
             feelingsCardTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             feelingsCardTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             

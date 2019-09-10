@@ -18,7 +18,7 @@ extension MyTodayViewController:TableViewHeaderViewDelegate {
         let newGoalViewController = NewGoalViewController()
         newGoalViewController.delegate = self
         newGoalViewController.modalPresentationStyle = .overCurrentContext
-        viewCont.present(newGoalViewController, animated: true, completion: nil)
+        viewCont.present(newGoalViewController, animated: false, completion: nil)
     }
 }
 
@@ -37,7 +37,7 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
         let newFeelingViewController = NewFeelingViewController()
         newFeelingViewController.modalPresentationStyle = .overCurrentContext
         newFeelingViewController.delegate = self
-        viewCont.present(newFeelingViewController, animated: true, completion: nil)
+        viewCont.present(newFeelingViewController, animated: false, completion: nil)
     }
     
     /// Solve Later
