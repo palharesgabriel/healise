@@ -53,6 +53,7 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
             self.day = CalendarManager.shared.selectedDay
             return
         }
+        CalendarManager.shared.selectedDay = day
         self.day = day
     }
 }
