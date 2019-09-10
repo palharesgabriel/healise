@@ -9,9 +9,13 @@
 import UIKit
 
 class DrawingViewController: UIViewController {
+    
+    var label = TitleLabel(title: "Drawing")
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .red
 
         // Do any additional setup after loading the view.
     }
