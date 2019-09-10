@@ -27,6 +27,8 @@
 		301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F35342316AAC500AD5477 /* CoreDataManager.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
 		308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FC92327C391008012AA /* TitleLabel.swift */; };
+		308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCB2327C4AB008012AA /* ExitButton.swift */; };
+		308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCD2327CAAD008012AA /* MediaViewController.swift */; };
 		30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */; };
 		30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D52314609C0018DB13 /* MediaTableViewCell.swift */; };
 		30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B26230AE98B00B39434 /* CalendarManager.swift */; };
@@ -91,6 +93,8 @@
 		30230345231EA8F7001A45F4 /* MyBujo2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBujo2.0.entitlements; sourceTree = "<group>"; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		308F6FC92327C391008012AA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		308F6FCB2327C4AB008012AA /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
+		308F6FCD2327CAAD008012AA /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		30A348D52314609C0018DB13 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		30AD9B1F230AE14E00B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 			children = (
 				30CBF8DB230C40B000D56A41 /* Calendar */,
 				308F6FC92327C391008012AA /* TitleLabel.swift */,
+				308F6FCB2327C4AB008012AA /* ExitButton.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
 				15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */,
 				15491959231D44EE00766609 /* NewFeelingViewController.swift */,
+				308F6FCD2327CAAD008012AA /* MediaViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -645,6 +651,7 @@
 				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
 				AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */,
+				308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
@@ -652,6 +659,7 @@
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
+				308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,

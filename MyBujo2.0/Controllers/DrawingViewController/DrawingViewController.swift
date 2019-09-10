@@ -8,16 +8,20 @@
 
 import UIKit
 
-class DrawingViewController: UIViewController {
-    
-    var label = TitleLabel(title: "Drawing")
+class DrawingViewController: MediaViewController {
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-
+        contentView.backgroundColor = .green
         // Do any additional setup after loading the view.
+    }
+    
+    override func exitButtonClicked(sender: ExitButton) {
+        dismiss(animated: true, completion: {
+            //
+        })
     }
     
 
