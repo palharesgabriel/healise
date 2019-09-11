@@ -20,7 +20,7 @@ class CalendarManager: NSObject {
     
     var year = Year()
     
-    var currentDate: Day {
+    var currentDay: Day {
         guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {
             let day = Day(context: CoreDataManager.context)
             guard let dateIgnoringTime = Date().ignoringTime() else { return day}
@@ -33,9 +33,9 @@ class CalendarManager: NSObject {
     
     var selectedDay: Day!
     
-    var currentDay = Calendar.current.component(.day, from: Date())
-    var currentMonth = Calendar.current.component(.month, from: Date())
-    var currentYear = Calendar.current.component(.year, from: Date())
+    var currentDayComponent = Calendar.current.component(.day, from: Date())
+    var currentMonthComponent = Calendar.current.component(.month, from: Date())
+    var currentYearComponent = Calendar.current.component(.year, from: Date())
     
     
     
@@ -49,10 +49,10 @@ class CalendarManager: NSObject {
     }
     
     private func fillYear(year: Int) {
-        let diff = year - currentYear
+        let diff = year - currentYearComponent
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy MM dd"
-        guard var date = dateFormatter.date(from: "\(currentYear + diff) 01 01") else { return }
+        guard var date = dateFormatter.date(from: "\(currentYearComponent + diff) 01 01") else { return }
         
         
         
@@ -62,7 +62,7 @@ class CalendarManager: NSObject {
         }
         
         for _ in 1...365 {
-            if Calendar.current.component(.year, from: date) == currentYear {
+            if Calendar.current.component(.year, from: date) == currentYearComponent {
                 self.year.months[Calendar.current.component(.month, from: date)]?.days.append(date)
                 date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
             }

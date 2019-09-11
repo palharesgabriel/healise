@@ -28,7 +28,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        self.day = CalendarManager.shared.currentDate
+        self.day = CalendarManager.shared.currentDay
         CalendarManager.shared.selectedDay = self.day
     }
     
