@@ -28,7 +28,6 @@ extension DrawingViewController{
         }
     }
     
-    
     // MARK: Breve inicialização da ToolPicker
     func setupToolPicker(){
         if let toolPicker = PKToolPicker.shared(for: UIApplication.shared.keyWindow!) {

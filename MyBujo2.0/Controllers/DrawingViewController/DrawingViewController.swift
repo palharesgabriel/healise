@@ -15,6 +15,7 @@ class DrawingViewController: MediaViewController {
     lazy var canvasView: PKCanvasView = {
         let canvasView = PKCanvasView()
         canvasView.translatesAutoresizingMaskIntoConstraints = false
+        canvasView.backgroundColor = .white
         return canvasView
     }()
     
@@ -30,9 +31,13 @@ class DrawingViewController: MediaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        canvasWidth = view.frame.width
-        canvasView.backgroundColor = .white
-
+        canvasWidth = contentView.frame.width
+        
+        if let drawing = CalendarManager.shared.currentDate.media?.drawing{
+            try? canvasView.drawing = PKDrawing(data: drawing)
+        }
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -43,15 +48,24 @@ class DrawingViewController: MediaViewController {
         
     }
     override func exitButtonClicked(sender: ExitButton) {
+        
         dismiss(animated: true, completion: {
-            //
+            let day = CalendarManager.shared.currentDate
+            guard let media = day.media else {
+                let media = Media(context: CoreDataManager.context)
+                media.drawing = self.canvasView.drawing.dataRepresentation()
+                media.save()
+                return
+            }
+            media.drawing = self.canvasView.drawing.dataRepresentation()
+            media.save()
         })
     }
     
     func constraintCanvasView(){
         canvasView.delegate = self
         canvasView.alwaysBounceVertical = true
-        canvasView.allowsFingerDrawing = true
+        canvasView.allowsFingerDrawing = false
         contentView.addSubview(canvasView)
         
         NSLayoutConstraint.activate([
@@ -61,7 +75,7 @@ class DrawingViewController: MediaViewController {
             canvasView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             ])
         
-        canvasView.contentSize = canvasView.frame.size
+        canvasView.contentSize = CGSize(width: canvasWidth * canvasView.zoomScale, height: canvasView.frame.height)
     }
 }
 
