@@ -65,7 +65,7 @@ class DrawingViewController: MediaViewController {
     func constraintCanvasView(){
         canvasView.delegate = self
         canvasView.alwaysBounceVertical = true
-        canvasView.allowsFingerDrawing = false
+        canvasView.allowsFingerDrawing = true
         contentView.addSubview(canvasView)
         
         NSLayoutConstraint.activate([
