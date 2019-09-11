@@ -59,7 +59,7 @@ class MediaViewController: UIViewController, ViewCode {
         dismiss(animated: true, completion: nil)
     }
     
-    init(title: String) {
+    init(title: String = "default") {
         super.init(nibName: nil, bundle: nil)
         titleLabel = TitleLabel(title: title)
         

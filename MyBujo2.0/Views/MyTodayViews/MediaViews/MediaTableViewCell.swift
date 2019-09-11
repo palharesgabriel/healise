@@ -95,9 +95,13 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            delegate?.pushViewController(viewController: NotesViewController())
+            delegate?.pushViewController(viewController: NotesViewController(title: "Note"))
         case 1:
-            delegate?.pushViewController(viewController: DrawingViewController(title: "Drawing"))
+            if #available(iOS 13.0, *) {
+                delegate?.pushViewController(viewController: DrawingViewController(title: "Drawing"))
+            } else {
+                // Fallback on earlier versions
+            }
         case 2:
             delegate?.pushViewController(viewController: NotesViewController())
         case 3:
