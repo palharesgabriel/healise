@@ -7,7 +7,7 @@
 //
 
 import Foundation
-protocol CalendarTableViewCellDelegate {
+protocol CalendarTableViewCellDelegate: class {
     func didSelectDate(date: Date)
     func shouldShowAddFeelingModal()
 }

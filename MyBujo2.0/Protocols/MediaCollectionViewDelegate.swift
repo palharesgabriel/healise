@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol MediaCollectionViewDelegate {
+protocol MediaCollectionViewDelegate: class {
     func pushViewController(viewController: UIViewController)
 }

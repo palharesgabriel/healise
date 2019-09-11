@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TableViewHeaderViewDelegate {
+protocol TableViewHeaderViewDelegate: class {
     func addGoal()
 }
 
@@ -16,7 +16,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     
     // MARK: Properties
     var hasButton: Bool = false
-    var delegate: TableViewHeaderViewDelegate?
+    weak var delegate: TableViewHeaderViewDelegate?
     
     let headerLabel: UILabel = {
         let lbl = UILabel()

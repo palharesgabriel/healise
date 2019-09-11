@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotesViewController: MediaViewController{
+class NotesViewController: MediaViewController {
     
     
     // MARK: Properties
@@ -26,19 +26,19 @@ class NotesViewController: MediaViewController{
         }
     }
     
-    func constraintNotesView(){
+    func constraintNotesView() {
         contentView.addSubview(notesView)
         NSLayoutConstraint.activate([
             notesView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             notesView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             notesView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            notesView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            notesView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
     }
     
     override func exitButtonClicked(sender: ExitButton) {
         if let text = notesView.noteTextField.text {
-            if let media = CalendarManager.shared.selectedDay.media{
+            if let media = CalendarManager.shared.selectedDay.media {
                 media.note = text
             } else {
                 let media = Media(context: CoreDataManager.context)

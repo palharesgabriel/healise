@@ -30,7 +30,7 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     static let reuseIdentifier = "CalendarTableViewCellIdentifier"
     let shadowView = ShadowView(frame: .zero)
     var type: CalendarType!
-    var delegate: CalendarTableViewCellDelegate!
+    weak var delegate: CalendarTableViewCellDelegate!
     
     var calendarView: JTACMonthView = {
         let calendarView = JTACMonthView(frame: .zero)

@@ -37,7 +37,7 @@ class MediaViewController: UIViewController, ViewCode {
             contentView.topAnchor.constraint(equalTo: exitButton.bottomAnchor),
             contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }
     
@@ -55,7 +55,7 @@ class MediaViewController: UIViewController, ViewCode {
         // Do any additional setup after loading the view.
     }
     
-    @objc func exitButtonClicked(sender: ExitButton){
+    @objc func exitButtonClicked(sender: ExitButton) {
         dismiss(animated: true, completion: nil)
     }
     

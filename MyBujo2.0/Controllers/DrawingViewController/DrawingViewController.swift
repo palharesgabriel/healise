@@ -33,7 +33,7 @@ class DrawingViewController: MediaViewController {
         view.backgroundColor = .white
         canvasWidth = contentView.frame.width
         
-        if let drawing = CalendarManager.shared.selectedDay.media?.drawing{
+        if let drawing = CalendarManager.shared.selectedDay.media?.drawing {
             try? canvasView.drawing = PKDrawing(data: drawing)
         }
         
@@ -64,7 +64,7 @@ class DrawingViewController: MediaViewController {
         })
     }
     
-    func constraintCanvasView(){
+    func constraintCanvasView() {
         canvasView.delegate = self
         canvasView.alwaysBounceVertical = true
         canvasView.allowsFingerDrawing = true
@@ -74,11 +74,9 @@ class DrawingViewController: MediaViewController {
             canvasView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             canvasView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             canvasView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            canvasView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            canvasView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
         
         canvasView.contentSize = CGSize(width: canvasWidth * canvasView.zoomScale, height: canvasView.frame.height)
     }
 }
-
-

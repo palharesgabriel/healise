@@ -14,7 +14,7 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     var effect: UIVisualEffect?
     var visualEffect: UIVisualEffectView?
     let formView = FormView()
-    var delegate: NewGoalViewControllerDelegate!
+    weak var delegate: NewGoalViewControllerDelegate!
     
     // MARK: Initialization
     override func viewDidLoad() {
