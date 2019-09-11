@@ -8,7 +8,8 @@
 
 import UIKit
 
-class NotesViewController: UIViewController {
+class NotesViewController: MediaViewController{
+    
     
     // MARK: Properties
     let notesView = NotesView()
@@ -18,19 +19,24 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.isHidden = true
-        self.view = self.notesView
-        self.notesView.delegate = self
+        constraintNotesView()
         
         if let text =  CalendarManager.shared.selectedDay.media?.note {
             notesView.noteTextField.text = text
         }
     }
-}
-
-    // MARK: Extensions
-extension NotesViewController: DismissControllerDelegate {
-    func closeViewController() {
-        
+    
+    func constraintNotesView(){
+        contentView.addSubview(notesView)
+        NSLayoutConstraint.activate([
+            notesView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            notesView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            notesView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            notesView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            ])
+    }
+    
+    override func exitButtonClicked(sender: ExitButton) {
         if let text = notesView.noteTextField.text {
             if let media = CalendarManager.shared.selectedDay.media{
                 media.note = text
