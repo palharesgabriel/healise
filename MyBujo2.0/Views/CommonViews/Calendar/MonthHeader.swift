@@ -11,6 +11,8 @@ import JTAppleCalendar
 
 class MonthHeader: JTACMonthReusableView, ViewCode {
     
+    
+    // MARK: Properties
     var titleLabel = UILabel()
     var weekDaysHeader = WeekDaysView()
     
@@ -19,6 +21,17 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
         addSubview(weekDaysHeader)
     }
     
+    // MARK: Initialized
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: Functions
     func setupConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -32,20 +45,9 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
             weekDaysHeader.trailingAnchor.constraint(equalTo: trailingAnchor),
             weekDaysHeader.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
-        
     }
-    
     func setupAdditionalConfigurantion() {
         titleLabel.textColor = UIColor(named:"TitleColor")!
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupView()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func configureHeader(start: Date) {

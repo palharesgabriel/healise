@@ -13,6 +13,8 @@ protocol TableViewHeaderViewDelegate {
 }
 
 class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
+    
+    // MARK: Properties
     var hasButton: Bool = false
     var delegate: TableViewHeaderViewDelegate?
     
@@ -27,11 +29,21 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     lazy var buttonAddGoal: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitleColor(UIColor(named: "ActionColor")!, for: .normal)
+        btn.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
         btn.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 24)
         return btn
     }()
     
+    // MARK: Initialization
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: Functions
     func setupHeader(headerTitle: String, buttonTitle: String? = nil) {
         headerLabel.text = headerTitle
         if let buttonTitle = buttonTitle {
@@ -39,20 +51,8 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
             buttonAddGoal.setTitle(buttonTitle, for: .normal)
         }
         setupView()
-        
     }
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-       
-        
-    }
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+ 
     func buildViewHierarchy() {
         contentView.addSubview(headerLabel)
         if hasButton {

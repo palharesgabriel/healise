@@ -13,6 +13,8 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
     
     var lastNumberOfGoals = 0
     
+    var day: Day?
+    
     var goals: [Goal] = [] {
         didSet {
             if lastNumberOfGoals == goals.count - 1 {
@@ -25,8 +27,6 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
             }
             
             lastNumberOfGoals = goals.count
-            
-            
         }
     }
     
@@ -74,8 +74,9 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
     }
     
-    func setupCell(goals: [Goal]) {
+    func setupCell(goals: [Goal], day: Day) {
         self.goals = goals
+        self.day = day
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         selectionStyle = .none
@@ -100,6 +101,18 @@ extension GoalsTableViewCell: UITableViewDelegate, UITableViewDataSource {
         goals[indexPath.row].completed = !goals[indexPath.row].completed
         goals[indexPath.row].save()
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            let goal = goals[indexPath.row]
+            guard let day = day else { return }
+            day.removeFromGoals(goal)
+            day.save()
+            goals.remove(at: indexPath.row)
+            
+            tableView.reloadData()
+        }
     }
     
 }

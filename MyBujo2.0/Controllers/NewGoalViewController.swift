@@ -8,51 +8,56 @@
 import UIKit
 
 
-protocol NewGoalViewControllerDelegate {
-    func didDismissWithDescript()
-    func didDismissWithoutDescript()
-}
 class NewGoalViewController: UIViewController, ViewCode, Blurable {
-    
-    var day: Day!
-    
+    // MARK: Properties
     var bluredView: UIView?
-    
+    var effect: UIVisualEffect?
+    var visualEffect: UIVisualEffectView?
     let formView = FormView()
-    
     var delegate: NewGoalViewControllerDelegate!
     
+    // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        bluredView = addBlur()
+        visualEffect = addBlur()
+        effect = visualEffect?.effect
+        visualEffect?.effect = nil
+        bluredView = visualEffect?.contentView
         setupView()
         formView.delegate = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(shouldDismissModal))
         bluredView?.addGestureRecognizer(tapGesture)
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        animateIn(view: formView, visualEffect: visualEffect!, effect: effect!)
+    }
+    
+    // MARK: Functions
     func buildViewHierarchy() {
         view.addSubview(formView)
     }
-    
     func setupConstraints() {
         NSLayoutConstraint.activate([
             formView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            formView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            formView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             formView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
             formView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
             ])
     }
-
     func setupAdditionalConfigurantion() {
         formView.backgroundColor = .white
     }
+
 }
 
+
+    // MARK: Extension
 extension NewGoalViewController: FormViewDelegate {
     
     @objc func shouldDismissModal() {
-        dismiss(animated: true, completion: nil)
+        self.animateOut(view: self.view, visualEffect: self.visualEffect!)
     }
     
     func didPressDone(descript: String?) {
@@ -60,15 +65,13 @@ extension NewGoalViewController: FormViewDelegate {
             let goal = Goal(context: CoreDataManager.context)
             goal.descript = descript
             goal.completed = false
-            day.addToGoals(goal)
-            day.save()
-            dismiss(animated: true, completion: {
-                self.delegate.didDismissWithDescript()
-            })
+            CalendarManager.shared.selectedDay.addToGoals(goal)
+            CalendarManager.shared.selectedDay.save()
+            self.delegate.didDismissWithDescript()
+            self.animateOut(view: self.view, visualEffect: self.visualEffect!)
         } else {
-            dismiss(animated: true, completion: {
-                self.delegate.didDismissWithoutDescript()
-            })
+            self.delegate.didDismissWithoutDescript()
+            self.animateOut(view: self.view, visualEffect: self.visualEffect!)
         }
         
     }

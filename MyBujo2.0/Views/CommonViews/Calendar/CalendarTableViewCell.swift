@@ -9,10 +9,11 @@
 import UIKit
 import JTAppleCalendar
 
+
+    // MARK: Enum
 enum CalendarType {
     case month
     case week
-    
     var number: Int {
         switch self {
         case .month:
@@ -24,10 +25,11 @@ enum CalendarType {
 }
 
 class CalendarTableViewCell: UITableViewCell, ViewCode {
+    
+    // MARK: Properties
     static let reuseIdentifier = "CalendarTableViewCellIdentifier"
-    
     let shadowView = ShadowView(frame: .zero)
-    
+    var type: CalendarType!
     var delegate: CalendarTableViewCellDelegate!
     
     var calendarView: JTACMonthView = {
@@ -39,19 +41,27 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         calendarView.clipsToBounds = true
         calendarView.layer.cornerRadius = 16
         calendarView.backgroundColor = .white
-        
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         return calendarView
     }()
     
-    var type: CalendarType!
     
+    // MARK: Initialization
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .clear
+    }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    // MARK: Functions
     func buildViewHierarchy() {
         contentView.addSubview(shadowView)
         contentView.addSubview(calendarView)
     }
-    
     func setupConstraints() {
         shadowView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -60,17 +70,14 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
             shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
             ])
-        
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             calendarView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             calendarView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             calendarView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             calendarView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
-            //            calendarView.heightAnchor.constraint(equalToConstant: 168)
             ])
     }
-    
     func setupAdditionalConfigurantion() {
         contentView.backgroundColor = .clear
         selectionStyle = .none
@@ -88,23 +95,17 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
             calendarView.selectDates([date])
         }
     }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .clear
-        
-    }
-    
+
     func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         let visibleDates = calendarView.visibleDates()
         calendarView.viewWillTransition(to: .zero, with: coordinator, anchorDate: visibleDates.monthDates.first?.date)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
 }
 
+
+    // MARK: Extensions
 extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource {
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? DayCell else { return }
@@ -158,9 +159,10 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
     }
     
     func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
-        if cellState.dateBelongsTo == .thisMonth && !cell!.isSelected {
+        guard let cell = cell else { return false }
+        if cellState.dateBelongsTo == .thisMonth && !cell.isSelected {
             return true
-        } else if cellState.dateBelongsTo == .thisMonth && cell!.isSelected {
+        } else if cellState.dateBelongsTo == .thisMonth && cell.isSelected {
             delegate.shouldShowAddFeelingModal()
             return true
         }

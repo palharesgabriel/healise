@@ -8,119 +8,89 @@
 
 import UIKit
 
-extension UILabel {
-    convenience init(text: String, font: String, fontSize: CGFloat, textColor: UIColor) {
-        self.init(frame: .zero)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.text = text
-        self.font = UIFont(name: font, size: fontSize)
-        self.textAlignment = .center
-        self.textColor = textColor
-        self.adjustsFontSizeToFitWidth = true
-    }
-}
-
-extension UIButton {
-    convenience init(title: String) {
-        self.init()
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.setTitle(title, for: .normal)
-        self.contentHorizontalAlignment = .left
-    }
-    
-    func setBackgroundColor(color: UIColor, forState: UIControl.State) {
-        self.clipsToBounds = true
-        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-        if let context = UIGraphicsGetCurrentContext() {
-            context.setFillColor(color.cgColor)
-            context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
-            let colorImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            self.setBackgroundImage(colorImage, for: forState)
-        }
-    }
-}
-
-
 class MasterViewController: UIViewController, ViewCode {
     
-    let monthLabel = UILabel(text: "Tuesday", font: "Avenir Next", fontSize: 30, textColor: UIColor(named:"TitleColor")!)
-    let dayLabel = UILabel(text: "13/08", font: "Avenir Next", fontSize: 60, textColor: UIColor(named:"TitleColor")!)
-    let yearLabel = UILabel(text: "2019", font: "Avenir Next", fontSize: 30, textColor:  UIColor(named:"TitleColor")!)
-
-    let myJourneyButton = UIButton(title: "🏠 My Journey")
-    let myTodayButton = UIButton(title: "📅 My Today")
-    let supportButton = UIButton(title: "⛑ Support")
-    let settingsButton = UIButton(title: "⚙️ Settings")
-    
+    // MARK: Properties
+    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"SelectionColor")!)
+    let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"SelectionColor")!)
+    let myTodayButton = NavigationButton(title: "      Daily",icon: "today", idColor: 0)
+    let myJourneyButton = NavigationButton(title: "        Journey",icon: "journey", idColor: 1)
+    let supportButton = NavigationButton(title: "      Support",icon: "support", idColor: 2)
+    let settingsButton = NavigationButton(title: "      Settings",icon: "settings", idColor: 3)
     var viewControllers: [UINavigationController] = []
     
-        
+    
+    // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-       
-        myTodayButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
-        myJourneyButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
-        supportButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
-        settingsButton.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
-        myTodayButton.addTarget(self, action: #selector(didShowMyTodayViewController(_:)), for: .touchDown)
+        myTodayButton.addTarget(self, action: #selector(didClickMyTodayButton(_:)), for: .touchDown)
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
     }
     
     
+    // MARK: Functions
     func buildViewHierarchy() {
-        view.addSubviews([monthLabel, dayLabel, yearLabel, myTodayButton,
+        view.addSubviews([nameLabel, dayStatusLabel, myTodayButton,
                           myJourneyButton, supportButton, settingsButton ])
     }
-    
     func setupConstraints() {
-     
-        
         NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
+            nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 28),
             
-            monthLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            monthLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-            dayLabel.topAnchor.constraint(equalTo: monthLabel.bottomAnchor , constant: 0),
-            dayLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-
-            yearLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 0),
-            yearLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            myTodayButton.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 32),
-            myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            myTodayButton.widthAnchor.constraint(equalToConstant: 150),
+            dayStatusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0),
+            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
             
-            myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 16),
-            myJourneyButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
-            myJourneyButton.widthAnchor.constraint(equalToConstant: 150),
+            myTodayButton.topAnchor.constraint(equalTo: dayStatusLabel.bottomAnchor, constant: 112),
+            myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor,constant: 0),
+            myTodayButton.widthAnchor.constraint(equalTo:self.view.widthAnchor,constant: -16),
+            myTodayButton.heightAnchor.constraint(equalToConstant: 45),
             
-            supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 16),
-            supportButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
-            supportButton.widthAnchor.constraint(equalToConstant: 150),
+            myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 32),
+            myJourneyButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
+            myJourneyButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
+            myJourneyButton.heightAnchor.constraint(equalToConstant: 45),
+            
+            supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 32),
+            supportButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
+            supportButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
+            supportButton.heightAnchor.constraint(equalToConstant: 45),
+            
             
             settingsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32),
-            settingsButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            settingsButton.widthAnchor.constraint(equalToConstant: 150) 
-        ])
+            settingsButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
+            settingsButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
+            settingsButton.heightAnchor.constraint(equalToConstant: 45)
+            ])
     }
-    
     func setupAdditionalConfigurantion() {
         view.backgroundColor = UIColor(named: "BlueBackground")
+        updateButtons(sender: myTodayButton)
+    }
+    func updateButtons(sender: NavigationButton) {
+        NavigationButton.selectedId = sender.identifier
+        
+        myTodayButton.changeColors()
+        myJourneyButton.changeColors()
+        supportButton.changeColors()
+        settingsButton.changeColors()
     }
     
-    @objc func didShowMyJourneyViewController(_ sender: UIButton) {
+    
+    
+    // MARK: Action Buttons
+    @objc func didShowMyJourneyViewController(_ sender: NavigationButton) {
+        updateButtons(sender: sender)
         self.splitViewController?.preferredDisplayMode = .automatic
         let navigationController = viewControllers[1]
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
     }
-    
-    @objc func didShowMyTodayViewController(_ sender: UIButton) {
-        
+    @objc func didClickMyTodayButton(_ sender: NavigationButton) {
+        updateButtons(sender: sender)
         
         let navigationController = viewControllers[0]
         self.splitViewController?.showDetailViewController(navigationController, sender: nil)
-
     }
 }
