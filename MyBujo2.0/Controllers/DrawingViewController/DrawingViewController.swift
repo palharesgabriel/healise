@@ -33,7 +33,7 @@ class DrawingViewController: MediaViewController {
         view.backgroundColor = .white
         canvasWidth = contentView.frame.width
         
-        if let drawing = CalendarManager.shared.currentDate.media?.drawing{
+        if let drawing = CalendarManager.shared.selectedDay.media?.drawing{
             try? canvasView.drawing = PKDrawing(data: drawing)
         }
         
@@ -49,16 +49,18 @@ class DrawingViewController: MediaViewController {
     }
     override func exitButtonClicked(sender: ExitButton) {
         
+        
         dismiss(animated: true, completion: {
-            let day = CalendarManager.shared.currentDate
+            guard let day = CalendarManager.shared.selectedDay else { return }
             guard let media = day.media else {
                 let media = Media(context: CoreDataManager.context)
                 media.drawing = self.canvasView.drawing.dataRepresentation()
-                media.save()
+                day.media = media
+                day.save()
                 return
             }
             media.drawing = self.canvasView.drawing.dataRepresentation()
-            media.save()
+            day.save()
         })
     }
     
