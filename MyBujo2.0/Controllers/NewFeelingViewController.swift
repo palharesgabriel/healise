@@ -64,6 +64,7 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
         CalendarManager.shared.selectedDay.feeling = feelingsView.feelingsCardView.selectedFeeling?.feeling
         CalendarManager.shared.selectedDay.save()
         animateOut(view: view, visualEffect: visualEffect!)
+        delegate.didAddFeeling(date: CalendarManager.shared.selectedDay.date!)
         
     }
 }

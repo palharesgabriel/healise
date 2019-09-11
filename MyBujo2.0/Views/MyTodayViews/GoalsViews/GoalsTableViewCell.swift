@@ -110,8 +110,6 @@ extension GoalsTableViewCell: UITableViewDelegate, UITableViewDataSource {
             day.removeFromGoals(goal)
             day.save()
             goals.remove(at: indexPath.row)
-            
-            tableView.reloadData()
         }
     }
     

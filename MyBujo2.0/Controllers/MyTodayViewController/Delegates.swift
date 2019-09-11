@@ -56,6 +56,7 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
         }
         CalendarManager.shared.selectedDay = day
         self.day = day
+        tableView.reloadData()
     }
 }
 
