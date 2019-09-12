@@ -47,17 +47,18 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     // MARK: Extension
 extension NewGoalViewController: FormViewDelegate {
     @objc func didPressDone(descript: String?) {
-        if descript != ""{
-            let goal = Goal(context: CoreDataManager.context)
-            goal.descript = descript
-            goal.completed = false
-            CalendarManager.shared.selectedDay.addToGoals(goal)
-            CalendarManager.shared.selectedDay.save()
-            self.delegate.didDismissWithDescript()
-        } else {
-            self.delegate.didDismissWithoutDescript()
-        }
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            if descript != ""{
+                let goal = Goal(context: CoreDataManager.context)
+                goal.descript = descript
+                goal.completed = false
+                CalendarManager.shared.selectedDay.addToGoals(goal)
+                CalendarManager.shared.selectedDay.save()
+                self.delegate.didDismissWithDescript()
+            } else {
+                self.delegate.didDismissWithoutDescript()
+            }
+        })
         
     }
 }
