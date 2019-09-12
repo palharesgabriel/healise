@@ -24,7 +24,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 0.7
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -57,13 +57,13 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         
         
-        UIView.animate(withDuration: 9*duration/10,
+        UIView.animate(withDuration: 8*duration/10,
                        delay: 0,
                        animations: {
                         fromVC.formView.transform = CGAffineTransform.init(scaleX: 0.001, y: 0.001)
         })
         { (completed) in
-            UIView.animate(withDuration: 1*duration/10,
+            UIView.animate(withDuration: 2*duration/10,
                            delay: 0,
                            animations: {
                             fromVC.view.alpha = 0
@@ -98,14 +98,14 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                
                //
                let duration = transitionDuration(using: transitionContext)
-               UIView.animate(withDuration: 1*duration/10,
+               UIView.animate(withDuration: 2*duration/10,
                               delay: 0,
                               animations: {
                                toVC.view?.alpha = 1
                                
                })
                { (completed) in
-                   UIView.animate(withDuration: 9*duration/10,
+                   UIView.animate(withDuration: 8*duration/10,
                                   delay: 0,
                                   usingSpringWithDamping: 0.8,
                                   initialSpringVelocity: 0.01,
