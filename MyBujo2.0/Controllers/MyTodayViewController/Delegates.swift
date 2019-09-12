@@ -37,9 +37,10 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
         viewCont.definesPresentationContext = true
         
         let newFeelingViewController = NewFeelingViewController()
-        newFeelingViewController.modalPresentationStyle = .overCurrentContext
         newFeelingViewController.delegate = self
-        viewCont.present(newFeelingViewController, animated: false, completion: nil)
+        newFeelingViewController.transitioningDelegate = self
+        newFeelingViewController.modalPresentationStyle = .overCurrentContext
+        viewCont.present(newFeelingViewController, animated: true, completion: nil)
     }
     
     /// Solve Later
@@ -80,14 +81,14 @@ extension MyTodayViewController: NewFeelingViewControllerDelegate {
 
 extension MyTodayViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let _ = presented as? NewGoalViewController {
+        if let _ = presented as? NewBaseViewController {
             return AddGoalsAnimator(transitionType: .presenting)
         }
         return nil
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let _ = dismissed as? NewGoalViewController {
+        if let _ = dismissed as? NewBaseViewController {
             return AddGoalsAnimator(transitionType: .dismissing)        }
         return nil
     }

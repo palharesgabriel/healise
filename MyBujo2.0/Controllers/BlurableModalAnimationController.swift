@@ -35,7 +35,7 @@ class BlurableModalAnimationController: NSObject, UIViewControllerAnimatedTransi
         UIView.animate(withDuration: duration, animations: {
             fromVC.view.alpha = 0
         }) { _ in
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+        transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
     }
     

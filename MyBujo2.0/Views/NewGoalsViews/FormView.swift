@@ -47,6 +47,7 @@ class FormView: UIView, Shadow, ViewCode {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+        
         addShadow()
         setupView()
     }

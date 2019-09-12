@@ -41,7 +41,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func dismiss(using transitionContext: UIViewControllerContextTransitioning){
         //getting references
-        guard let fromVC = transitionContext.viewController(forKey: .from) as? NewGoalViewController,
+        guard let fromVC = transitionContext.viewController(forKey: .from) as? NewBaseViewController,
             let toVC = transitionContext.viewController(forKey: .to) else {
                 return
         }
@@ -61,7 +61,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                        delay: 0,
                        options: .curveEaseOut,
                        animations: {
-                        fromVC.formView.transform = CGAffineTransform.init(scaleX: 0.001, y: 0.001)
+                        fromVC.reusableView.transform = CGAffineTransform.init(scaleX: 0.001, y: 0.001)
         })
         { (completed) in
             UIView.animate(withDuration: 2*duration/10,
@@ -79,7 +79,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func present(using transitionContext: UIViewControllerContextTransitioning){
         //getting references
                guard let fromVC = transitionContext.viewController(forKey: .from),
-                   let toVC = transitionContext.viewController(forKey: .to) as? NewGoalViewController else {
+                   let toVC = transitionContext.viewController(forKey: .to) as? NewBaseViewController else {
                        return
                }
                
@@ -88,7 +88,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                //setting toVC
                toVC.view.frame = CGRect(x: 0, y: 0, width: fromVC.view.frame.size.width, height: fromVC.view.frame.size.height)
                toVC.view?.alpha = 0
-               toVC.formView.transform = CGAffineTransform(scaleX: 0, y: 0)
+            toVC.reusableView.transform = CGAffineTransform(scaleX: 0, y: 0)
                
                let fromSnapshotView = fromVC.view.resizableSnapshotView(from: fromVC.view.frame, afterScreenUpdates: true, withCapInsets: UIEdgeInsets())
                
@@ -112,7 +112,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                   initialSpringVelocity: 0.01,
                                   options: .curveEaseInOut,
                                   animations: {
-                                   toVC.formView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                                    toVC.reusableView.transform = CGAffineTransform(scaleX: 1, y: 1)
                                    //
                                        
                    })

@@ -8,21 +8,17 @@
 import UIKit
 
 
-class NewGoalViewController: UIViewController, ViewCode, Blurable {
+class NewGoalViewController: NewBaseViewController, ViewCode {
     // MARK: Properties
-    var bluredView: UIView?
-    var effect: UIVisualEffect?
-    var visualEffect: UIVisualEffectView?
     let formView = FormView()
     weak var delegate: NewGoalViewControllerDelegate!
     
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        visualEffect = addBlur()
         setupView()
         formView.delegate = self
+        reusableView = formView
     }
     
     

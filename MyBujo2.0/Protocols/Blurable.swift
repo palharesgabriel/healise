@@ -9,9 +9,6 @@ import Foundation
 import UIKit
 
 protocol Blurable: UIViewController {
-    var bluredView: UIView? { get set }
-    var effect: UIVisualEffect? {get set}
-    var visualEffect: UIVisualEffectView? {get set}
     func addBlur() -> UIVisualEffectView
 }
 
