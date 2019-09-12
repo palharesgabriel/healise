@@ -31,7 +31,7 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        animateIn(view: formView, visualEffect: visualEffect!, effect: effect!)
+       
     }
     
     // MARK: Functions
@@ -57,7 +57,7 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
 extension NewGoalViewController: FormViewDelegate {
     
     @objc func shouldDismissModal() {
-        self.animateOut(view: self.view, visualEffect: self.visualEffect!)
+        
     }
     
     func didPressDone(descript: String?) {
@@ -68,10 +68,10 @@ extension NewGoalViewController: FormViewDelegate {
             CalendarManager.shared.selectedDay.addToGoals(goal)
             CalendarManager.shared.selectedDay.save()
             self.delegate.didDismissWithDescript()
-            self.animateOut(view: self.view, visualEffect: self.visualEffect!)
+            
         } else {
             self.delegate.didDismissWithoutDescript()
-            self.animateOut(view: self.view, visualEffect: self.visualEffect!)
+            
         }
         
     }

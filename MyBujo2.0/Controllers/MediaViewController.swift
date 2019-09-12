@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MediaViewController: UIViewController, ViewCode {
+class MediaViewController: UIViewController {
     
     var titleLabel: TitleLabel!
     var exitButton = ExitButton()
@@ -19,11 +19,9 @@ class MediaViewController: UIViewController, ViewCode {
         return view
     }()
     
-    func buildViewHierarchy() {
+    func setupInitialView() {
         view.addSubviews([titleLabel, exitButton, contentView])
-    }
     
-    func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
@@ -37,25 +35,19 @@ class MediaViewController: UIViewController, ViewCode {
             contentView.topAnchor.constraint(equalTo: exitButton.bottomAnchor),
             contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
-    }
     
-    func setupAdditionalConfigurantion() {
-        //
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        
+        setupInitialView()
         exitButton.addTarget(self, action: #selector(exitButtonClicked(sender:)), for: .touchUpInside)
-        
-
         // Do any additional setup after loading the view.
     }
     
-    @objc func exitButtonClicked(sender: ExitButton){
+    @objc func exitButtonClicked(sender: ExitButton) {
         dismiss(animated: true, completion: nil)
     }
     

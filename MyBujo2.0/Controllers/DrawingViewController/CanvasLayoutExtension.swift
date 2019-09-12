@@ -12,13 +12,13 @@ import PencilKit
 
 
 @available(iOS 13.0, *)
-extension DrawingViewController{
+extension DrawingViewController {
     
-    func layoutCanvas(){
+    func layoutCanvas() {
         let canvasScale = canvasView.bounds.width / canvasWidth
         canvasView.maximumZoomScale = 5.0
-        canvasView.minimumZoomScale = canvasView.minimumZoomScale * canvasScale
-        if !isZoomed{
+        canvasView.minimumZoomScale *= canvasScale
+        if !isZoomed {
             canvasView.zoomScale = canvasView.minimumZoomScale
             
             canvasWidth = canvasView.bounds.width
@@ -29,7 +29,7 @@ extension DrawingViewController{
     }
     
     // MARK: Breve inicialização da ToolPicker
-    func setupToolPicker(){
+    func setupToolPicker() {
         if let toolPicker = PKToolPicker.shared(for: UIApplication.shared.keyWindow!) {
             toolPicker.setVisible(true, forFirstResponder: canvasView)
             toolPicker.addObserver(canvasView)

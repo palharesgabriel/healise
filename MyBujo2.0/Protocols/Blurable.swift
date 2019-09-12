@@ -25,25 +25,4 @@ extension Blurable {
         self.view.addSubview(viewBlurEffect)
         return viewBlurEffect
     }
-    
-    func animateIn(view: UIView, visualEffect: UIVisualEffectView, effect: UIVisualEffect) {
-        view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        view.alpha = 0
-        UIView.animate(withDuration: 0.5, animations: {
-            visualEffect.effect = effect
-            view.alpha = 1
-            view.transform = CGAffineTransform.identity
-        })
-    }
-    
-    func animateOut(view: UIView, visualEffect: UIVisualEffectView) {
-        UIView.animate(withDuration: 0.3, animations: {
-            view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-            view.alpha = 0
-            visualEffect.effect = nil
-        }) { (sucess: Bool) in
-            view.removeFromSuperview()
-            self.dismiss(animated: false, completion: nil)
-        }
-    }
 }

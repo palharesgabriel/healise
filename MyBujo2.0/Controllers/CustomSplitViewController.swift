@@ -19,7 +19,7 @@ class CustomSplitViewController: UISplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.controllers = [MasterViewController(),MyTodayViewController(),MyJourneyViewController()]
-        var navigationControllers = controllers.map({ (controller) -> UINavigationController in
+        let navigationControllers = controllers.map({ (controller) -> UINavigationController in
             let nav = UINavigationController(rootViewController: controller)
             controller.navigationController?.navigationBar.isHidden = true
             return nav

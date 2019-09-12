@@ -18,10 +18,12 @@
 		1549195E231D4B8C00766609 /* FeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549195D231D4B8C00766609 /* FeelingView.swift */; };
 		15491960231D508000766609 /* FeelingsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549195F231D508000766609 /* FeelingsCardView.swift */; };
 		154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B139223143B3600F03C6C /* GoalTableViewCell.swift */; };
-		15B4C04A2327E294009B6067 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C0492327E294009B6067 /* PhotosViewController.swift */; };
+		157D9D69232A9285009659F4 /* CaptureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157D9D68232A9285009659F4 /* CaptureCollectionViewCell.swift */; };
+		15B4C04A2327E294009B6067 /* CapturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C0492327E294009B6067 /* CapturesViewController.swift */; };
 		15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C339C4230D8A14009ED5CD /* ViewCode.swift */; };
 		15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */; };
 		15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C62316FB8200F70860 /* Blurable.swift */; };
+		15E6195F2329370800C5E96D /* BlurableModalAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */; };
 		15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */; };
 		300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CAB7A2327C1E3002F066A /* DrawingViewController.swift */; };
 		301149102315721C0099E845 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3011490F2315721C0099E845 /* ShadowView.swift */; };
@@ -85,10 +87,12 @@
 		1549195D231D4B8C00766609 /* FeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingView.swift; sourceTree = "<group>"; };
 		1549195F231D508000766609 /* FeelingsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingsCardView.swift; sourceTree = "<group>"; };
 		154B139223143B3600F03C6C /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
-		15B4C0492327E294009B6067 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		157D9D68232A9285009659F4 /* CaptureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureCollectionViewCell.swift; sourceTree = "<group>"; };
+		15B4C0492327E294009B6067 /* CapturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturesViewController.swift; sourceTree = "<group>"; };
 		15C339C4230D8A14009ED5CD /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
 		15DFF5C62316FB8200F70860 /* Blurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurable.swift; sourceTree = "<group>"; };
+		15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurableModalAnimationController.swift; sourceTree = "<group>"; };
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
 		300CAB7A2327C1E3002F066A /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -198,12 +202,20 @@
 			path = MyTodayViews;
 			sourceTree = "<group>";
 		};
-		15B4C0482327E255009B6067 /* PhotosViewController */ = {
+		157D9D67232A91F3009659F4 /* CapturesViews */ = {
 			isa = PBXGroup;
 			children = (
-				15B4C0492327E294009B6067 /* PhotosViewController.swift */,
+				157D9D68232A9285009659F4 /* CaptureCollectionViewCell.swift */,
 			);
-			path = PhotosViewController;
+			path = CapturesViews;
+			sourceTree = "<group>";
+		};
+		15B4C0482327E255009B6067 /* CapturesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				15B4C0492327E294009B6067 /* CapturesViewController.swift */,
+			);
+			path = CapturesViewController;
 			sourceTree = "<group>";
 		};
 		15C339C3230D8A04009ED5CD /* Protocols */ = {
@@ -264,6 +276,7 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				157D9D67232A91F3009659F4 /* CapturesViews */,
 				308F6FC82327C36C008012AA /* CommonViews */,
 				1549195C231D4B6E00766609 /* NewFeelingViews */,
 				154EEE2F231408EF003B0EAF /* MyTodayViews */,
@@ -278,7 +291,7 @@
 		30AD9B1D230AE11800B39434 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				15B4C0482327E255009B6067 /* PhotosViewController */,
+				15B4C0482327E255009B6067 /* CapturesViewController */,
 				300CAB792327C1C9002F066A /* DrawingViewController */,
 				305F5751231E8E4400A220FD /* MyJourneyViewController */,
 				30ADD66B231D3947001CAF1C /* MyTodayViewController */,
@@ -288,6 +301,7 @@
 				15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */,
 				15491959231D44EE00766609 /* NewFeelingViewController.swift */,
 				308F6FCD2327CAAD008012AA /* MediaViewController.swift */,
+				15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -641,6 +655,7 @@
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
+				15E6195F2329370800C5E96D /* BlurableModalAnimationController.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				1516C18F231555E5002EC623 /* TableViewHeaderView.swift in Sources */,
 				E8535A0223156252009AB979 /* NotesView.swift in Sources */,
@@ -648,6 +663,7 @@
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
 				ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */,
 				308F6FD02327EB96008012AA /* CanvasLayoutExtension.swift in Sources */,
+				157D9D69232A9285009659F4 /* CaptureCollectionViewCell.swift in Sources */,
 				E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */,
 				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
 				30B9005E23184666000C0089 /* MediaExtension.swift in Sources */,
@@ -668,7 +684,7 @@
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
 				AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */,
 				308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */,
-				15B4C04A2327E294009B6067 /* PhotosViewController.swift in Sources */,
+				15B4C04A2327E294009B6067 /* CapturesViewController.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
@@ -842,6 +858,7 @@
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -865,6 +882,7 @@
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

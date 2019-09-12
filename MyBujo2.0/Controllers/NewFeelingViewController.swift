@@ -36,7 +36,7 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        animateIn(view: feelingsView, visualEffect: visualEffect!, effect: effect!)
+        
     }
     
     // MARK: Functions
@@ -63,7 +63,6 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
         
         CalendarManager.shared.selectedDay.feeling = feelingsView.feelingsCardView.selectedFeeling?.feeling
         CalendarManager.shared.selectedDay.save()
-        animateOut(view: view, visualEffect: visualEffect!)
         
     }
 }
