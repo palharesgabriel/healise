@@ -10,7 +10,6 @@ import UIKit
 
 class NewGoalViewController: UIViewController, ViewCode, Blurable {
     // MARK: Properties
-    var bluredView: UIView?
     var effect: UIVisualEffect?
     var visualEffect: UIVisualEffectView?
     let formView = FormView()
@@ -21,11 +20,8 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
         super.viewDidLoad()
         
         visualEffect = addBlur()
-        bluredView = visualEffect?.contentView
         setupView()
         formView.delegate = self
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didPressDone(descript:)))
-        bluredView?.addGestureRecognizer(tapGesture)
     }
     
     
