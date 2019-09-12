@@ -17,8 +17,8 @@ protocol Blurable: UIViewController {
 
 extension Blurable {
     func addBlur () -> UIVisualEffectView {
-        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-        let blurEffect = UIBlurEffect(style: .light)
+        self.view.backgroundColor = UIColor(named: "BlueBackground")?.withAlphaComponent(0.2)
+        let blurEffect = UIBlurEffect(style: .dark)
         let viewBlurEffect = UIVisualEffectView(effect: blurEffect)
         viewBlurEffect.frame = view.bounds
         viewBlurEffect.autoresizingMask = [.flexibleWidth,.flexibleHeight]

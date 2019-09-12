@@ -26,6 +26,7 @@
 		15E6195F2329370800C5E96D /* BlurableModalAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */; };
 		15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */; };
 		300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CAB7A2327C1E3002F066A /* DrawingViewController.swift */; };
+		3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010248D232A840700BBE978 /* AddGoalsAnimator.swift */; };
 		301149102315721C0099E845 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3011490F2315721C0099E845 /* ShadowView.swift */; };
 		301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F35342316AAC500AD5477 /* CoreDataManager.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
@@ -95,6 +96,7 @@
 		15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurableModalAnimationController.swift; sourceTree = "<group>"; };
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
 		300CAB7A2327C1E3002F066A /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		3010248D232A840700BBE978 /* AddGoalsAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalsAnimator.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		301F35342316AAC500AD5477 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
@@ -255,6 +257,14 @@
 			path = DrawingViewController;
 			sourceTree = "<group>";
 		};
+		305CC97D232A6BC100969B52 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				3010248D232A840700BBE978 /* AddGoalsAnimator.swift */,
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
 		305F5751231E8E4400A220FD /* MyJourneyViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +319,7 @@
 		30AD9B1E230AE12100B39434 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				305CC97D232A6BC100969B52 /* Animator */,
 				30AD9B26230AE98B00B39434 /* CalendarManager.swift */,
 				15341D832315C28B005E7328 /* HeaderViewFactory.swift */,
 				301F35342316AAC500AD5477 /* CoreDataManager.swift */,
@@ -648,6 +659,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15491960231D508000766609 /* FeelingsCardView.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,

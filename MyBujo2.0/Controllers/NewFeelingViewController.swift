@@ -9,7 +9,7 @@
 import UIKit
 
     // MARK: Protocols
-protocol NewFeelingViewControllerDelegate {
+protocol NewFeelingViewControllerDelegate: class {
     func didAddFeeling(date: Date)
 }
 
@@ -19,7 +19,7 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
     // MARK: Properties
     var bluredView: UIView?
     let feelingsView = FeelingsView()
-    var delegate: NewFeelingViewControllerDelegate!
+    weak var delegate: NewFeelingViewControllerDelegate!
     var effect: UIVisualEffect?
     var visualEffect: UIVisualEffectView?
     
@@ -63,6 +63,8 @@ class NewFeelingViewController: UIViewController, ViewCode, Blurable {
         
         CalendarManager.shared.selectedDay.feeling = feelingsView.feelingsCardView.selectedFeeling?.feeling
         CalendarManager.shared.selectedDay.save()
+        delegate.didAddFeeling(date: CalendarManager.shared.selectedDay.date!)
+        dismiss(animated: true, completion: nil)
         
     }
 }

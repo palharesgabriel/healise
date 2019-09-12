@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol FormViewDelegate {
+protocol FormViewDelegate: class {
     func didPressDone(descript: String?)
 }
 
@@ -16,7 +16,7 @@ class FormView: UIView, Shadow, ViewCode {
     
     
     // MARK: Properties
-    var delegate: FormViewDelegate?
+    weak var delegate: FormViewDelegate?
     lazy var instructionLabel = UILabel(text: "Insert a new goal for today", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!)
     
     lazy var goalTextField: UITextView = {

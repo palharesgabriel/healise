@@ -12,7 +12,7 @@ class MediaTableViewCell: UITableViewCell {
     
     var images: [UIImage]
     static let reuseIdentifier = "MediaTableCell"
-    var delegate: MediaCollectionViewDelegate?
+    weak var delegate: MediaCollectionViewDelegate?
     
     let mediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

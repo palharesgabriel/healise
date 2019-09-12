@@ -60,7 +60,7 @@ extension DrawingViewController {
 }
 
 @available(iOS 13.0, *)
-extension DrawingViewController: PKCanvasViewDelegate{
+extension DrawingViewController: PKCanvasViewDelegate {
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         // sempre que o desenho mudar (consequentemente aumentar) devemos atualizar o tamanho do content do canvas
     }
@@ -68,7 +68,7 @@ extension DrawingViewController: PKCanvasViewDelegate{
 }
 
 @available(iOS 13.0, *)
-extension DrawingViewController: PKToolPickerObserver{
+extension DrawingViewController: PKToolPickerObserver {
     func toolPickerFramesObscuredDidChange(_ toolPicker: PKToolPicker) {
         updateLayout(for: toolPicker)
     }

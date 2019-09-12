@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol NewGoalViewControllerDelegate {
+protocol NewGoalViewControllerDelegate: class {
     func didDismissWithDescript()
     func didDismissWithoutDescript()
 }

@@ -14,25 +14,17 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     var effect: UIVisualEffect?
     var visualEffect: UIVisualEffectView?
     let formView = FormView()
-    var delegate: NewGoalViewControllerDelegate!
+    weak var delegate: NewGoalViewControllerDelegate!
     
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         visualEffect = addBlur()
-        effect = visualEffect?.effect
-        visualEffect?.effect = nil
-        bluredView = visualEffect?.contentView
         setupView()
         formView.delegate = self
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(shouldDismissModal))
-        bluredView?.addGestureRecognizer(tapGesture)
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-       
-    }
     
     // MARK: Functions
     func buildViewHierarchy() {
@@ -55,24 +47,19 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
 
     // MARK: Extension
 extension NewGoalViewController: FormViewDelegate {
-    
-    @objc func shouldDismissModal() {
-        
-    }
-    
-    func didPressDone(descript: String?) {
-        if descript != ""{
-            let goal = Goal(context: CoreDataManager.context)
-            goal.descript = descript
-            goal.completed = false
-            CalendarManager.shared.selectedDay.addToGoals(goal)
-            CalendarManager.shared.selectedDay.save()
-            self.delegate.didDismissWithDescript()
-            
-        } else {
-            self.delegate.didDismissWithoutDescript()
-            
-        }
+    @objc func didPressDone(descript: String?) {
+        dismiss(animated: true, completion: {
+            if descript != ""{
+                let goal = Goal(context: CoreDataManager.context)
+                goal.descript = descript
+                goal.completed = false
+                CalendarManager.shared.selectedDay.addToGoals(goal)
+                CalendarManager.shared.selectedDay.save()
+                self.delegate.didDismissWithDescript()
+            } else {
+                self.delegate.didDismissWithoutDescript()
+            }
+        })
         
     }
 }
