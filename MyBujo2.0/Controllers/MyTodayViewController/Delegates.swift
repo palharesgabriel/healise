@@ -17,8 +17,9 @@ extension MyTodayViewController:TableViewHeaderViewDelegate {
         
         let newGoalViewController = NewGoalViewController()
         newGoalViewController.delegate = self
+        newGoalViewController.transitioningDelegate = self
         newGoalViewController.modalPresentationStyle = .overCurrentContext
-        viewCont.present(newGoalViewController, animated: false, completion: nil)
+        viewCont.present(newGoalViewController, animated: true, completion: nil)
     }
 }
 
@@ -74,5 +75,21 @@ extension MyTodayViewController: NewFeelingViewControllerDelegate {
     func didAddFeeling(date: Date) {
         guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
         cell.calendarView.reloadData(withAnchor: date, completionHandler: nil)
+    }
+}
+
+extension MyTodayViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if let _ = presented as? NewGoalViewController {
+            return AddGoalsPresentAnimator()
+        }
+        return nil
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if let _ = dismissed as? NewGoalViewController {
+            return AddGoalsDismissAnimator()
+        }
+        return nil
     }
 }

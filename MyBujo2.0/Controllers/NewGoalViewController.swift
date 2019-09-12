@@ -19,20 +19,15 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         visualEffect = addBlur()
-        effect = visualEffect?.effect
-        visualEffect?.effect = nil
         bluredView = visualEffect?.contentView
         setupView()
         formView.delegate = self
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(shouldDismissModal))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didPressDone(descript:)))
         bluredView?.addGestureRecognizer(tapGesture)
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        animateIn(view: formView, visualEffect: visualEffect!, effect: effect!)
-    }
     
     // MARK: Functions
     func buildViewHierarchy() {
@@ -55,12 +50,7 @@ class NewGoalViewController: UIViewController, ViewCode, Blurable {
 
     // MARK: Extension
 extension NewGoalViewController: FormViewDelegate {
-    
-    @objc func shouldDismissModal() {
-        self.animateOut(view: self.view, visualEffect: self.visualEffect!)
-    }
-    
-    func didPressDone(descript: String?) {
+    @objc func didPressDone(descript: String?) {
         if descript != ""{
             let goal = Goal(context: CoreDataManager.context)
             goal.descript = descript
@@ -68,11 +58,10 @@ extension NewGoalViewController: FormViewDelegate {
             CalendarManager.shared.selectedDay.addToGoals(goal)
             CalendarManager.shared.selectedDay.save()
             self.delegate.didDismissWithDescript()
-            self.animateOut(view: self.view, visualEffect: self.visualEffect!)
         } else {
             self.delegate.didDismissWithoutDescript()
-            self.animateOut(view: self.view, visualEffect: self.visualEffect!)
         }
+        dismiss(animated: true, completion: nil)
         
     }
 }

@@ -23,9 +23,11 @@
 		15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C62316FB8200F70860 /* Blurable.swift */; };
 		15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */; };
 		300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CAB7A2327C1E3002F066A /* DrawingViewController.swift */; };
+		3010248E232A840700BBE978 /* AddGoalsDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010248D232A840700BBE978 /* AddGoalsDismissAnimator.swift */; };
 		301149102315721C0099E845 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3011490F2315721C0099E845 /* ShadowView.swift */; };
 		301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F35342316AAC500AD5477 /* CoreDataManager.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
+		305CC97F232A6BDC00969B52 /* AddGoalsPresentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305CC97E232A6BDC00969B52 /* AddGoalsPresentAnimator.swift */; };
 		308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FC92327C391008012AA /* TitleLabel.swift */; };
 		308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCB2327C4AB008012AA /* ExitButton.swift */; };
 		308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCD2327CAAD008012AA /* MediaViewController.swift */; };
@@ -89,9 +91,11 @@
 		15DFF5C62316FB8200F70860 /* Blurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurable.swift; sourceTree = "<group>"; };
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
 		300CAB7A2327C1E3002F066A /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		3010248D232A840700BBE978 /* AddGoalsDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalsDismissAnimator.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		301F35342316AAC500AD5477 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
+		305CC97E232A6BDC00969B52 /* AddGoalsPresentAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalsPresentAnimator.swift; sourceTree = "<group>"; };
 		308F6FC92327C391008012AA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		308F6FCB2327C4AB008012AA /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		308F6FCD2327CAAD008012AA /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +237,15 @@
 			path = DrawingViewController;
 			sourceTree = "<group>";
 		};
+		305CC97D232A6BC100969B52 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				305CC97E232A6BDC00969B52 /* AddGoalsPresentAnimator.swift */,
+				3010248D232A840700BBE978 /* AddGoalsDismissAnimator.swift */,
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
 		305F5751231E8E4400A220FD /* MyJourneyViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +297,7 @@
 		30AD9B1E230AE12100B39434 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				305CC97D232A6BC100969B52 /* Animator */,
 				30AD9B26230AE98B00B39434 /* CalendarManager.swift */,
 				15341D832315C28B005E7328 /* HeaderViewFactory.swift */,
 				301F35342316AAC500AD5477 /* CoreDataManager.swift */,
@@ -623,6 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3010248E232A840700BBE978 /* AddGoalsDismissAnimator.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15491960231D508000766609 /* FeelingsCardView.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
@@ -658,6 +673,7 @@
 				AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */,
 				308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
+				305CC97F232A6BDC00969B52 /* AddGoalsPresentAnimator.swift in Sources */,
 				308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
 				1549195823193EDD00766609 /* FormView.swift in Sources */,
