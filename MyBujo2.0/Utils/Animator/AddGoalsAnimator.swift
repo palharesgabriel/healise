@@ -57,8 +57,9 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         
         
         
-        UIView.animate(withDuration: 8*duration/10,
+        UIView.animate(withDuration: 4*duration/10,
                        delay: 0,
+                       options: .curveEaseOut,
                        animations: {
                         fromVC.formView.transform = CGAffineTransform.init(scaleX: 0.001, y: 0.001)
         })
