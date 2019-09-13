@@ -24,10 +24,19 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     let goalBullet: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "TitleColor")
+        view.layer.borderWidth = 2
+        view.layer.cornerRadius = 8
+        view.backgroundColor = .clear
+        view.layer.borderColor = UIColor(named: "TittleColor")?.cgColor
         view.clipsToBounds = true
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 2
+        return view
+    }()
+    
+    let checkMarkView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "checkmark"))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         return view
     }()
     
@@ -40,11 +49,14 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         self.goal = goal
         setupView()
         goalDescription.text = goal.descript
-        if goal.completed {
-            accessoryType = .checkmark
+        if goal.completed {            self.addSubview(checkMarkView)
+            checkMarkView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 16).isActive = true
+            checkMarkView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 8).isActive = true
+            goalDescription.textColor = UIColor(named: "SelectionColor")!
             selectedBackgroundView = UIView()
         } else {
-            accessoryType = .none
+            checkMarkView.removeFromSuperview()
+            goalDescription.textColor = UIColor(named: "TitleColor")!
             selectedBackgroundView = UIView()
         }
         
@@ -63,8 +75,8 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         NSLayoutConstraint.activate([
             goalBullet.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             goalBullet.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            goalBullet.heightAnchor.constraint(equalToConstant: 4),
-            goalBullet.widthAnchor.constraint(equalToConstant: 4)
+            goalBullet.heightAnchor.constraint(equalToConstant: 16),
+            goalBullet.widthAnchor.constraint(equalToConstant: 16)
         ])
         
         NSLayoutConstraint.activate([
