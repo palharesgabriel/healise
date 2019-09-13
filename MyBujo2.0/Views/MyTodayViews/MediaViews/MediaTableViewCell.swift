@@ -10,7 +10,8 @@ import UIKit
 
 class MediaTableViewCell: UITableViewCell {
     
-    var images: [UIImage]
+    let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
+    
     static let reuseIdentifier = "MediaTableCell"
     weak var delegate: MediaCollectionViewDelegate?
     
@@ -35,7 +36,6 @@ class MediaTableViewCell: UITableViewCell {
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        self.images = [UIImage(named: "notes")!, UIImage(named: "pencil")!, UIImage(named: "mic")!, UIImage(named: "videoCamera")!, UIImage(named: "camera")!]
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
     }
@@ -46,7 +46,6 @@ class MediaTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.images = [UIImage]()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -89,7 +88,7 @@ extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
 extension MediaTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -115,9 +114,14 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = self.mediaCollectionView.dequeueReusableCell(withReuseIdentifier: "MediaCell", for: indexPath) as? MediaCollectionViewCell else { return MediaCollectionViewCell() }
-        cell.iconImageView.image = images[indexPath.row]
+        
+        
+        if #available(iOS 13.0, *) {
+            cell.setupCell(imageName: iconNames[indexPath.row].sf)
+        } else {
+            cell.setupCell(imageName: iconNames[indexPath.row].normal)
+        }
         return cell
     }
     
 }
-

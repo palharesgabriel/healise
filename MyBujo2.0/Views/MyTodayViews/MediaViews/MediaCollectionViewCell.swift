@@ -27,6 +27,16 @@ class MediaCollectionViewCell: UICollectionViewCell {
         setupView()
     }
     
+    func setupCell(imageName: String) {
+        if #available(iOS 13.0, *) {
+            let configuration = UIImage.SymbolConfiguration(pointSize: 48, weight: .light)
+            iconImageView.image = UIImage(systemName: imageName, withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate) ?? UIImage(named: "notes")!.withRenderingMode(.alwaysTemplate)
+        } else {
+            iconImageView.image =  UIImage(named: "notes")!.withRenderingMode(.alwaysTemplate)
+        }
+        iconImageView.tintColor = UIColor(named: "TitleColor")
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not benn implemented")
     }
