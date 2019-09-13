@@ -31,7 +31,14 @@ class CalendarManager: NSObject {
          return result
     }
     
-    var selectedDay: Day!
+    lazy var selectedDay: Day! = {
+        if self.selectedDay == nil{
+            return self.currentDay
+        }
+        else{
+            return self.selectedDay
+        }
+    }()
     
     var currentDayComponent = Calendar.current.component(.day, from: Date())
     var currentMonthComponent = Calendar.current.component(.month, from: Date())
