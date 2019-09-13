@@ -17,8 +17,14 @@ class NavigationButton: UIButton {
     convenience init(title: String, icon: String, idColor: Int) {
         self.init()
         self.identifier = idColor
-        let icon = UIImage(named: icon)?.withRenderingMode(.alwaysTemplate)
-        self.setImage(icon, for: .normal)
+        var image = UIImage()
+        if #available(iOS 13.0, *) {
+            image = (UIImage(systemName: icon, compatibleWith: .current)?.withRenderingMode(.alwaysTemplate)) ?? (UIImage(named: icon)?.withRenderingMode(.alwaysTemplate))!
+        } else {
+            image = (UIImage(named: icon)?.withRenderingMode(.alwaysTemplate))!
+        }
+        
+        self.setImage(image, for: .normal)
         self.imageView?.tintColor = UIColor(named: "TitleColor")
         self.imageView?.contentMode = .scaleAspectFit
         self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)

@@ -281,6 +281,7 @@
 				30CBF8DB230C40B000D56A41 /* Calendar */,
 				308F6FC92327C391008012AA /* TitleLabel.swift */,
 				308F6FCB2327C4AB008012AA /* ExitButton.swift */,
+				E813C1A62322A5F0002F170D /* NavigationButton.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -463,7 +464,6 @@
 				E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */,
 				E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */,
 				E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */,
-				E813C1A62322A5F0002F170D /* NavigationButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
