@@ -9,7 +9,7 @@
 import UIKit
 import JTAppleCalendar
 class MyJourneyViewController: UIViewController, ViewCode {
-    
+    var day: Day!
     // MARK: Properties
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -33,6 +33,8 @@ class MyJourneyViewController: UIViewController, ViewCode {
     // MARK: Override Functions
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController!.navigationBar.isHidden = true
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
+        cell.calendarView.selectDates([CalendarManager.shared.selectedDay.date!], triggerSelectionDelegate: true, keepSelectionIfMultiSelectionAllowed: false)
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         guard let calendarCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
