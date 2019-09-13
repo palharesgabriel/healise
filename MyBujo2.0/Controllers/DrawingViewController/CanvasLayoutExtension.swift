@@ -15,7 +15,6 @@ import PencilKit
 extension DrawingViewController {
     
     func layoutCanvas() {
-        let canvasScale = canvasView.bounds.width / canvasWidth
         canvasView.maximumZoomScale = 5.0
         canvasView.minimumZoomScale = 1.0
         if !isZoomed {
