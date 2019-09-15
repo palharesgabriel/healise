@@ -72,7 +72,6 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
-//        cell.delegate = self
         cell.delegate = self
         cell.setupCell(calendarType: .month, date: Date())
         return cell
