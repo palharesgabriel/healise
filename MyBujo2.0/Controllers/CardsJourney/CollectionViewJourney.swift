@@ -8,18 +8,18 @@
 
 import UIKit
 
-class CollectionViewJourney: UIView, ViewCode {
-    func buildViewHierarchy() {
-        <#code#>
-    }
-    
-    func setupConstraints() {
-        <#code#>
-    }
-    
-    func setupAdditionalConfigurantion() {
-        <#code#>
-    }
-    
-    
-}
+//class CollectionViewJourney: UIView, ViewCode {
+//    func buildViewHierarchy() {
+//        <#code#>
+//    }
+//
+//    func setupConstraints() {
+//        <#code#>
+//    }
+//
+//    func setupAdditionalConfigurantion() {
+//        <#code#>
+//    }
+//
+//
+//}
