@@ -8,18 +8,39 @@
 
 import UIKit
 
-//class CollectionViewJourney: UIView, ViewCode {
-//    func buildViewHierarchy() {
-//        <#code#>
-//    }
-//
-//    func setupConstraints() {
-//        <#code#>
-//    }
-//
-//    func setupAdditionalConfigurantion() {
-//        <#code#>
-//    }
-//
-//
-//}
+class CollectionViewJourney: UIView, ViewCode {
+    
+    // MARK: Properties
+    var collectionView: UICollectionView = {
+        let collection = UICollectionView()
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        return collection
+    }()
+    
+    
+    // MARK: Initialization
+    override init(frame: CGRect) {
+        super.init(frame:.zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func buildViewHierarchy() {
+        addSubviews([collectionView])
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+        collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+        collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    func setupAdditionalConfigurantion() {
+        
+    }
+    
+    
+}
