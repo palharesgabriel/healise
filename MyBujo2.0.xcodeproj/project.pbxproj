@@ -57,7 +57,6 @@
 		AB6A65C4230AD994009CFE7E /* MyBujo2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */; };
 		AB6E4AAE232FC1E600911243 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E4AAD232FC1E600911243 /* AudioViewController.swift */; };
 		AB6E4AB1232FC4C000911243 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E4AB0232FC4C000911243 /* AudioPlayer.swift */; };
-		AB6E4AB323304F1000911243 /* LayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E4AB223304F1000911243 /* LayoutAnchor.swift */; };
 		AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */; };
 		AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */; };
 		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
@@ -139,7 +138,6 @@
 		AB6A65C5230AD994009CFE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB6E4AAD232FC1E600911243 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		AB6E4AB0232FC4C000911243 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
-		AB6E4AB223304F1000911243 /* LayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutAnchor.swift; sourceTree = "<group>"; };
 		AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissControllerDelegate.swift; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 				AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */,
 				AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */,
 				E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */,
-				AB6E4AB223304F1000911243 /* LayoutAnchor.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -693,7 +690,6 @@
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				157F4540232AEDE8007BC8D4 /* NewBaseViewController.swift in Sources */,
 				1516C18F231555E5002EC623 /* TableViewHeaderView.swift in Sources */,
-				AB6E4AB323304F1000911243 /* LayoutAnchor.swift in Sources */,
 				E8535A0223156252009AB979 /* NotesView.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
