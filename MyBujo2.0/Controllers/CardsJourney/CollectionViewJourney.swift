@@ -14,10 +14,10 @@ class CollectionViewJourney: UITableViewCell, ViewCode {
     // MARK: Properties
     let  collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        layout.itemSize = CGSize(width: 400, height: 100)
         layout.minimumInteritemSpacing = CGFloat(5.0)
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = UIColor(named: "BlueBackground")
@@ -73,6 +73,10 @@ extension CollectionViewJourney: UICollectionViewDataSource, UICollectionViewDel
 
 extension CollectionViewJourney: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 150)
+        return CGSize(width: 450, height: 300)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 40.0
     }
 }
