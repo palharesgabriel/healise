@@ -10,6 +10,7 @@ import UIKit
 
 class CollectionViewJourney: UIView, ViewCode {
     
+    
     // MARK: Properties
     var collectionView: UICollectionView = {
         let collection = UICollectionView()
@@ -21,16 +22,18 @@ class CollectionViewJourney: UIView, ViewCode {
     // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame:.zero)
+        buildViewHierarchy()
+        setupConstraints()
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: Functions
     func buildViewHierarchy() {
         addSubviews([collectionView])
     }
-    
     func setupConstraints() {
         NSLayoutConstraint.activate([
         collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),

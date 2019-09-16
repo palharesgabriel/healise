@@ -9,8 +9,11 @@
 import UIKit
 import JTAppleCalendar
 class MyJourneyViewController: UIViewController, ViewCode {
-    var day: Day!
+    
+    
     // MARK: Properties
+    let collectionJourney = CollectionViewJourney()
+    var day: Day!
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .clear
@@ -26,7 +29,6 @@ class MyJourneyViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
-        // Do any additional setup after loading the view.
     }
     
     

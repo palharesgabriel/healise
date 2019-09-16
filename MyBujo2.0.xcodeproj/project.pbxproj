@@ -65,6 +65,7 @@
 		E8535A0223156252009AB979 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A0123156252009AB979 /* NotesView.swift */; };
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 		E8588B65232EEE6B0011939B /* CollectionViewJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B64232EEE6B0011939B /* CollectionViewJourney.swift */; };
+		E8588B67232F112A0011939B /* CellCollectionViewJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */; };
 		E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +147,7 @@
 		E8535A0123156252009AB979 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E8588B64232EEE6B0011939B /* CollectionViewJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewJourney.swift; sourceTree = "<group>"; };
+		E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCollectionViewJourney.swift; sourceTree = "<group>"; };
 		E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Extension.swift"; sourceTree = "<group>"; };
 		ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
 		FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -464,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				E8588B64232EEE6B0011939B /* CollectionViewJourney.swift */,
+				E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */,
 			);
 			path = CardsJourney;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
+				E8588B67232F112A0011939B /* CellCollectionViewJourney.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
 				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
