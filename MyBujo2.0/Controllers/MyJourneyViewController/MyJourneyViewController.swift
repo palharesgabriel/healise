@@ -60,8 +60,27 @@ class MyJourneyViewController: UIViewController, ViewCode {
     func setupAdditionalConfigurantion() {
         tableView.delegate = self
         tableView.dataSource = self
+        collectionJourney.collectionView.dataSource = self
+        collectionJourney.collectionView.delegate = self
     }
     
+    
+}
+
+extension MyJourneyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath)
+        cell.backgroundColor = .red
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
     
 }
 

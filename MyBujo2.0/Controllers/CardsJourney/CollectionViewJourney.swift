@@ -12,9 +12,10 @@ class CollectionViewJourney: UIView, ViewCode {
     
     
     // MARK: Properties
-    var collectionView: UICollectionView = {
+    let  collectionView: UICollectionView = {
         let collection = UICollectionView()
         collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.register(CollectionViewJourney.self, forCellWithReuseIdentifier: "collectioncell")
         return collection
     }()
     
