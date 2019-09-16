@@ -55,6 +55,8 @@
 		AB6A65B6230AD994009CFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B5230AD994009CFE7E /* Assets.xcassets */; };
 		AB6A65B9230AD994009CFE7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */; };
 		AB6A65C4230AD994009CFE7E /* MyBujo2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */; };
+		AB6E4AAE232FC1E600911243 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E4AAD232FC1E600911243 /* AudioViewController.swift */; };
+		AB6E4AB1232FC4C000911243 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E4AB0232FC4C000911243 /* AudioPlayer.swift */; };
 		AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */; };
 		AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */; };
 		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
@@ -134,6 +136,8 @@
 		AB6A65BF230AD994009CFE7E /* MyBujo2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBujo2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBujo2_0Tests.swift; sourceTree = "<group>"; };
 		AB6A65C5230AD994009CFE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB6E4AAD232FC1E600911243 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		AB6E4AB0232FC4C000911243 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissControllerDelegate.swift; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AB6E4AAF232FC47400911243 /* AudioViews */,
 				157D9D67232A91F3009659F4 /* CapturesViews */,
 				308F6FC82327C36C008012AA /* CommonViews */,
 				1549195C231D4B6E00766609 /* NewFeelingViews */,
@@ -316,6 +321,7 @@
 				15491959231D44EE00766609 /* NewFeelingViewController.swift */,
 				308F6FCD2327CAAD008012AA /* MediaViewController.swift */,
 				15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */,
+				AB6E4AAD232FC1E600911243 /* AudioViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -436,6 +442,14 @@
 				AB6A65C5230AD994009CFE7E /* Info.plist */,
 			);
 			path = MyBujo2.0Tests;
+			sourceTree = "<group>";
+		};
+		AB6E4AAF232FC47400911243 /* AudioViews */ = {
+			isa = PBXGroup;
+			children = (
+				AB6E4AB0232FC4C000911243 /* AudioPlayer.swift */,
+			);
+			path = AudioViews;
 			sourceTree = "<group>";
 		};
 		B10888BBE6C5CE81382D8853 /* Pods */ = {
@@ -664,9 +678,11 @@
 			files = (
 				3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
+				AB6E4AB1232FC4C000911243 /* AudioPlayer.swift in Sources */,
 				15491960231D508000766609 /* FeelingsCardView.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
 				1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */,
+				AB6E4AAE232FC1E600911243 /* AudioViewController.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,

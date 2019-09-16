@@ -20,8 +20,7 @@ class NavigationButton: UIButton {
         var image = UIImage()
         if #available(iOS 13.0, *) {
             image = (UIImage(systemName: icon, compatibleWith: .current)?.withRenderingMode(.alwaysTemplate)) ?? (UIImage(named: icon)?.withRenderingMode(.alwaysTemplate))!
-        }
-        else {
+        } else {
             image = (UIImage(named: icon)?.withRenderingMode(.alwaysTemplate))!
         }
         

@@ -102,7 +102,7 @@ extension MediaTableViewCell: UICollectionViewDataSource {
                 // Fallback on earlier versions
             }
         case 2:
-            delegate?.pushViewController(viewController: NotesViewController())
+            delegate?.pushViewController(viewController: AudioViewController(title: "Audio"))
         case 3:
             delegate?.pushViewController(viewController: NotesViewController())
         case 4:

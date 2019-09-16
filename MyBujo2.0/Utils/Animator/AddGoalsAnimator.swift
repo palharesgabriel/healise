@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum TransitionType{
+enum TransitionType {
     case presenting
     case dismissing
 }
@@ -39,7 +39,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     
-    func dismiss(using transitionContext: UIViewControllerContextTransitioning){
+    func dismiss(using transitionContext: UIViewControllerContextTransitioning) {
         //getting references
         guard let fromVC = transitionContext.viewController(forKey: .from) as? NewBaseViewController,
             let toVC = transitionContext.viewController(forKey: .to) else {
@@ -76,7 +76,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         }
     }
     
-    func present(using transitionContext: UIViewControllerContextTransitioning){
+    func present(using transitionContext: UIViewControllerContextTransitioning) {
         //getting references
                guard let fromVC = transitionContext.viewController(forKey: .from),
                    let toVC = transitionContext.viewController(forKey: .to) as? NewBaseViewController else {
