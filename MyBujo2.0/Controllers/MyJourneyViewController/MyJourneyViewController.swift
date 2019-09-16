@@ -12,7 +12,6 @@ class MyJourneyViewController: UIViewController, ViewCode {
     
     
     // MARK: Properties
-    let collectionJourney = CollectionViewJourney()
     var day: Day!
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -39,6 +38,8 @@ class MyJourneyViewController: UIViewController, ViewCode {
         guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
         cell.calendarView.selectDates([CalendarManager.shared.selectedDay.date!], triggerSelectionDelegate: true, keepSelectionIfMultiSelectionAllowed: false)
     }
+    
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         guard let calendarCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
         calendarCell.viewWillTransition(to: size, with: coordinator)
@@ -61,26 +62,24 @@ class MyJourneyViewController: UIViewController, ViewCode {
     func setupAdditionalConfigurantion() {
         tableView.delegate = self
         tableView.dataSource = self
-        collectionJourney.collectionView.dataSource = self
-        collectionJourney.collectionView.delegate = self
     }
 }
 
-extension MyJourneyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath)
-        cell.backgroundColor = .red
-        return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-    }
-}
+//extension MyJourneyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 2
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? Cell
+//        cell.backgroundColor = .red
+//        return cell
+//    }
+//
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+//    }
+//}
 
 
 
@@ -98,7 +97,7 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
             cell.setupCell(calendarType: .month, date: Date())
             return cell
         case 1:
-            guard let cellCollection = tableView.dequeueReusableCell(withIdentifier: "cardsCell") else {return UITableViewCell() }
+            guard let cellCollection = tableView.dequeueReusableCell(withIdentifier: "cardsCell") as? CollectionViewJourney else {return UITableViewCell() }
             return cellCollection
         default:
             return UITableViewCell()
@@ -110,6 +109,8 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
+            return 344
+        case 1:
             return 344
         default:
             return 0

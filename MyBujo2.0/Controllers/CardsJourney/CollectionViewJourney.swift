@@ -17,11 +17,11 @@ class CollectionViewJourney: UITableViewCell, ViewCode {
         layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: 100, height: 100)
         layout.minimumInteritemSpacing = CGFloat(5.0)
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.register(CellCollectionViewJourney.self, forCellWithReuseIdentifier: "collectioncell")
         collection.backgroundColor = UIColor(named: "BlueBackground")
+        collection.register(CellCollectionViewJourney.self, forCellWithReuseIdentifier: "collectionCell")
         return collection
     }()
     
@@ -29,9 +29,11 @@ class CollectionViewJourney: UITableViewCell, ViewCode {
     // MARK: Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        buildViewHierarchy()
-        setupConstraints()
+        setupView()
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -53,6 +55,24 @@ class CollectionViewJourney: UITableViewCell, ViewCode {
     func setupAdditionalConfigurantion() {
         
     }
+}
+
+extension CollectionViewJourney: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? CellCollectionViewJourney else { return UICollectionViewCell()}
+        
+        return cell
+    }
     
     
+}
+
+extension CollectionViewJourney: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 150, height: 150)
+    }
 }
