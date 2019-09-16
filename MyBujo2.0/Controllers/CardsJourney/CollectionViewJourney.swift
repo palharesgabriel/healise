@@ -14,10 +14,14 @@ class CollectionViewJourney: UITableViewCell, ViewCode {
     // MARK: Properties
     let  collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: 100, height: 100)
+        layout.minimumInteritemSpacing = CGFloat(5.0)
+        layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.register(CellCollectionViewJourney.self, forCellWithReuseIdentifier: "collectioncell")
+        collection.backgroundColor = UIColor(named: "BlueBackground")
         return collection
     }()
     
@@ -40,7 +44,9 @@ class CollectionViewJourney: UITableViewCell, ViewCode {
     func setupConstraints() {
         NSLayoutConstraint.activate([
         collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-        collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+        collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+        collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
         ])
     }
     

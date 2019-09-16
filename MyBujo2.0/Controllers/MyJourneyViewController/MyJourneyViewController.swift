@@ -103,11 +103,7 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
-        
-        
-        
-        
-        
+
         
     }
     
