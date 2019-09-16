@@ -12,6 +12,7 @@ class CellCollectionViewJourney: UICollectionViewCell, ViewCode {
 
     
     // MARK: Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

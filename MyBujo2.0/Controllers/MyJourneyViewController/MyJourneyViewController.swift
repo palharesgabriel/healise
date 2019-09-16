@@ -19,6 +19,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         tableView.backgroundColor = .clear
         tableView.showsHorizontalScrollIndicator = false
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
+        tableView.register(CollectionViewJourney.self, forCellReuseIdentifier: "cardsCell")
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -63,8 +64,6 @@ class MyJourneyViewController: UIViewController, ViewCode {
         collectionJourney.collectionView.dataSource = self
         collectionJourney.collectionView.delegate = self
     }
-    
-    
 }
 
 extension MyJourneyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -81,21 +80,35 @@ extension MyJourneyViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
-    
 }
 
 
 
 extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
-        cell.delegate = self
-        cell.setupCell(calendarType: .month, date: Date())
-        return cell
+        
+        switch indexPath.row {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
+            cell.delegate = self
+            cell.setupCell(calendarType: .month, date: Date())
+            return cell
+        case 1:
+            guard let cellCollection = tableView.dequeueReusableCell(withIdentifier: "cardsCell") else {return UITableViewCell() }
+            return cellCollection
+        default:
+            return UITableViewCell()
+        }
+        
+        
+        
+        
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
