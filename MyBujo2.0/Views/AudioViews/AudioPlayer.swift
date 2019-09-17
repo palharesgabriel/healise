@@ -99,6 +99,7 @@ extension AudioPlayer: ViewCode {
     
     func setupAdditionalConfigurantion() {
         self.backgroundColor = .purple
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
 }
