@@ -45,6 +45,9 @@
 		30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005B231842A0000C0089 /* GoalExtension.swift */; };
 		30B9005E23184666000C0089 /* MediaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005D23184666000C0089 /* MediaExtension.swift */; };
 		30B9006023185600000C0089 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005F23185600000C0089 /* DateExtension.swift */; };
+		30C6FD992331203500F69F79 /* Media+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD972331203500F69F79 /* Media+CoreDataProperties.swift */; };
+		30C6FD9A2331203500F69F79 /* Media+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */; };
+		30C6FD9C233122FF00F69F79 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */; };
 		30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D4230C239100D56A41 /* MonthHeader.swift */; };
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
 		6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */; };
@@ -119,6 +122,9 @@
 		30B9005B231842A0000C0089 /* GoalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalExtension.swift; sourceTree = "<group>"; };
 		30B9005D23184666000C0089 /* MediaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaExtension.swift; sourceTree = "<group>"; };
 		30B9005F23185600000C0089 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		30C6FD972331203500F69F79 /* Media+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Media+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Media+CoreDataClass.swift"; sourceTree = "<group>"; };
+		30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		30CBF8D4230C239100D56A41 /* MonthHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeader.swift; sourceTree = "<group>"; };
 		30CBF8D7230C347200D56A41 /* WeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
 		30CBF8D9230C34F100D56A41 /* AvenirNextLTPro-MediumCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumCn.otf"; sourceTree = "<group>"; };
@@ -294,13 +300,13 @@
 		30AD9B1C230AE10C00B39434 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				157D9D67232A91F3009659F4 /* CapturesViews */,
 				308F6FC82327C36C008012AA /* CommonViews */,
-				1549195C231D4B6E00766609 /* NewFeelingViews */,
 				154EEE2F231408EF003B0EAF /* MyTodayViews */,
 				300B16C923155BB20070F7A7 /* MyJourneyViews */,
+				1549195C231D4B6E00766609 /* NewFeelingViews */,
 				1549195623193EC800766609 /* NewGoalsViews */,
 				E8535A0023156234009AB979 /* NotesViews */,
+				157D9D67232A91F3009659F4 /* CapturesViews */,
 				3011490F2315721C0099E845 /* ShadowView.swift */,
 			);
 			path = Views;
@@ -348,11 +354,21 @@
 		30B9005823184235000C0089 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				30C6FD9223311F4400F69F79 /* Media */,
 				30B900592318424A000C0089 /* DayExtension.swift */,
 				30B9005B231842A0000C0089 /* GoalExtension.swift */,
 				30B9005D23184666000C0089 /* MediaExtension.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		30C6FD9223311F4400F69F79 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */,
+				30C6FD972331203500F69F79 /* Media+CoreDataProperties.swift */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		30CBF8D6230C344600D56A41 /* fonts */ = {
@@ -478,6 +494,7 @@
 				E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */,
 				E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */,
 				E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */,
+				30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -684,6 +701,7 @@
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
+				30C6FD992331203500F69F79 /* Media+CoreDataProperties.swift in Sources */,
 				15E6195F2329370800C5E96D /* BlurableModalAnimationController.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				157F4540232AEDE8007BC8D4 /* NewBaseViewController.swift in Sources */,
@@ -714,7 +732,9 @@
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
 				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
+				30C6FD9C233122FF00F69F79 /* FileManagerExtension.swift in Sources */,
 				AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */,
+				30C6FD9A2331203500F69F79 /* Media+CoreDataClass.swift in Sources */,
 				308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */,
 				15B4C04A2327E294009B6067 /* CapturesViewController.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
@@ -889,7 +909,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 7SH46749RP;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -914,7 +934,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 7SH46749RP;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

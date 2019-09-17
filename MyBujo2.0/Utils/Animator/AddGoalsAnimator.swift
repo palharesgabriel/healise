@@ -41,8 +41,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
     func dismiss(using transitionContext: UIViewControllerContextTransitioning) {
         //getting references
-        guard let fromVC = transitionContext.viewController(forKey: .from) as? NewBaseViewController,
-            let toVC = transitionContext.viewController(forKey: .to) else {
+        guard let fromVC = transitionContext.viewController(forKey: .from) as? NewBaseViewController else {
                 return
         }
         //
