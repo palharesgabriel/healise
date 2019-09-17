@@ -66,6 +66,7 @@
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 		E8588B65232EEE6B0011939B /* CollectionViewJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B64232EEE6B0011939B /* CollectionViewJourney.swift */; };
 		E8588B67232F112A0011939B /* CellCollectionViewJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */; };
+		E88784762331223C00BFFE10 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88784752331223C00BFFE10 /* Defaults.swift */; };
 		E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +149,7 @@
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E8588B64232EEE6B0011939B /* CollectionViewJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewJourney.swift; sourceTree = "<group>"; };
 		E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCollectionViewJourney.swift; sourceTree = "<group>"; };
+		E88784752331223C00BFFE10 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Extension.swift"; sourceTree = "<group>"; };
 		ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
 		FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -418,6 +420,7 @@
 		AB6A65AA230AD990009CFE7E /* MyBujo2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				E88784742331222100BFFE10 /* Structs */,
 				E8FF9D452316C538006C2B49 /* Extension */,
 				15C339C3230D8A04009ED5CD /* Protocols */,
 				30CBF8D6230C344600D56A41 /* fonts */,
@@ -469,6 +472,14 @@
 				E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */,
 			);
 			path = CardsViews;
+			sourceTree = "<group>";
+		};
+		E88784742331222100BFFE10 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				E88784752331223C00BFFE10 /* Defaults.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 		E8FF9D452316C538006C2B49 /* Extension */ = {
@@ -677,6 +688,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */,
+				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15491960231D508000766609 /* FeelingsCardView.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,

@@ -25,6 +25,7 @@ class MasterViewController: UIViewController, ViewCode {
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        Defaults.login = false
         dayStatusLabel.text = getTimeDayLabel()
         setupView()
         myTodayButton.addTarget(self, action: #selector(didClickMyTodayButton(_:)), for: .touchDown)
@@ -88,10 +89,17 @@ class MasterViewController: UIViewController, ViewCode {
         let splitHourString = hourString.components(separatedBy: " ")
         
         if splitHourString[1] == "AM"{
-            return "Good Morning"
+            return "Good Morning."
         } else {
-            return "Good Evening"
+            return "Good Evening."
         }
+
+    }
+    
+    func setName() {
+        Defaults.name = "Rennan"
+        nameLabel.text = Defaults.name
+        Defaults.login = true
 
     }
     
