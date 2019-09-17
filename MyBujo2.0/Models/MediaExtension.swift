@@ -7,8 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 extension Media {
+    var photos: [UIImage] {
+        get {
+            return [UIImage]()
+        }
+        set {
+            photosPath = ""
+        }
+    }
     
     func save() {
         CoreDataManager.save()

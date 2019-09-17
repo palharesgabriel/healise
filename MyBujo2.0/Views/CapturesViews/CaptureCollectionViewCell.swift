@@ -18,6 +18,7 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
     }()
     
     func setupCell(image: UIImage) {
+        setupView()
         captureImageView.image = image
     }
     
