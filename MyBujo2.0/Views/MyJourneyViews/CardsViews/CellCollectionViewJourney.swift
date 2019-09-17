@@ -1,5 +1,5 @@
 //
-//  CellCollectionViewJourney.swift
+//  ReusableCollectionViewCell.swift
 //  MyBujo2.0
 //
 //  Created by Rennan Rebouças on 15/09/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CellCollectionViewJourney: UICollectionViewCell, ViewCode, Shadow {
+class ReusableCollectionViewCell: UICollectionViewCell, ViewCode, Shadow {
     
     
     

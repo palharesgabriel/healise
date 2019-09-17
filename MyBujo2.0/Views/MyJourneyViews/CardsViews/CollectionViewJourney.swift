@@ -16,12 +16,13 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         layout.itemSize = CGSize(width: 400, height: 100)
-        layout.minimumInteritemSpacing = CGFloat(5.0)
+        layout.minimumInteritemSpacing = CGFloat(16.0)
+        layout.minimumLineSpacing = 16
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = UIColor(named: "BlueBackground")
-        collection.register(CellCollectionViewJourney.self, forCellWithReuseIdentifier: "collectionCell")
+        collection.register(ReusableCollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
         return collection
     }()
     
@@ -63,7 +64,7 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? CellCollectionViewJourney else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? ReusableCollectionViewCell else { return UICollectionViewCell()}
         
         return cell
     }
@@ -77,6 +78,6 @@ extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 40.0
+        return 10.0
     }
 }
