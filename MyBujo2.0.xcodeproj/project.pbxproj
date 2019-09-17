@@ -49,6 +49,7 @@
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
 		6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */; };
 		63B0C0749EFE28F00D8E2D68 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */; };
+		AB4169E8233115C100D7E3C3 /* AudiosTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4169E7233115C100D7E3C3 /* AudiosTableView.swift */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
 		AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */; };
 		AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65B2230AD990009CFE7E /* MyBujo2_0.xcdatamodeld */; };
@@ -126,6 +127,7 @@
 		34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB4169E7233115C100D7E3C3 /* AudiosTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudiosTableView.swift; sourceTree = "<group>"; };
 		AB6A65A8230AD990009CFE7E /* MyBujo2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBujo2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65AB230AD990009CFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJourneyViewController.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				AB6E4AB0232FC4C000911243 /* AudioPlayer.swift */,
+				AB4169E7233115C100D7E3C3 /* AudiosTableView.swift */,
 			);
 			path = AudioViews;
 			sourceTree = "<group>";
@@ -724,6 +727,7 @@
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
+				AB4169E8233115C100D7E3C3 /* AudiosTableView.swift in Sources */,
 				308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,

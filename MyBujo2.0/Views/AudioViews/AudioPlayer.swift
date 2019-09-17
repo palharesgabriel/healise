@@ -23,8 +23,8 @@ class AudioPlayer: UIView {
     convenience init(title: String) {
         self.init(frame: .zero)
         self.titleLabel = TitleLabel(title: title)
+        setupView()
     }
-    
     
     let progressBar: UIProgressView = {
         let progressBar = UIProgressView()
@@ -38,6 +38,7 @@ class AudioPlayer: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AvenirNextLTPro-Regular", size: 10)
+        label.text = "TESTE"
         return label
     }()
     
@@ -45,6 +46,7 @@ class AudioPlayer: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AvenirNextLTPro-Regular", size: 10)
+        label.text = "TESTE"
         return label
     }()
     
@@ -85,15 +87,92 @@ extension AudioPlayer: ViewCode {
     }
     
     func setupConstraints() {
-        NSLayoutConstraint.activate([
-            
-            
-        ])
+        setupTitleViewConstraints()
+        setupProgressBarConstraints()
+        setupLeftLabelConstraints()
+        setupRightLabelConstraints()
+        setupPlayButtonConstraints()
+        setupAdvance15SecondsButtonConstraints()
+        setupBack15SecondsButtonConstraints()
+        setupTrashButtonConstraints()
     }
     
     func setupAdditionalConfigurantion() {
-        // there is no additionalConfiguration
+        self.backgroundColor = .purple
     }
     
+}
+
+extension AudioPlayer {
+    
+    func setupTitleViewConstraints() {
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            titleLabel.widthAnchor.constraint(equalToConstant: 200),
+            titleLabel.heightAnchor.constraint(equalToConstant: 28)
+        ])
+    }
+    
+    func setupProgressBarConstraints() {
+        NSLayoutConstraint.activate([
+            progressBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 36),
+            progressBar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            progressBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+        ])
+    }
+    
+    func setupLeftLabelConstraints() {
+        NSLayoutConstraint.activate([
+            leftLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            leftLabel.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 8),
+            leftLabel.widthAnchor.constraint(equalToConstant: 64),
+            leftLabel.heightAnchor.constraint(equalToConstant: 16)
+        ])
+    }
+    
+    func setupRightLabelConstraints() {
+        NSLayoutConstraint.activate([
+            rightLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            rightLabel.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 8),
+            rightLabel.widthAnchor.constraint(equalToConstant: 64)
+        ])
+    }
+    
+    func setupPlayButtonConstraints() {
+        NSLayoutConstraint.activate([
+            playButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
+            playButton.heightAnchor.constraint(equalToConstant: 72),
+            playButton.centerXAnchor.constraint(equalTo: progressBar.centerXAnchor),
+            playButton.widthAnchor.constraint(equalToConstant: 72)
+        ])
+    }
+    
+    func setupAdvance15SecondsButtonConstraints() {
+        NSLayoutConstraint.activate([
+            advance15SecondsButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
+            advance15SecondsButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 16),
+            advance15SecondsButton.widthAnchor.constraint(equalToConstant: 64),
+            advance15SecondsButton.heightAnchor.constraint(equalToConstant: 64)
+        ])
+    }
+    
+    func setupBack15SecondsButtonConstraints() {
+        NSLayoutConstraint.activate([
+            back15SecondsButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
+            back15SecondsButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -16),
+            back15SecondsButton.widthAnchor.constraint(equalToConstant: 64),
+            back15SecondsButton.heightAnchor.constraint(equalToConstant: 64)
+        ])
+    }
+    
+    func setupTrashButtonConstraints() {
+        NSLayoutConstraint.activate([
+            trashButton.topAnchor.constraint(equalTo: rightLabel.bottomAnchor, constant: 16),
+            trashButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            trashButton.widthAnchor.constraint(equalToConstant: 64),
+            trashButton.heightAnchor.constraint(equalToConstant: 64)
+        ])
+    }
     
 }

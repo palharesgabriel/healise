@@ -14,6 +14,31 @@ class AudioViewController: MediaViewController {
         super.viewDidLoad()
         self.contentView.backgroundColor = .red
         self.view.backgroundColor = .blue
+        
+        let audioPlayer = AudioPlayer(title: "Palhares")
+        self.view.addSubview(audioPlayer)
+        audioPlayer.translatesAutoresizingMaskIntoConstraints = false
+        
+        audioPlayer.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        audioPlayer.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        audioPlayer.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.9).isActive = true
+        audioPlayer.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3).isActive = true
+    }
+    
+}
+
+extension AudioViewController: ViewCode {
+    
+    func buildViewHierarchy() {
+        //
+    }
+    
+    func setupConstraints() {
+        //
+    }
+    
+    func setupAdditionalConfigurantion() {
+        //
     }
     
 }
