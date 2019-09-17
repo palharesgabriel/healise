@@ -20,9 +20,12 @@ class MasterViewController: UIViewController, ViewCode {
     var viewControllers: [UINavigationController] = []
     
     
+    
+    
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        dayStatusLabel.text = getTimeDayLabel()
         setupView()
         myTodayButton.addTarget(self, action: #selector(didClickMyTodayButton(_:)), for: .touchDown)
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
@@ -76,6 +79,20 @@ class MasterViewController: UIViewController, ViewCode {
         myJourneyButton.changeColors()
         supportButton.changeColors()
         settingsButton.changeColors()
+    }
+    
+    func getTimeDayLabel() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh a" // "a" prints "pm" or "am"
+        let hourString = formatter.string(from: Date()) // "12 AM"
+        let splitHourString = hourString.components(separatedBy: " ")
+        
+        if splitHourString[1] == "AM"{
+            return "Good Morning"
+        } else {
+            return "Good Evening"
+        }
+
     }
     
     
