@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Media+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:Media+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:MyBujo2.0.xcodeproj">
    </FileRef>
    <FileRef
