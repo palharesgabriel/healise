@@ -41,4 +41,3 @@ class BlurableModalAnimationController: NSObject, UIViewControllerAnimatedTransi
     
     
 }
-
