@@ -36,7 +36,7 @@ class FeelingsView: UIView, Shadow, ViewCode {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
         setupView()
-        addShadow()
+        addShadow(view: self)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

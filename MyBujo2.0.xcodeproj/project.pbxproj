@@ -250,6 +250,7 @@
 		300B16C923155BB20070F7A7 /* MyJourneyViews */ = {
 			isa = PBXGroup;
 			children = (
+				E8588B63232EEE060011939B /* CardsViews */,
 			);
 			path = MyJourneyViews;
 			sourceTree = "<group>";
@@ -312,7 +313,6 @@
 				300CAB792327C1C9002F066A /* DrawingViewController */,
 				305F5751231E8E4400A220FD /* MyJourneyViewController */,
 				30ADD66B231D3947001CAF1C /* MyTodayViewController */,
-				E8588B63232EEE060011939B /* CardsJourney */,
 				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
 				E8535A03231562AB009AB979 /* NotesViewController.swift */,
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
@@ -462,13 +462,13 @@
 			path = NotesViews;
 			sourceTree = "<group>";
 		};
-		E8588B63232EEE060011939B /* CardsJourney */ = {
+		E8588B63232EEE060011939B /* CardsViews */ = {
 			isa = PBXGroup;
 			children = (
 				E8588B64232EEE6B0011939B /* CollectionViewJourney.swift */,
 				E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */,
 			);
-			path = CardsJourney;
+			path = CardsViews;
 			sourceTree = "<group>";
 		};
 		E8FF9D452316C538006C2B49 /* Extension */ = {

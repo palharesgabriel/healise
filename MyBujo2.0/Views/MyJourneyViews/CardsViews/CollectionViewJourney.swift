@@ -1,5 +1,5 @@
 //
-//  CollectionViewJourney.swift
+//  CollectionTableViewCell.swift
 //  MyBujo2.0
 //
 //  Created by Rennan Rebouças on 15/09/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionViewJourney: UITableViewCell, ViewCode {
+class CollectionTableViewCell: UITableViewCell, ViewCode {
     
     
     // MARK: Properties
@@ -57,7 +57,7 @@ class CollectionViewJourney: UITableViewCell, ViewCode {
     }
 }
 
-extension CollectionViewJourney: UICollectionViewDataSource, UICollectionViewDelegate {
+extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
     }
@@ -71,7 +71,7 @@ extension CollectionViewJourney: UICollectionViewDataSource, UICollectionViewDel
     
 }
 
-extension CollectionViewJourney: UICollectionViewDelegateFlowLayout {
+extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 450, height: 300)
     }
