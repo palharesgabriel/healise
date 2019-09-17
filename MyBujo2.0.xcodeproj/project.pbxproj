@@ -67,6 +67,8 @@
 		E813C1A72322A5F0002F170D /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813C1A62322A5F0002F170D /* NavigationButton.swift */; };
 		E8535A0223156252009AB979 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A0123156252009AB979 /* NotesView.swift */; };
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
+		E8588B65232EEE6B0011939B /* CollectionViewJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B64232EEE6B0011939B /* CollectionViewJourney.swift */; };
+		E8588B67232F112A0011939B /* CellCollectionViewJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */; };
 		E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -150,6 +152,8 @@
 		E813C1A62322A5F0002F170D /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		E8535A0123156252009AB979 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		E8588B64232EEE6B0011939B /* CollectionViewJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewJourney.swift; sourceTree = "<group>"; };
+		E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCollectionViewJourney.swift; sourceTree = "<group>"; };
 		E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Extension.swift"; sourceTree = "<group>"; };
 		ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
 		FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +256,7 @@
 		300B16C923155BB20070F7A7 /* MyJourneyViews */ = {
 			isa = PBXGroup;
 			children = (
+				E8588B63232EEE060011939B /* CardsViews */,
 			);
 			path = MyJourneyViews;
 			sourceTree = "<group>";
@@ -315,8 +320,8 @@
 				300CAB792327C1C9002F066A /* DrawingViewController */,
 				305F5751231E8E4400A220FD /* MyJourneyViewController */,
 				30ADD66B231D3947001CAF1C /* MyTodayViewController */,
-				E8535A03231562AB009AB979 /* NotesViewController.swift */,
 				1511F769230C3E9C0056E715 /* MasterViewController.swift */,
+				E8535A03231562AB009AB979 /* NotesViewController.swift */,
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
 				157F453F232AEDE8007BC8D4 /* NewBaseViewController.swift */,
 				15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */,
@@ -472,6 +477,15 @@
 				E8535A0123156252009AB979 /* NotesView.swift */,
 			);
 			path = NotesViews;
+			sourceTree = "<group>";
+		};
+		E8588B63232EEE060011939B /* CardsViews */ = {
+			isa = PBXGroup;
+			children = (
+				E8588B64232EEE6B0011939B /* CollectionViewJourney.swift */,
+				E8588B66232F112A0011939B /* CellCollectionViewJourney.swift */,
+			);
+			path = CardsViews;
 			sourceTree = "<group>";
 		};
 		E8FF9D452316C538006C2B49 /* Extension */ = {
@@ -708,11 +722,13 @@
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
 				15347D37231D8E8F00848335 /* FeelingsView.swift in Sources */,
 				30ADD66D231D396D001CAF1C /* Delegates.swift in Sources */,
+				E8588B65232EEE6B0011939B /* CollectionViewJourney.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
 				1549195E231D4B8C00766609 /* FeelingView.swift in Sources */,
 				E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
+				E8588B67232F112A0011939B /* CellCollectionViewJourney.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
 				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
@@ -891,10 +907,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 7SH46749RP;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -915,10 +932,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = 7SH46749RP;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
