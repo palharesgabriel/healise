@@ -47,24 +47,16 @@ extension MyTodayViewController: CalendarTableViewCellDelegate {
     func didSelectDate(date: Date) {
         //do something
         
-        let result = CoreDataManager.fetch(entityClass: Day.self,predicate: EntityType.day(date).predicate)
-        guard let day = result?.first as? Day else {
-            CalendarManager.shared.selectedDay = Day(context: CoreDataManager.context)
-            guard let dateIgnoringTime = date.ignoringTime() else { return }
-            CalendarManager.shared.selectedDay.date = dateIgnoringTime
-            CalendarManager.shared.selectedDay.save()
-            self.day = CalendarManager.shared.selectedDay
-            return
-        }
+        self.day = CalendarManager.shared.getDay(date: date)
         CalendarManager.shared.selectedDay = day
-        self.day = day
         tableView.reloadData()
     }
 }
 
 extension MyTodayViewController: NewGoalViewControllerDelegate {
     func didDismissWithDescript() {
-        tableView.reloadData()
+//        tableView.reloadData()
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .none)
     }
     
     func didDismissWithoutDescript() {

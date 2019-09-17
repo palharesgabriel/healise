@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-protocol Shadow: UIView {
-    func addShadow()
+protocol Shadow: class {
+    func addShadow(view: UIView)
 }
 
 extension Shadow {
-    func addShadow() {
-        clipsToBounds = true
-        layer.masksToBounds = false
-        layer.cornerRadius = 16
-        layer.shadowRadius = 4
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowOpacity = 0.2
-        layer.shadowColor = UIColor.black.cgColor
+    func addShadow(view: UIView) {
+        view.clipsToBounds = true
+        view.layer.masksToBounds = false
+        view.layer.cornerRadius = 16
+        view.layer.shadowRadius = 4
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowColor = UIColor.black.cgColor
     }
 }

@@ -55,7 +55,7 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
             photosCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
             photosCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             photosCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            photosCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            photosCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     

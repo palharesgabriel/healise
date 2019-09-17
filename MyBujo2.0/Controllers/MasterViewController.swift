@@ -13,16 +13,19 @@ class MasterViewController: UIViewController, ViewCode {
     // MARK: Properties
     let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"SelectionColor")!)
     let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"SelectionColor")!)
-    let myTodayButton = NavigationButton(title: "      Daily",icon: "today", idColor: 0)
-    let myJourneyButton = NavigationButton(title: "        Journey",icon: "journey", idColor: 1)
-    let supportButton = NavigationButton(title: "      Support",icon: "support", idColor: 2)
-    let settingsButton = NavigationButton(title: "      Settings",icon: "settings", idColor: 3)
+    let myTodayButton = NavigationButton(title: "      Daily",icon: "person", idColor: 0)
+    let myJourneyButton = NavigationButton(title: "        Journey",icon: "calendar", idColor: 1)
+    let supportButton = NavigationButton(title: "      Support",icon: "person.2", idColor: 2)
+    let settingsButton = NavigationButton(title: "      Settings",icon: "gear", idColor: 3)
     var viewControllers: [UINavigationController] = []
+    
+    
     
     
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        dayStatusLabel.text = getTimeDayLabel()
         setupView()
         myTodayButton.addTarget(self, action: #selector(didClickMyTodayButton(_:)), for: .touchDown)
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
@@ -76,6 +79,20 @@ class MasterViewController: UIViewController, ViewCode {
         myJourneyButton.changeColors()
         supportButton.changeColors()
         settingsButton.changeColors()
+    }
+    
+    func getTimeDayLabel() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh a" // "a" prints "pm" or "am"
+        let hourString = formatter.string(from: Date()) // "12 AM"
+        let splitHourString = hourString.components(separatedBy: " ")
+        
+        if splitHourString[1] == "AM"{
+            return "Good Morning"
+        } else {
+            return "Good Evening"
+        }
+
     }
     
     

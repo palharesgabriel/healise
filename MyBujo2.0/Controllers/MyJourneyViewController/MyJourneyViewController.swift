@@ -9,13 +9,16 @@
 import UIKit
 import JTAppleCalendar
 class MyJourneyViewController: UIViewController, ViewCode {
-    var day: Day!
+    
+    
     // MARK: Properties
+    var day: Day!
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .clear
         tableView.showsHorizontalScrollIndicator = false
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
+        tableView.register(CollectionTableViewCell.self, forCellReuseIdentifier: "cardsCell")
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -26,7 +29,6 @@ class MyJourneyViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
-        // Do any additional setup after loading the view.
     }
     
     
@@ -36,6 +38,8 @@ class MyJourneyViewController: UIViewController, ViewCode {
         guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
         cell.calendarView.selectDates([CalendarManager.shared.selectedDay.date!], triggerSelectionDelegate: true, keepSelectionIfMultiSelectionAllowed: false)
     }
+    
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         guard let calendarCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
         calendarCell.viewWillTransition(to: size, with: coordinator)
@@ -59,28 +63,37 @@ class MyJourneyViewController: UIViewController, ViewCode {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    
 }
-
 
 
 extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
-//        cell.delegate = self
-        cell.delegate = self
-        cell.setupCell(calendarType: .month, date: Date())
-        return cell
+        
+        switch indexPath.row {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
+            cell.delegate = self
+            cell.setupCell(calendarType: .month, date: Date())
+            return cell
+        case 1:
+            guard let cellCollection = tableView.dequeueReusableCell(withIdentifier: "cardsCell") as? CollectionTableViewCell else {return UITableViewCell() }
+            return cellCollection
+        default:
+            return UITableViewCell()
+        }
+
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
+            return 344
+        case 1:
             return 344
         default:
             return 0

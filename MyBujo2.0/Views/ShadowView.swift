@@ -14,7 +14,7 @@ class ShadowView: UIView, Shadow {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        addShadow()
+        addShadow(view: self)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
