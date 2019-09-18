@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReusableCollectionViewCell: UICollectionViewCell, ViewCode, Shadow {
+class ReusableCollectionViewCell: UICollectionViewCell, Shadow {
     
     
     
@@ -25,15 +25,4 @@ class ReusableCollectionViewCell: UICollectionViewCell, ViewCode, Shadow {
     
     
     // MARK: Functions
-    func buildViewHierarchy() {
-        
-    }
-    
-    func setupConstraints() {
-        
-    }
-    
-    func setupAdditionalConfigurantion() {
-        
-    }
 }
