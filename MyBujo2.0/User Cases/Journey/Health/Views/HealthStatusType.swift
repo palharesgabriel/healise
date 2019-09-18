@@ -1,5 +1,5 @@
 //
-//  StatusView.swift
+//  HealthStatusType.swift
 //  MyBujo2.0
 //
 //  Created by Adauto Pinheiro on 18/09/19.
@@ -54,43 +54,5 @@ enum HealthStatusType {
             //format
             return "\(time)"
         }
-    }
-    
-}
-
-class StatusView: UIView, ViewCode {
-    func buildViewHierarchy() {
-        addSubviews([titleLabel, statusLabel])
-    }
-    
-    func setupConstraints() {
-        //
-    }
-    
-    func setupAdditionalConfigurantion() {
-        //
-    }
-    
-    
-    var titleLabel: TitleLabel!
-    var statusLabel: CustomizableLabel!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    init(with type: HealthStatusType) {
-        super.init(frame: .zero)
-        translatesAutoresizingMaskIntoConstraints = false
-        titleLabel = TitleLabel(title: type.title)
-        statusLabel = CustomizableLabel(title: "", size: 24, color: .black)
-        setupView()
-        //
     }
 }
