@@ -220,7 +220,7 @@
 			path = Animator;
 			sourceTree = "<group>";
 		};
-		30740286233272ED0058D997 /* User Cases */ = {
+		30740286233272ED0058D997 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
 				307402A62332779C0058D997 /* App Initialization */,
@@ -228,7 +228,7 @@
 				30740287233273000058D997 /* Daily */,
 				30740297233275460058D997 /* Journey */,
 			);
-			path = "User Cases";
+			path = "Use Cases";
 			sourceTree = "<group>";
 		};
 		30740287233273000058D997 /* Daily */ = {
@@ -503,16 +503,17 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		307402AD23327C390058D997 /* Entities */ = {
+		307402AD23327C390058D997 /* Business Rules */ = {
 			isa = PBXGroup;
 			children = (
+				E88784742331222100BFFE10 /* Structs */,
 				30B9005823184235000C0089 /* Models */,
 				E8FF9D452316C538006C2B49 /* Extension */,
 				15C339C3230D8A04009ED5CD /* Protocols */,
 				30AD9B1E230AE12100B39434 /* Utils */,
 				30CBF8D6230C344600D56A41 /* fonts */,
 			);
-			path = Entities;
+			path = "Business Rules";
 			sourceTree = "<group>";
 		};
 		30AD9B1E230AE12100B39434 /* Utils */ = {
@@ -600,9 +601,8 @@
 		AB6A65AA230AD990009CFE7E /* MyBujo2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				307402AD23327C390058D997 /* Entities */,
-				30740286233272ED0058D997 /* User Cases */,
-				E88784742331222100BFFE10 /* Structs */,
+				307402AD23327C390058D997 /* Business Rules */,
+				30740286233272ED0058D997 /* Use Cases */,
 				AB6A65AB230AD990009CFE7E /* AppDelegate.swift */,
 				AB6A65B5230AD994009CFE7E /* Assets.xcassets */,
 				AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */,
