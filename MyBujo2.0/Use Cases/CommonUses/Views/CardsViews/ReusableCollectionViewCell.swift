@@ -17,7 +17,6 @@ class ReusableCollectionViewCell: UICollectionViewCell, Shadow {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addShadow(view: self)
-        backgroundColor = .white
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
