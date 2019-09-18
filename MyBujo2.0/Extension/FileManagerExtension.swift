@@ -23,4 +23,9 @@ extension FileManager {
            try? fileManager.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
            return path
        }
+    
+    static func directoryExists(path: String) -> Bool {
+        var directory: ObjCBool = ObjCBool(false)
+        return self.default.fileExists(atPath: path, isDirectory: &directory)
+    }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
+class CaptureCollectionViewCell: UICollectionViewCell, ViewCode, Shadow {
     
     let captureImageView: UIImageView = {
        let imgView = UIImageView()
@@ -20,6 +20,7 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
     func setupCell(image: UIImage) {
         setupView()
         captureImageView.image = image
+        addShadow(view: self)
     }
     
     func buildViewHierarchy() {
@@ -36,6 +37,6 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        
+        backgroundColor = .white
     }
 }

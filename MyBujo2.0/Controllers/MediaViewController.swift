@@ -37,7 +37,6 @@ class MediaViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
-    
     }
 
     override func viewDidLoad() {

@@ -14,8 +14,9 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     let photosCollectionView:UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 4
+        flowLayout.minimumInteritemSpacing = 4
+        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
@@ -25,7 +26,7 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     var paths: [String] = []
     var day = CalendarManager.shared.selectedDay!
     
-    let fm = FileManager.default
+    let fileManager = FileManager.default
     let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     var path = URL(fileURLWithPath: "/")
     
@@ -36,12 +37,9 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
         photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
         if day.media?.photosPath == nil {
-            day.media?.photosPath = createDayPhotosDirectory().path
-            path = createDayPhotosDirectory()
-            print(path)
+            day.media?.photosPath = createDayPhotosDirectory()
         } else {
-            path = URL(fileURLWithPath: day.media!.photosPath!)
-            print(path)
+            path = mainPath.appendingPathComponent(day.media!.photosPath!)
             loadPhotos()
         }
     }
@@ -66,7 +64,7 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     
     @objc func didPresentImagePickerController() {
         let imagePickerViewController = UIImagePickerController()
-        imagePickerViewController.sourceType = .camera
+        imagePickerViewController.sourceType = .photoLibrary
         imagePickerViewController.allowsEditing = true
         imagePickerViewController.delegate = self
         self.present(imagePickerViewController, animated: true, completion: nil)
@@ -74,33 +72,48 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        guard let image = info[.editedImage] as? UIImage else {
+        guard let image = info[.originalImage] as? UIImage else {
             print("No image found")
             return
         }
+        
         if savePhoto(image: image) {
             loadPhotos()
         }
+        
         photosCollectionView.reloadData()
     }
     
-    func createDayPhotosDirectory() -> URL {
-        let path = mainPath.appendingPathComponent(day.date!.description).appendingPathComponent("Photos")
-        try? fm.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
-        return path
+    func createDayPhotosDirectory() -> String {
+        let dateFormmater = DateFormatter()
+        dateFormmater.dateFormat = "yyyy-MM-dd"
+        let date = dateFormmater.string(from: day.date!)
+        
+        let pathToSaveInCoreData = "\(date.description)/\("Photos")"
+        
+        let path = mainPath.appendingPathComponent(pathToSaveInCoreData)
+        
+        try? fileManager.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
+        
+        return pathToSaveInCoreData
     }
     
     func savePhoto(image: UIImage) -> Bool {
         if let data = image.jpegData(compressionQuality: 1) {
             if day.media == nil {
                 day.media = Media(context: CoreDataManager.context)
-                day.media?.photosPath = createDayPhotosDirectory().path
+                day.media?.photosPath = createDayPhotosDirectory()
                 day.save()
             }
             
-            let filenamePath = path.appendingPathComponent(image.hash.description)
-            try? data.write(to: filenamePath)
-            return fm.fileExists(atPath: filenamePath.path)
+            let filenamePath = mainPath.appendingPathComponent(day.media!.photosPath!).appendingPathComponent(image.hash.description)
+            do {
+                try data.write(to: filenamePath)
+            } catch {
+                print(error)
+            }
+            
+            return fileManager.fileExists(atPath: filenamePath.path)
         }
         return false
     }
@@ -108,14 +121,18 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     func loadPhotos() {
         do {
             paths.removeAll()
+            guard let media = day.media,
+                let path = media.photosPath
+                else { return }
             
-            let contentsOfDocuments = try FileManager.default.contentsOfDirectory(atPath: day.media!.photosPath!)
+            let contentsOfDocuments = try fileManager.contentsOfDirectory(atPath: mainPath.appendingPathComponent(path).path)
+            
             paths.append("notes")
             contentsOfDocuments.forEach { (item) in
-                paths.append("\(day.media!.photosPath!)/\(item)")
+                paths.append("\(mainPath.appendingPathComponent(path).path)/\(item)")
             }
         } catch {
-            print("nothing to show")
+            print(error)
         }
     }
 }
@@ -129,7 +146,7 @@ extension CapturesViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
         switch indexPath.row {
         case 0:
-            cell.setupCell(image: UIImage(named: "notes")!)
+            cell.setupCell(image: UIImage(named: "addImage")!)
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didPresentImagePickerController))
             cell.addGestureRecognizer(tapGesture)
             return cell
@@ -138,12 +155,12 @@ extension CapturesViewController: UICollectionViewDataSource {
             cell.setupCell(image: image)
             return cell
         }
-        
+         
     }
 }
 
 extension CapturesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: 160)
+        return CGSize(width: 100, height: 100)
     }
 }
