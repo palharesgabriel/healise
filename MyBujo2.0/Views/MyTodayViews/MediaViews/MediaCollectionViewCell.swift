@@ -39,7 +39,6 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not benn implemented")
     }
-    
 }
 
 extension MediaCollectionViewCell: ViewCode {
