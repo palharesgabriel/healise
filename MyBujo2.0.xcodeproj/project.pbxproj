@@ -258,11 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				307402A3233276950058D997 /* Views */,
-				30B9005823184235000C0089 /* Models */,
-				E8FF9D452316C538006C2B49 /* Extension */,
-				15C339C3230D8A04009ED5CD /* Protocols */,
-				30AD9B1E230AE12100B39434 /* Utils */,
-				30CBF8D6230C344600D56A41 /* fonts */,
 			);
 			path = CommonUses;
 			sourceTree = "<group>";
@@ -506,6 +501,18 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		307402AD23327C390058D997 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				30B9005823184235000C0089 /* Models */,
+				E8FF9D452316C538006C2B49 /* Extension */,
+				15C339C3230D8A04009ED5CD /* Protocols */,
+				30AD9B1E230AE12100B39434 /* Utils */,
+				30CBF8D6230C344600D56A41 /* fonts */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		30AD9B1E230AE12100B39434 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +598,7 @@
 		AB6A65AA230AD990009CFE7E /* MyBujo2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				307402AD23327C390058D997 /* Entities */,
 				30740286233272ED0058D997 /* User Cases */,
 				AB6A65AB230AD990009CFE7E /* AppDelegate.swift */,
 				AB6A65B5230AD994009CFE7E /* Assets.xcassets */,
