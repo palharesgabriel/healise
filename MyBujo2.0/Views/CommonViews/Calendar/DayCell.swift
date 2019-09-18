@@ -13,7 +13,6 @@ class DayCell: JTACDayCell, ViewCode {
     
     
     // MARK: Properties
-    var day: Day?
     
     var label: UILabel = {
         let label = UILabel()

@@ -18,11 +18,8 @@ class MyTodayViewController: UIViewController, ViewCode {
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
-    var day =  Day(context: CoreDataManager.context) {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    
+    var day =  Day(context: CoreDataManager.context)
 
     // MARK: Initialization
     override func viewDidLoad() {
@@ -30,6 +27,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         setupView()
         self.day = CalendarManager.shared.currentDay
         CalendarManager.shared.selectedDay = self.day
+        tableView.reloadData()
     }
     
     
@@ -81,6 +79,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         switch indexPath.section {

@@ -21,20 +21,14 @@ class CalendarManager: NSObject {
     var year = Year()
     
     var currentDay: Day {
-        guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(Date()).predicate)?.first as? Day else {
-            let day = Day(context: CoreDataManager.context)
-            guard let dateIgnoringTime = Date().ignoringTime() else { return day}
-            day.date = dateIgnoringTime
-            day.save()
-            return day
-        }
-         return result
+        return getDay(date: Date())
     }
     
     lazy var selectedDay: Day! = {
         if self.selectedDay == nil {
             return self.currentDay
-        } else {
+        }
+        else {
             return self.selectedDay
         }
     }()
@@ -43,8 +37,20 @@ class CalendarManager: NSObject {
     var currentMonthComponent = Calendar.current.component(.month, from: Date())
     var currentYearComponent = Calendar.current.component(.year, from: Date())
     
-    
-    
+    func getDay(date: Date) -> Day {
+        guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(date).predicate)?.first as? Day else {
+            let day = Day(context: CoreDataManager.context)
+            guard let dateIgnoringTime = date.ignoringTime() else { return day}
+            day.date = dateIgnoringTime
+            let media = Media(context: CoreDataManager.context)
+            media.photosPath = FileManager.createDirectory(day: day, directoryOf: .photo).absoluteString
+            media.videosPath = FileManager.createDirectory(day: day, directoryOf: .video).absoluteString
+            media.voiceRecordsPath = FileManager.createDirectory(day: day, directoryOf: .voiceRecord).absoluteString
+            day.save()
+            return day
+        }
+         return result
+    }
     
     func getDaysInMonth(month: Int) -> Int {
         return (year.months[month]?.days.count)!

@@ -24,11 +24,10 @@ enum CalendarType {
     }
 }
 
-class CalendarTableViewCell: UITableViewCell, ViewCode {
+class CalendarTableViewCell: UITableViewCell, ViewCode, Shadow {
     
     // MARK: Properties
     static let reuseIdentifier = "CalendarTableViewCellIdentifier"
-    let shadowView = ShadowView(frame: .zero)
     var type: CalendarType!
     weak var delegate: CalendarTableViewCellDelegate!
     
@@ -39,7 +38,6 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         calendarView.scrollDirection = .horizontal
         calendarView.showsHorizontalScrollIndicator = false
         calendarView.clipsToBounds = true
-        calendarView.layer.cornerRadius = 16
         calendarView.backgroundColor = .white
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
@@ -60,17 +58,10 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     
     // MARK: Functions
     func buildViewHierarchy() {
-        contentView.addSubview(shadowView)
         contentView.addSubview(calendarView)
     }
+    
     func setupConstraints() {
-        shadowView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
-            ])
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             calendarView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -86,6 +77,7 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "monthHeader")
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
+        addShadow(view: calendarView)
     }
     
     func setupCell(calendarType: CalendarType, date: Date) {
