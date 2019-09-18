@@ -13,7 +13,7 @@ class ShadowView: UIView, Shadow {
     // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "CardColors")
         addShadow(view: self)
     }
     required init?(coder aDecoder: NSCoder) {

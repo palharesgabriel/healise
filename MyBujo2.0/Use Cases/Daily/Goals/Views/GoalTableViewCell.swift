@@ -89,6 +89,6 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-    
+        contentView.backgroundColor = UIColor(named: "CardsColor")
     }
 }
