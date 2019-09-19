@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CaptureCollectionViewCell: UICollectionViewCell, ViewCode, Shadow {
+class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
     
     let captureImageView: UIImageView = {
        let imgView = UIImageView()
@@ -20,7 +20,6 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode, Shadow {
     func setupCell(image: UIImage) {
         setupView()
         captureImageView.image = image
-        addShadow(view: self)
     }
     
     func buildViewHierarchy() {

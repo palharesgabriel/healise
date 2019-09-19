@@ -14,9 +14,9 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     let photosCollectionView:UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 4
-        flowLayout.minimumInteritemSpacing = 4
-        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
@@ -106,14 +106,10 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
                 day.save()
             }
             
+//            eu dou o cu com gosto e minha mãe não sabe disso, pq ela morreu, AAAAAAAAA
             let filenamePath = mainPath.appendingPathComponent(day.media!.photosPath!).appendingPathComponent(image.hash.description)
-            do {
-                try data.write(to: filenamePath)
-            } catch {
-                print(error)
-            }
             
-            return fileManager.fileExists(atPath: filenamePath.path)
+            return fileManager.saveFileFrom(Path: filenamePath, WithData: data)
         }
         return false
     }

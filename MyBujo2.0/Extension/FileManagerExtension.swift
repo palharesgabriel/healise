@@ -16,7 +16,7 @@ enum DirectoryType: String {
 
 extension FileManager {
     
-    static func createDirectory(day: Day, directoryOf type: DirectoryType) -> URL {
+    func createDirectory(day: Day, directoryOf type: DirectoryType) -> URL {
         let fileManager = FileManager.default
         let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let path = mainPath.appendingPathComponent(day.date!.description).appendingPathComponent("/" + type.rawValue)
@@ -24,8 +24,17 @@ extension FileManager {
            return path
        }
     
-    static func directoryExists(path: String) -> Bool {
+    func directoryExists(path: String) -> Bool {
         var directory: ObjCBool = ObjCBool(false)
-        return self.default.fileExists(atPath: path, isDirectory: &directory)
+        return fileExists(atPath: path, isDirectory: &directory)
+    }
+
+    func saveFileFrom(Path filepath: URL,WithData data: Data) -> Bool {
+        do {
+            try data.write(to: filepath)
+        } catch {
+            print(error)
+        }
+        return fileExists(atPath: filepath.path)
     }
 }
