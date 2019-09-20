@@ -18,7 +18,7 @@ extension FileManager {
     
     static func createDirectory(day: Day, directoryOf type: DirectoryType) -> URL {
         let fileManager = FileManager.default
-        let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let mainPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let path = mainPath.appendingPathComponent(day.date!.description).appendingPathComponent("/" + type.rawValue)
            try? fileManager.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
            return path
