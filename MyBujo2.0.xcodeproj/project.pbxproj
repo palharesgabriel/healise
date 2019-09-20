@@ -57,17 +57,18 @@
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
 		6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */; };
 		63B0C0749EFE28F00D8E2D68 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */; };
-		AB4169E8233115C100D7E3C3 /* AudiosTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4169E7233115C100D7E3C3 /* AudiosTableView.swift */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
 		AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */; };
 		AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65B2230AD990009CFE7E /* MyBujo2_0.xcdatamodeld */; };
 		AB6A65B6230AD994009CFE7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B5230AD994009CFE7E /* Assets.xcassets */; };
 		AB6A65B9230AD994009CFE7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */; };
 		AB6A65C4230AD994009CFE7E /* MyBujo2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */; };
-		AB6E4AAE232FC1E600911243 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E4AAD232FC1E600911243 /* AudioViewController.swift */; };
-		AB6E4AB1232FC4C000911243 /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E4AB0232FC4C000911243 /* AudioPlayer.swift */; };
 		AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */; };
 		AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */; };
+		AB8C8829233518280093E29C /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C8828233518280093E29C /* AudioViewController.swift */; };
+		AB8C882B233518540093E29C /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882A233518540093E29C /* AudioPlayer.swift */; };
+		AB8C882D233518AC0093E29C /* AudioTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882C233518AC0093E29C /* AudioTableView.swift */; };
+		AB8C882F23351D240093E29C /* AudioRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882E23351D240093E29C /* AudioRecordManager.swift */; };
 		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
 		E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */; };
 		E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */; };
@@ -127,7 +128,6 @@
 		308F6FCF2327EB96008012AA /* CanvasLayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasLayoutExtension.swift; sourceTree = "<group>"; };
 		30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		30A348D52314609C0018DB13 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
-		30AD9B1F230AE14E00B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 		30AD9B26230AE98B00B39434 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		30AD9B28230AEF9100B39434 /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		30ADD66C231D396D001CAF1C /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
@@ -146,7 +146,6 @@
 		34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		AB4169E7233115C100D7E3C3 /* AudiosTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudiosTableView.swift; sourceTree = "<group>"; };
 		AB6A65A8230AD990009CFE7E /* MyBujo2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBujo2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65AB230AD990009CFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJourneyViewController.swift; sourceTree = "<group>"; };
@@ -157,10 +156,12 @@
 		AB6A65BF230AD994009CFE7E /* MyBujo2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBujo2.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBujo2_0Tests.swift; sourceTree = "<group>"; };
 		AB6A65C5230AD994009CFE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB6E4AAD232FC1E600911243 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
-		AB6E4AB0232FC4C000911243 /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissControllerDelegate.swift; sourceTree = "<group>"; };
+		AB8C8828233518280093E29C /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		AB8C882A233518540093E29C /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		AB8C882C233518AC0093E29C /* AudioTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTableView.swift; sourceTree = "<group>"; };
+		AB8C882E23351D240093E29C /* AudioRecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordManager.swift; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
 		E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiButton+Extension.swift"; sourceTree = "<group>"; };
@@ -213,7 +214,6 @@
 		15EF7187230DA302001F79D9 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				30AD9B1F230AE14E00B39434 /* Placeholder.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -422,6 +422,8 @@
 		3074029E233276080058D997 /* VoiceRecords */ = {
 			isa = PBXGroup;
 			children = (
+				AB8C8827233518010093E29C /* Views */,
+				AB8C8826233517F40093E29C /* Controllers */,
 			);
 			path = VoiceRecords;
 			sourceTree = "<group>";
@@ -505,7 +507,6 @@
 				153F8CB2230C477E001C0CB3 /* CustomSplitViewController.swift */,
 				157F453F232AEDE8007BC8D4 /* NewBaseViewController.swift */,
 				15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */,
-				AB6E4AAD232FC1E600911243 /* AudioViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -530,6 +531,7 @@
 				30AD9B26230AE98B00B39434 /* CalendarManager.swift */,
 				15341D832315C28B005E7328 /* HeaderViewFactory.swift */,
 				301F35342316AAC500AD5477 /* CoreDataManager.swift */,
+				AB8C882E23351D240093E29C /* AudioRecordManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -628,13 +630,21 @@
 			path = MyBujo2.0Tests;
 			sourceTree = "<group>";
 		};
-		AB6E4AAF232FC47400911243 /* AudioViews */ = {
+		AB8C8826233517F40093E29C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AB6E4AB0232FC4C000911243 /* AudioPlayer.swift */,
-				AB4169E7233115C100D7E3C3 /* AudiosTableView.swift */,
+				AB8C8828233518280093E29C /* AudioViewController.swift */,
 			);
-			path = AudioViews;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AB8C8827233518010093E29C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB8C882A233518540093E29C /* AudioPlayer.swift */,
+				AB8C882C233518AC0093E29C /* AudioTableView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B10888BBE6C5CE81382D8853 /* Pods */ = {
@@ -874,12 +884,10 @@
 				3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */,
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
-				AB6E4AB1232FC4C000911243 /* AudioPlayer.swift in Sources */,
 				15491960231D508000766609 /* FeelingsCardView.swift in Sources */,
 				3074028123325CF30058D997 /* CustomizableButton.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
 				1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */,
-				AB6E4AAE232FC1E600911243 /* AudioViewController.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
@@ -900,10 +908,12 @@
 				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
 				30B9005E23184666000C0089 /* MediaExtension.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
+				AB8C882B233518540093E29C /* AudioPlayer.swift in Sources */,
 				300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */,
 				301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */,
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
 				15347D37231D8E8F00848335 /* FeelingsView.swift in Sources */,
+				AB8C8829233518280093E29C /* AudioViewController.swift in Sources */,
 				30ADD66D231D396D001CAF1C /* Delegates.swift in Sources */,
 				E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
@@ -914,6 +924,7 @@
 				E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
 				3074027B233257990058D997 /* HealthCollectionViewCell.swift in Sources */,
+				AB8C882F23351D240093E29C /* AudioRecordManager.swift in Sources */,
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
 				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
@@ -930,13 +941,13 @@
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
-				AB4169E8233115C100D7E3C3 /* AudiosTableView.swift in Sources */,
 				308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,
 				E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */,
 				E813C1A72322A5F0002F170D /* NavigationButton.swift in Sources */,
+				AB8C882D233518AC0093E29C /* AudioTableView.swift in Sources */,
 				3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
