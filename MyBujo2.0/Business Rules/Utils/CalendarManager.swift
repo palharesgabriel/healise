@@ -27,8 +27,7 @@ class CalendarManager: NSObject {
     lazy var selectedDay: Day! = {
         if self.selectedDay == nil {
             return self.currentDay
-        }
-        else {
+        } else {
             return self.selectedDay
         }
     }()
