@@ -30,6 +30,9 @@ class MyJourneyViewController: UIViewController, ViewCode {
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     
     
     // MARK: Override Functions

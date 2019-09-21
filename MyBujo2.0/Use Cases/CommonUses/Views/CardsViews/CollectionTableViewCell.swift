@@ -22,7 +22,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = UIColor(named: "BlueBackground")
-        collection.register(ReusableCollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
+        collection.register(CounterGoalsCard.self, forCellWithReuseIdentifier: "collectionCell")
         return collection
     }()
     
@@ -64,7 +64,7 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? ReusableCollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? CounterGoalsCard else { return UICollectionViewCell()}
         
         return cell
     }
