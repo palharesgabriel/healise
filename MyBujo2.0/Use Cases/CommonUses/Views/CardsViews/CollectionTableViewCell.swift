@@ -68,6 +68,13 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
         
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            let animateCell = cell as? CounterGoalsCard
+            animateCell?.incrementLabel(to: 1000)
+            animateCell?.createCircularPath()
+        }
+    }
     
     
 }
