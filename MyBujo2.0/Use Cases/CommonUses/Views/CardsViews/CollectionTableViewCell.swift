@@ -71,9 +71,9 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             let animateCell = cell as? CounterGoalsCard
-            animateCell?.incrementLabel(to: 100)
-            animateCell?.createCircularPath()
-            animateCell?.winRain()
+            animateCell?.incrementLabel(to: 100, labelNumber: animateCell!.number)
+            animateCell?.createCircularPath(colorCircular: "SelectionColor")
+            animateCell?.winRain(bubble:"bubble")
             
         }
     }

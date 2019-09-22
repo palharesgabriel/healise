@@ -34,20 +34,7 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
     
     
     // MARK: Functions
-    func incrementLabel(to endValue: Int) {
-        number.text = "0"
-        let duration: Double = 2.0
-        
-        DispatchQueue.global().async {
-            for iiii in 0 ..< (endValue + 1) {
-                let sleepTime = UInt32(duration/Double(endValue) * 1000000.0)
-                usleep(sleepTime)
-                DispatchQueue.main.sync {
-                    self.number.text =  String(iiii)
-                }
-            }
-        }
-    }
+
     
     func buildViewHierarchy() {
         addSubviews([number,goalLabel])
@@ -55,14 +42,14 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
         self.layer.addSublayer(progressLayer)
     }
     
-    func winRain() {
+    func winRain(bubble: String) {
         let flakeEmitterCell = CAEmitterCell()
-        flakeEmitterCell.contents = UIImage(named: "checkRain")?.cgImage
-        flakeEmitterCell.scale = 0.4
-        flakeEmitterCell.scaleRange = 0.3
+        flakeEmitterCell.contents = UIImage(named: bubble)?.cgImage
+        flakeEmitterCell.scale = 0.03
+        flakeEmitterCell.scaleRange = 0.9
         flakeEmitterCell.emissionRange = .pi
         flakeEmitterCell.lifetime = 20.0
-        flakeEmitterCell.birthRate = 40
+        flakeEmitterCell.birthRate = 8
         flakeEmitterCell.velocity = -30
         flakeEmitterCell.velocityRange = -20
         flakeEmitterCell.yAcceleration = 30
@@ -99,7 +86,7 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
 
     }
     
-    func createCircularPath() {
+    func createCircularPath(colorCircular: String) {
         let center: CGPoint = CGPoint(x: self.bounds.size.width*0.5,y: self.bounds.size.height*0.5)
         let circularPath = UIBezierPath(arcCenter: center, radius: 50, startAngle: -.pi / 2, endAngle: 2 * .pi, clockwise: true)
         
@@ -111,12 +98,11 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
         
         progressLayer.path = circularPath.cgPath
         progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.strokeColor = UIColor(named: "SelectionColor")?.cgColor
+        progressLayer.strokeColor = UIColor(named: colorCircular)?.cgColor
         progressLayer.lineCap = .round
         progressLayer.lineWidth = 2.0
         progressLayer.strokeEnd = 0
-
-        
+  
         let progressAnimation = CABasicAnimation(keyPath: "strokeEnd")
         progressAnimation.toValue = 1
         progressAnimation.duration = 3
