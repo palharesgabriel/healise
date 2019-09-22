@@ -50,7 +50,7 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
     }
     
     func buildViewHierarchy() {
-        addSubviews([imageBackGround,number,goalLabel])
+        addSubviews([number,goalLabel])
         self.layer.addSublayer(circleLayer)
         self.layer.addSublayer(progressLayer)
     }
@@ -85,14 +85,9 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
     }
     
     func setupConstraints() {
-        imageBackGround.translatesAutoresizingMaskIntoConstraints = false
         number.translatesAutoresizingMaskIntoConstraints = false
         goalLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageBackGround.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            imageBackGround.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            imageBackGround.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            imageBackGround.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             number.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
             number.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
             goalLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
