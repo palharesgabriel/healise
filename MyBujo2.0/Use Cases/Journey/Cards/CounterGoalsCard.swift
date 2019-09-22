@@ -13,6 +13,7 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
     
     // MARK: Properties
      let number = TitleLabel(title: "0")
+     let goalLabel = TitleLabel(title: "Your goals this month")
      let circleLayer = CAShapeLayer()
      let progressLayer = CAShapeLayer()
 
@@ -20,7 +21,6 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        number.translatesAutoresizingMaskIntoConstraints = false
         setupView()
     }
     
@@ -50,15 +50,53 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
     }
     
     func buildViewHierarchy() {
-        addSubviews([number])
+        addSubviews([imageBackGround,number,goalLabel])
         self.layer.addSublayer(circleLayer)
         self.layer.addSublayer(progressLayer)
     }
     
+    func winRain() {
+        let flakeEmitterCell = CAEmitterCell()
+        flakeEmitterCell.contents = UIImage(named: "checkRain")?.cgImage
+        flakeEmitterCell.scale = 0.4
+        flakeEmitterCell.scaleRange = 0.3
+        flakeEmitterCell.emissionRange = .pi
+        flakeEmitterCell.lifetime = 20.0
+        flakeEmitterCell.birthRate = 40
+        flakeEmitterCell.velocity = -30
+        flakeEmitterCell.velocityRange = -20
+        flakeEmitterCell.yAcceleration = 30
+        flakeEmitterCell.xAcceleration = 5
+        flakeEmitterCell.spin = -0.5
+        flakeEmitterCell.spinRange = 1.0
+        
+        let snowEmitterLayer = CAEmitterLayer()
+        snowEmitterLayer.emitterPosition = CGPoint(x: self.bounds.width / 2.0, y: 0)
+        snowEmitterLayer.emitterSize = CGSize(width: self.bounds.width, height: 0)
+        snowEmitterLayer.emitterShape = CAEmitterLayerEmitterShape.line
+        snowEmitterLayer.beginTime = CACurrentMediaTime()
+        snowEmitterLayer.timeOffset = 10
+        snowEmitterLayer.emitterCells = [flakeEmitterCell]
+        self.layer.addSublayer(snowEmitterLayer)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
+            snowEmitterLayer.removeFromSuperlayer()
+        }
+        
+    }
+    
     func setupConstraints() {
+        imageBackGround.translatesAutoresizingMaskIntoConstraints = false
+        number.translatesAutoresizingMaskIntoConstraints = false
+        goalLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            imageBackGround.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            imageBackGround.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            imageBackGround.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            imageBackGround.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             number.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            number.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor)
+            number.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
+            goalLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            goalLabel.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor,constant: 100)
             ])
     }
     
@@ -74,13 +112,13 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
         circleLayer.path = circularPath.cgPath
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineCap = .round
-        circleLayer.lineWidth = 20.0  //for thicker circle compared to progressLayer
+        circleLayer.lineWidth = 20.0
         
         progressLayer.path = circularPath.cgPath
         progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.strokeColor = UIColor(named: "ActionColor")?.cgColor
+        progressLayer.strokeColor = UIColor(named: "SelectionColor")?.cgColor
         progressLayer.lineCap = .round
-        progressLayer.lineWidth = 10.0
+        progressLayer.lineWidth = 2.0
         progressLayer.strokeEnd = 0
 
         
