@@ -74,6 +74,7 @@
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 		E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */; };
 		E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */; };
+		E86043A62337A048001A416E /* MediaCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86043A52337A048001A416E /* MediaCards.swift */; };
 		E88784762331223C00BFFE10 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88784752331223C00BFFE10 /* Defaults.swift */; };
 		E8ADD1942335119B00AA80C4 /* CounterGoalsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ADD1932335119B00AA80C4 /* CounterGoalsCard.swift */; };
 		E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */; };
@@ -166,6 +167,7 @@
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCollectionViewCell.swift; sourceTree = "<group>"; };
+		E86043A52337A048001A416E /* MediaCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCards.swift; sourceTree = "<group>"; };
 		E88784752331223C00BFFE10 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		E8ADD1932335119B00AA80C4 /* CounterGoalsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterGoalsCard.swift; sourceTree = "<group>"; };
 		E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Extension.swift"; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				E8ADD1932335119B00AA80C4 /* CounterGoalsCard.swift */,
+				E86043A52337A048001A416E /* MediaCards.swift */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -916,6 +919,7 @@
 				30740283233270510058D997 /* HealthHeaderView.swift in Sources */,
 				308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */,
 				15B4C04A2327E294009B6067 /* CapturesViewController.swift in Sources */,
+				E86043A62337A048001A416E /* MediaCards.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,

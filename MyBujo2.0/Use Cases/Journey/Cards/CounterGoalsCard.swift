@@ -42,34 +42,7 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
         self.layer.addSublayer(progressLayer)
     }
     
-    func winRain(bubble: String) {
-        let flakeEmitterCell = CAEmitterCell()
-        flakeEmitterCell.contents = UIImage(named: bubble)?.cgImage
-        flakeEmitterCell.scale = 0.03
-        flakeEmitterCell.scaleRange = 0.9
-        flakeEmitterCell.emissionRange = .pi
-        flakeEmitterCell.lifetime = 20.0
-        flakeEmitterCell.birthRate = 8
-        flakeEmitterCell.velocity = -30
-        flakeEmitterCell.velocityRange = -20
-        flakeEmitterCell.yAcceleration = 30
-        flakeEmitterCell.xAcceleration = 5
-        flakeEmitterCell.spin = -0.5
-        flakeEmitterCell.spinRange = 1.0
-        
-        let snowEmitterLayer = CAEmitterLayer()
-        snowEmitterLayer.emitterPosition = CGPoint(x: self.bounds.width / 2.0, y: 0)
-        snowEmitterLayer.emitterSize = CGSize(width: self.bounds.width, height: 0)
-        snowEmitterLayer.emitterShape = CAEmitterLayerEmitterShape.line
-        snowEmitterLayer.beginTime = CACurrentMediaTime()
-        snowEmitterLayer.timeOffset = 10
-        snowEmitterLayer.emitterCells = [flakeEmitterCell]
-        self.layer.addSublayer(snowEmitterLayer)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
-            snowEmitterLayer.removeFromSuperlayer()
-        }
-        
-    }
+    
     
     func setupConstraints() {
         number.translatesAutoresizingMaskIntoConstraints = false
