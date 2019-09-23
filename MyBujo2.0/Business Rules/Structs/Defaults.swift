@@ -8,7 +8,6 @@
 import UIKit
 
 struct Defaults {
-    
     static var name: String? {
         
         get {

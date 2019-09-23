@@ -42,9 +42,9 @@ class CalendarManager: NSObject {
             guard let dateIgnoringTime = date.ignoringTime() else { return day}
             day.date = dateIgnoringTime
             let media = Media(context: CoreDataManager.context)
-            media.photosPath = FileManager.createDirectory(day: day, directoryOf: .photo).absoluteString
-            media.videosPath = FileManager.createDirectory(day: day, directoryOf: .video).absoluteString
-            media.voiceRecordsPath = FileManager.createDirectory(day: day, directoryOf: .voiceRecord).absoluteString
+            media.photosPath = FileManager.default.createDirectory(day: day, directoryOf: .photo).absoluteString
+            media.videosPath = FileManager.default.createDirectory(day: day, directoryOf: .video).absoluteString
+            media.voiceRecordsPath = FileManager.default.createDirectory(day: day, directoryOf: .voiceRecord).absoluteString
             day.save()
             return day
         }

@@ -13,18 +13,35 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     
     let photosCollectionView:UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.scrollDirection = .vertical
+		flowLayout.minimumLineSpacing = 1
+		flowLayout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.showsHorizontalScrollIndicator = false
+		collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
+    
+    var paths: [String] = []
+    var day = CalendarManager.shared.selectedDay!
+    
+    let fileManager = FileManager.default
+    let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    var path = URL(fileURLWithPath: "/")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        photosCollectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+		photosCollectionView.register(NewPhotoCollectionViewCell.self, forCellWithReuseIdentifier: "NewPhotoCollectionViewCell")
+        photosCollectionView.delegate = self
+        photosCollectionView.dataSource = self
+        if day.media?.photosPath == nil {
+            day.media?.photosPath = createDayPhotosDirectory()
+        } else {
+            path = mainPath.appendingPathComponent(day.media!.photosPath!)
+            loadPhotos()
+        }
     }
     
     func buildViewHierarchy() {
@@ -41,40 +58,103 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     }
     
     func setupAdditionalConfigurantion() {
-        view.backgroundColor = UIColor(named: "BlueBackground")
+        photosCollectionView.backgroundColor = .white
     }
     
-    @objc func didPresentImagePickerController() {
-        let imagePickerViewController = UIImagePickerController()
-        imagePickerViewController.sourceType = .camera
-        imagePickerViewController.allowsEditing = true
-        imagePickerViewController.delegate = self
-        self.present(imagePickerViewController, animated: true, completion: nil)
+    func createDayPhotosDirectory() -> String {
+        let dateFormmater = DateFormatter()
+        dateFormmater.dateFormat = "yyyy-MM-dd"
+        let date = dateFormmater.string(from: day.date!)
+        
+        let pathToSaveInCoreData = "\(date.description)/\("Photos")"
+        
+        let path = mainPath.appendingPathComponent(pathToSaveInCoreData)
+        
+        try? fileManager.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
+        
+        return pathToSaveInCoreData
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion: nil)
-        guard let image = info[.editedImage] as? UIImage else {
-            print("No image found")
-            return
+    func savePhoto(image: UIImage) -> Bool {
+        if let data = image.jpegData(compressionQuality: 1) {
+            if day.media == nil {
+                day.media = Media(context: CoreDataManager.context)
+                day.media?.photosPath = createDayPhotosDirectory()
+                day.save()
+            }
+            
+            let filenamePath = mainPath.appendingPathComponent(day.media!.photosPath!).appendingPathComponent(image.hash.description)
+            
+            return fileManager.saveFileFrom(Path: filenamePath, WithData: data)
+        }
+        return false
+    }
+    
+    func loadPhotos() {
+        do {
+            paths.removeAll()
+            guard let media = day.media,
+                let path = media.photosPath
+                else { return }
+            
+            let contentsOfDocuments = try fileManager.contentsOfDirectory(atPath: mainPath.appendingPathComponent(path).path)
+            
+            paths.append("notes")
+            contentsOfDocuments.forEach { (item) in
+				paths.append("\(mainPath.appendingPathComponent(path).path)/\(item)")
+            }
+			sortPhotos()
+        } catch {
+            print(error)
         }
     }
+	
+	func getCreatedDateFromFile (path: String) -> Date? {
+		do {
+			let attr = try fileManager.attributesOfItem(atPath: path)
+			return attr[FileAttributeKey.creationDate] as? Date
+		} catch {
+			return nil
+		}
+	}
+	
+	func sortPhotos () {
+		paths.sort { (firstPath, secondPath) -> Bool in
+			guard let firstDate = getCreatedDateFromFile(path: firstPath) else { return false }
+			guard let secondDate = getCreatedDateFromFile(path: secondPath) else { return false }
+			if firstDate > secondDate {
+				return true
+			}
+			return false
+		}
+	}
 }
 
 extension CapturesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return paths.count == 0 ? 1 : paths.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) is CaptureCollectionViewCell else { return UICollectionViewCell()}
-        
-        return UICollectionViewCell()
+        switch indexPath.row {
+        case 0:
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewPhotoCollectionViewCell", for: indexPath) as? NewPhotoCollectionViewCell else { return UICollectionViewCell()}
+			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didPresentImagePickerController))
+            cell.addGestureRecognizer(tapGesture)
+            return cell
+        default:
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
+            guard let image = UIImage(contentsOfFile: paths[indexPath.row]) else { return UICollectionViewCell()}
+            cell.setupCell(image: image)
+            return cell
+        }
+         
     }
 }
 
 extension CapturesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: 160)
+			return CGSize(width: view.frame.width * 0.33, height: view.frame.width * 0.33)
     }
 }
+

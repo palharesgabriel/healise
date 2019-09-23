@@ -107,13 +107,12 @@ extension MediaTableViewCell: UICollectionViewDataSource {
         case 4:
             delegate?.pushViewController(viewController: CapturesViewController(title: "Captures"))
         default:
-            print("fodeu")
+            print("Error")
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = self.mediaCollectionView.dequeueReusableCell(withReuseIdentifier: "MediaCell", for: indexPath) as? MediaCollectionViewCell else { return MediaCollectionViewCell() }
-        
         
         if #available(iOS 13.0, *) {
             cell.setupCell(imageName: iconNames[indexPath.row].sf)

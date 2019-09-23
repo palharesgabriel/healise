@@ -22,6 +22,8 @@
 		157F4540232AEDE8007BC8D4 /* NewBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157F453F232AEDE8007BC8D4 /* NewBaseViewController.swift */; };
 		15B4C04A2327E294009B6067 /* CapturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C0492327E294009B6067 /* CapturesViewController.swift */; };
 		15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C339C4230D8A14009ED5CD /* ViewCode.swift */; };
+		15DA58902338FBE300009949 /* NewPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DA588F2338FBE300009949 /* NewPhotoCollectionViewCell.swift */; };
+		15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DA589123390ADA00009949 /* CapturesViewController+ImagePickerController.swift */; };
 		15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */; };
 		15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C62316FB8200F70860 /* Blurable.swift */; };
 		15E6195F2329370800C5E96D /* BlurableModalAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */; };
@@ -81,7 +83,9 @@
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 		E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */; };
 		E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */; };
+		E86043A62337A048001A416E /* MediaCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86043A52337A048001A416E /* MediaCards.swift */; };
 		E88784762331223C00BFFE10 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88784752331223C00BFFE10 /* Defaults.swift */; };
+		E8ADD1942335119B00AA80C4 /* CounterGoalsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ADD1932335119B00AA80C4 /* CounterGoalsCard.swift */; };
 		E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +115,8 @@
 		157F453F232AEDE8007BC8D4 /* NewBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBaseViewController.swift; sourceTree = "<group>"; };
 		15B4C0492327E294009B6067 /* CapturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturesViewController.swift; sourceTree = "<group>"; };
 		15C339C4230D8A14009ED5CD /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		15DA588F2338FBE300009949 /* NewPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		15DA589123390ADA00009949 /* CapturesViewController+ImagePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CapturesViewController+ImagePickerController.swift"; sourceTree = "<group>"; };
 		15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
 		15DFF5C62316FB8200F70860 /* Blurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurable.swift; sourceTree = "<group>"; };
 		15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurableModalAnimationController.swift; sourceTree = "<group>"; };
@@ -178,7 +184,9 @@
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCollectionViewCell.swift; sourceTree = "<group>"; };
+		E86043A52337A048001A416E /* MediaCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCards.swift; sourceTree = "<group>"; };
 		E88784752331223C00BFFE10 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		E8ADD1932335119B00AA80C4 /* CounterGoalsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterGoalsCard.swift; sourceTree = "<group>"; };
 		E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Extension.swift"; sourceTree = "<group>"; };
 		ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
 		FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,6 +385,7 @@
 		30740297233275460058D997 /* Journey */ = {
 			isa = PBXGroup;
 			children = (
+				E8ADD19523351C7200AA80C4 /* Cards */,
 				307402A5233277260058D997 /* ShowJourney */,
 				307402982332754C0058D997 /* Health */,
 			);
@@ -456,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				15B4C0492327E294009B6067 /* CapturesViewController.swift */,
+				15DA589123390ADA00009949 /* CapturesViewController+ImagePickerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -464,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				157D9D68232A9285009659F4 /* CaptureCollectionViewCell.swift */,
+				15DA588F2338FBE300009949 /* NewPhotoCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -684,6 +695,15 @@
 			path = Structs;
 			sourceTree = "<group>";
 		};
+		E8ADD19523351C7200AA80C4 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				E8ADD1932335119B00AA80C4 /* CounterGoalsCard.swift */,
+				E86043A52337A048001A416E /* MediaCards.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
 		E8FF9D452316C538006C2B49 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -893,6 +913,7 @@
 				3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */,
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
+				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
 				15491960231D508000766609 /* FeelingsCardView.swift in Sources */,
 				3074028123325CF30058D997 /* CustomizableButton.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
@@ -930,6 +951,7 @@
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
 				1549195E231D4B8C00766609 /* FeelingView.swift in Sources */,
 				E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */,
+				15DA58902338FBE300009949 /* NewPhotoCollectionViewCell.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
 				E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */,
@@ -946,11 +968,13 @@
 				30740283233270510058D997 /* HealthHeaderView.swift in Sources */,
 				308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */,
 				15B4C04A2327E294009B6067 /* CapturesViewController.swift in Sources */,
+				E86043A62337A048001A416E /* MediaCards.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
 				1549195823193EDD00766609 /* FormView.swift in Sources */,
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
+				E8ADD1942335119B00AA80C4 /* CounterGoalsCard.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
 				308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */,
@@ -1045,7 +1069,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1100,7 +1124,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1119,9 +1143,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1144,9 +1168,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,19 +8,8 @@
 
 import UIKit
 
-class HealthCollectionViewCell: ReusableCollectionViewCell, ViewCode {
-    
-    func buildViewHierarchy() {
-        //
-    }
-    
-    func setupConstraints() {
-        //
-    }
-    
-    func setupAdditionalConfigurantion() {
-        //
-    }
+class HealthCollectionViewCell: ReusableCollectionViewCell {
+
     
     
     override init(frame: CGRect) {

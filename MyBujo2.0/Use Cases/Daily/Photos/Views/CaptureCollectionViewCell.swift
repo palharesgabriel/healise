@@ -14,18 +14,20 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
        let imgView = UIImageView()
         imgView.isUserInteractionEnabled = true
         imgView.translatesAutoresizingMaskIntoConstraints = false
+		imgView.contentMode = .scaleToFill
         return imgView
     }()
     
-    func setupCell(image: UIImage) {
+	func setupCell(image: UIImage) {
+        setupView()
         captureImageView.image = image
-    }
+	}
     
     func buildViewHierarchy() {
         addSubview(captureImageView)
     }
     
-    func setupConstraints() {
+	func setupConstraints() {
         NSLayoutConstraint.activate([
             captureImageView.topAnchor.constraint(equalTo: topAnchor),
             captureImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -35,6 +37,6 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        
+        backgroundColor = .white
     }
 }
