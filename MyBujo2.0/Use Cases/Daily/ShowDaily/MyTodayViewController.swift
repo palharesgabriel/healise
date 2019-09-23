@@ -12,7 +12,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     
     // MARK: Properties
     var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .grouped)
+        let tableView = UITableView(frame: .zero, style: .plain)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
@@ -54,7 +54,7 @@ class MyTodayViewController: UIViewController, ViewCode {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
+		])
     }
     func setupAdditionalConfigurantion() {
         self.view.backgroundColor = UIColor(named: "BlueBackground")

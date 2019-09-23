@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MediaCollectionViewCell: UICollectionViewCell {
+class MediaCollectionViewCell: UICollectionViewCell, Shadow {
     
     
     let iconImageView: UIImageView = {
@@ -18,11 +18,10 @@ class MediaCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    let shadowView = ShadowView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .clear
+        backgroundColor = .white
         contentView.backgroundColor = .clear
         setupView()
     }
@@ -40,28 +39,21 @@ class MediaCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not benn implemented")
     }
-    
 }
 
 extension MediaCollectionViewCell: ViewCode {
     func buildViewHierarchy() {
-        self.contentView.addSubview(shadowView)
         self.contentView.addSubview(iconImageView)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            
-            iconImageView.centerXAnchor.constraint(equalTo: shadowView.centerXAnchor),
-            iconImageView.centerYAnchor.constraint(equalTo: shadowView.centerYAnchor)
+            iconImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
     
     func setupAdditionalConfigurantion() {
-        shadowView.translatesAutoresizingMaskIntoConstraints = false
+        addShadow(view: self)
     }
 }

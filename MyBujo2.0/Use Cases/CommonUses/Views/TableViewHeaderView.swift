@@ -77,7 +77,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     
     func setupAdditionalConfigurantion() {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "backgroundBlue")
+        view.backgroundColor = UIColor(named: "BlueBackground")
         backgroundView = view
     }
 }
