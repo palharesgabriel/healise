@@ -62,7 +62,7 @@ class ReusableCollectionViewCell: UICollectionViewCell, Shadow {
         self.layer.addSublayer(snowEmitterLayer)
         if stop == true {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
-            snowEmitterLayer.removeFromSuperlayer()
+            snowEmitterLayer.lifetime = 0.0
             }}
         
     }

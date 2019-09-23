@@ -102,8 +102,6 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         let visibleDates = calendarView.visibleDates()
         calendarView.viewWillTransition(to: .zero, with: coordinator, anchorDate: visibleDates.monthDates.first?.date)
     }
-    
-    
 }
 
 
@@ -165,8 +163,8 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         guard let cell = cell else { return false }
         if cellState.dateBelongsTo == .thisMonth && !cell.isSelected {
             return true
-        } else if cellState.dateBelongsTo == .thisMonth && cell.isSelected{
-            touched = false
+        }
+        else if cellState.dateBelongsTo == .thisMonth && cell.isSelected {
             delegate.shouldShowAddFeelingModal()
             return true
         }
