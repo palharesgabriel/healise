@@ -61,28 +61,6 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
         photosCollectionView.backgroundColor = .white
     }
     
-    @objc func didPresentImagePickerController() {
-        let imagePickerViewController = UIImagePickerController()
-        imagePickerViewController.sourceType = .photoLibrary
-        imagePickerViewController.allowsEditing = true
-        imagePickerViewController.delegate = self
-        self.present(imagePickerViewController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion: nil)
-        guard let image = info[.originalImage] as? UIImage else {
-            print("No image found")
-            return
-        }
-        
-        if savePhoto(image: image) {
-            loadPhotos()
-        }
-        
-        photosCollectionView.reloadData()
-    }
-    
     func createDayPhotosDirectory() -> String {
         let dateFormmater = DateFormatter()
         dateFormmater.dateFormat = "yyyy-MM-dd"
@@ -123,12 +101,33 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
             
             paths.append("notes")
             contentsOfDocuments.forEach { (item) in
-                paths.append("\(mainPath.appendingPathComponent(path).path)/\(item)")
+				paths.append("\(mainPath.appendingPathComponent(path).path)/\(item)")
             }
+			sortPhotos()
         } catch {
             print(error)
         }
     }
+	
+	func getCreatedDateFromFile (path: String) -> Date? {
+		do {
+			let attr = try fileManager.attributesOfItem(atPath: path)
+			return attr[FileAttributeKey.creationDate] as? Date
+		} catch {
+			return nil
+		}
+	}
+	
+	func sortPhotos () {
+		paths.sort { (firstPath, secondPath) -> Bool in
+			guard let firstDate = getCreatedDateFromFile(path: firstPath) else { return false }
+			guard let secondDate = getCreatedDateFromFile(path: secondPath) else { return false }
+			if firstDate > secondDate {
+				return true
+			}
+			return false
+		}
+	}
 }
 
 extension CapturesViewController: UICollectionViewDataSource {
@@ -158,3 +157,4 @@ extension CapturesViewController: UICollectionViewDelegateFlowLayout {
 			return CGSize(width: view.frame.width * 0.33, height: view.frame.width * 0.33)
     }
 }
+
