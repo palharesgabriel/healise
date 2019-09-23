@@ -14,12 +14,11 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     let photosCollectionView:UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+		flowLayout.minimumLineSpacing = 1
+		flowLayout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.showsHorizontalScrollIndicator = false
+		collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
@@ -34,6 +33,7 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
         super.viewDidLoad()
         setupView()
         photosCollectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+		photosCollectionView.register(NewPhotoCollectionViewCell.self, forCellWithReuseIdentifier: "NewPhotoCollectionViewCell")
         photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
         if day.media?.photosPath == nil {
@@ -58,7 +58,6 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     }
     
     func setupAdditionalConfigurantion() {
-        view.backgroundColor = UIColor(named: "BlueBackground")
         photosCollectionView.backgroundColor = .white
     }
     
@@ -106,7 +105,6 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
                 day.save()
             }
             
-//            eu dou o cu com gosto e minha mãe não sabe disso, pq ela morreu, AAAAAAAAA
             let filenamePath = mainPath.appendingPathComponent(day.media!.photosPath!).appendingPathComponent(image.hash.description)
             
             return fileManager.saveFileFrom(Path: filenamePath, WithData: data)
@@ -139,14 +137,14 @@ extension CapturesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
         switch indexPath.row {
         case 0:
-            cell.setupCell(image: UIImage(named: "addImage")!)
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didPresentImagePickerController))
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewPhotoCollectionViewCell", for: indexPath) as? NewPhotoCollectionViewCell else { return UICollectionViewCell()}
+			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didPresentImagePickerController))
             cell.addGestureRecognizer(tapGesture)
             return cell
         default:
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
             guard let image = UIImage(contentsOfFile: paths[indexPath.row]) else { return UICollectionViewCell()}
             cell.setupCell(image: image)
             return cell
@@ -157,6 +155,6 @@ extension CapturesViewController: UICollectionViewDataSource {
 
 extension CapturesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+			return CGSize(width: view.frame.width * 0.33, height: view.frame.width * 0.33)
     }
 }

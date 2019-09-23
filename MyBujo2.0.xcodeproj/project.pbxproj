@@ -22,6 +22,7 @@
 		157F4540232AEDE8007BC8D4 /* NewBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157F453F232AEDE8007BC8D4 /* NewBaseViewController.swift */; };
 		15B4C04A2327E294009B6067 /* CapturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C0492327E294009B6067 /* CapturesViewController.swift */; };
 		15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C339C4230D8A14009ED5CD /* ViewCode.swift */; };
+		15DA58902338FBE300009949 /* NewPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DA588F2338FBE300009949 /* NewPhotoCollectionViewCell.swift */; };
 		15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */; };
 		15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C62316FB8200F70860 /* Blurable.swift */; };
 		15E6195F2329370800C5E96D /* BlurableModalAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */; };
@@ -106,6 +107,7 @@
 		157F453F232AEDE8007BC8D4 /* NewBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBaseViewController.swift; sourceTree = "<group>"; };
 		15B4C0492327E294009B6067 /* CapturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturesViewController.swift; sourceTree = "<group>"; };
 		15C339C4230D8A14009ED5CD /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
+		15DA588F2338FBE300009949 /* NewPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
 		15DFF5C62316FB8200F70860 /* Blurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurable.swift; sourceTree = "<group>"; };
 		15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurableModalAnimationController.swift; sourceTree = "<group>"; };
@@ -453,6 +455,7 @@
 			isa = PBXGroup;
 			children = (
 				157D9D68232A9285009659F4 /* CaptureCollectionViewCell.swift */,
+				15DA588F2338FBE300009949 /* NewPhotoCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
 				1549195E231D4B8C00766609 /* FeelingView.swift in Sources */,
 				E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */,
+				15DA58902338FBE300009949 /* NewPhotoCollectionViewCell.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
 				E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */,
