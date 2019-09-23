@@ -15,8 +15,7 @@ public class Media: NSManagedObject {
     lazy var photos: [UIImage]? = {
         if let photos = self.photos {
             return photos
-        }
-        else {
+        } else {
             //AQUI TEM QUE PEGAR DO FILEMANAGER
             return [UIImage]()
         }
