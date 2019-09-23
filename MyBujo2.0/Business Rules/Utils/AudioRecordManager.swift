@@ -16,6 +16,7 @@ class AudioRecordManager: NSObject {
     var audioPath: URL!
     var recordDelegate: ChangeRecordButtonStateDelegate?
     var recordedAudios: [Audio] = []
+    let fileManager = FileManager.default
     
     override init() {
         recordingSession = AVAudioSession.sharedInstance()
@@ -44,7 +45,7 @@ class AudioRecordManager: NSObject {
     }
     
     func startRecording() {
-        self.audioPath = FileManager.createDirectory(day: self.getDay(), directoryOf: .voiceRecord).appendingPathComponent(getCurrentTime())
+        self.audioPath = fileManager.createDirectory(day: self.getDay(), directoryOf: .voiceRecord).appendingPathComponent(getCurrentTime())
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
