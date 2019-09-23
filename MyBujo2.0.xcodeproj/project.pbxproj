@@ -69,6 +69,9 @@
 		AB8C882B233518540093E29C /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882A233518540093E29C /* AudioPlayer.swift */; };
 		AB8C882D233518AC0093E29C /* AudioTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882C233518AC0093E29C /* AudioTableView.swift */; };
 		AB8C882F23351D240093E29C /* AudioRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882E23351D240093E29C /* AudioRecordManager.swift */; };
+		AB8D30DB2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DA2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift */; };
+		AB8D30DD233906290009409F /* AudioPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */; };
+		AB8D30DF23390F4D0009409F /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DE23390F4D0009409F /* Audio.swift */; };
 		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
 		E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */; };
 		E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */; };
@@ -162,6 +165,9 @@
 		AB8C882A233518540093E29C /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		AB8C882C233518AC0093E29C /* AudioTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTableView.swift; sourceTree = "<group>"; };
 		AB8C882E23351D240093E29C /* AudioRecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordManager.swift; sourceTree = "<group>"; };
+		AB8D30DA2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRecordButtonStateDelegate.swift; sourceTree = "<group>"; };
+		AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerDelegate.swift; sourceTree = "<group>"; };
+		AB8D30DE23390F4D0009409F /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
 		E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiButton+Extension.swift"; sourceTree = "<group>"; };
@@ -207,6 +213,8 @@
 				AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */,
 				AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */,
 				E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */,
+				AB8D30DA2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift */,
+				AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -543,6 +551,7 @@
 				30B900592318424A000C0089 /* DayExtension.swift */,
 				30B9005B231842A0000C0089 /* GoalExtension.swift */,
 				30B9005D23184666000C0089 /* MediaExtension.swift */,
+				AB8D30DE23390F4D0009409F /* Audio.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -893,6 +902,7 @@
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
 				30C6FD992331203500F69F79 /* Media+CoreDataProperties.swift in Sources */,
 				15E6195F2329370800C5E96D /* BlurableModalAnimationController.swift in Sources */,
+				AB8D30DD233906290009409F /* AudioPlayerDelegate.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				157F4540232AEDE8007BC8D4 /* NewBaseViewController.swift in Sources */,
 				1516C18F231555E5002EC623 /* TableViewHeaderView.swift in Sources */,
@@ -916,12 +926,14 @@
 				AB8C8829233518280093E29C /* AudioViewController.swift in Sources */,
 				30ADD66D231D396D001CAF1C /* Delegates.swift in Sources */,
 				E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */,
+				AB8D30DB2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
 				1549195E231D4B8C00766609 /* FeelingView.swift in Sources */,
 				E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
 				E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */,
+				AB8D30DF23390F4D0009409F /* Audio.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
 				3074027B233257990058D997 /* HealthCollectionViewCell.swift in Sources */,
 				AB8C882F23351D240093E29C /* AudioRecordManager.swift in Sources */,

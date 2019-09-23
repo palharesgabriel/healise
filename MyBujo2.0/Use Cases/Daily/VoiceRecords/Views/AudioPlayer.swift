@@ -11,6 +11,7 @@ import UIKit
 class AudioPlayer: UIView {
     
     var titleLabel: TitleLabel!
+    var playDelegate: AudioPlayerDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -54,6 +55,7 @@ class AudioPlayer: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemPink
+        button.addTarget(self, action: #selector(playTapped), for: .touchUpInside)
         return button
     }()
     
@@ -71,19 +73,18 @@ class AudioPlayer: UIView {
         return button
     }()
     
-    let trashButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .orange
-        return button
-    }()
+    
+    @objc func playTapped() {
+        self.playDelegate?.didBeginPlay()
+        playButton.backgroundColor = .blue
+    }
     
 }
 
 extension AudioPlayer: ViewCode {
     
     func buildViewHierarchy() {
-        addSubviews([titleLabel, progressBar, leftLabel, rightLabel, playButton, advance15SecondsButton, back15SecondsButton, trashButton])
+        addSubviews([titleLabel, progressBar, leftLabel, rightLabel, playButton, advance15SecondsButton, back15SecondsButton])
     }
     
     func setupConstraints() {
@@ -94,7 +95,6 @@ extension AudioPlayer: ViewCode {
         setupPlayButtonConstraints()
         setupAdvance15SecondsButtonConstraints()
         setupBack15SecondsButtonConstraints()
-        setupTrashButtonConstraints()
     }
     
     func setupAdditionalConfigurantion() {
@@ -164,15 +164,6 @@ extension AudioPlayer {
             back15SecondsButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -16),
             back15SecondsButton.widthAnchor.constraint(equalToConstant: 64),
             back15SecondsButton.heightAnchor.constraint(equalToConstant: 64)
-        ])
-    }
-    
-    func setupTrashButtonConstraints() {
-        NSLayoutConstraint.activate([
-            trashButton.topAnchor.constraint(equalTo: rightLabel.bottomAnchor, constant: 16),
-            trashButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            trashButton.widthAnchor.constraint(equalToConstant: 64),
-            trashButton.heightAnchor.constraint(equalToConstant: 64)
         ])
     }
     

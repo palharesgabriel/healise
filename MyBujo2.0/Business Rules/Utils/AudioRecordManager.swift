@@ -11,25 +11,23 @@ import AVFoundation
 class AudioRecordManager: NSObject {
     
     var recordingSession: AVAudioSession
-    
-    var audioRecorder: AVAudioRecorder?
-    
-    var audioPlayer: AVAudioPlayer
+    var audioRecorder: AVAudioRecorder!
+    var audioPlayer: AVAudioPlayer!
+    var audioPath: URL!
+    var recordDelegate: ChangeRecordButtonStateDelegate?
+    var recordedAudios: [Audio] = []
     
     override init() {
-        self.recordingSession = AVAudioSession.sharedInstance()
-        self.audioPlayer = AVAudioPlayer()
-        self.audioRecorder = AVAudioRecorder()
+        recordingSession = AVAudioSession.sharedInstance()
     }
     
     func requestAudioRecordPermission() {
         do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
-            recordingSession.requestRecordPermission() { [unowned self] allowed in
+            recordingSession.requestRecordPermission { allowed in
                 DispatchQueue.main.async {
                     if allowed {
-                        
                         print("Authorized")
                     } else {
                         print("failed to record, permission denied")
@@ -46,9 +44,7 @@ class AudioRecordManager: NSObject {
     }
     
     func startRecording() {
-        let audioFilename = FileManager.createDirectory(day: self.getDay(), directoryOf: .voiceRecord).appendingPathComponent("recording.m4a")
-        
-        guard let recorder = self.audioRecorder else { return }
+        self.audioPath = FileManager.createDirectory(day: self.getDay(), directoryOf: .voiceRecord).appendingPathComponent(getCurrentTime())
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -57,10 +53,10 @@ class AudioRecordManager: NSObject {
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
         ]
         do {
-            audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
-            recorder.delegate = self
-            recorder.record()
-            // faça coisas
+            audioRecorder = try AVAudioRecorder(url: audioPath, settings: settings)
+            audioRecorder.delegate = self
+            audioRecorder.record()
+            recordDelegate?.didBeginRecord()
         } catch {
             finishRecording(success: false)
         }
@@ -72,11 +68,36 @@ class AudioRecordManager: NSObject {
         self.audioRecorder = nil
         
         if success {
-            // faça coisas
+            recordDelegate?.didFinishRecord()
+            let audio = Audio(name: getCurrentTime(), path: audioPath)
+            recordedAudios.append(audio)
+            
         } else {
-            // recording failed :(
+            print("failed to record")
         }
     }
+    
+    func getCurrentTime() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh-mm-ss a"
+        let hourString = formatter.string(from: Date())
+        return hourString
+    }
+    
+    func playAudio(withPath: URL) {
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: withPath)
+            audioPlayer.delegate = self
+            audioPlayer.prepareToPlay()
+            audioPlayer.volume = 1.0
+        } catch {
+            print(error)
+        }
+        audioPlayer.play()
+        recordDelegate?.didFinishPlay()
+    }
+    
 }
 
 extension AudioRecordManager: AVAudioRecorderDelegate, AVAudioPlayerDelegate {
