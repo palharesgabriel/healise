@@ -18,6 +18,7 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
     }()
     
     func setupCell(image: UIImage) {
+        setupView()
         captureImageView.image = image
     }
     
@@ -35,6 +36,6 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        
+        backgroundColor = .white
     }
 }

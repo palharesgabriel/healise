@@ -6,6 +6,7 @@
 //  Copyright © 2019 Gabriel Palhares. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 extension Media {
