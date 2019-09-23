@@ -24,7 +24,7 @@ enum CalendarType {
     }
 }
 
-class CalendarTableViewCell: UITableViewCell, ViewCode, Shadow {
+class CalendarTableViewCell: UITableViewCell, ViewCode {
     
     var touched = false
     // MARK: Properties
@@ -32,14 +32,16 @@ class CalendarTableViewCell: UITableViewCell, ViewCode, Shadow {
     var type: CalendarType!
     weak var delegate: CalendarTableViewCellDelegate!
     
+    var shadowView = ShadowView()
+    
     var calendarView: JTACMonthView = {
         let calendarView = JTACMonthView(frame: .zero)
-        calendarView.backgroundColor = .clear
+        calendarView.backgroundColor = UIColor(named: "CardsColor")
+        calendarView.clipsToBounds = true
+        calendarView.layer.cornerRadius = 16
         calendarView.scrollingMode = .stopAtEachCalendarFrame
         calendarView.scrollDirection = .horizontal
         calendarView.showsHorizontalScrollIndicator = false
-        calendarView.clipsToBounds = true
-        calendarView.backgroundColor = .white
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         return calendarView
@@ -59,12 +61,19 @@ class CalendarTableViewCell: UITableViewCell, ViewCode, Shadow {
     
     // MARK: Functions
     func buildViewHierarchy() {
-        contentView.addSubview(calendarView)
+        contentView.addSubviews([shadowView, calendarView])
+        
     }
     
     func setupConstraints() {
         calendarView.translatesAutoresizingMaskIntoConstraints = false
+        shadowView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            
             calendarView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             calendarView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             calendarView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
@@ -78,7 +87,6 @@ class CalendarTableViewCell: UITableViewCell, ViewCode, Shadow {
         calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "monthHeader")
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
-        addShadow(view: calendarView)
     }
     
     func setupCell(calendarType: CalendarType, date: Date) {

@@ -107,7 +107,7 @@ extension MediaTableViewCell: UICollectionViewDataSource {
         case 4:
             delegate?.pushViewController(viewController: CapturesViewController(title: "Captures"))
         default:
-            print("fodeu")
+            print("Error")
         }
     }
     
