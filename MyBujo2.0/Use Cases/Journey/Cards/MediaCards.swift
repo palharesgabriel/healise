@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MediaCards: ReusableCollectionViewCell, ViewCode {
+class MediaCards: IncrementCollectionViewCell, ViewCode {
     
     // MARK: Properties
     let number = TitleLabel(title: "0")
@@ -20,7 +20,6 @@ class MediaCards: ReusableCollectionViewCell, ViewCode {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    
     
     
     // MARK: Initialization
@@ -37,16 +36,16 @@ class MediaCards: ReusableCollectionViewCell, ViewCode {
     
     // MARK: Funcions
     func buildViewHierarchy() {
-        addSubviews([number,iconImageView])
+        self.rainView.addSubviews([number,iconImageView])
     }
     
     func setupConstraints() {
         number.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            number.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor,constant: 100),
-            number.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
-            iconImageView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor,constant:  -100),
-            iconImageView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
+            number.centerXAnchor.constraint(equalTo: rainView.centerXAnchor,constant: 100),
+            number.centerYAnchor.constraint(equalTo: rainView.centerYAnchor),
+            iconImageView.centerXAnchor.constraint(equalTo: rainView.centerXAnchor,constant:  -100),
+            iconImageView.centerYAnchor.constraint(equalTo: rainView.centerYAnchor)
             ])
     }
     

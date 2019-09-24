@@ -72,6 +72,7 @@
 		E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */; };
 		E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */; };
 		E813C1A72322A5F0002F170D /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813C1A62322A5F0002F170D /* NavigationButton.swift */; };
+		E851AE19233A39C5008BB798 /* IncrementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851AE18233A39C5008BB798 /* IncrementCollectionViewCell.swift */; };
 		E8535A0223156252009AB979 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A0123156252009AB979 /* NotesView.swift */; };
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 		E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */; };
@@ -167,6 +168,7 @@
 		E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiLabel+Extension.swift"; sourceTree = "<group>"; };
 		E813C1A62322A5F0002F170D /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		E851AE18233A39C5008BB798 /* IncrementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8535A0123156252009AB979 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
@@ -648,6 +650,7 @@
 			children = (
 				E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */,
 				E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */,
+				E851AE18233A39C5008BB798 /* IncrementCollectionViewCell.swift */,
 			);
 			path = CardsViews;
 			sourceTree = "<group>";
@@ -934,6 +937,7 @@
 				1549195823193EDD00766609 /* FormView.swift in Sources */,
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
 				E8ADD1942335119B00AA80C4 /* CounterGoalsCard.swift in Sources */,
+				E851AE19233A39C5008BB798 /* IncrementCollectionViewCell.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
 				308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */,
@@ -1101,7 +1105,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 37CT2CQ23H;
+				DEVELOPMENT_TEAM = 7SH46749RP;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1126,7 +1130,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 37CT2CQ23H;
+				DEVELOPMENT_TEAM = 7SH46749RP;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
