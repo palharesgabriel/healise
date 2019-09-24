@@ -26,11 +26,18 @@ extension CapturesViewController {
 	}
 	
 	func openCamera() {
-		let imagePickerViewController = UIImagePickerController()
-		imagePickerViewController.sourceType = .camera
-		imagePickerViewController.allowsEditing = true
-		imagePickerViewController.delegate = self
-		self.present(imagePickerViewController, animated: true, completion: nil)
+		if UIImagePickerController.isSourceTypeAvailable(.camera) {
+			let imagePickerViewController = UIImagePickerController()
+			imagePickerViewController.sourceType = .camera
+			imagePickerViewController.allowsEditing = true
+			imagePickerViewController.delegate = self
+			self.present(imagePickerViewController, animated: true, completion: nil)
+		} else {
+			let alert = UIAlertController(title: "Camera Not Available", message: "Camera access not permited", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+			present(alert, animated: false, completion: nil)
+		}
+		
 	}
 	
 	func openLibrary() {
