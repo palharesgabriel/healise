@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
+class CounterGoalsCard: IncrementCollectionViewCell, ViewCode {
     
     
     // MARK: Properties
@@ -30,16 +30,13 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
-    
     // MARK: Functions
 
     
     func buildViewHierarchy() {
-        addSubviews([number,goalLabel])
-        self.layer.addSublayer(circleLayer)
-        self.layer.addSublayer(progressLayer)
+        self.rainView.addSubviews([number,goalLabel])
+        self.rainView.layer.addSublayer(circleLayer)
+        self.rainView.layer.addSublayer(progressLayer)
     }
     
     
@@ -48,10 +45,10 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
         number.translatesAutoresizingMaskIntoConstraints = false
         goalLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            number.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            number.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor),
-            goalLabel.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
-            goalLabel.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor,constant: 100)
+            number.centerXAnchor.constraint(equalTo: rainView.centerXAnchor),
+            number.centerYAnchor.constraint(equalTo: rainView.centerYAnchor),
+            goalLabel.centerXAnchor.constraint(equalTo: rainView.centerXAnchor),
+            goalLabel.centerYAnchor.constraint(equalTo: rainView.centerYAnchor,constant: 100)
             ])
     }
     
@@ -60,7 +57,7 @@ class CounterGoalsCard: ReusableCollectionViewCell, ViewCode {
     }
     
     func createCircularPath(colorCircular: String) {
-        let center: CGPoint = CGPoint(x: self.bounds.size.width*0.5,y: self.bounds.size.height*0.5)
+        let center: CGPoint = CGPoint(x: self.rainView.bounds.size.width*0.5,y: self.rainView.bounds.size.height*0.5)
         let circularPath = UIBezierPath(arcCenter: center, radius: 50, startAngle: -.pi / 2, endAngle: 2 * .pi, clockwise: true)
         
 
