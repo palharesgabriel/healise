@@ -52,7 +52,6 @@
 		30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B900562317FC3B000C0089 /* CalendarTableViewCellDelegate.swift */; };
 		30B9005A2318424A000C0089 /* DayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B900592318424A000C0089 /* DayExtension.swift */; };
 		30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005B231842A0000C0089 /* GoalExtension.swift */; };
-		30B9005E23184666000C0089 /* MediaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005D23184666000C0089 /* MediaExtension.swift */; };
 		30B9006023185600000C0089 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B9005F23185600000C0089 /* DateExtension.swift */; };
 		30C6FD992331203500F69F79 /* Media+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD972331203500F69F79 /* Media+CoreDataProperties.swift */; };
 		30C6FD9A2331203500F69F79 /* Media+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */; };
@@ -142,7 +141,6 @@
 		30B900562317FC3B000C0089 /* CalendarTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		30B900592318424A000C0089 /* DayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExtension.swift; sourceTree = "<group>"; };
 		30B9005B231842A0000C0089 /* GoalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalExtension.swift; sourceTree = "<group>"; };
-		30B9005D23184666000C0089 /* MediaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaExtension.swift; sourceTree = "<group>"; };
 		30B9005F23185600000C0089 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		30C6FD972331203500F69F79 /* Media+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Media+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Media+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -584,7 +582,6 @@
 				30C6FD9223311F4400F69F79 /* Media */,
 				30B900592318424A000C0089 /* DayExtension.swift */,
 				30B9005B231842A0000C0089 /* GoalExtension.swift */,
-				30B9005D23184666000C0089 /* MediaExtension.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -944,7 +941,6 @@
 				157D9D69232A9285009659F4 /* CaptureCollectionViewCell.swift in Sources */,
 				E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */,
 				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
-				30B9005E23184666000C0089 /* MediaExtension.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
 				300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */,
 				301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */,
