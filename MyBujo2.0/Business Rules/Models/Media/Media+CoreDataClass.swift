@@ -18,17 +18,30 @@ public class Media: NSManagedObject {
         if let photos = self.photos {
             return photos
         } else {
-	
             return getPhotosFromPaths(paths: getPhotosPaths())
         }
     }()
     
     func addTo(photos image: UIImage) {
-        photos?.append(image)
+        if photos != nil {
+            photos!.append(image)
+        }
+        else{
+            photos = [UIImage]()
+            photos!.append(image)
+        }
+        
         //salvar no FileManager
     }
     func addTo(photos images: [UIImage]) {
-        photos?.append(contentsOf: images)
+        if photos != nil {
+            photos!.append(contentsOf: images)
+        }
+        else{
+            photos = [UIImage]()
+            photos!.append(contentsOf: images)
+        }
+        
         //salvar no FileManager
     }
     
