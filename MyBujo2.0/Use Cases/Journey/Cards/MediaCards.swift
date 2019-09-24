@@ -12,7 +12,6 @@ class MediaCards: IncrementCollectionViewCell, ViewCode {
     
     // MARK: Properties
     let number = TitleLabel(title: "0")
-    let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
     
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -55,11 +54,18 @@ class MediaCards: IncrementCollectionViewCell, ViewCode {
     func setupCell(imageName: String) {
         if #available(iOS 13.0, *) {
             let configuration = UIImage.SymbolConfiguration(pointSize: 80, weight: .light)
-            iconImageView.image = UIImage(systemName: imageName, withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate) ?? UIImage(named: "bubble")!.withRenderingMode(.alwaysTemplate)
+            iconImageView.image = UIImage(systemName: imageName, withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate) ?? UIImage(named: imageName)!.withRenderingMode(.alwaysTemplate)
+            
         } else {
-            iconImageView.image =  UIImage(named: "notes")!.withRenderingMode(.alwaysTemplate)
+            iconImageView.image =  UIImage(named: imageName)!.withRenderingMode(.alwaysTemplate)
         }
         iconImageView.tintColor = UIColor(named: "SelectionColor")
+        
+        DispatchQueue.main.async {
+            self.winRain(bubble: self.iconImageView.image!, birdRate: 4, stop: true)
+            self.incrementLabel(to: 15, labelNumber: self.number)
+        }
+        
     }
     
 }

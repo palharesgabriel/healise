@@ -10,6 +10,8 @@ import UIKit
 
 class CollectionTableViewCell: UITableViewCell, ViewCode {
     
+    let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
+    
     
     // MARK: Properties
     let  collectionView: UICollectionView = {
@@ -71,31 +73,11 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? CounterGoalsCard else { return UICollectionViewCell()}
             
             return cell
-            
-        case 1:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as? MediaCards else { return UICollectionViewCell()}
-            
-            return cell
-        case 2:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as? MediaCards else { return UICollectionViewCell()}
-            
-            return cell
-            
-        case 3:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as? MediaCards else { return UICollectionViewCell()}
-            
-            return cell
-        case 4:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as? MediaCards else { return UICollectionViewCell()}
-            
-            return cell
-        case 5:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as? MediaCards else { return UICollectionViewCell()}
-            
-            return cell
-            
+
         default:
-            return UICollectionViewCell()
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as? MediaCards else { return UICollectionViewCell()}
+            
+            return cell
         }
         
     }
@@ -108,55 +90,21 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
                 
                 animateCell?.incrementLabel(to: 100, labelNumber: animateCell!.number)
                 animateCell?.createCircularPath(colorCircular: "SelectionColor")
-                animateCell?.winRain(bubble:"bubble",birdRate: 8,stop: true)
+//                animateCell?.winRain(bubble:"bubble",birdRate: 8,stop: true)
                 
             }
             
-        case 1:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                let animateCell = cell as? MediaCards
-                animateCell?.setupCell(imageName: "camera")
-                animateCell?.incrementLabel(to: 23, labelNumber: animateCell!.number)
-                animateCell?.winRain(bubble:"camerabubble",birdRate: 1,stop: true)
-                
-            }
-        case 2:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                let animateCell = cell as? MediaCards
-                animateCell?.setupCell(imageName: "pencil")
-                animateCell?.incrementLabel(to: 5, labelNumber: animateCell!.number)
-                animateCell?.winRain(bubble:"pencilBubble",birdRate:2 ,stop: true)
-                
-            }
-        case 3:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                let animateCell = cell as? MediaCards
-                animateCell?.setupCell(imageName: "mic")
-                animateCell?.incrementLabel(to: 16, labelNumber: animateCell!.number)
-                animateCell?.winRain(bubble:"micBubble",birdRate:2 ,stop: true)
-                
-            }
-            
-        case 4:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                let animateCell = cell as? MediaCards
-                animateCell?.setupCell(imageName: "notes")
-                animateCell?.incrementLabel(to: 11, labelNumber: animateCell!.number)
-                animateCell?.winRain(bubble:"notesBubble",birdRate:1 ,stop: true)
-                
-            }
-        case 5:
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                let animateCell = cell as? MediaCards
-                animateCell?.setupCell(imageName: "video")
-                animateCell?.incrementLabel(to: 24, labelNumber: animateCell!.number)
-                animateCell?.winRain(bubble:"videoBubble",birdRate:2 ,stop: true)
-                
-            }
         default:
-            print("Error on collectionviewCadsJourney")
+            guard let cell = cell as? MediaCards else { return }
+            if #available(iOS 13.0, *) {
+                cell.setupCell(imageName: iconNames[indexPath.row - 1].sf)
+            }
+            else {
+                cell.setupCell(imageName: iconNames[indexPath.row - 1].normal)
+            
+            
+            }
         }
-        
     }
     
     
