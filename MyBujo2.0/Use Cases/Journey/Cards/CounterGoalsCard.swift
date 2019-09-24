@@ -30,9 +30,9 @@ class CounterGoalsCard: IncrementCollectionViewCell, ViewCode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Functions
-
     
+    
+    // MARK: Functions
     func buildViewHierarchy() {
         self.rainView.addSubviews([number,goalLabel])
         self.rainView.layer.addSublayer(circleLayer)
@@ -53,7 +53,7 @@ class CounterGoalsCard: IncrementCollectionViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-
+       
     }
     
     func createCircularPath(colorCircular: String) {

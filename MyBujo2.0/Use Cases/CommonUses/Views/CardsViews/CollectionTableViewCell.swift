@@ -16,13 +16,14 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     // MARK: Properties
     let  collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 16, right: 8)
         layout.itemSize = CGSize(width: 400, height: 100)
         layout.minimumInteritemSpacing = CGFloat(16.0)
         layout.minimumLineSpacing = 16
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.isPagingEnabled = true
         collection.backgroundColor = UIColor(named: "BlueBackground")
         collection.register(CounterGoalsCard.self, forCellWithReuseIdentifier: "collectionCell")
         collection.register(MediaCards.self, forCellWithReuseIdentifier: "mediaCell")
@@ -90,7 +91,7 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
                 
                 animateCell?.incrementLabel(to: 100, labelNumber: animateCell!.number)
                 animateCell?.createCircularPath(colorCircular: "SelectionColor")
-//                animateCell?.winRain(bubble:"bubble",birdRate: 8,stop: true)
+                animateCell?.winRain(bubble: UIImage(named: "bubble")!, birdRate: 10, stop: true, scale: 0.3)
                 
             }
             
@@ -111,9 +112,16 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
 }
 
 extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 450, height: 300)
-    }
+        
+        if UIScreen.main.bounds.width == 1024 {
+            return CGSize(width: 496 , height: 300)
+        }
+        else {
+        return CGSize(width: UIScreen.main.bounds.width - 16 , height: 300)
+        }}
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
