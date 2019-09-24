@@ -19,7 +19,7 @@ public class Media: NSManagedObject {
             return photos
         } else {
 	
-            return [UIImage]()
+            return getPhotosFromPaths(paths: getPhotosPaths())
         }
     }()
     
@@ -36,8 +36,17 @@ public class Media: NSManagedObject {
         CoreDataManager.save()
     }
 	
-	private func getPhotosPaths() {
-		self.photosPath
-		try! FileManager.default.contentsOfDirectory(atPath: self.mainPath.appendingPathComponent(self.mainPath.appendPathComponent(self.photosPath!)))
+	private func getPhotosPaths() -> [String]? {
+        
+        return try? FileManager.default.contentsOfDirectory(atPath: mainPath.appendingPathComponent(photosPath!).absoluteString)
 	}
+    
+    private func getPhotosFromPaths(paths: [String]?) -> [UIImage]? {
+        guard let paths = paths else { return nil }
+        let images: [UIImage] = paths.map { (path) -> UIImage in
+            let image = UIImage(contentsOfFile: path)
+            return image!
+        }
+        return images
+    }
 }
