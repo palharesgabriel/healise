@@ -143,9 +143,9 @@ extension AudioPlayer {
     func setupPlayButtonConstraints() {
         NSLayoutConstraint.activate([
             playButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
-            playButton.heightAnchor.constraint(equalToConstant: 72),
             playButton.centerXAnchor.constraint(equalTo: progressBar.centerXAnchor),
-            playButton.widthAnchor.constraint(equalToConstant: 72)
+            playButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.15),
+            playButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3)
         ])
     }
     
@@ -153,8 +153,8 @@ extension AudioPlayer {
         NSLayoutConstraint.activate([
             advance15SecondsButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
             advance15SecondsButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 16),
-            advance15SecondsButton.widthAnchor.constraint(equalToConstant: 64),
-            advance15SecondsButton.heightAnchor.constraint(equalToConstant: 64)
+            advance15SecondsButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
+            advance15SecondsButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
         ])
     }
     
@@ -162,8 +162,8 @@ extension AudioPlayer {
         NSLayoutConstraint.activate([
             back15SecondsButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
             back15SecondsButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -16),
-            back15SecondsButton.widthAnchor.constraint(equalToConstant: 64),
-            back15SecondsButton.heightAnchor.constraint(equalToConstant: 64)
+            back15SecondsButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
+            back15SecondsButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
         ])
     }
     

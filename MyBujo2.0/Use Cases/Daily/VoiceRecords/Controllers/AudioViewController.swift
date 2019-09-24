@@ -16,7 +16,6 @@ class AudioViewController: MediaViewController {
     var selectedAudio: Audio?
     var audioDuration: TimeInterval?
     var audioCurrentTime: TimeInterval?
-    let progress = Progress(totalUnitCount: 10)
     
     let recordButton: UIButton = {
         let button = UIButton()
@@ -36,6 +35,7 @@ class AudioViewController: MediaViewController {
         
         audioPlayer = AudioPlayer(title: "Palhares")
         audioPlayer.playDelegate = self
+        audioManager.playDelegate = self
         
         setupView()
     }
@@ -125,10 +125,6 @@ extension AudioViewController {
 
 extension AudioViewController: ChangeRecordButtonStateDelegate {
     
-    func didFinishPlay() {
-        self.audioPlayer.playButton.setBackgroundColor(color: .systemPink, forState: .normal)
-    }
-    
     func didFinishRecord() {
         self.recordButton.setTitle("Tap to Re-record", for: .normal)
     }
@@ -147,7 +143,16 @@ extension AudioViewController: AudioPlayerDelegate {
     }
     
     func updateProgressView() {
-       
+        guard let duration = self.audioDuration else { return }
+        let progress = Progress(totalUnitCount: Int64(duration))
+        progress.completedUnitCount += 1
+        
+        self.audioPlayer.progressBar.setProgress(Float(progress.fractionCompleted), animated: true)
+    }
+    
+    func didFinishPlay() {
+        self.audioPlayer.playButton.setBackgroundColor(color: .systemPink, forState: .normal)
+        self.audioPlayer.progressBar.setProgress(0, animated: false)
     }
     
 }

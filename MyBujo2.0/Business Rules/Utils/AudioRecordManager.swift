@@ -90,9 +90,10 @@ class AudioRecordManager: NSObject {
     }
     
     func playAudio(withPath: URL) {
-        
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: withPath)
+            recordedAudios.last?.audioSize = audioPlayer.duration
+            recordedAudios.last?.currentAudioTime = audioPlayer.currentTime
             audioPlayer.delegate = self
             audioPlayer.prepareToPlay()
             audioPlayer.volume = 1.0
@@ -101,15 +102,13 @@ class AudioRecordManager: NSObject {
             print(error)
         }
         audioPlayer.play()
-        recordDelegate?.didFinishPlay()
-        recordedAudios.last?.audioSize = audioPlayer.duration
-        recordedAudios.last?.currentAudioTime = audioPlayer.currentTime
+        playDelegate?.didFinishPlay()
         startPlaybackTimer()
     }
     
     func startPlaybackTimer() {
         playbackTimer.invalidate()
-        playbackTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
+        playbackTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
             
         playbackTimer.fire()
     }
@@ -131,6 +130,7 @@ extension AudioRecordManager: AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         playbackTimer.invalidate()
+        playDelegate?.didFinishPlay()
         print("acabou")
     }
     

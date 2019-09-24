@@ -11,5 +11,4 @@ import Foundation
 protocol ChangeRecordButtonStateDelegate {
     func didBeginRecord()
     func didFinishRecord()
-    func didFinishPlay()
 }
