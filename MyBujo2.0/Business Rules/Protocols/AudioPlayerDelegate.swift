@@ -10,4 +10,5 @@ import Foundation
 
 protocol AudioPlayerDelegate {
     func didBeginPlay()
+    func updateProgressView()
 }

@@ -14,6 +14,9 @@ class AudioViewController: MediaViewController {
     var audioPlayer: AudioPlayer!
     var audioManager: AudioRecordManager!
     var selectedAudio: Audio?
+    var audioDuration: TimeInterval?
+    var audioCurrentTime: TimeInterval?
+    let progress = Progress(totalUnitCount: 10)
     
     let recordButton: UIButton = {
         let button = UIButton()
@@ -28,10 +31,12 @@ class AudioViewController: MediaViewController {
         self.view.backgroundColor = .blue
         
         audioManager = AudioRecordManager()
-        audioPlayer = AudioPlayer(title: "Palhares")
         audioManager.recordDelegate = self
         audioManager.requestAudioRecordPermission()
-        self.audioPlayer.playDelegate = self
+        
+        audioPlayer = AudioPlayer(title: "Palhares")
+        audioPlayer.playDelegate = self
+        
         setupView()
     }
     
@@ -82,6 +87,8 @@ extension AudioViewController: UITableViewDataSource {
 extension AudioViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedAudio = audioManager.recordedAudios[indexPath.row]
+        audioDuration = selectedAudio?.audioSize
+        audioCurrentTime = selectedAudio?.currentAudioTime
     }
 }
 
@@ -137,6 +144,10 @@ extension AudioViewController: AudioPlayerDelegate {
     func didBeginPlay() {
         guard let path = selectedAudio?.path else { return }
         audioManager.playAudio(withPath: path)
+    }
+    
+    func updateProgressView() {
+       
     }
     
 }

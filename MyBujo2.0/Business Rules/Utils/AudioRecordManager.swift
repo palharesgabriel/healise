@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import UIKit
 
 class AudioRecordManager: NSObject {
     
@@ -15,11 +16,14 @@ class AudioRecordManager: NSObject {
     var audioPlayer: AVAudioPlayer!
     var audioPath: URL!
     var recordDelegate: ChangeRecordButtonStateDelegate?
+    var playDelegate: AudioPlayerDelegate?
     var recordedAudios: [Audio] = []
     let fileManager = FileManager.default
+    var playbackTimer: Timer
     
     override init() {
         recordingSession = AVAudioSession.sharedInstance()
+        playbackTimer = Timer()
     }
     
     func requestAudioRecordPermission() {
@@ -92,11 +96,27 @@ class AudioRecordManager: NSObject {
             audioPlayer.delegate = self
             audioPlayer.prepareToPlay()
             audioPlayer.volume = 1.0
+            
         } catch {
             print(error)
         }
         audioPlayer.play()
         recordDelegate?.didFinishPlay()
+        recordedAudios.last?.audioSize = audioPlayer.duration
+        recordedAudios.last?.currentAudioTime = audioPlayer.currentTime
+        startPlaybackTimer()
+    }
+    
+    func startPlaybackTimer() {
+        playbackTimer.invalidate()
+        playbackTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
+            
+        playbackTimer.fire()
+    }
+
+    @objc func updateProgressView() {
+        playDelegate?.updateProgressView()
+        print("ok")
     }
     
 }
@@ -104,10 +124,14 @@ class AudioRecordManager: NSObject {
 extension AudioRecordManager: AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-           if !flag {
-               finishRecording(success: false)
-           }
-          // faça coisas
-       }
+        if !flag {
+            finishRecording(success: false)
+        }
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        playbackTimer.invalidate()
+        print("acabou")
+    }
     
 }

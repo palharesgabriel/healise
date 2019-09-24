@@ -8,7 +8,14 @@
 
 import Foundation
 
-struct Audio {
+class Audio {
     let name: String
     let path: URL
+    var audioSize: TimeInterval = 0
+    var currentAudioTime: TimeInterval = 0
+    
+    init(name: String, path: URL) {
+        self.name = name
+        self.path = path
+    }
 }

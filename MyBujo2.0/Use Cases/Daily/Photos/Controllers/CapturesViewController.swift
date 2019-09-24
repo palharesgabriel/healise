@@ -157,4 +157,3 @@ extension CapturesViewController: UICollectionViewDelegateFlowLayout {
 			return CGSize(width: view.frame.width * 0.33, height: view.frame.width * 0.33)
     }
 }
-
