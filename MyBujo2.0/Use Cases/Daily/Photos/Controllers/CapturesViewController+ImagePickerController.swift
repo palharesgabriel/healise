@@ -54,10 +54,8 @@ extension CapturesViewController {
 			print("No image found")
 			return
 		}
-		
-		if savePhoto(image: image) {
-			loadPhotos()
-		}
+	
+		day.media?.addTo(photos: image)
 		
 		photosCollectionView.reloadData()
 	}

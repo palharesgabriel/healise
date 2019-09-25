@@ -22,13 +22,13 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
         return collectionView
     }()
     
-    var paths: [String] = []
     var day = CalendarManager.shared.selectedDay!
-    
-    let fileManager = FileManager.default
-    let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    var path = URL(fileURLWithPath: "/")
-    
+	
+	lazy var photos: [UIImage]? = {
+		guard let media = day.media, let photos = media.photos else { return nil }
+		return photos
+	}()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -38,8 +38,7 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
         
 		photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
-		
-		loadPhotos()
+	
     }
     
     func buildViewHierarchy() {
@@ -59,68 +58,22 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
         photosCollectionView.backgroundColor = .white
     }
     
-    func createDayPhotosDirectory() {
-		
-//		try? fileManager.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
-        
-		let path = fileManager.createDirectory(day: day, directoryOf: .photo)
-		
-    }
-    
-    func savePhoto(image: UIImage) -> Bool {
-        if let data = image.jpegData(compressionQuality: 1) {
-	
-            let filenamePath = mainPath.appendingPathComponent(day.media!.photosPath!).appendingPathComponent(image.hash.description)
-            
-            return fileManager.saveFileFrom(Path: filenamePath, WithData: data)
-        }
-        return false
-    }
-    
-    func loadPhotos() {
-        do {
-            paths.removeAll()
-            guard let media = day.media,
-                let path = media.photosPath
-                else { return }
-            
-            let contentsOfDocuments = try fileManager.contentsOfDirectory(atPath: mainPath.appendingPathComponent(path).path)
-            
-            paths.append("notes")
-            contentsOfDocuments.forEach { (item) in
-				paths.append("\(mainPath.appendingPathComponent(path).path)/\(item)")
-            }
-			sortPhotos()
-        } catch {
-            print(error)
-        }
-    }
-	
-	func getCreatedDateFromFile (path: String) -> Date? {
-		do {
-			let attr = try fileManager.attributesOfItem(atPath: path)
-			return attr[FileAttributeKey.creationDate] as? Date
-		} catch {
-			return nil
-		}
-	
-	}
-	
-	func sortPhotos () {
-		paths.sort { (firstPath, secondPath) -> Bool in
-			guard let firstDate = getCreatedDateFromFile(path: firstPath) else { return false }
-			guard let secondDate = getCreatedDateFromFile(path: secondPath) else { return false }
-			if firstDate > secondDate {
-				return true
-			}
-			return false
-		}
-	}
+//	func sortPhotos () {
+//		paths.sort { (firstPath, secondPath) -> Bool in
+//			guard let firstDate = getCreatedDateFromFile(path: firstPath) else { return false }
+//			guard let secondDate = getCreatedDateFromFile(path: secondPath) else { return false }
+//			if firstDate > secondDate {
+//				return true
+//			}
+//			return false
+//		}
+//	}
 }
 
 extension CapturesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return paths.count == 0 ? 1 : paths.count
+		guard let media = day.media, let photos = media.photos else { return 0 }
+		return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -132,8 +85,8 @@ extension CapturesViewController: UICollectionViewDataSource {
             return cell
         default:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
-            guard let image = UIImage(contentsOfFile: paths[indexPath.row]) else { return UICollectionViewCell()}
-            cell.setupCell(image: image)
+            guard let image = photos else { return UICollectionViewCell()}
+			cell.setupCell(image: image[indexPath.row])
             return cell
         }
          

@@ -18,26 +18,44 @@ public class Media: NSManagedObject {
         if let photos = self.photos {
             return photos
         } else {
-	
-            return [UIImage]()
+			let paths = getPhotosPaths()
+			let images = getPhotosImages(paths: paths!)
+            return images
         }
     }()
     
     func addTo(photos image: UIImage) {
         photos?.append(image)
-        //salvar no FileManager
+		
+		save()
     }
+	
+	
+	
     func addTo(photos images: [UIImage]) {
         photos?.append(contentsOf: images)
-        //salvar no FileManager
+        save()
     }
     
     func save() {
         CoreDataManager.save()
     }
 	
-	private func getPhotosPaths() {
-		self.photosPath
-		try! FileManager.default.contentsOfDirectory(atPath: self.mainPath.appendingPathComponent(self.mainPath.appendPathComponent(self.photosPath!)))
+	private func getPhotosPaths() -> [String]? {
+		do {
+			let paths = try? FileManager.default.contentsOfDirectory(atPath: self.mainPath.appendingPathComponent(photosPath!).path)
+			return paths
+		} catch {
+			print(error)
+		}
+		
+	}
+	
+	private func getPhotosImages(paths: [String]) -> [UIImage] {
+		var images:[UIImage] = []
+		paths.forEach { path in
+			images.append(UIImage(contentsOfFile: path)!)
+		}
+		return images
 	}
 }
