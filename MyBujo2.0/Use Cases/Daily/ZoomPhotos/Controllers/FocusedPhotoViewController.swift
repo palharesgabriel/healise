@@ -30,6 +30,11 @@ class FocusedPhotoViewController: FocusedMediaViewController {
 
 extension FocusedPhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CaptureCollectionViewCell else { return }
+        focusedImageView.image = cell.captureImageView.image
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return images.count
         return 5

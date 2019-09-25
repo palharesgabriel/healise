@@ -56,7 +56,7 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     }
     
     func setupAdditionalConfigurantion() {
-        photosCollectionView.backgroundColor = .white
+        photosCollectionView.backgroundColor = UIColor(named: "CardsColor")
     }
     
     func createDayPhotosDirectory() {

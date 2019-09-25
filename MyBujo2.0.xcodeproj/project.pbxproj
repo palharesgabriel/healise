@@ -344,7 +344,6 @@
 		30740293233274AC0058D997 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				308F6FCD2327CAAD008012AA /* MediaViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -560,6 +559,7 @@
 		3094B177233A57B500576EDF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				308F6FCD2327CAAD008012AA /* MediaViewController.swift */,
 				3094B178233A57E400576EDF /* FocusedMediaViewController.swift */,
 			);
 			path = Controllers;

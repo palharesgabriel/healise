@@ -12,7 +12,8 @@ class FocusedMediaViewController: UIViewController {
     lazy var backButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Back", for: .normal)
-        button.titleLabel?.font = UIFont(name: "AvenixNext-Medium", size: 24)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
+        button.titleLabel?.textColor = UIColor(named: "ActionColor")
         button.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -25,6 +26,7 @@ class FocusedMediaViewController: UIViewController {
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = CGSize(width: view.frame.height * 0.2, height: view.frame.height * 0.2)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,6 +38,7 @@ class FocusedMediaViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupConstraints()
+        view.backgroundColor = UIColor(named: "CardsColor")
         // Do any additional setup after loading the view.
     }
     
@@ -52,7 +55,7 @@ class FocusedMediaViewController: UIViewController {
         focusedImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             
             focusedImageView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 16),
             focusedImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
