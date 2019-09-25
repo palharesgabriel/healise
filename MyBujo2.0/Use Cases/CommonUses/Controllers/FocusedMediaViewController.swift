@@ -23,7 +23,7 @@ class FocusedMediaViewController: UIViewController {
     
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumLineSpacing = 1
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: view.frame.height * 0.2, height: view.frame.height * 0.2)
@@ -31,6 +31,7 @@ class FocusedMediaViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "CaptureCell")
+        collectionView.backgroundColor = UIColor(named: "CardsColor")
         return collectionView
     }()
     
@@ -57,7 +58,7 @@ class FocusedMediaViewController: UIViewController {
             backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             
-            focusedImageView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 16),
+            focusedImageView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 8),
             focusedImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             focusedImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             focusedImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),

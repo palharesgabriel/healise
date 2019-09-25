@@ -86,7 +86,7 @@ extension CapturesViewController: UICollectionViewDelegateFlowLayout {
         case 0:
             presentImagePickerController()
         default:
-            let testController = FocusedPhotoViewController(with: [UIImage()])
+            let testController = FocusedPhotoViewController(row: indexPath.row - 1)
             present(testController, animated: true, completion: nil)
         }
     }

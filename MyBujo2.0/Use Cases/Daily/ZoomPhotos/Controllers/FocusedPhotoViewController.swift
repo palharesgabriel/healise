@@ -10,11 +10,10 @@ import UIKit
 
 class FocusedPhotoViewController: FocusedMediaViewController {
     
-    var images: [UIImage]!
-    
-    init(with images: [UIImage]) {
-        self.images = images
+    init(row: Int) {
         super.init(nibName: nil, bundle: nil)
+        collectionView.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredHorizontally, animated: false)
+        focusedImageView.image = CalendarManager.shared.selectedDay.media?.photos?[row]
     }
     
     required init?(coder: NSCoder) {
@@ -37,14 +36,15 @@ extension FocusedPhotoViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return images.count
-        return 5
+        guard let photos =  CalendarManager.shared.selectedDay.media?.photos else { return 0 }
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "CaptureCell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
-        
-//        cell.setupCell(image: images[indexPath.row])
-        cell.setupCell(image: #imageLiteral(resourceName: "bubble"))
+        if let photos = CalendarManager.shared.selectedDay.media?.photos {
+            cell.setupCell(image: photos[indexPath.row])
+        }
         return cell
     }
 }
