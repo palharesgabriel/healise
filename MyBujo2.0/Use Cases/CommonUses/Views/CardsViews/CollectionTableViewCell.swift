@@ -37,6 +37,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
         setupView()
         collectionView.delegate = self
         collectionView.dataSource = self
+        NotificationCenter.default.addObserver(self,selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -45,6 +46,11 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     
     
     // MARK: Functions
+    @objc func deviceOrientationDidChange(_ notification: Notification) {
+        collectionView.reloadData()
+        let orientation = UIDevice.current.orientation
+        print(orientation.isLandscape)
+    }
     func buildViewHierarchy() {
         addSubviews([collectionView])
     }
@@ -82,6 +88,8 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
         }
         
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         switch indexPath.row {
@@ -98,9 +106,7 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
         default:
             guard let cell = cell as? MediaCards else { return }
             if #available(iOS 13.0, *) {
-                cell.setupCell(imageName: iconNames[indexPath.row - 1].sf)
-            }
-            else {
+                cell.setupCell(imageName: iconNames[indexPath.row - 1].sf) } else {
                 cell.setupCell(imageName: iconNames[indexPath.row - 1].normal)
             
             
@@ -116,12 +122,19 @@ extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if UIScreen.main.bounds.width == 1024 {
-            return CGSize(width: 496 , height: 300)
+        
+        switch UIDevice.current.model {
+        case "iPhone":
+            return CGSize(width: UIScreen.main.bounds.width - 16 , height: 300)
+        default:
+            let portraitSize = CGSize(width: UIScreen.main.bounds.width/2 - 16 , height: 300)
+            let landscapeSize = CGSize(width: UIScreen.main.bounds.width/2 - 16 - 120 , height: 300)
+            return UIDevice.current.orientation.isLandscape ? landscapeSize : portraitSize
         }
-        else {
-        return CGSize(width: UIScreen.main.bounds.width - 16 , height: 300)
-        }}
+        
+        
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0
