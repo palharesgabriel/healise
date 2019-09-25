@@ -15,7 +15,7 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
 		flowLayout.minimumLineSpacing = 1
-		flowLayout.minimumInteritemSpacing = 0
+		flowLayout.minimumInteritemSpacing = 1
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 		collectionView.showsVerticalScrollIndicator = false
@@ -23,11 +23,6 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     }()
     
     var day = CalendarManager.shared.selectedDay!
-	
-	lazy var photos: [UIImage]? = {
-		guard let media = day.media, let photos = media.photos else { return nil }
-		return photos
-	}()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,17 +52,6 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     func setupAdditionalConfigurantion() {
         photosCollectionView.backgroundColor = .white
     }
-    
-//	func sortPhotos () {
-//		paths.sort { (firstPath, secondPath) -> Bool in
-//			guard let firstDate = getCreatedDateFromFile(path: firstPath) else { return false }
-//			guard let secondDate = getCreatedDateFromFile(path: secondPath) else { return false }
-//			if firstDate > secondDate {
-//				return true
-//			}
-//			return false
-//		}
-//	}
 }
 
 extension CapturesViewController: UICollectionViewDataSource {
@@ -84,8 +68,8 @@ extension CapturesViewController: UICollectionViewDataSource {
             return cell
         default:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
-            guard let image = photos else { return UICollectionViewCell()}
-			cell.setupCell(image: image[indexPath.row])
+			guard let images = day.media!.photos else { return UICollectionViewCell()}
+			cell.setupCell(image: images[indexPath.row - 1])
             return cell
         }
          

@@ -12,56 +12,67 @@ import CoreData
 
 @objc(Media)
 public class Media: NSManagedObject {
+	
 	private var mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 	
 	var photos: [UIImage]? {
 		guard let paths = getPhotosPaths() else { return nil }
-		guard let images = getPhotosFrom(paths: paths) else { return nil }
+		let sortedPaths = sortPaths(paths: paths)
+		guard let images = getPhotosFrom(paths: sortedPaths) else { return nil }
 		return images
     }
     
     func addTo(photos image: UIImage) {
-//        if photos != nil {
-//            photos!.append(image)
-//        }
-//        else {
-//            photos = [UIImage]()
-//            photos!.append(image)
-//        }
-		let dateFormmater = DateFormatter()
-        dateFormmater.dateFormat = "yyyy-MM-dd"
-		let date = dateFormmater.string(from: day!.date!)
 		
 		guard let photosPath = photosPath else { return }
-		let path = mainPath.appendingPathComponent(photosPath).appendingPathComponent(date)
+		let path = mainPath.appendingPathComponent(photosPath).appendingPathComponent(image.hashValue.description)
 			
 		guard let data = image.pngData() else {  return }
 		
-		_ = FileManager.default.saveFileTo(path: path , withData: data) 
+		_ = FileManager.default.saveFileTo(path: path , withData: data)
 		
 	}
-    
-    func addTo(photos images: [UIImage]) {
-        //salvar no FileManager
-    }
     
     func save() {
         CoreDataManager.save()
     }
 	
+	private func sortPaths (paths: [String]) -> [String] {
+		var sortedPaths = paths
+		sortedPaths.sort { (firstPath, secondPath) -> Bool in
+			guard let firstDate = getCreatedDateFromFile(path: firstPath) else { return false }
+			guard let secondDate = getCreatedDateFromFile(path: secondPath) else { return false }
+			if firstDate > secondDate {
+				return true
+			}
+			return false
+		}
+		return sortedPaths
+	}
+	
+	private func getCreatedDateFromFile (path: String) -> Date? {
+		do {
+			let attr = try FileManager.default.attributesOfItem(atPath: path)
+			return attr[FileAttributeKey.creationDate] as? Date
+		} catch {
+			return nil
+		}
+	}
+	
 	private func getPhotosPaths() -> [String]? {
 		do {
-			let paths = try? FileManager.default.contentsOfDirectory(atPath: self.mainPath.appendingPathComponent(photosPath!).absoluteString)
+			let paths = try FileManager.default.contentsOfDirectory(atPath: self.mainPath.appendingPathComponent(photosPath!).path)
 			return paths
 		} catch {
 			print(error)
+			return nil
 		}
-		
 	}
 
     private func getPhotosFrom(paths: [String]) -> [UIImage]? {
         let images: [UIImage] = paths.map { (path) -> UIImage in
-			let image = UIImage(contentsOfFile: path)
+			let tempPath = self.mainPath.appendingPathComponent(photosPath!)
+			let image = UIImage(contentsOfFile: tempPath.appendingPathComponent(path).path)
             return image!
         }
         return images
