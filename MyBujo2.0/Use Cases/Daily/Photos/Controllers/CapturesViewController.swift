@@ -32,16 +32,14 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        photosCollectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
+		photosCollectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
 		photosCollectionView.register(NewPhotoCollectionViewCell.self, forCellWithReuseIdentifier: "NewPhotoCollectionViewCell")
-        photosCollectionView.delegate = self
+        
+		photosCollectionView.delegate = self
         photosCollectionView.dataSource = self
-        if day.media?.photosPath == nil {
-            day.media?.photosPath = createDayPhotosDirectory()
-        } else {
-            path = mainPath.appendingPathComponent(day.media!.photosPath!)
-            loadPhotos()
-        }
+		
+		loadPhotos()
     }
     
     func buildViewHierarchy() {
@@ -61,28 +59,17 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
         photosCollectionView.backgroundColor = .white
     }
     
-    func createDayPhotosDirectory() -> String {
-        let dateFormmater = DateFormatter()
-        dateFormmater.dateFormat = "yyyy-MM-dd"
-        let date = dateFormmater.string(from: day.date!)
+    func createDayPhotosDirectory() {
+		
+//		try? fileManager.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
         
-        let pathToSaveInCoreData = "\(date.description)/\("Photos")"
-        
-        let path = mainPath.appendingPathComponent(pathToSaveInCoreData)
-        
-        try? fileManager.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
-        
-        return pathToSaveInCoreData
+		let path = fileManager.createDirectory(day: day, directoryOf: .photo)
+		
     }
     
     func savePhoto(image: UIImage) -> Bool {
         if let data = image.jpegData(compressionQuality: 1) {
-            if day.media == nil {
-                day.media = Media(context: CoreDataManager.context)
-                day.media?.photosPath = createDayPhotosDirectory()
-                day.save()
-            }
-            
+	
             let filenamePath = mainPath.appendingPathComponent(day.media!.photosPath!).appendingPathComponent(image.hash.description)
             
             return fileManager.saveFileFrom(Path: filenamePath, WithData: data)
@@ -116,6 +103,7 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
 		} catch {
 			return nil
 		}
+	
 	}
 	
 	func sortPhotos () {
@@ -139,8 +127,7 @@ extension CapturesViewController: UICollectionViewDataSource {
         switch indexPath.row {
         case 0:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewPhotoCollectionViewCell", for: indexPath) as? NewPhotoCollectionViewCell else { return UICollectionViewCell()}
-			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didPresentImagePickerController))
-            cell.addGestureRecognizer(tapGesture)
+
             return cell
         default:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
@@ -155,5 +142,15 @@ extension CapturesViewController: UICollectionViewDataSource {
 extension CapturesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 			return CGSize(width: view.frame.width * 0.33, height: view.frame.width * 0.33)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            presentImagePickerController()
+        default:
+            let testController = FocusedPhotoViewController(with: [UIImage()])
+            present(testController, animated: true, completion: nil)
+        }
     }
 }

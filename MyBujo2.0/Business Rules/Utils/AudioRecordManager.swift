@@ -49,7 +49,9 @@ class AudioRecordManager: NSObject {
     }
     
     func startRecording() {
-        self.audioPath = fileManager.createDirectory(day: self.getDay(), directoryOf: .voiceRecord).appendingPathComponent(getCurrentTime())
+        
+        let mainPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        self.audioPath = mainPath.appendingPathComponent(getDay().media!.voiceRecordsPath!).appendingPathComponent(getCurrentTime())
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),

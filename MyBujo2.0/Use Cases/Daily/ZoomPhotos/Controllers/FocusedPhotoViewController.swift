@@ -31,12 +31,15 @@ class FocusedPhotoViewController: FocusedMediaViewController {
 extension FocusedPhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+//        return images.count
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "CaptureCell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
-        cell.setupCell(image: images[indexPath.row])
+        
+//        cell.setupCell(image: images[indexPath.row])
+        cell.setupCell(image: #imageLiteral(resourceName: "bubble"))
         return cell
     }
 }

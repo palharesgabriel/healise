@@ -15,13 +15,16 @@ enum DirectoryType: String {
 }
 
 extension FileManager {
-    
-    func createDirectory(day: Day, directoryOf type: DirectoryType) -> URL {
-        let fileManager = FileManager.default
-        let mainPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let path = mainPath.appendingPathComponent(day.date!.description).appendingPathComponent("/" + type.rawValue)
-           try? fileManager.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
-           return path
+    func createDirectory (day: Day, directoryOf type: DirectoryType) -> String {
+        
+		let dateFormmater = DateFormatter()
+        dateFormmater.dateFormat = "yyyy-MM-dd"
+        let date = dateFormmater.string(from: day.date!)
+			
+		let mainPath = self.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let path = mainPath.appendingPathComponent(date).appendingPathComponent("/" + type.rawValue)
+           try? self.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
+		return "\(date)/\(type.rawValue)"
        }
     
     func directoryExists(path: String) -> Bool {
