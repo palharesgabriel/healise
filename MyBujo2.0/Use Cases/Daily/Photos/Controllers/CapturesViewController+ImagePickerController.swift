@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension CapturesViewController {
-	@objc func didPresentImagePickerController() {
+	@objc func presentImagePickerController() {
 		
 		let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
 		alert.addAction(UIAlertAction(title: "Open Camera", style: .default, handler: { _ in

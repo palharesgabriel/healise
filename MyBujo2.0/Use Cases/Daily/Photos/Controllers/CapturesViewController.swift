@@ -127,8 +127,7 @@ extension CapturesViewController: UICollectionViewDataSource {
         switch indexPath.row {
         case 0:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewPhotoCollectionViewCell", for: indexPath) as? NewPhotoCollectionViewCell else { return UICollectionViewCell()}
-			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didPresentImagePickerController))
-            cell.addGestureRecognizer(tapGesture)
+
             return cell
         default:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
@@ -143,5 +142,15 @@ extension CapturesViewController: UICollectionViewDataSource {
 extension CapturesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 			return CGSize(width: view.frame.width * 0.33, height: view.frame.width * 0.33)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            presentImagePickerController()
+        default:
+            let testController = FocusedPhotoViewController(with: [UIImage()])
+            present(testController, animated: true, completion: nil)
+        }
     }
 }

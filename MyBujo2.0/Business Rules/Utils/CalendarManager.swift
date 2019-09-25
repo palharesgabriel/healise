@@ -45,6 +45,7 @@ class CalendarManager: NSObject {
             media.photosPath = FileManager.default.createDirectory(day: day, directoryOf: .photo)
             media.videosPath = FileManager.default.createDirectory(day: day, directoryOf: .video)
             media.voiceRecordsPath = FileManager.default.createDirectory(day: day, directoryOf: .voiceRecord)
+            day.media = media
             day.save()
             return day
         }

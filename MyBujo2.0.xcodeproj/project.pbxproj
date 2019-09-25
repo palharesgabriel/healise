@@ -35,7 +35,7 @@
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
 		3074027B233257990058D997 /* HealthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074027A233257990058D997 /* HealthCollectionViewCell.swift */; };
 		3074027E2332583E0058D997 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074027D2332583E0058D997 /* StatusView.swift */; };
-		3074028123325CF30058D997 /* CustomizableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074028023325CF30058D997 /* CustomizableButton.swift */; };
+		3074028123325CF30058D997 /* CustomizableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074028023325CF30058D997 /* CustomizableLabel.swift */; };
 		30740283233270510058D997 /* HealthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30740282233270510058D997 /* HealthHeaderView.swift */; };
 		30740285233270CE0058D997 /* HealthStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30740284233270CE0058D997 /* HealthStatusType.swift */; };
 		308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FC92327C391008012AA /* TitleLabel.swift */; };
@@ -123,7 +123,7 @@
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		3074027A233257990058D997 /* HealthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCollectionViewCell.swift; sourceTree = "<group>"; };
 		3074027D2332583E0058D997 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		3074028023325CF30058D997 /* CustomizableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizableButton.swift; sourceTree = "<group>"; };
+		3074028023325CF30058D997 /* CustomizableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizableLabel.swift; sourceTree = "<group>"; };
 		30740282233270510058D997 /* HealthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthHeaderView.swift; sourceTree = "<group>"; };
 		30740284233270CE0058D997 /* HealthStatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStatusType.swift; sourceTree = "<group>"; };
 		308F6FC92327C391008012AA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
@@ -477,7 +477,7 @@
 				308F6FC92327C391008012AA /* TitleLabel.swift */,
 				308F6FCB2327C4AB008012AA /* ExitButton.swift */,
 				E813C1A62322A5F0002F170D /* NavigationButton.swift */,
-				3074028023325CF30058D997 /* CustomizableButton.swift */,
+				3074028023325CF30058D997 /* CustomizableLabel.swift */,
 				1516C18E231555E5002EC623 /* TableViewHeaderView.swift */,
 				3011490F2315721C0099E845 /* ShadowView.swift */,
 			);
@@ -918,7 +918,7 @@
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
 				15491960231D508000766609 /* FeelingsCardView.swift in Sources */,
-				3074028123325CF30058D997 /* CustomizableButton.swift in Sources */,
+				3074028123325CF30058D997 /* CustomizableLabel.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
 				1511F76A230C3E9C0056E715 /* MasterViewController.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,

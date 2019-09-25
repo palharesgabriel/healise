@@ -9,8 +9,17 @@
 import UIKit
 
 class FocusedMediaViewController: UIViewController {
+    lazy var backButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Back", for: .normal)
+        button.titleLabel?.font = UIFont(name: "AvenixNext-Medium", size: 24)
+        button.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     var focusedImageView = UIImageView()
+    
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 0
@@ -30,14 +39,22 @@ class FocusedMediaViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @objc func backButtonClicked(sender: UIButton) {
+//        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
     func setupHierarchy() {
-        view.addSubviews([focusedImageView, collectionView])
+        view.addSubviews([backButton, focusedImageView, collectionView])
     }
     
     func setupConstraints() {
         focusedImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            focusedImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            
+            focusedImageView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 16),
             focusedImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             focusedImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             focusedImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),
