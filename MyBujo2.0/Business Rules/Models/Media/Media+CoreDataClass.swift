@@ -12,7 +12,7 @@ import CoreData
 
 @objc(Media)
 public class Media: NSManagedObject {
-	var mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+	private var mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 	
     lazy var photos: [UIImage]? = {
         if let photos = self.photos {
@@ -25,16 +25,27 @@ public class Media: NSManagedObject {
     }()
     
     func addTo(photos image: UIImage) {
-        photos?.append(image)
-		
-		save()
+        if photos != nil {
+            photos!.append(image)
+        }
+        else {
+            photos = [UIImage]()
+            photos!.append(image)
+        }
+        
+        //salvar no FileManager
     }
-	
-	
-	
+    
     func addTo(photos images: [UIImage]) {
-        photos?.append(contentsOf: images)
-        save()
+        if photos != nil {
+            photos!.append(contentsOf: images)
+        }
+        else {
+            photos = [UIImage]()
+            photos!.append(contentsOf: images)
+        }
+        
+        //salvar no FileManager
     }
     
     func save() {
@@ -58,4 +69,13 @@ public class Media: NSManagedObject {
 		}
 		return images
 	}
+    
+    private func getPhotosFromPaths(paths: [String]?) -> [UIImage]? {
+        guard let paths = paths else { return nil }
+        let images: [UIImage] = paths.map { (path) -> UIImage in
+            let image = UIImage(contentsOfFile: path)
+            return image!
+        }
+        return images
+    }
 }
