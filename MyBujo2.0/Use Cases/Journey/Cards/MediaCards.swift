@@ -62,7 +62,7 @@ class MediaCards: IncrementCollectionViewCell, ViewCode {
         iconImageView.tintColor = UIColor(named: "SelectionColor")
         
         DispatchQueue.main.async {
-            self.winRain(bubble: self.iconImageView.image!, birdRate: 4, stop: true)
+            self.winRain(bubble: UIImage(named: "bubble")!, birdRate: 4, stop: true, scale: 0.03)
             self.incrementLabel(to: 15, labelNumber: self.number)
         }
         

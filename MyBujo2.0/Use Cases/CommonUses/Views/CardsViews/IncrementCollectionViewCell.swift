@@ -39,10 +39,10 @@ class IncrementCollectionViewCell: ReusableCollectionViewCell {
         }
     }
     
-    func winRain(bubble: UIImage, birdRate: Float,stop: Bool) {
+    func winRain(bubble: UIImage, birdRate: Float,stop: Bool, scale: CGFloat) {
         let flakeEmitterCell = CAEmitterCell()
         flakeEmitterCell.contents = bubble.cgImage
-        flakeEmitterCell.scale = 0.01
+        flakeEmitterCell.scale = scale
         flakeEmitterCell.scaleRange = 0.3
         flakeEmitterCell.emissionRange = .pi
         flakeEmitterCell.lifetime = 20.0
