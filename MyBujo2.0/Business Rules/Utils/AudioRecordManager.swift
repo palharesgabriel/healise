@@ -73,10 +73,10 @@ class AudioRecordManager: NSObject {
         self.audioRecorder = nil
         
         if success {
-            recordDelegate?.didFinishRecord()
-            let audio = Audio(name: getCurrentTime(), path: audioPath)
+            let player = setupPlayer(withAudioPath: audioPath)
+            let audio = Audio(name: getCurrentTime(), path: audioPath, audioSize: player.duration)
             recordedAudios.append(audio)
-            
+            recordDelegate?.didFinishRecord()
         } else {
             print("failed to record")
         }
@@ -89,11 +89,10 @@ class AudioRecordManager: NSObject {
         return hourString
     }
     
-    func playAudio(withPath: URL) {
+    func setupPlayer(withAudioPath: URL) -> AVAudioPlayer {
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: withPath)
+            audioPlayer = try AVAudioPlayer(contentsOf: withAudioPath)
             recordedAudios.last?.audioSize = audioPlayer.duration
-            recordedAudios.last?.currentAudioTime = audioPlayer.currentTime
             audioPlayer.delegate = self
             audioPlayer.prepareToPlay()
             audioPlayer.volume = 1.0
@@ -101,7 +100,12 @@ class AudioRecordManager: NSObject {
         } catch {
             print(error)
         }
-        audioPlayer.play()
+        return audioPlayer
+    }
+    
+    func playAudio(withPath: URL) {
+        let player = setupPlayer(withAudioPath: withPath)
+        player.play()
         playDelegate?.didFinishPlay()
         startPlaybackTimer()
     }

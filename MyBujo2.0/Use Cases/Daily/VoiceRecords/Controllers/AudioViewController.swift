@@ -11,12 +11,11 @@ import UIKit
 class AudioViewController: MediaViewController {
     
     let audioTableView = AudiosTableView(frame: .zero, style: .plain)
-    var audioPlayer: AudioPlayer!
+    var audioPlayerView: AudioPlayer!
     var audioManager: AudioRecordManager!
     var selectedAudio: Audio?
     var audioDuration: TimeInterval?
-    var audioCurrentTime: TimeInterval?
-    
+        
     let recordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -33,8 +32,8 @@ class AudioViewController: MediaViewController {
         audioManager.recordDelegate = self
         audioManager.requestAudioRecordPermission()
         
-        audioPlayer = AudioPlayer(title: "Palhares")
-        audioPlayer.playDelegate = self
+        audioPlayerView = AudioPlayer(title: "Palhares")
+        audioPlayerView.playDelegate = self
         audioManager.playDelegate = self
         
         setupView()
@@ -54,7 +53,7 @@ class AudioViewController: MediaViewController {
 extension AudioViewController: ViewCode {
     
     func buildViewHierarchy() {
-        self.contentView.addSubviews([audioTableView, audioPlayer, recordButton])
+        self.contentView.addSubviews([audioTableView, audioPlayerView, recordButton])
     }
     
     func setupConstraints() {
@@ -88,7 +87,6 @@ extension AudioViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedAudio = audioManager.recordedAudios[indexPath.row]
         audioDuration = selectedAudio?.audioSize
-        audioCurrentTime = selectedAudio?.currentAudioTime
     }
 }
 
@@ -105,10 +103,10 @@ extension AudioViewController {
     
     func setupAudioPlayerConstraints() {
         NSLayoutConstraint.activate([
-            audioPlayer.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            audioPlayer.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.95),
-            audioPlayer.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.3),
-            audioPlayer.topAnchor.constraint(equalTo: self.audioTableView.bottomAnchor, constant: 16)
+            audioPlayerView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            audioPlayerView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.95),
+            audioPlayerView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.3),
+            audioPlayerView.topAnchor.constraint(equalTo: self.audioTableView.bottomAnchor, constant: 16)
         ])
     }
     
@@ -117,7 +115,7 @@ extension AudioViewController {
             recordButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
             recordButton.widthAnchor.constraint(equalToConstant: 80),
             recordButton.heightAnchor.constraint(equalToConstant: 80),
-            recordButton.topAnchor.constraint(equalTo: self.audioPlayer.bottomAnchor, constant: 64)
+            recordButton.topAnchor.constraint(equalTo: self.audioPlayerView.bottomAnchor, constant: 64)
         ])
     }
     
@@ -143,16 +141,16 @@ extension AudioViewController: AudioPlayerDelegate {
     }
     
     func updateProgressView() {
-        guard let duration = self.audioDuration else { return }
-        let progress = Progress(totalUnitCount: Int64(duration))
-        progress.completedUnitCount += 1
+        guard let duration = audioDuration else { return }
         
-        self.audioPlayer.progressBar.setProgress(Float(progress.fractionCompleted), animated: true)
+        if self.audioManager.audioPlayer.isPlaying {
+            self.audioPlayerView.progressBar.setProgress(Float(audioManager.audioPlayer.currentTime / duration), animated: true)
+        }
     }
     
     func didFinishPlay() {
-        self.audioPlayer.playButton.setBackgroundColor(color: .systemPink, forState: .normal)
-        self.audioPlayer.progressBar.setProgress(0, animated: false)
+        self.audioPlayerView.playButton.setBackgroundColor(color: .systemPink, forState: .normal)
+        self.audioPlayerView.progressBar.setProgress(0, animated: false)
     }
     
 }

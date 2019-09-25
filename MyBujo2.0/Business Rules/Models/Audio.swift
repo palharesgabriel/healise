@@ -11,11 +11,12 @@ import Foundation
 class Audio {
     let name: String
     let path: URL
-    var audioSize: TimeInterval = 0
+    var audioSize: TimeInterval
     var currentAudioTime: TimeInterval = 0
     
-    init(name: String, path: URL) {
+    init(name: String, path: URL, audioSize: TimeInterval) {
         self.name = name
         self.path = path
+        self.audioSize = audioSize
     }
 }
