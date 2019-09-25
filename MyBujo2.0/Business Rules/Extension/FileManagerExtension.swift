@@ -32,7 +32,7 @@ extension FileManager {
         return fileExists(atPath: path, isDirectory: &directory)
     }
 
-    func saveFileFrom(Path filepath: URL,WithData data: Data) -> Bool {
+    func saveFileTo(path filepath: URL, withData data: Data) -> Bool {
         do {
             try data.write(to: filepath)
         } catch {

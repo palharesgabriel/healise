@@ -72,8 +72,8 @@ class CapturesViewController: MediaViewController, ViewCode, UINavigationControl
 
 extension CapturesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		guard let media = day.media, let photos = media.photos else { return 0 }
-		return photos.count
+		guard let media = day.media, let photos = media.photos else { return 1 }
+		return photos.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

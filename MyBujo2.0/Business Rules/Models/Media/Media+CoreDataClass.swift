@@ -14,37 +14,34 @@ import CoreData
 public class Media: NSManagedObject {
 	private var mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
 	
-    lazy var photos: [UIImage]? = {
-        if let photos = self.photos {
-            return photos
-        } else {
-			let paths = getPhotosPaths()
-			let images = getPhotosImages(paths: paths!)
-            return images
-        }
-    }()
-    
-    func addTo(photos image: UIImage) {
-        if photos != nil {
-            photos!.append(image)
-        }
-        else {
-            photos = [UIImage]()
-            photos!.append(image)
-        }
-        
-        //salvar no FileManager
+	var photos: [UIImage]? {
+		guard let paths = getPhotosPaths() else { return nil }
+		guard let images = getPhotosFrom(paths: paths) else { return nil }
+		return images
     }
     
+    func addTo(photos image: UIImage) {
+//        if photos != nil {
+//            photos!.append(image)
+//        }
+//        else {
+//            photos = [UIImage]()
+//            photos!.append(image)
+//        }
+		let dateFormmater = DateFormatter()
+        dateFormmater.dateFormat = "yyyy-MM-dd"
+		let date = dateFormmater.string(from: day!.date!)
+		
+		guard let photosPath = photosPath else { return }
+		let path = mainPath.appendingPathComponent(photosPath).appendingPathComponent(date)
+			
+		guard let data = image.pngData() else {  return }
+		
+		_ = FileManager.default.saveFileTo(path: path , withData: data) 
+		
+	}
+    
     func addTo(photos images: [UIImage]) {
-        if photos != nil {
-            photos!.append(contentsOf: images)
-        }
-        else {
-            photos = [UIImage]()
-            photos!.append(contentsOf: images)
-        }
-        
         //salvar no FileManager
     }
     
@@ -54,26 +51,17 @@ public class Media: NSManagedObject {
 	
 	private func getPhotosPaths() -> [String]? {
 		do {
-			let paths = try? FileManager.default.contentsOfDirectory(atPath: self.mainPath.appendingPathComponent(photosPath!).path)
+			let paths = try? FileManager.default.contentsOfDirectory(atPath: self.mainPath.appendingPathComponent(photosPath!).absoluteString)
 			return paths
 		} catch {
 			print(error)
 		}
 		
 	}
-	
-	private func getPhotosImages(paths: [String]) -> [UIImage] {
-		var images:[UIImage] = []
-		paths.forEach { path in
-			images.append(UIImage(contentsOfFile: path)!)
-		}
-		return images
-	}
-    
-    private func getPhotosFromPaths(paths: [String]?) -> [UIImage]? {
-        guard let paths = paths else { return nil }
+
+    private func getPhotosFrom(paths: [String]) -> [UIImage]? {
         let images: [UIImage] = paths.map { (path) -> UIImage in
-            let image = UIImage(contentsOfFile: path)
+			let image = UIImage(contentsOfFile: path)
             return image!
         }
         return images
