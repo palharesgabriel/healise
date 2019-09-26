@@ -51,7 +51,7 @@ class MediaCards: IncrementCollectionViewCell, ViewCode {
     func setupAdditionalConfigurantion() {
         
     }
-    func setupCell(imageName: String) {
+    func setupCell(imageName: String, numberToIncrement: Int) {
         if #available(iOS 13.0, *) {
             let configuration = UIImage.SymbolConfiguration(pointSize: 80, weight: .light)
             iconImageView.image = UIImage(systemName: imageName, withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate) ?? UIImage(named: imageName)!.withRenderingMode(.alwaysTemplate)
@@ -63,7 +63,7 @@ class MediaCards: IncrementCollectionViewCell, ViewCode {
         
         DispatchQueue.main.async {
             self.winRain(bubble: UIImage(named: "bubble")!, birdRate: 4, stop: true, scale: 0.03)
-            self.incrementLabel(to: 15, labelNumber: self.number)
+            self.incrementLabel(to: numberToIncrement, labelNumber: self.number)
         }
         
     }

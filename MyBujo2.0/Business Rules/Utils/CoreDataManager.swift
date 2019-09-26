@@ -80,7 +80,7 @@ class CoreDataManager: NSObject {
         guard let days = fetch(entityClass: Day.self, predicate: NSPredicate(value: true)) as? [Day] else { return nil }
         
         let filteredDays = days.filter { (day) -> Bool in
-            if Calendar.current.component(.month, from: day.date!) == CalendarManager.shared.currentMonthComponent {
+            if let date = day.date, Calendar.current.component(.month, from: date) == month {
                 return true
             }
             return false
