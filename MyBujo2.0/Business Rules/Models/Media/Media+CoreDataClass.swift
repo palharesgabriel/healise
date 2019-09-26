@@ -40,8 +40,8 @@ public class Media: NSManagedObject {
 	private func sortPaths (paths: [String]) -> [String] {
 		var sortedPaths = paths
 		sortedPaths.sort { (firstPath, secondPath) -> Bool in
-			guard let firstDate = getCreatedDateFromFile(path: firstPath) else { return false }
-			guard let secondDate = getCreatedDateFromFile(path: secondPath) else { return false }
+			guard let firstDate = getCreatedDateFromFile(filename: firstPath) else { return false }
+			guard let secondDate = getCreatedDateFromFile(filename: secondPath) else { return false }
 			if firstDate > secondDate {
 				return true
 			}
@@ -50,9 +50,10 @@ public class Media: NSManagedObject {
 		return sortedPaths
 	}
 	
-	private func getCreatedDateFromFile (path: String) -> Date? {
+	private func getCreatedDateFromFile (filename: String) -> Date? {
 		do {
-			let attr = try FileManager.default.attributesOfItem(atPath: path)
+			let filePath = mainPath.appendingPathComponent(photosPath!).appendingPathComponent(filename)
+			let attr = try FileManager.default.attributesOfItem(atPath: filePath.path)
 			return attr[FileAttributeKey.creationDate] as? Date
 		} catch {
 			return nil
