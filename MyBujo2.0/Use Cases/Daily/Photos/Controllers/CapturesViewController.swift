@@ -9,48 +9,13 @@
 import UIKit
 import Photos
 
-class CapturesViewController: MediaViewController, ViewCode, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    let photosCollectionView:UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
-		flowLayout.minimumLineSpacing = 1
-		flowLayout.minimumInteritemSpacing = 1
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-		collectionView.showsVerticalScrollIndicator = false
-        return collectionView
-    }()
-    
-    var day = CalendarManager.shared.selectedDay!
 
+class CapturesViewController: GalleryViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-        
-		photosCollectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-		photosCollectionView.register(NewPhotoCollectionViewCell.self, forCellWithReuseIdentifier: "NewPhotoCollectionViewCell")
-        
-		photosCollectionView.delegate = self
-        photosCollectionView.dataSource = self
-	
-    }
-    
-    func buildViewHierarchy() {
-        view.addSubview(photosCollectionView)
-    }
-    
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            photosCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            photosCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            photosCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            photosCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
-    }
-    
-    func setupAdditionalConfigurantion() {
-        photosCollectionView.backgroundColor = UIColor(named: "CardsColor")
+		
+		galleryCollectionView.dataSource = self
+		galleryCollectionView.delegate = self
     }
 }
 
@@ -63,9 +28,9 @@ extension CapturesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.row {
         case 0:
-			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewPhotoCollectionViewCell", for: indexPath) as? NewPhotoCollectionViewCell else { return UICollectionViewCell()}
-
-            return cell
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewItemGalleryCollectionViewCell.reuseIdentifier, for: indexPath) as? NewItemGalleryCollectionViewCell else { return UICollectionViewCell()}
+			cell.setupCell(sfImage: "video.circle.fill", image: "videoBubble")
+			return cell
         default:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
 			guard let images = day.media!.photos else { return UICollectionViewCell()}
