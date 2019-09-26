@@ -76,7 +76,7 @@ class CoreDataManager: NSObject {
         return nil
     }
     
-    static func getMonthStats(month: Int) -> MonthData? {
+    static func getMonthData(month: Int) -> MonthData? {
         guard let days = fetch(entityClass: Day.self, predicate: NSPredicate(value: true)) as? [Day] else { return nil }
         
         let filteredDays = days.filter { (day) -> Bool in
