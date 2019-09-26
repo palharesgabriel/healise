@@ -9,19 +9,12 @@
 import Foundation
 import UIKit
 
-class NewPhotoCollectionViewCell: UICollectionViewCell, ViewCode {
-	
-	let addPhotoImageView: UIImageView = {
+class NewItemGalleryCollectionViewCell: UICollectionViewCell, ViewCode {
+	static let reuseIdentifier = "NewItemGalleryCollectionViewCell"
+	let addItemImageView: UIImageView = {
 		let imageView = UIImageView()
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		imageView.isUserInteractionEnabled = true
-		if #available(iOS 13.0, *) {
-			imageView.image = UIImage(systemName: "camera.circle.fill", compatibleWith: .current)
-			imageView.contentMode = .scaleAspectFill
-			imageView.tintColor = UIColor(named: "ActionColor")
-		} else {
-			imageView.image = UIImage(named: "camerabubble")
-		}
 		return imageView
 	}()
 	
@@ -30,20 +23,30 @@ class NewPhotoCollectionViewCell: UICollectionViewCell, ViewCode {
 		setupView()
 	}
 	
+	func setupCell (sfImage: String, image: String) {
+		if #available(iOS 13.0, *) {
+			addItemImageView.image = UIImage(systemName: sfImage, compatibleWith: .current)
+			addItemImageView.contentMode = .scaleAspectFill
+			addItemImageView.tintColor = UIColor(named: "ActionColor")
+		} else {
+			addItemImageView.image = UIImage(named: image)
+		}
+	}
+	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
 	func buildViewHierarchy() {
-		addSubview(addPhotoImageView)
+		addSubview(addItemImageView)
 	}
 	
 	func setupConstraints() {
 		NSLayoutConstraint.activate([
-			addPhotoImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-			addPhotoImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-			addPhotoImageView.widthAnchor.constraint(equalToConstant: 80),
-			addPhotoImageView.heightAnchor.constraint(equalToConstant: 80)
+			addItemImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+			addItemImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+			addItemImageView.widthAnchor.constraint(equalToConstant: 80),
+			addItemImageView.heightAnchor.constraint(equalToConstant: 80)
 		])
 		
 	}
@@ -52,3 +55,4 @@ class NewPhotoCollectionViewCell: UICollectionViewCell, ViewCode {
 		
 	}
 }
+

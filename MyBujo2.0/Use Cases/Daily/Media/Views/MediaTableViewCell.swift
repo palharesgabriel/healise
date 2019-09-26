@@ -103,7 +103,7 @@ extension MediaTableViewCell: UICollectionViewDataSource {
         case 2:
             delegate?.pushViewController(viewController: NotesViewController())
         case 3:
-            delegate?.pushViewController(viewController: NotesViewController())
+            delegate?.pushViewController(viewController: VideoRecordViewController(title: "Videos"))
         case 4:
             delegate?.pushViewController(viewController: CapturesViewController(title: "Captures"))
         default:
