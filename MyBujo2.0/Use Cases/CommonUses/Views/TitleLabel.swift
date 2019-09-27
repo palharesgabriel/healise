@@ -21,6 +21,7 @@ class TitleLabel: UILabel {
     init(title: String) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .clear
         text = title
         textColor = UIColor(named: "TitleColor")
         font = UIFont(name: "AvenirNext-Medium", size: 24)

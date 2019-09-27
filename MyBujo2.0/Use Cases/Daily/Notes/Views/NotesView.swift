@@ -44,7 +44,7 @@ class NotesView: UIView, ViewCode {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            noteTextField.topAnchor.constraint(equalTo: topAnchor,constant: 16),
+            noteTextField.topAnchor.constraint(equalTo: topAnchor,constant: 8),
             noteTextField.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 16),
             noteTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             noteTextField.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -16)
@@ -52,7 +52,6 @@ class NotesView: UIView, ViewCode {
             ])
     }
     func setupAdditionalConfigurantion() {
-        backgroundColor = .white
     }
     // MARK: Actions Buttons
 }

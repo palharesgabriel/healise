@@ -18,6 +18,7 @@ class GalleryViewController: MediaViewController, ViewCode, UINavigationControll
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 		collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -45,6 +46,5 @@ class GalleryViewController: MediaViewController, ViewCode, UINavigationControll
     }
     
     func setupAdditionalConfigurantion() {
-        galleryCollectionView.backgroundColor = UIColor(named: "CardsColor")
     }
 }

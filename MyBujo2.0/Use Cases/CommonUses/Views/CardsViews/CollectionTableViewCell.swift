@@ -13,12 +13,14 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     
     // MARK: Properties
     let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
+    
     var monthData: MonthData {
             if let month = CoreDataManager.getMonthData(month: CalendarManager.shared.currentMonthComponent) {
                 return month
             }
             return MonthData()
     }
+    
     let  collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 16, right: 8)

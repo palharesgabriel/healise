@@ -16,7 +16,7 @@ class MediaViewController: UIViewController {
     var contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "CardsColor")
+        view.backgroundColor = UIColor(named: "BlueBackground")
         return view
     }()
     
@@ -31,7 +31,7 @@ class MediaViewController: UIViewController {
             exitButton.heightAnchor.constraint(equalToConstant: 40),
             exitButton.widthAnchor.constraint(equalToConstant: 40),
             exitButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            exitButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
+            exitButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor, constant: 0),
             
             contentView.topAnchor.constraint(equalTo: exitButton.bottomAnchor),
             contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -39,7 +39,7 @@ class MediaViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
         
-        view.backgroundColor = UIColor(named: "CardsColor")
+        view.backgroundColor = UIColor(named: "BlueBackground")
     
     }
 

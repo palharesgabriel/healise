@@ -48,6 +48,8 @@
 		308F6FD02327EB96008012AA /* CanvasLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCF2327EB96008012AA /* CanvasLayoutExtension.swift */; };
 		3094B179233A57E400576EDF /* FocusedMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094B178233A57E400576EDF /* FocusedMediaViewController.swift */; };
 		3094B17F233A5D9B00576EDF /* FocusedPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3094B17E233A5D9B00576EDF /* FocusedPhotoViewController.swift */; };
+		309DC7F3233E3C9400F3218E /* FileManagerInitiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DC7F2233E3C9400F3218E /* FileManagerInitiable.swift */; };
+		309DC7F5233E3CF800F3218E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309DC7F4233E3CF800F3218E /* UIImageExtension.swift */; };
 		30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */; };
 		30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A348D52314609C0018DB13 /* MediaTableViewCell.swift */; };
 		30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AD9B26230AE98B00B39434 /* CalendarManager.swift */; };
@@ -140,6 +142,8 @@
 		308F6FCF2327EB96008012AA /* CanvasLayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasLayoutExtension.swift; sourceTree = "<group>"; };
 		3094B178233A57E400576EDF /* FocusedMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedMediaViewController.swift; sourceTree = "<group>"; };
 		3094B17E233A5D9B00576EDF /* FocusedPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusedPhotoViewController.swift; sourceTree = "<group>"; };
+		309DC7F2233E3C9400F3218E /* FileManagerInitiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerInitiable.swift; sourceTree = "<group>"; };
+		309DC7F4233E3CF800F3218E /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		30A348D52314609C0018DB13 /* MediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCell.swift; sourceTree = "<group>"; };
 		30AD9B1F230AE14E00B39434 /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */,
 				AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */,
 				E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */,
+				309DC7F2233E3C9400F3218E /* FileManagerInitiable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -743,6 +748,7 @@
 				E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */,
 				E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */,
 				30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */,
+				309DC7F4233E3CF800F3218E /* UIImageExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -969,6 +975,7 @@
 				308F6FD02327EB96008012AA /* CanvasLayoutExtension.swift in Sources */,
 				157D9D69232A9285009659F4 /* CaptureCollectionViewCell.swift in Sources */,
 				E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */,
+				309DC7F3233E3C9400F3218E /* FileManagerInitiable.swift in Sources */,
 				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
 				153F8CB3230C477E001C0CB3 /* CustomSplitViewController.swift in Sources */,
 				300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */,
@@ -991,6 +998,7 @@
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
 				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
+				309DC7F5233E3CF800F3218E /* UIImageExtension.swift in Sources */,
 				30C6FD9C233122FF00F69F79 /* FileManagerExtension.swift in Sources */,
 				AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */,
 				30C6FD9A2331203500F69F79 /* Media+CoreDataClass.swift in Sources */,
