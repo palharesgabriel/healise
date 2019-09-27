@@ -117,11 +117,10 @@ class AudioRecordManager: NSObject {
     }
     
     func stopAudio() {
-        if audioPlayer.isPlaying {
-            audioPlayer.stop()
-            audioPlayer.currentTime = 0.0
-            playDelegate?.didFinishPlay(isPlaying: false)
-        }
+        guard let player = audioPlayer else { return }
+        player.stop()
+        player.currentTime = 0.0
+        playDelegate?.didFinishPlay(isPlaying: false)
     }
     
     func pauseAudio() {
