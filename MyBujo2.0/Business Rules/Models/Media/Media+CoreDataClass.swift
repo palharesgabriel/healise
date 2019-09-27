@@ -22,7 +22,6 @@ public class Media: NSManagedObject {
 		return images
     }
     
-    
     func addTo(photos image: UIImage) {
 		
 		guard let photosPath = photosPath else { return }

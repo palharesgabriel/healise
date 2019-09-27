@@ -15,7 +15,7 @@ class AudioRecordManager: NSObject {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var audioPath: URL!
-    var recordDelegate: ChangeRecordButtonStateDelegate?
+    var recordDelegate: AudioRecordDelegate?
     var playDelegate: AudioPlayerDelegate?
     var recordedAudios: [Audio] = []
     let fileManager = FileManager.default
@@ -75,8 +75,7 @@ class AudioRecordManager: NSObject {
         self.audioRecorder = nil
         
         if success {
-            let player = setupPlayer(withAudioPath: audioPath)
-            let audio = Audio(name: getCurrentTime(), path: audioPath, audioSize: player.duration)
+            let audio = Audio(name: getCurrentTime(), path: audioPath, audioSize: getAudioDuration())
             recordedAudios.append(audio)
             recordDelegate?.didFinishRecord()
         } else {
@@ -86,7 +85,7 @@ class AudioRecordManager: NSObject {
     
     func getCurrentTime() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "hh-mm-ss a"
+        formatter.dateFormat = "hh:mm a"
         let hourString = formatter.string(from: Date())
         return hourString
     }
@@ -94,7 +93,6 @@ class AudioRecordManager: NSObject {
     func setupPlayer(withAudioPath: URL) -> AVAudioPlayer {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: withAudioPath)
-            recordedAudios.last?.audioSize = audioPlayer.duration
             audioPlayer.delegate = self
             audioPlayer.prepareToPlay()
             audioPlayer.volume = 1.0
@@ -105,23 +103,65 @@ class AudioRecordManager: NSObject {
         return audioPlayer
     }
     
+    func getAudioDuration() -> TimeInterval {
+        let player = setupPlayer(withAudioPath: audioPath)
+        return player.duration
+    }
+    
     func playAudio(withPath: URL) {
         let player = setupPlayer(withAudioPath: withPath)
-        player.play()
-        playDelegate?.didFinishPlay()
+        if !player.isPlaying {
+            player.play()
+        }
         startPlaybackTimer()
+    }
+    
+    func stopAudio() {
+        if audioPlayer.isPlaying {
+            audioPlayer.stop()
+            audioPlayer.currentTime = 0.0
+            playDelegate?.didFinishPlay(isPlaying: false)
+        }
+    }
+    
+    func pauseAudio() {
+        if audioPlayer.isPlaying {
+            audioPlayer.pause()
+        }
+    }
+    
+    func fastForward() {
+        if audioPlayer.isPlaying {
+            var time = audioPlayer.currentTime
+            time += 5.0
+            if time >= audioPlayer.duration {
+                stopAudio()
+            } else {
+                audioPlayer.currentTime = time
+            }
+        }
+    }
+    
+    func fastBackward() {
+        if audioPlayer.isPlaying {
+            var time: TimeInterval = audioPlayer.currentTime
+            time -= 5.0
+            if time <= 0 {
+                stopAudio()
+            } else {
+                audioPlayer.currentTime = time
+            }
+        }
     }
     
     func startPlaybackTimer() {
         playbackTimer.invalidate()
-        playbackTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
-            
+        playbackTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(updateProgressView), userInfo: nil, repeats: true)
         playbackTimer.fire()
     }
 
     @objc func updateProgressView() {
         playDelegate?.updateProgressView()
-        print("ok")
     }
     
 }
@@ -136,8 +176,7 @@ extension AudioRecordManager: AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         playbackTimer.invalidate()
-        playDelegate?.didFinishPlay()
-        print("acabou")
+        playDelegate?.didFinishPlay(isPlaying: player.isPlaying)
     }
     
 }

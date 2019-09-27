@@ -32,7 +32,7 @@ class AudioViewController: MediaViewController {
         audioManager.recordDelegate = self
         audioManager.requestAudioRecordPermission()
         
-        audioPlayerView = AudioPlayer(title: "Palhares")
+        audioPlayerView = AudioPlayer()
         audioPlayerView.playDelegate = self
         audioManager.playDelegate = self
         
@@ -44,8 +44,11 @@ class AudioViewController: MediaViewController {
             audioManager.startRecording()
         } else {
             audioManager.finishRecording(success: true)
-            audioTableView.reloadData()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        audioManager.stopAudio()
     }
     
 }
@@ -78,6 +81,7 @@ extension AudioViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = audioTableView.dequeueReusableCell(withIdentifier: "AudioCell")
         cell?.textLabel?.text = audioManager.recordedAudios[indexPath.row].name
+        cell?.detailTextLabel?.text = "ALooooo"
         return cell ?? UITableViewCell()
     }
     
@@ -87,6 +91,14 @@ extension AudioViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedAudio = audioManager.recordedAudios[indexPath.row]
         audioDuration = selectedAudio?.audioSize
+        
+        guard let audioName = selectedAudio?.name else { return }
+        audioPlayerView.setTitleLabelText(audioName: audioName)
+        
+        guard let duration = audioDuration else { return }
+        audioPlayerView.setPlayerLeftLabel(currentTime: audioManager.audioPlayer.currentTime)
+        audioPlayerView.setPlayerRightLabel(audioDuration: duration)
+        
     }
 }
 
@@ -121,10 +133,11 @@ extension AudioViewController {
     
 }
 
-extension AudioViewController: ChangeRecordButtonStateDelegate {
+extension AudioViewController: AudioRecordDelegate {
     
     func didFinishRecord() {
         self.recordButton.setTitle("Tap to Re-record", for: .normal)
+        audioTableView.reloadData()
     }
     
     func didBeginRecord() {
@@ -134,23 +147,45 @@ extension AudioViewController: ChangeRecordButtonStateDelegate {
 }
 
 extension AudioViewController: AudioPlayerDelegate {
+    func didTapPause() {
+        audioManager.pauseAudio()
+        audioPlayerView.isPlaying = false
+    }
+    
+    
+    func didTapFastForwardButton() {
+        audioManager.fastForward()
+    }
+    
+    func didTapFastBackwardButton() {
+        audioManager.fastBackward()
+    }
     
     func didBeginPlay() {
         guard let path = selectedAudio?.path else { return }
         audioManager.playAudio(withPath: path)
+        audioPlayerView.isPlaying = true
     }
     
     func updateProgressView() {
-        guard let duration = audioDuration else { return }
-        
         if self.audioManager.audioPlayer.isPlaying {
+            guard let duration = audioDuration else { return }
             self.audioPlayerView.progressBar.setProgress(Float(audioManager.audioPlayer.currentTime / duration), animated: true)
+            audioPlayerView.setPlayerLeftLabel(currentTime: audioManager.audioPlayer.currentTime)
+            audioPlayerView.setPlayerRightLabel(audioDuration: duration - audioManager.audioPlayer.currentTime)
         }
     }
     
-    func didFinishPlay() {
-        self.audioPlayerView.playButton.setBackgroundColor(color: .systemPink, forState: .normal)
-        self.audioPlayerView.progressBar.setProgress(0, animated: false)
+    func didFinishPlay(isPlaying: Bool) {
+        audioPlayerView.playButton.setBackgroundColor(color: .systemPink, forState: .normal)
+        audioPlayerView.progressBar.setProgress(0, animated: false)
+        audioPlayerView.setPlayerFlag(isPlaying: isPlaying)
+        audioPlayerView.setPlayButtonState()
+        
+        
+        guard let duration = audioDuration else { return }
+        audioPlayerView.setPlayerLeftLabel(currentTime: audioManager.audioPlayer.currentTime)
+        audioPlayerView.setPlayerRightLabel(audioDuration: duration)
     }
     
 }

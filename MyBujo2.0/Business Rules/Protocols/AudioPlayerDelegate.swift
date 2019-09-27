@@ -11,5 +11,8 @@ import Foundation
 protocol AudioPlayerDelegate {
     func didBeginPlay()
     func updateProgressView()
-    func didFinishPlay()
+    func didTapFastForwardButton()
+    func didTapFastBackwardButton()
+    func didTapPause()
+    func didFinishPlay(isPlaying: Bool)
 }

@@ -1,5 +1,5 @@
 //
-//  ChangeRecordButtonStateDelegate.swift
+//  AudioRecordDelegate.swift
 //  MyBujo2.0
 //
 //  Created by Gabriel Palhares on 23/09/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ChangeRecordButtonStateDelegate {
+protocol AudioRecordDelegate {
     func didBeginRecord()
     func didFinishRecord()
 }

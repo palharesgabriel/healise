@@ -11,7 +11,11 @@ import Foundation
 class Audio {
     let name: String
     let path: URL
-    var audioSize: TimeInterval
+    var audioSize: TimeInterval {
+        didSet {
+            print("eeeeeei, muda não")
+        }
+    }
     var currentAudioTime: TimeInterval = 0
     
     init(name: String, path: URL, audioSize: TimeInterval) {

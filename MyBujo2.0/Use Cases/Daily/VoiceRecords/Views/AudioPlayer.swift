@@ -12,6 +12,7 @@ class AudioPlayer: UIView {
     
     var titleLabel: TitleLabel!
     var playDelegate: AudioPlayerDelegate?
+    var isPlaying: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -21,9 +22,10 @@ class AudioPlayer: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(title: String) {
+    convenience init() {
         self.init(frame: .zero)
-        self.titleLabel = TitleLabel(title: title)
+        titleLabel = TitleLabel(title: "Audio")
+        titleLabel.textColor = .white
         setupView()
     }
     
@@ -39,7 +41,7 @@ class AudioPlayer: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AvenirNextLTPro-Regular", size: 10)
-        label.text = "TESTE"
+        label.text = "-- : --"
         return label
     }()
     
@@ -47,7 +49,8 @@ class AudioPlayer: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AvenirNextLTPro-Regular", size: 10)
-        label.text = "TESTE"
+        label.textAlignment = .right
+        label.text = "-- : --"
         return label
     }()
     
@@ -55,36 +58,78 @@ class AudioPlayer: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemPink
+        button.setTitle("Play", for: .normal)
         button.addTarget(self, action: #selector(playTapped), for: .touchUpInside)
         return button
     }()
     
-    let advance15SecondsButton: UIButton = {
+    let fastForwardButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .gray
+        button.addTarget(self, action: #selector(fastForwardButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    let back15SecondsButton: UIButton = {
+    let fastBackwardButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .gray
+        button.addTarget(self, action: #selector(fastBackwardButtonTapped), for: .touchUpInside)
         return button
     }()
     
     
     @objc func playTapped() {
-        self.playDelegate?.didBeginPlay()
-        playButton.backgroundColor = .blue
+        if isPlaying {
+            playDelegate?.didTapPause()
+        } else {
+            playDelegate?.didBeginPlay()
+        }
+        setPlayButtonState()
     }
     
+    @objc func fastForwardButtonTapped() {
+        playDelegate?.didTapFastForwardButton()
+    }
+    
+    @objc func fastBackwardButtonTapped() {
+        playDelegate?.didTapFastBackwardButton()
+    }
+    
+    func setPlayButtonState() {
+        if isPlaying {
+            playButton.setTitle("Pause", for: .normal)
+        } else {
+            playButton.setTitle("Play", for: .normal)
+        }
+    }
+    
+    func setPlayerFlag(isPlaying: Bool) {
+        self.isPlaying = isPlaying
+    }
+    
+    func setTitleLabelText(audioName: String) {
+        titleLabel.text = audioName
+    }
+    
+    func setPlayerRightLabel(audioDuration: TimeInterval) {
+        let fullPartDuration = Int(audioDuration)
+        rightLabel.text = "-\(fullPartDuration)"
+        
+    }
+    
+    func setPlayerLeftLabel(currentTime: TimeInterval) {
+        let fullPartCurrentTime = Int(currentTime)
+        leftLabel.text = String(fullPartCurrentTime)
+    }
+        
 }
 
 extension AudioPlayer: ViewCode {
     
     func buildViewHierarchy() {
-        addSubviews([titleLabel, progressBar, leftLabel, rightLabel, playButton, advance15SecondsButton, back15SecondsButton])
+        addSubviews([titleLabel, progressBar, leftLabel, rightLabel, playButton, fastForwardButton, fastBackwardButton])
     }
     
     func setupConstraints() {
@@ -151,19 +196,19 @@ extension AudioPlayer {
     
     func setupAdvance15SecondsButtonConstraints() {
         NSLayoutConstraint.activate([
-            advance15SecondsButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
-            advance15SecondsButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 16),
-            advance15SecondsButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-            advance15SecondsButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
+            fastForwardButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
+            fastForwardButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 16),
+            fastForwardButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
+            fastForwardButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
         ])
     }
     
     func setupBack15SecondsButtonConstraints() {
         NSLayoutConstraint.activate([
-            back15SecondsButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
-            back15SecondsButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -16),
-            back15SecondsButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-            back15SecondsButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
+            fastBackwardButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
+            fastBackwardButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -16),
+            fastBackwardButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
+            fastBackwardButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
         ])
     }
     

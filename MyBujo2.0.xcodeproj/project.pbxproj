@@ -72,7 +72,7 @@
 		AB8C882B233518540093E29C /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882A233518540093E29C /* AudioPlayer.swift */; };
 		AB8C882D233518AC0093E29C /* AudioTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882C233518AC0093E29C /* AudioTableView.swift */; };
 		AB8C882F23351D240093E29C /* AudioRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882E23351D240093E29C /* AudioRecordManager.swift */; };
-		AB8D30DB2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DA2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift */; };
+		AB8D30DB2338F1AC0009409F /* AudioRecordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DA2338F1AC0009409F /* AudioRecordDelegate.swift */; };
 		AB8D30DD233906290009409F /* AudioPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */; };
 		AB8D30DF23390F4D0009409F /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DE23390F4D0009409F /* Audio.swift */; };
 		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
@@ -174,7 +174,7 @@
 		AB8C882A233518540093E29C /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		AB8C882C233518AC0093E29C /* AudioTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTableView.swift; sourceTree = "<group>"; };
 		AB8C882E23351D240093E29C /* AudioRecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordManager.swift; sourceTree = "<group>"; };
-		AB8D30DA2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeRecordButtonStateDelegate.swift; sourceTree = "<group>"; };
+		AB8D30DA2338F1AC0009409F /* AudioRecordDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordDelegate.swift; sourceTree = "<group>"; };
 		AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerDelegate.swift; sourceTree = "<group>"; };
 		AB8D30DE23390F4D0009409F /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 				AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */,
 				AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */,
 				E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */,
-				AB8D30DA2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift */,
+				AB8D30DA2338F1AC0009409F /* AudioRecordDelegate.swift */,
 				AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */,
 			);
 			path = Protocols;
@@ -599,7 +599,6 @@
 				30C6FD9223311F4400F69F79 /* Media */,
 				30B900592318424A000C0089 /* DayExtension.swift */,
 				30B9005B231842A0000C0089 /* GoalExtension.swift */,
-				30B9005D23184666000C0089 /* MediaExtension.swift */,
 				AB8D30DE23390F4D0009409F /* Audio.swift */,
 			);
 			path = Models;
@@ -987,7 +986,7 @@
 				AB8C8829233518280093E29C /* AudioViewController.swift in Sources */,
 				30ADD66D231D396D001CAF1C /* Delegates.swift in Sources */,
 				E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */,
-				AB8D30DB2338F1AC0009409F /* ChangeRecordButtonStateDelegate.swift in Sources */,
+				AB8D30DB2338F1AC0009409F /* AudioRecordDelegate.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
 				1549195E231D4B8C00766609 /* FeelingView.swift in Sources */,
 				E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */,
