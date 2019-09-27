@@ -33,6 +33,8 @@
 		300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CAB7A2327C1E3002F066A /* DrawingViewController.swift */; };
 		3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010248D232A840700BBE978 /* AddGoalsAnimator.swift */; };
 		301149102315721C0099E845 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3011490F2315721C0099E845 /* ShadowView.swift */; };
+		30117AD0233CE16200F0D5F1 /* MonthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117ACF233CE16200F0D5F1 /* MonthData.swift */; };
+		30117AD3233CE18800F0D5F1 /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */; };
 		301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F35342316AAC500AD5477 /* CoreDataManager.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
 		3074027B233257990058D997 /* HealthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074027A233257990058D997 /* HealthCollectionViewCell.swift */; };
@@ -123,6 +125,8 @@
 		300CAB7A2327C1E3002F066A /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		3010248D232A840700BBE978 /* AddGoalsAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalsAnimator.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		30117ACF233CE16200F0D5F1 /* MonthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthData.swift; sourceTree = "<group>"; };
+		30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStructs.swift; sourceTree = "<group>"; };
 		301F35342316AAC500AD5477 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		3074027A233257990058D997 /* HealthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -716,6 +720,8 @@
 			isa = PBXGroup;
 			children = (
 				E88784752331223C00BFFE10 /* Defaults.swift */,
+				30117ACF233CE16200F0D5F1 /* MonthData.swift */,
+				30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -978,6 +984,8 @@
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
 				E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */,
+				30117AD3233CE18800F0D5F1 /* CalendarStructs.swift in Sources */,
+				30117AD0233CE16200F0D5F1 /* MonthData.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
 				3074027B233257990058D997 /* HealthCollectionViewCell.swift in Sources */,
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
