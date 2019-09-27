@@ -37,7 +37,6 @@ extension CapturesViewController: UICollectionViewDataSource {
 			cell.setupCell(image: images[indexPath.row - 1])
             return cell
         }
-         
     }
 }
 
@@ -51,7 +50,7 @@ extension CapturesViewController: UICollectionViewDelegateFlowLayout {
         case 0:
             presentImagePickerController()
         default:
-            let testController = FocusedPhotoViewController(row: indexPath.row - 1)
+            let testController = FocusedPhotoViewController(row: indexPath.row - 1, photos: CalendarManager.shared.selectedDay.media?.photos)
             present(testController, animated: true, completion: nil)
         }
     }

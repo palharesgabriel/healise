@@ -11,10 +11,11 @@ import UIKit
 class FocusedPhotoViewController: FocusedMediaViewController {
     
     var photos = [UIImage]()
+    var row = 0
     
     init(row: Int, photos: [UIImage]? = nil) {
         super.init(nibName: nil, bundle: nil)
-        collectionView.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredHorizontally, animated: false)
+        self.row = row
         focusedImageView.image = CalendarManager.shared.selectedDay.media?.photos?[row]
         
         if let photos = photos {
@@ -30,6 +31,7 @@ class FocusedPhotoViewController: FocusedMediaViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredVertically, animated: false)
     }
 }
 

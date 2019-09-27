@@ -12,8 +12,8 @@ class FocusedMediaViewController: UIViewController {
     lazy var backButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Back", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 24)
-        button.titleLabel?.textColor = UIColor(named: "ActionColor")
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
         button.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -31,7 +31,7 @@ class FocusedMediaViewController: UIViewController {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "CaptureCell")
-        collectionView.backgroundColor = UIColor(named: "CardsColor")
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -39,7 +39,8 @@ class FocusedMediaViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupConstraints()
-        view.backgroundColor = UIColor(named: "CardsColor")
+        view.backgroundColor = UIColor(named: "BlueBackground")
+        focusedImageView.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }
     
