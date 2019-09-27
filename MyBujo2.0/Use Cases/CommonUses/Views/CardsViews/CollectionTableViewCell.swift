@@ -120,7 +120,7 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
             
             }
         }
-    }
+}
     
     
 }
@@ -136,7 +136,8 @@ extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
             return CGSize(width: UIScreen.main.bounds.width - 16 , height: 300)
         default:
             let portraitSize = CGSize(width: UIScreen.main.bounds.width/2 - 16 , height: 300)
-            let landscapeSize = CGSize(width: UIScreen.main.bounds.width/2 - 16 - 120 , height: 300)
+            let width = UIScreen.main.bounds.width * 0.8
+            let landscapeSize = CGSize(width: width/2 - 16, height: 300)
             return UIDevice.current.orientation.isLandscape ? landscapeSize : portraitSize
         }
         
