@@ -10,11 +10,17 @@ import UIKit
 
 class FocusedPhotoViewController: FocusedMediaViewController {
     
-    var images: [UIImage]!
+    var photos = [UIImage]()
+    var row = 0
     
-    init(with images: [UIImage]) {
-        self.images = images
+    init(row: Int, photos: [UIImage]? = nil) {
         super.init(nibName: nil, bundle: nil)
+        self.row = row
+        focusedImageView.image = CalendarManager.shared.selectedDay.media?.photos?[row]
+        
+        if let photos = photos {
+            self.photos = photos
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -25,21 +31,25 @@ class FocusedPhotoViewController: FocusedMediaViewController {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredVertically, animated: false)
     }
 }
 
 extension FocusedPhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CaptureCollectionViewCell else { return }
+        focusedImageView.image = cell.captureImageView.image
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return images.count
-        return 5
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "CaptureCell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
-        
-//        cell.setupCell(image: images[indexPath.row])
-        cell.setupCell(image: #imageLiteral(resourceName: "bubble"))
+        cell.setupCell(image: photos[indexPath.row])
         return cell
     }
 }

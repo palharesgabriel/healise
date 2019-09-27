@@ -27,7 +27,9 @@ class IncrementCollectionViewCell: ReusableCollectionViewCell {
     func incrementLabel(to endValue: Int, labelNumber: UILabel) {
         labelNumber.text = "0"
         let duration: Double = 2.0
-        
+        if endValue == 0 {
+            return
+        } else {
         DispatchQueue.global().async {
             for iiii in 0 ..< (endValue + 1) {
                 let sleepTime = UInt32(duration/Double(endValue) * 1000000.0)
@@ -36,7 +38,7 @@ class IncrementCollectionViewCell: ReusableCollectionViewCell {
                     labelNumber.text =  String(iiii)
                 }
             }
-        }
+            }}
     }
     
     func winRain(bubble: UIImage, birdRate: Float,stop: Bool, scale: CGFloat) {

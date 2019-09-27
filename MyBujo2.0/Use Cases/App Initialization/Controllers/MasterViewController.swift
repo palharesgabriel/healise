@@ -53,8 +53,9 @@ class MasterViewController: UIViewController, ViewCode {
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        Defaults.name = "Lukinhas"
-        if Defaults.name == nil {print("rennan")} else {nameLabel.text = Defaults.name}
+        Defaults.name = "Tavarinho"
+        nameLabel.text = Defaults.name
+        self.title = Defaults.name
         dayStatusLabel.text = getTimeDayLabel()
         setupView()
         myTodayButton.addTarget(self, action: #selector(didClickMyTodayButton(_:)), for: .touchDown)

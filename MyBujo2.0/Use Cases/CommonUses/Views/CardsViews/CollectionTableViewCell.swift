@@ -10,10 +10,17 @@ import UIKit
 
 class CollectionTableViewCell: UITableViewCell, ViewCode {
     
-    let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
-    
     
     // MARK: Properties
+    let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
+    
+    var monthData: MonthData {
+            if let month = CoreDataManager.getMonthData(month: CalendarManager.shared.currentMonthComponent) {
+                return month
+            }
+            return MonthData()
+    }
+    
     let  collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 16, right: 8)
@@ -66,6 +73,13 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     func setupAdditionalConfigurantion() {
         
     }
+    
+    func setupCounterGoalsCell( cell: CounterGoalsCard, numberCount: Int) {
+        cell.incrementLabel(to: numberCount, labelNumber: cell.number)
+        cell.createCircularPath(colorCircular: "SelectionColor")
+        cell.winRain(bubble: UIImage(named: "bubble")!, birdRate: 10, stop: true, scale: 0.03)
+    }
+    
 }
 
 extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -95,24 +109,20 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
         switch indexPath.row {
         case 0:
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                let animateCell = cell as? CounterGoalsCard
-                
-                animateCell?.incrementLabel(to: 100, labelNumber: animateCell!.number)
-                animateCell?.createCircularPath(colorCircular: "SelectionColor")
-                animateCell?.winRain(bubble: UIImage(named: "bubble")!, birdRate: 10, stop: true, scale: 0.3)
+                self.setupCounterGoalsCell(cell: (cell as? CounterGoalsCard)!, numberCount: self.monthData.numberOfGoals)
                 
             }
             
         default:
             guard let cell = cell as? MediaCards else { return }
             if #available(iOS 13.0, *) {
-                cell.setupCell(imageName: iconNames[indexPath.row - 1].sf) } else {
-                cell.setupCell(imageName: iconNames[indexPath.row - 1].normal)
+                cell.setupCell(imageName: iconNames[indexPath.row - 1].sf, numberToIncrement: self.monthData.numberOfNotes) } else {
+                cell.setupCell(imageName: iconNames[indexPath.row - 1].normal, numberToIncrement: self.monthData.numberOfNotes)
             
             
             }
         }
-    }
+}
     
     
 }
@@ -128,13 +138,13 @@ extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
             return CGSize(width: UIScreen.main.bounds.width - 16 , height: 300)
         default:
             let portraitSize = CGSize(width: UIScreen.main.bounds.width/2 - 16 , height: 300)
-            let landscapeSize = CGSize(width: UIScreen.main.bounds.width/2 - 16 - 120 , height: 300)
+            let width = UIScreen.main.bounds.width * 0.8
+            let landscapeSize = CGSize(width: width/2 - 16, height: 300)
             return UIDevice.current.orientation.isLandscape ? landscapeSize : portraitSize
         }
         
-        
-        
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10.0

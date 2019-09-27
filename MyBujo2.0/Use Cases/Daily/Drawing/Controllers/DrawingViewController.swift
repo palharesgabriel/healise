@@ -15,7 +15,7 @@ class DrawingViewController: MediaViewController {
     lazy var canvasView: PKCanvasView = {
         let canvasView = PKCanvasView()
         canvasView.translatesAutoresizingMaskIntoConstraints = false
-        canvasView.backgroundColor = .white
+        canvasView.backgroundColor = UIColor(named: "BlueBackground")
         return canvasView
     }()
     
@@ -30,7 +30,6 @@ class DrawingViewController: MediaViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         canvasWidth = contentView.frame.width
         
         if let drawing = CalendarManager.shared.selectedDay.media?.drawing {

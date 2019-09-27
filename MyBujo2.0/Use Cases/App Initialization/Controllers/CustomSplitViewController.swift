@@ -21,7 +21,6 @@ class CustomSplitViewController: UISplitViewController {
         self.controllers = [MasterViewController(),MyTodayViewController(),MyJourneyViewController()]
         let navigationControllers = controllers.map({ (controller) -> UINavigationController in
             let nav = UINavigationController(rootViewController: controller)
-            controller.navigationController?.navigationBar.isHidden = true
             return nav
         })
 
@@ -35,15 +34,15 @@ class CustomSplitViewController: UISplitViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        didSetPrimaryColumnWidthFraction()
+        shouldSetPrimaryColumnWidthFraction()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        didSetPrimaryColumnWidthFraction()
+        shouldSetPrimaryColumnWidthFraction()
     }
     
-    func didSetPrimaryColumnWidthFraction() {
+    func shouldSetPrimaryColumnWidthFraction() {
         if UIScreen.main.bounds.width > UIScreen.main.bounds.height {
             self.preferredPrimaryColumnWidthFraction = 0.2
         } else {

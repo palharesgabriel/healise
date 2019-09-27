@@ -50,12 +50,12 @@ extension CapturesViewController {
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 		picker.dismiss(animated: true, completion: {
-			guard let image = info[.originalImage] as? UIImage else {
+			guard let image = info[.editedImage] as? UIImage else {
 				print("No image found")
 				return
 			}
 			self.day.media?.addTo(photos: image)
-			self.photosCollectionView.reloadData()
+			self.galleryCollectionView.reloadData()
 		})
 	}
 }
