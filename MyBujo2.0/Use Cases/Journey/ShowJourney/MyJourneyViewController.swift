@@ -12,7 +12,9 @@ class MyJourneyViewController: UIViewController, ViewCode {
     
     
     // MARK: Properties
+
     var day: Day!
+    
     var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.backgroundColor = .clear
@@ -29,6 +31,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
+
     }
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -83,13 +86,19 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
             cell.setupCell(calendarType: .month, date: Date())
             return cell
         case 1:
-            guard let cellCollection = tableView.dequeueReusableCell(withIdentifier: "cardsCell") as? CollectionTableViewCell else {return UITableViewCell() }
+            guard let cellCollection = tableView.dequeueReusableCell(withIdentifier: "cardsCell") as? CollectionTableViewCell else { return UITableViewCell() }
             return cellCollection
         default:
             return UITableViewCell()
         }
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let colectionCell = cell as? CollectionTableViewCell {
+            colectionCell.collectionView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
