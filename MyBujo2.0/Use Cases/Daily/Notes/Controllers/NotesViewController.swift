@@ -18,7 +18,6 @@ class NotesViewController: MediaViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationController?.navigationBar.isHidden = true
         constraintNotesView()
         
         if let text =  CalendarManager.shared.selectedDay.media?.note {

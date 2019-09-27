@@ -14,7 +14,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     // MARK: Properties
     let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
     var monthData: MonthData {
-            if let month = CoreDataManager.getMonthStats(month: CalendarManager.shared.currentMonthComponent) {
+            if let month = CoreDataManager.getMonthData(month: CalendarManager.shared.currentMonthComponent) {
                 return month
             }
             return MonthData()

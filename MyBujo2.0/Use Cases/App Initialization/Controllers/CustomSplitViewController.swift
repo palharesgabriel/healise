@@ -21,7 +21,6 @@ class CustomSplitViewController: UISplitViewController {
         self.controllers = [MasterViewController(),MyTodayViewController(),MyJourneyViewController()]
         let navigationControllers = controllers.map({ (controller) -> UINavigationController in
             let nav = UINavigationController(rootViewController: controller)
-            controller.navigationController?.navigationBar.isHidden = true
             return nav
         })
 
