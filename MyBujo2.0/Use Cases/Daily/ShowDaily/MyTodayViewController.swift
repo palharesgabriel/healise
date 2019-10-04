@@ -33,7 +33,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     
     // MARK: Override Functions
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.backgroundColor = .orange
+        navigationController?.navigationBar.backgroundColor = UIColor(named: "BlueBackground")
         
     }
     
