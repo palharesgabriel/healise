@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class AudioViewController: MediaViewController {
     
     let audioTableView = AudiosTableView(frame: .zero, style: .plain)
@@ -26,13 +27,14 @@ class AudioViewController: MediaViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue
-        
+        self.view.backgroundColor = UIColor(named: "CardsColor")
+        self.contentView.backgroundColor = UIColor(named: "BlueBackground")
         audioManager = AudioRecordManager()
         audioManager.recordDelegate = self
         audioManager.requestAudioRecordPermission()
         
         audioPlayerView = AudioPlayer()
+       
         audioPlayerView.playDelegate = self
         audioManager.playDelegate = self
         
@@ -53,6 +55,7 @@ class AudioViewController: MediaViewController {
     
 }
 
+@available(iOS 13.0, *)
 extension AudioViewController: ViewCode {
     
     func buildViewHierarchy() {
@@ -72,6 +75,7 @@ extension AudioViewController: ViewCode {
     
 }
 
+@available(iOS 13.0, *)
 extension AudioViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,12 +85,21 @@ extension AudioViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = audioTableView.dequeueReusableCell(withIdentifier: "AudioCell")
         cell?.textLabel?.text = audioManager.recordedAudios[indexPath.row].name
-        cell?.detailTextLabel?.text = "ALooooo"
+        cell?.textLabel?.textColor = UIColor(named: "TitleColor")
+        cell?.backgroundColor = UIColor(named: "CardsColor")
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            audioManager.recordedAudios.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
 }
 
+@available(iOS 13.0, *)
 extension AudioViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedAudio = audioManager.recordedAudios[indexPath.row]
@@ -98,17 +111,18 @@ extension AudioViewController: UITableViewDelegate {
         guard let duration = audioDuration else { return }
         audioPlayerView.setPlayerLeftLabel(currentTime: audioManager.audioPlayer.currentTime)
         audioPlayerView.setPlayerRightLabel(audioDuration: duration)
-        
     }
+    
 }
 
+@available(iOS 13.0, *)
 extension AudioViewController {
     
     func setupTableViewConstraints() {
         NSLayoutConstraint.activate([
             audioTableView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            audioTableView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.95),
-            audioTableView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.35),
+            audioTableView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.9),
+            audioTableView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.4),
             audioTableView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16)
         ])
     }
@@ -116,7 +130,7 @@ extension AudioViewController {
     func setupAudioPlayerConstraints() {
         NSLayoutConstraint.activate([
             audioPlayerView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            audioPlayerView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.95),
+            audioPlayerView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.9),
             audioPlayerView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.3),
             audioPlayerView.topAnchor.constraint(equalTo: self.audioTableView.bottomAnchor, constant: 16)
         ])
@@ -125,14 +139,15 @@ extension AudioViewController {
     func setupRecordButtonConstraints() {
         NSLayoutConstraint.activate([
             recordButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            recordButton.widthAnchor.constraint(equalToConstant: 80),
-            recordButton.heightAnchor.constraint(equalToConstant: 80),
-            recordButton.topAnchor.constraint(equalTo: self.audioPlayerView.bottomAnchor, constant: 64)
+            recordButton.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.25),
+            recordButton.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.15),
+            recordButton.topAnchor.constraint(equalTo: self.audioPlayerView.bottomAnchor, constant: 28)
         ])
     }
     
 }
 
+@available(iOS 13.0, *)
 extension AudioViewController: AudioRecordDelegate {
     
     func didFinishRecord() {
@@ -146,6 +161,7 @@ extension AudioViewController: AudioRecordDelegate {
     
 }
 
+@available(iOS 13.0, *)
 extension AudioViewController: AudioPlayerDelegate {
     func didTapPause() {
         audioManager.pauseAudio()
@@ -177,7 +193,7 @@ extension AudioViewController: AudioPlayerDelegate {
     }
     
     func didFinishPlay(isPlaying: Bool) {
-        audioPlayerView.playButton.setBackgroundColor(color: .systemPink, forState: .normal)
+        audioPlayerView.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         audioPlayerView.progressBar.setProgress(0, animated: false)
         audioPlayerView.setPlayerFlag(isPlaying: isPlaying)
         audioPlayerView.setPlayButtonState()

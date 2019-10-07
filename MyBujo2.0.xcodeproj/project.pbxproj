@@ -639,6 +639,7 @@
 				30C6FD9223311F4400F69F79 /* Media */,
 				30B900592318424A000C0089 /* DayExtension.swift */,
 				30B9005B231842A0000C0089 /* GoalExtension.swift */,
+				30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */,
 				AB8D30DE23390F4D0009409F /* Audio.swift */,
 			);
 			path = Models;
@@ -647,7 +648,6 @@
 		30C6FD9223311F4400F69F79 /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */,
 				30C6FD972331203500F69F79 /* Media+CoreDataProperties.swift */,
 			);
 			path = Media;

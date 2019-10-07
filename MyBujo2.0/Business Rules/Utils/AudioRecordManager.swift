@@ -48,10 +48,16 @@ class AudioRecordManager: NSObject {
         return CalendarManager.shared.selectedDay
     }
     
+    func getFileManagerPath() {
+        let mainPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        guard let media = getDay().media else { return }
+        guard let recordsPath = media.voiceRecordsPath else { return }
+        self.audioPath = mainPath.appendingPathComponent(recordsPath).appendingPathComponent(getCurrentTime())
+    }
+    
     func startRecording() {
         
-        let mainPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        self.audioPath = mainPath.appendingPathComponent(getDay().media!.voiceRecordsPath!).appendingPathComponent(getCurrentTime())
+        getFileManagerPath()
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),

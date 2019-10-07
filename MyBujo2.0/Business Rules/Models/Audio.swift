@@ -9,13 +9,21 @@
 import Foundation
 
 class Audio {
+    
+//    required init?(contentsOfFile path: String) {
+//
+//    }
+//
+//    func dataRepresentation() -> Data? {
+//
+//    }
+//
+//    var relativePathName: String
+    
     let name: String
     let path: URL
-    var audioSize: TimeInterval {
-        didSet {
-            print("eeeeeei, muda não")
-        }
-    }
+    var audioSize: TimeInterval
+
     var currentAudioTime: TimeInterval = 0
     
     init(name: String, path: URL, audioSize: TimeInterval) {

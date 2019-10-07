@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class AudioPlayer: UIView {
     
     var titleLabel: TitleLabel!
@@ -25,15 +26,15 @@ class AudioPlayer: UIView {
     convenience init() {
         self.init(frame: .zero)
         titleLabel = TitleLabel(title: "Audio")
-        titleLabel.textColor = .white
         setupView()
+        addShadow(view: self)
     }
     
     let progressBar: UIProgressView = {
         let progressBar = UIProgressView()
         progressBar.translatesAutoresizingMaskIntoConstraints = false
-        progressBar.trackTintColor = .yellow
-        progressBar.progressTintColor = .purple
+        progressBar.trackTintColor = .gray
+        progressBar.progressTintColor = UIColor(named: "SelectionColor")
         return progressBar
     }()
     
@@ -42,6 +43,7 @@ class AudioPlayer: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "AvenirNextLTPro-Regular", size: 10)
         label.text = "-- : --"
+        label.textColor = UIColor(named: "TitleColor")
         return label
     }()
     
@@ -51,14 +53,15 @@ class AudioPlayer: UIView {
         label.font = UIFont(name: "AvenirNextLTPro-Regular", size: 10)
         label.textAlignment = .right
         label.text = "-- : --"
+        label.textColor = UIColor(named: "TitleColor")
         return label
     }()
     
     let playButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemPink
-        button.setTitle("Play", for: .normal)
+        button.backgroundColor = .clear
+        button.setImage(UIImage(systemName: "play.fill"), for: .normal)
         button.addTarget(self, action: #selector(playTapped), for: .touchUpInside)
         return button
     }()
@@ -99,9 +102,9 @@ class AudioPlayer: UIView {
     
     func setPlayButtonState() {
         if isPlaying {
-            playButton.setTitle("Pause", for: .normal)
+            playButton.setImage(UIImage(systemName: "playpause.fill"), for: .normal)
         } else {
-            playButton.setTitle("Play", for: .normal)
+            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         }
     }
     
@@ -114,19 +117,30 @@ class AudioPlayer: UIView {
     }
     
     func setPlayerRightLabel(audioDuration: TimeInterval) {
-        let fullPartDuration = Int(audioDuration)
-        rightLabel.text = "-\(fullPartDuration)"
+        var secDuration = Int(audioDuration.truncatingRemainder(dividingBy: 60))
+        var minDuration = Int((audioDuration/60).truncatingRemainder(dividingBy: 60))
+        
+        minDuration = minDuration == 60 ? 0 : minDuration
+        secDuration = secDuration == 60 ? 0 : secDuration
+        
+        rightLabel.text = "-\(minDuration):\(secDuration)"
         
     }
     
     func setPlayerLeftLabel(currentTime: TimeInterval) {
-        let fullPartCurrentTime = Int(currentTime)
-        leftLabel.text = String(fullPartCurrentTime)
+        var secCurrentTime = Int(currentTime.truncatingRemainder(dividingBy: 60))
+        var minCurrentTime = Int((currentTime/60).truncatingRemainder(dividingBy: 60))
+        
+        minCurrentTime = minCurrentTime == 60 ? 0 : minCurrentTime
+        secCurrentTime = secCurrentTime == 60 ? 0 :secCurrentTime
+        
+        leftLabel.text = "\(minCurrentTime):\(secCurrentTime)"
     }
         
 }
 
-extension AudioPlayer: ViewCode {
+@available(iOS 13.0, *)
+extension AudioPlayer: ViewCode, Shadow {
     
     func buildViewHierarchy() {
         addSubviews([titleLabel, progressBar, leftLabel, rightLabel, playButton, fastForwardButton, fastBackwardButton])
@@ -149,6 +163,7 @@ extension AudioPlayer: ViewCode {
     
 }
 
+@available(iOS 13.0, *)
 extension AudioPlayer {
     
     func setupTitleViewConstraints() {
@@ -164,7 +179,8 @@ extension AudioPlayer {
         NSLayoutConstraint.activate([
             progressBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 36),
             progressBar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            progressBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
+            progressBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            progressBar.heightAnchor.constraint(equalToConstant: 4)
         ])
     }
     

@@ -101,7 +101,11 @@ extension MediaTableViewCell: UICollectionViewDataSource {
                 // Fallback on earlier versions
             }
         case 2:
-            delegate?.pushViewController(viewController: AudioViewController(title: "Audio"))
+            if #available(iOS 13.0, *) {
+                delegate?.pushViewController(viewController: AudioViewController(title: "Audio"))
+            } else {
+                // Fallback on earlier versions
+            }
         case 3:
             delegate?.pushViewController(viewController: VideoRecordViewController(title: "Videos"))
         case 4:

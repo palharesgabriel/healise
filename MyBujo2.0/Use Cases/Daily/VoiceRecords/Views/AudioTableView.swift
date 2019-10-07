@@ -13,7 +13,7 @@ class AudiosTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         setupView()
-        
+        addShadow(view: self)
     }
     
     required init?(coder: NSCoder) {
@@ -22,7 +22,7 @@ class AudiosTableView: UITableView {
     
 }
 
-extension AudiosTableView: ViewCode {
+extension AudiosTableView: ViewCode, Shadow {
     
     func buildViewHierarchy() {
         //
@@ -35,7 +35,7 @@ extension AudiosTableView: ViewCode {
     func setupAdditionalConfigurantion() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.showsVerticalScrollIndicator = false
-        self.backgroundColor = .yellow
+        self.backgroundColor = UIColor(named: "CardsColor")
         self.separatorStyle = .none
         self.register(UITableViewCell.self, forCellReuseIdentifier: "AudioCell")
     }
