@@ -62,7 +62,6 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     // MARK: Functions
     func buildViewHierarchy() {
         contentView.addSubviews([shadowView, calendarView])
-        
     }
     
     func setupConstraints() {
@@ -140,7 +139,6 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         delegate.didSelectDate(date: date)
     }
     
-    
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? DayCell else { return }
         cell.setupCell(cellState: cellState)
@@ -163,11 +161,9 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         guard let cell = cell else { return false }
         if cellState.dateBelongsTo == .thisMonth && !cell.isSelected {
             return true
-        }
-        else if cellState.dateBelongsTo == .thisMonth && cell.isSelected {
+        } else if cellState.dateBelongsTo == .thisMonth && cell.isSelected {
             delegate.shouldShowAddFeelingModal()
             return true
         }
-        return false
+        return false }
     }
-}
