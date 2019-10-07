@@ -64,8 +64,8 @@
 		30C6FD9C233122FF00F69F79 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */; };
 		30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D4230C239100D56A41 /* MonthHeader.swift */; };
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
-		6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */; };
-		63B0C0749EFE28F00D8E2D68 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */; };
+		30F091FC4D6DD65676165420 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */; };
+		86B2717C09121F8791F4DCB7 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
 		AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */; };
 		AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65B2230AD990009CFE7E /* MyBujo2_0.xcdatamodeld */; };
@@ -131,6 +131,7 @@
 		15DFF5C62316FB8200F70860 /* Blurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurable.swift; sourceTree = "<group>"; };
 		15E6195E2329370800C5E96D /* BlurableModalAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurableModalAnimationController.swift; sourceTree = "<group>"; };
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
+		1A42B77BC5296E06887DA2E4 /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		300CAB7A2327C1E3002F066A /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		3010248D232A840700BBE978 /* AddGoalsAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalsAnimator.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
@@ -167,9 +168,10 @@
 		30CBF8D7230C347200D56A41 /* WeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
 		30CBF8D9230C34F100D56A41 /* AvenirNextLTPro-MediumCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumCn.otf"; sourceTree = "<group>"; };
 		30CBF8DA230C34F100D56A41 /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
-		34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
-		5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
+		996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9BD351423C88B3EC62A77941 /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
 		AB6A65A8230AD990009CFE7E /* MyBujo2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBujo2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65AB230AD990009CFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJourneyViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +192,7 @@
 		AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerDelegate.swift; sourceTree = "<group>"; };
 		AB8D30DE23390F4D0009409F /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
-		D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
+		B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiButton+Extension.swift"; sourceTree = "<group>"; };
 		E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiLabel+Extension.swift"; sourceTree = "<group>"; };
@@ -204,8 +206,6 @@
 		E88784752331223C00BFFE10 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		E8ADD1932335119B00AA80C4 /* CounterGoalsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterGoalsCard.swift; sourceTree = "<group>"; };
 		E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Extension.swift"; sourceTree = "<group>"; };
-		ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
-		FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6294575E649801E7A4DB4FF3 /* Pods_MyBujo2_0.framework in Frameworks */,
+				30F091FC4D6DD65676165420 /* Pods_MyBujo2_0.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B0C0749EFE28F00D8E2D68 /* Pods_MyBujo2_0Tests.framework in Frameworks */,
+				86B2717C09121F8791F4DCB7 /* Pods_MyBujo2_0Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +264,15 @@
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		3007086979EC88841911B28E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */,
+				B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		305CC97D232A6BC100969B52 /* Animator */ = {
@@ -665,15 +674,6 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
-		4EB0A2306CA8B58B2EC642AA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				34F91807E7DBC8D75EE25897 /* Pods_MyBujo2_0.framework */,
-				FB3BC72103D3420E61711362 /* Pods_MyBujo2_0Tests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AB6A659F230AD990009CFE7E = {
 			isa = PBXGroup;
 			children = (
@@ -681,8 +681,8 @@
 				AB6A65C2230AD994009CFE7E /* MyBujo2.0Tests */,
 				AB6A65A9230AD990009CFE7E /* Products */,
 				B10888BBE6C5CE81382D8853 /* Pods */,
-				4EB0A2306CA8B58B2EC642AA /* Frameworks */,
 				15EF7187230DA302001F79D9 /* Recovered References */,
+				3007086979EC88841911B28E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -738,10 +738,10 @@
 		B10888BBE6C5CE81382D8853 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */,
-				D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */,
-				5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */,
-				47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */,
+				9BD351423C88B3EC62A77941 /* Pods-MyBujo2.0.debug.xcconfig */,
+				84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */,
+				1A42B77BC5296E06887DA2E4 /* Pods-MyBujo2.0Tests.debug.xcconfig */,
+				996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -795,12 +795,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB6A65C8230AD994009CFE7E /* Build configuration list for PBXNativeTarget "MyBujo2.0" */;
 			buildPhases = (
-				0EB5B137F22F963265EEDB22 /* [CP] Check Pods Manifest.lock */,
+				F3B06E7A1F46759BD09FBED8 /* [CP] Check Pods Manifest.lock */,
 				AB6A65A4230AD990009CFE7E /* Sources */,
 				AB6A65A5230AD990009CFE7E /* Frameworks */,
 				AB6A65A6230AD990009CFE7E /* Resources */,
-				634A580F365AC6056F273931 /* [CP] Embed Pods Frameworks */,
 				AB3FBDD9231412F30072A5EC /* Swift Lint */,
+				F6B4751E381A869D54E5CEF7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -815,7 +815,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB6A65CB230AD994009CFE7E /* Build configuration list for PBXNativeTarget "MyBujo2.0Tests" */;
 			buildPhases = (
-				8256DC58375C90401BCD579D /* [CP] Check Pods Manifest.lock */,
+				499274A619F8C656796029D4 /* [CP] Check Pods Manifest.lock */,
 				AB6A65BB230AD994009CFE7E /* Sources */,
 				AB6A65BC230AD994009CFE7E /* Frameworks */,
 				AB6A65BD230AD994009CFE7E /* Resources */,
@@ -896,46 +896,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0EB5B137F22F963265EEDB22 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyBujo2.0-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		634A580F365AC6056F273931 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8256DC58375C90401BCD579D /* [CP] Check Pods Manifest.lock */ = {
+		499274A619F8C656796029D4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -974,6 +935,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		F3B06E7A1F46759BD09FBED8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBujo2.0-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6B4751E381A869D54E5CEF7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1149,7 +1149,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1204,7 +1204,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1216,7 +1216,7 @@
 		};
 		AB6A65C9230AD994009CFE7E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECE48980FB9CFE37C8EEA7BF /* Pods-MyBujo2.0.debug.xcconfig */;
+			baseConfigurationReference = 9BD351423C88B3EC62A77941 /* Pods-MyBujo2.0.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1241,7 +1241,7 @@
 		};
 		AB6A65CA230AD994009CFE7E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4A2D3033DEB8B4DDF9B1BEE /* Pods-MyBujo2.0.release.xcconfig */;
+			baseConfigurationReference = 84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1266,7 +1266,7 @@
 		};
 		AB6A65CC230AD994009CFE7E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5FF6BF279798F24CD8DECC74 /* Pods-MyBujo2.0Tests.debug.xcconfig */;
+			baseConfigurationReference = 1A42B77BC5296E06887DA2E4 /* Pods-MyBujo2.0Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1288,7 +1288,7 @@
 		};
 		AB6A65CD230AD994009CFE7E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47DE8298B37C3D17CC42DD22 /* Pods-MyBujo2.0Tests.release.xcconfig */;
+			baseConfigurationReference = 996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

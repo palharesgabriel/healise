@@ -30,6 +30,7 @@ class FormView: UIView, Shadow, ViewCode {
         txtField.layer.borderColor = UIColor(named: "AvenirNext-Medium")?.cgColor
         txtField.layer.cornerRadius = 16
         txtField.clipsToBounds = true
+        txtField.backgroundColor = UIColor(named: "CardsColor")
         txtField.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         return txtField
     }()
@@ -47,7 +48,6 @@ class FormView: UIView, Shadow, ViewCode {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        
         addShadow(view: self)
         setupView()
     }
@@ -82,7 +82,9 @@ class FormView: UIView, Shadow, ViewCode {
         doneButton.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
     func setupAdditionalConfigurantion() {
-        backgroundColor = UIColor(named: "ModalBackground")
+        DispatchQueue.main.async {
+            self.backgroundColor = UIColor(named: "CardsColor")
+        }
         doneButton.addTarget(self, action: #selector(tapDoneButton), for: .touchDown)
     }
     
