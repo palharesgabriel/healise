@@ -11,12 +11,12 @@ import Photos
 
 
 class CapturesViewController: GalleryViewController {
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		galleryCollectionView.dataSource = self
 		galleryCollectionView.delegate = self
-    }
+	}
 }
 
 extension CapturesViewController: UICollectionViewDataSource {

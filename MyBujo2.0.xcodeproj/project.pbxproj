@@ -20,6 +20,7 @@
 		154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154B139223143B3600F03C6C /* GoalTableViewCell.swift */; };
 		157D9D69232A9285009659F4 /* CaptureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157D9D68232A9285009659F4 /* CaptureCollectionViewCell.swift */; };
 		157F4540232AEDE8007BC8D4 /* NewBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157F453F232AEDE8007BC8D4 /* NewBaseViewController.swift */; };
+		15987CB8234CBF2F00E7BEE6 /* UICollectionViewCell+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15987CB7234CBF2F00E7BEE6 /* UICollectionViewCell+Shake.swift */; };
 		159DB6F7233CF0C600CD9D5F /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159DB6F6233CF0C600CD9D5F /* VideosViewController.swift */; };
 		159DB6FA233CF16400CD9D5F /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159DB6F9233CF16400CD9D5F /* GalleryViewController.swift */; };
 		15B4C04A2327E294009B6067 /* CapturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B4C0492327E294009B6067 /* CapturesViewController.swift */; };
@@ -115,6 +116,7 @@
 		154B139223143B3600F03C6C /* GoalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalTableViewCell.swift; sourceTree = "<group>"; };
 		157D9D68232A9285009659F4 /* CaptureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureCollectionViewCell.swift; sourceTree = "<group>"; };
 		157F453F232AEDE8007BC8D4 /* NewBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBaseViewController.swift; sourceTree = "<group>"; };
+		15987CB7234CBF2F00E7BEE6 /* UICollectionViewCell+Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Shake.swift"; sourceTree = "<group>"; };
 		159DB6F6233CF0C600CD9D5F /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		159DB6F9233CF16400CD9D5F /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		15B4C0492327E294009B6067 /* CapturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapturesViewController.swift; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 				E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */,
 				30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */,
 				309DC7F4233E3CF800F3218E /* UIImageExtension.swift */,
+				15987CB7234CBF2F00E7BEE6 /* UICollectionViewCell+Shake.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1000,6 +1003,7 @@
 				E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */,
 				30117AD3233CE18800F0D5F1 /* CalendarStructs.swift in Sources */,
 				30117AD0233CE16200F0D5F1 /* MonthData.swift in Sources */,
+				15987CB8234CBF2F00E7BEE6 /* UICollectionViewCell+Shake.swift in Sources */,
 				1516C18C23154851002EC623 /* GoalsTableViewCell.swift in Sources */,
 				3074027B233257990058D997 /* HealthCollectionViewCell.swift in Sources */,
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,

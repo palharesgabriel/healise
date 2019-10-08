@@ -20,6 +20,8 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
     
 	func setupCell(image: UIImage) {
         setupView()
+		let longPress = UILongPressGestureRecognizer(target: self, action: #selector(shouldSelectPhotos(_:)))
+		addGestureRecognizer(longPress)
         captureImageView.image = image
 	}
     
@@ -39,4 +41,9 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
     func setupAdditionalConfigurantion() {
         backgroundColor = .white
     }
+	
+	
+	@objc private func shouldSelectPhotos(_ sender: UILongPressGestureRecognizer) {
+		self.shake()
+	}
 }
