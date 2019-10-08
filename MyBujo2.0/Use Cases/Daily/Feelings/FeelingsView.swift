@@ -35,6 +35,7 @@ class FeelingsView: UIView, Shadow, ViewCode {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         setupView()
         addShadow(view: self)
     }

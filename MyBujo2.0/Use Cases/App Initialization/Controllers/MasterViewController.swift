@@ -53,17 +53,30 @@ class MasterViewController: UIViewController, ViewCode {
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        Defaults.name = "Tavarinho"
-        nameLabel.text = Defaults.name
-        self.title = Defaults.name
+        nameLabel.text = ""
+        self.title = "Healise"
         dayStatusLabel.text = getTimeDayLabel()
         setupView()
+        localizableLanguageApp()
         myTodayButton.addTarget(self, action: #selector(didClickMyTodayButton(_:)), for: .touchDown)
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
     }
     
     
     // MARK: Functions
+    func localizableLanguageApp() {
+        myTodayButton.setTitle(NSLocalizedString("Daily", comment: "You Daily page"),
+                                for: .normal)
+        myJourneyButton.setTitle(NSLocalizedString("Journey", comment: "You journey page"),
+                                 for: .normal)
+        supportButton.setTitle(NSLocalizedString("Support", comment: "You Support page"),
+                               for: .normal)
+        settingsButton.setTitle(NSLocalizedString("Settings", comment: "You Settings page"),
+                               for: .normal)
+        let formatStringDay = NSLocalizedString("Good Morning.",
+                                             comment: "Goog Morning.")
+        dayStatusLabel.text = String.localizedStringWithFormat(formatStringDay)
+    }
     func buildViewHierarchy() {
         view.addSubviews([nameLabel, dayStatusLabel, myTodayButton,
                           myJourneyButton, supportButton, settingsButton ])

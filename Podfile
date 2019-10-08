@@ -6,7 +6,7 @@ target 'MyBujo2.0' do
   use_frameworks!
 
   # Pods for MyBujo2.0
-	pod 'JTAppleCalendar'
+     pod 'JTAppleCalendar'
 
   target 'MyBujo2.0Tests' do
     inherit! :search_paths
