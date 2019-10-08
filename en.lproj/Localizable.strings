@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  MyBujo2.0
+  Created by Rennan Rebouças on 07/10/19.
+  Copyright © 2019 Gabriel Palhares. All rights reserved.
+*/
+
+"Daily" = "Daily";
+"Journey" = "Journey";
+"Good Morning." = "Good Morning.";
+"Good Evening." = "Good Evening.";
+"Support" = "Support";
+"Settings" = "Settings";
+"Your goals this month" = "Your goals this month";
+"Calendar" = "Calendar";
+"Insert a new goal for today" = "Insert a new goal for today";
+"How are you feeling today?" = "How are you feeling today?";
+"Goals" = "Goals";
+"Media" = "Media";
+"Sun" = "Sun";
+"Mon" = "Mon";
+"Tue" = "Tue";
+"Wed" = "Wed";
+"Thu" = "Thu";
+"Fri" = "Fri";
+"Sat" = "Sat";
+"Note" = "Note";
+"Drawing" = "Drawing";
+"Videos" = "Videos" ;
+"Captures" = "Captures";

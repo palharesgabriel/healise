@@ -26,6 +26,7 @@ enum CalendarType {
 
 class CalendarTableViewCell: UITableViewCell, ViewCode {
     
+    var touched = false
     // MARK: Properties
     static let reuseIdentifier = "CalendarTableViewCellIdentifier"
     var type: CalendarType!
@@ -61,7 +62,6 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     // MARK: Functions
     func buildViewHierarchy() {
         contentView.addSubviews([shadowView, calendarView])
-        
     }
     
     func setupConstraints() {
@@ -101,13 +101,13 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         let visibleDates = calendarView.visibleDates()
         calendarView.viewWillTransition(to: .zero, with: coordinator, anchorDate: visibleDates.monthDates.first?.date)
     }
-    
-    
 }
 
 
     // MARK: Extensions
 extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource {
+    
+    
     func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? DayCell else { return }
         cell.setupCell(cellState: cellState)
@@ -130,7 +130,6 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
     func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
         guard let cell = calendarView.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as? DayCell else { return JTACDayCell()}
         cell.setupCell(cellState: cellState)
-        
         return cell
     }
     
@@ -139,7 +138,6 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         cell.setupCell(cellState: cellState)
         delegate.didSelectDate(date: date)
     }
-    
     
     func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
         guard let cell = cell as? DayCell else { return }
@@ -167,6 +165,5 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
             delegate.shouldShowAddFeelingModal()
             return true
         }
-        return false
+        return false }
     }
-}

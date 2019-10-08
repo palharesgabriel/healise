@@ -14,7 +14,7 @@ class FeelingsView: UIView, Shadow, ViewCode {
     
     // MARK: Properties
     let feelingsCardView = FeelingsCardView()
-    let feelingsCardTitle = UILabel(text: "How are you feeling today?", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!)
+    let feelingsCardTitle = UILabel(text: "How are you feeling today?", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!,localizableString: "How are you feeling today?")
     
     let doneButton: UIButton = {
         let btn = UIButton()
@@ -35,6 +35,7 @@ class FeelingsView: UIView, Shadow, ViewCode {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
+        
         setupView()
         addShadow(view: self)
     }

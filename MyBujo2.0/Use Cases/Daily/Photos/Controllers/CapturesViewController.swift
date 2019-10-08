@@ -9,72 +9,49 @@
 import UIKit
 import Photos
 
-class CapturesViewController: MediaViewController, ViewCode, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    let photosCollectionView:UICollectionView = {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.showsHorizontalScrollIndicator = false
-        return collectionView
-    }()
-    
+
+class CapturesViewController: GalleryViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-    }
-    
-    func buildViewHierarchy() {
-        view.addSubview(photosCollectionView)
-    }
-    
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            photosCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            photosCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            photosCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            photosCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
-    }
-    
-    func setupAdditionalConfigurantion() {
-        view.backgroundColor = UIColor(named: "BlueBackground")
-    }
-    
-    @objc func didPresentImagePickerController() {
-        let imagePickerViewController = UIImagePickerController()
-        imagePickerViewController.sourceType = .camera
-        imagePickerViewController.allowsEditing = true
-        imagePickerViewController.delegate = self
-        self.present(imagePickerViewController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        picker.dismiss(animated: true, completion: nil)
-        guard let image = info[.editedImage] as? UIImage else {
-            print("No image found")
-            return
-        }
+		
+		galleryCollectionView.dataSource = self
+		galleryCollectionView.delegate = self
     }
 }
 
 extension CapturesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+		guard let media = day.media, let photos = media.photos else { return 1 }
+		return photos.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) is CaptureCollectionViewCell else { return UICollectionViewCell()}
-        
-        return UICollectionViewCell()
+        switch indexPath.row {
+        case 0:
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewItemGalleryCollectionViewCell.reuseIdentifier, for: indexPath) as? NewItemGalleryCollectionViewCell else { return UICollectionViewCell()}
+			cell.setupCell(sfImage: "camera.circle.fill", image: "camerabubble")
+			return cell
+        default:
+			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
+			guard let images = day.media!.photos else { return UICollectionViewCell()}
+			cell.setupCell(image: images[indexPath.row - 1])
+            return cell
+        }
     }
 }
 
 extension CapturesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 160, height: 160)
+			return CGSize(width: view.frame.width * 0.33, height: view.frame.width * 0.33)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            presentImagePickerController()
+        default:
+            let testController = FocusedPhotoViewController(row: indexPath.row - 1, photos: CalendarManager.shared.selectedDay.media?.photos)
+            present(testController, animated: true, completion: nil)
+        }
     }
 }

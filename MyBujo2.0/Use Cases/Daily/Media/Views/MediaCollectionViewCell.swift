@@ -31,7 +31,7 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
             let configuration = UIImage.SymbolConfiguration(pointSize: 48, weight: .light)
             iconImageView.image = UIImage(systemName: imageName, withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate) ?? UIImage(named: "notes")!.withRenderingMode(.alwaysTemplate)
         } else {
-            iconImageView.image =  UIImage(named: "notes")!.withRenderingMode(.alwaysTemplate)
+            iconImageView.image =  UIImage(named: imageName)!.withRenderingMode(.alwaysTemplate)
         }
         iconImageView.tintColor = UIColor(named: "TitleColor")
     }

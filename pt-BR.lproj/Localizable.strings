@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  MyBujo2.0
+aa
+  Created by Rennan Rebouças on 07/10/19.
+  Copyright © 2019 Gabriel Palhares. All rights reserved.
+*/
+
+"Daily" = "Diário";
+"Journey" = "Jornada";
+"Good Morning." = "Bom dia.";
+"Good Evening." = "Boa noite.";
+"Support" = "Suporte";
+"Settings" = "Configurações";
+"Your goals this month" = "Suas Metas Mensais";
+"Calendar" = "Calendário";
+"Goals" = "Metas";
+"Media" = "Mídias";
+"Insert a new goal for today" = "Insira uma nova meta para hoje";
+"How are you feeling today?" = "Como você está se sentindo hoje?";
+"Sun" = "Dom";
+"Mon" = "Seg";
+"Tue" = "Ter";
+"Wed" = "Qua";
+"Thu" = "Qui";
+"Fri" = "Sex";
+"Sat" = "Sab";
+"Note" = "Notas";
+"Drawing" = "Desenho";
+"Videos" = "Videos" ;
+"Captures" = "Fotos";

@@ -10,30 +10,73 @@ import UIKit
 
 class MasterViewController: UIViewController, ViewCode {
     
+    let iconNames = [(sf: "person", normal: "icons"), (sf: "calendar", normal: "support"), (sf: "person.2", normal: "today"), (sf: "gear", normal: "settings")]
+    
+    
     // MARK: Properties
-    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"SelectionColor")!)
-    let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"SelectionColor")!)
-    let myTodayButton = NavigationButton(title: "      Daily",icon: "person", idColor: 0)
-    let myJourneyButton = NavigationButton(title: "        Journey",icon: "calendar", idColor: 1)
-    let supportButton = NavigationButton(title: "      Support",icon: "person.2", idColor: 2)
-    let settingsButton = NavigationButton(title: "      Settings",icon: "gear", idColor: 3)
+    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"SelectionColor")!,localizableString: "Lucas")
+    let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"SelectionColor")!,localizableString: "Good morning.")
+    lazy var myTodayButton: NavigationButton = {
+        if #available(iOS 13.0, *) {
+            return NavigationButton(title: "Daily", icon: "person", idColor: 0)
+            
+        } else {
+            return NavigationButton(title: "Daily", icon: "icons", idColor: 0)
+        }
+    }()
+    
+    lazy var myJourneyButton: NavigationButton = {
+        if #available(iOS 13.0, *) {
+            return NavigationButton(title: "Journey",icon: "calendar", idColor: 1)
+        } else {
+            return NavigationButton(title: "Journey",icon: "today", idColor: 1)
+        }
+    }()
+    lazy var supportButton: NavigationButton = {
+        if #available(iOS 13.0, *) {
+            return NavigationButton(title: "Support",icon: "person.2", idColor: 2)
+        } else {
+            return NavigationButton(title: "Journey",icon: "support", idColor: 2)
+        }
+    }()
+    let settingsButton: NavigationButton = {
+        if #available(iOS 13.0, *) {
+            return NavigationButton (title: "Settings",icon: "gear", idColor: 3)
+        } else {
+            return NavigationButton (title: "Settings",icon: "settings", idColor: 3)
+        }
+    }()
+   
     var viewControllers: [UINavigationController] = []
-    
-    
     
     
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        Defaults.login = false
+        nameLabel.text = ""
+        self.title = "Healise"
         dayStatusLabel.text = getTimeDayLabel()
         setupView()
+        localizableLanguageApp()
         myTodayButton.addTarget(self, action: #selector(didClickMyTodayButton(_:)), for: .touchDown)
         myJourneyButton.addTarget(self, action: #selector(didShowMyJourneyViewController(_:)), for: .touchDown)
     }
     
     
     // MARK: Functions
+    func localizableLanguageApp() {
+        myTodayButton.setTitle(NSLocalizedString("Daily", comment: "You Daily page"),
+                                for: .normal)
+        myJourneyButton.setTitle(NSLocalizedString("Journey", comment: "You journey page"),
+                                 for: .normal)
+        supportButton.setTitle(NSLocalizedString("Support", comment: "You Support page"),
+                               for: .normal)
+        settingsButton.setTitle(NSLocalizedString("Settings", comment: "You Settings page"),
+                               for: .normal)
+        let formatStringDay = NSLocalizedString("Good Morning.",
+                                             comment: "Goog Morning.")
+        dayStatusLabel.text = String.localizedStringWithFormat(formatStringDay)
+    }
     func buildViewHierarchy() {
         view.addSubviews([nameLabel, dayStatusLabel, myTodayButton,
                           myJourneyButton, supportButton, settingsButton ])

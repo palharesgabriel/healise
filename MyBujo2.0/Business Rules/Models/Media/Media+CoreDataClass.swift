@@ -12,23 +12,25 @@ import CoreData
 
 @objc(Media)
 public class Media: NSManagedObject {
-    lazy var photos: [UIImage]? = {
-        if let photos = self.photos {
-            return photos
-        } else {
-            //AQUI TEM QUE PEGAR DO FILEMANAGER
-            return [UIImage]()
-        }
-    }()
+	
+	var photos: [UIImage]? {
+        guard let paths = FileManager.default.getPaths(for: photosPath!) else { return nil }
+		let sortedPaths = FileManager.default.sortPaths(paths: paths, mediaPath: photosPath!)
+        guard let images: [UIImage] = FileManager.default.getMedia(from: sortedPaths, mediaPath: photosPath!) else { return nil }
+		return images
+    }
+    
+    var audios: [Audio]? {
+        guard let paths = FileManager.default.getPaths(for: voiceRecordsPath!) else { return nil }
+        let sortedPaths = FileManager.default.sortPaths(paths: paths, mediaPath: voiceRecordsPath!)
+        guard let audios: [Audio] = FileManager.default.getMedia(from: sortedPaths, mediaPath: voiceRecordsPath!) else { return nil }
+        return audios
+    }
     
     func addTo(photos image: UIImage) {
-        photos?.append(image)
-        //salvar no FileManager
-    }
-    func addTo(photos images: [UIImage]) {
-        photos?.append(contentsOf: images)
-        //salvar no FileManager
-    }
+		guard let photosPath = photosPath else { return }
+        FileManager.default.saveToFileManager(media: image, mediaPath: photosPath)
+	}
     
     func save() {
         CoreDataManager.save()

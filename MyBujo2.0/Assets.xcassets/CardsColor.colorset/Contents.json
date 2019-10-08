@@ -9,11 +9,24 @@
       "color" : {
         "color-space" : "srgb",
         "components" : {
-          "red" : "0xFA",
+          "red" : "250",
           "alpha" : "1.000",
-          "blue" : "0xFF",
-          "green" : "0xFA"
+          "blue" : "255",
+          "green" : "250"
         }
+      }
+    },
+    {
+      "idiom" : "universal",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "platform" : "osx",
+        "reference" : "unemphasizedSelectedContentBackgroundColor"
       }
     }
   ]

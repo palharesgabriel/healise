@@ -9,19 +9,31 @@
 import UIKit
 
 class ReusableCollectionViewCell: UICollectionViewCell, Shadow {
+
     
-    
-    
+
+    let shadowView = ShadowView()
     // MARK: Initialization
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addShadow(view: self)
+        setupShadowView()
+//        addShadow(view: self)
+      
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+
+    func setupShadowView() {
+        contentView.addSubview(shadowView)
+        NSLayoutConstraint.activate([
+            shadowView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            shadowView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            shadowView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            shadowView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -8)
+            ])
+    }
+
     
-    // MARK: Functions
 }
