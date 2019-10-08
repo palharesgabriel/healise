@@ -8,12 +8,7 @@
 
 import UIKit
 
-extension UILabel {
-    convenience init(dayName: String) {
-        self.init()
-        text = NSLocalizedString(dayName, comment: dayName)
-    }
-}
+
 
 class WeekDaysView: UIStackView {
     

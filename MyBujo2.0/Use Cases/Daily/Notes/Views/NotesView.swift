@@ -13,7 +13,7 @@ class NotesView: UIView, ViewCode {
     // MARK: Properties
     let noteTextField: UITextView = {
         let textField = UITextView()
-        textField.text = "Create a note here 😀"
+        textField.text = ""
         textField.backgroundColor = .clear
         textField.font = UIFont(name: "AvenirNext-Medium", size: 16)
         textField.textColor = .black

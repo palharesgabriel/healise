@@ -16,6 +16,8 @@ aa
 "Calendar" = "Calendário";
 "Goals" = "Metas";
 "Media" = "Mídias";
+"Insert a new goal for today" = "Insira uma nova meta para hoje";
+"How are you feeling today?" = "Como você está se sentindo hoje?";
 "Sun" = "Dom";
 "Mon" = "Seg";
 "Tue" = "Ter";
@@ -23,3 +25,7 @@ aa
 "Thu" = "Qui";
 "Fri" = "Sex";
 "Sat" = "Sab";
+"Note" = "Notas";
+"Drawing" = "Desenho";
+"Videos" = "Videos" ;
+"Captures" = "Fotos";

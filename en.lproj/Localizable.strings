@@ -13,6 +13,8 @@
 "Settings" = "Settings";
 "Your goals this month" = "Your goals this month";
 "Calendar" = "Calendar";
+"Insert a new goal for today" = "Insert a new goal for today";
+"How are you feeling today?" = "How are you feeling today?";
 "Goals" = "Goals";
 "Media" = "Media";
 "Sun" = "Sun";
@@ -22,3 +24,7 @@
 "Thu" = "Thu";
 "Fri" = "Fri";
 "Sat" = "Sat";
+"Note" = "Note";
+"Drawing" = "Drawing";
+"Videos" = "Videos" ;
+"Captures" = "Captures";

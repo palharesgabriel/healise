@@ -14,7 +14,7 @@ class FeelingsView: UIView, Shadow, ViewCode {
     
     // MARK: Properties
     let feelingsCardView = FeelingsCardView()
-    let feelingsCardTitle = UILabel(text: "How are you feeling today?", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!)
+    let feelingsCardTitle = UILabel(text: "How are you feeling today?", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!,localizableString: "How are you feeling today?")
     
     let doneButton: UIButton = {
         let btn = UIButton()
