@@ -68,7 +68,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                            animations: {
                             fromVC.view.alpha = 0
             })
-            { (completed) in
+{ (completed) in
                 transitionContext.completeTransition(
                     !transitionContext.transitionWasCancelled)
             }
