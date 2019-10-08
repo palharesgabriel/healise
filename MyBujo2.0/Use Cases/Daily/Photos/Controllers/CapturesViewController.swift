@@ -29,7 +29,7 @@ extension CapturesViewController: UICollectionViewDataSource {
         switch indexPath.row {
         case 0:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewItemGalleryCollectionViewCell.reuseIdentifier, for: indexPath) as? NewItemGalleryCollectionViewCell else { return UICollectionViewCell()}
-			cell.setupCell(sfImage: "video.circle.fill", image: "videoBubble")
+			cell.setupCell(sfImage: "camera.circle.fill", image: "camerabubble")
 			return cell
         default:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
