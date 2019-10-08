@@ -24,7 +24,7 @@ extension VideoRecordViewController: UICollectionViewDelegate, UICollectionViewD
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewItemGalleryCollectionViewCell.reuseIdentifier, for: indexPath) as? NewItemGalleryCollectionViewCell else { return UICollectionViewCell() }
-		cell.setupCell(sfImage: "camera.circle.fill", image: "photobubble")
+		cell.setupCell(sfImage: "video.circle.fill", image: "videoBubble")
 		return cell
 	}
 }
