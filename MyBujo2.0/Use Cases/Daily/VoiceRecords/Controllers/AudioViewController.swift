@@ -25,6 +25,9 @@ class AudioViewController: MediaViewController {
         return button
     }()
     
+    let shadowView = ShadowView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "CardsColor")
@@ -34,11 +37,15 @@ class AudioViewController: MediaViewController {
         audioManager.requestAudioRecordPermission()
         
         audioPlayerView = AudioPlayer()
-       
+        
         audioPlayerView.playDelegate = self
         audioManager.playDelegate = self
         
         setupView()
+        
+        guard let audios = CalendarManager.shared.selectedDay.media?.audios else { return }
+        audioManager.recordedAudios = audios
+        
     }
     
     @objc func recordButtonTapped() {
@@ -59,13 +66,14 @@ class AudioViewController: MediaViewController {
 extension AudioViewController: ViewCode {
     
     func buildViewHierarchy() {
-        self.contentView.addSubviews([audioTableView, audioPlayerView, recordButton])
+        self.contentView.addSubviews([shadowView, audioTableView, audioPlayerView, recordButton])
     }
     
     func setupConstraints() {
         setupTableViewConstraints()
         setupAudioPlayerConstraints()
         setupRecordButtonConstraints()
+        setupShadowViewConstraints()
     }
     
     func setupAdditionalConfigurantion() {
@@ -109,7 +117,7 @@ extension AudioViewController: UITableViewDelegate {
         audioPlayerView.setTitleLabelText(audioName: audioName)
         
         guard let duration = audioDuration else { return }
-        audioPlayerView.setPlayerLeftLabel(currentTime: audioManager.audioPlayer.currentTime)
+        audioPlayerView.setPlayerLeftLabel(currentTime: (selectedAudio?.audioPlayer.currentTime)!)
         audioPlayerView.setPlayerRightLabel(audioDuration: duration)
     }
     
@@ -117,6 +125,15 @@ extension AudioViewController: UITableViewDelegate {
 
 @available(iOS 13.0, *)
 extension AudioViewController {
+    
+    func setupShadowViewConstraints() {
+        NSLayoutConstraint.activate([
+            shadowView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            shadowView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.9),
+            shadowView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.4),
+            shadowView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 16)
+        ])
+    }
     
     func setupTableViewConstraints() {
         NSLayoutConstraint.activate([
@@ -193,7 +210,6 @@ extension AudioViewController: AudioPlayerDelegate {
     }
     
     func didFinishPlay(isPlaying: Bool) {
-        audioPlayerView.playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         audioPlayerView.progressBar.setProgress(0, animated: false)
         audioPlayerView.setPlayerFlag(isPlaying: isPlaying)
         audioPlayerView.setPlayButtonState()

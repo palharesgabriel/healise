@@ -13,7 +13,6 @@ class AudiosTableView: UITableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         setupView()
-        addShadow(view: self)
     }
     
     required init?(coder: NSCoder) {
@@ -38,6 +37,8 @@ extension AudiosTableView: ViewCode, Shadow {
         self.backgroundColor = UIColor(named: "CardsColor")
         self.separatorStyle = .none
         self.register(UITableViewCell.self, forCellReuseIdentifier: "AudioCell")
+        self.clipsToBounds = true
+        self.layer.cornerRadius = 16
     }
     
 }

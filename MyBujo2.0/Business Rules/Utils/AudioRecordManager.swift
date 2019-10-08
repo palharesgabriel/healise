@@ -28,7 +28,7 @@ class AudioRecordManager: NSObject {
     
     func requestAudioRecordPermission() {
         do {
-            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setCategory(.playAndRecord, options: .defaultToSpeaker)
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission { allowed in
                 DispatchQueue.main.async {
@@ -80,9 +80,11 @@ class AudioRecordManager: NSObject {
         recorder.stop()
         self.audioRecorder = nil
         
+        let player = setupPlayer(withAudioPath: audioPath)
+        
         if success {
-            let audio = Audio(name: getCurrentTime(), path: audioPath, audioSize: getAudioDuration())
-            recordedAudios.append(audio)
+            let audio = Audio(name: getCurrentTime(), path: audioPath, audioSize: getAudioDuration(), audioPlayer: player)
+            recordedAudios.insert(audio, at: 0)
             recordDelegate?.didFinishRecord()
         } else {
             print("failed to record")
@@ -91,7 +93,7 @@ class AudioRecordManager: NSObject {
     
     func getCurrentTime() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "hh:mm a"
+        formatter.dateFormat = "hh:mm:ss"
         let hourString = formatter.string(from: Date())
         return hourString
     }

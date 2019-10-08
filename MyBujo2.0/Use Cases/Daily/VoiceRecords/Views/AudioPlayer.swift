@@ -61,7 +61,10 @@ class AudioPlayer: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
-        button.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 40, weight: .light)
+        button.setImage(UIImage(systemName: "play.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setImage(UIImage(systemName: "playpause.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .selected)
+        button.tintColor = UIColor(named: "ActionColor")
         button.addTarget(self, action: #selector(playTapped), for: .touchUpInside)
         return button
     }()
@@ -102,9 +105,10 @@ class AudioPlayer: UIView {
     
     func setPlayButtonState() {
         if isPlaying {
-            playButton.setImage(UIImage(systemName: "playpause.fill"), for: .normal)
-        } else {
-            playButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            playButton.isSelected = true
+        }
+        else{
+            playButton.isSelected = false
         }
     }
     
