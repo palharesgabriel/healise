@@ -10,6 +10,8 @@ import UIKit
 
 class MediaTableViewCell: UITableViewCell {
     
+    
+    // MARK: Properties
     let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
     
     static let reuseIdentifier = "MediaTableCell"
@@ -33,7 +35,17 @@ class MediaTableViewCell: UITableViewCell {
         contentView.backgroundColor = .clear
         setupView()
     }
+    let mediasLabel = ["Note","Drawing", "Videos","Captures"]
+    lazy var mediasLabels: [UILabel] = {
+        var labels = [UILabel]()
+        self.mediasLabel.forEach { name in
+            labels.append(UILabel(dayName: name))
+        }
+        return labels
+    }()
     
+    
+    // MARK: Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -54,6 +66,8 @@ class MediaTableViewCell: UITableViewCell {
 
 }
 
+
+    // MARK: Extensions
 extension MediaTableViewCell: ViewCode {
     
     func buildViewHierarchy() {
@@ -93,19 +107,23 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            delegate?.pushViewController(viewController: NotesViewController(title: "Note"))
+            delegate?.pushViewController(viewController: NotesViewController(title: mediasLabels[0].text!))
         case 1:
             if #available(iOS 13.0, *) {
-                delegate?.pushViewController(viewController: DrawingViewController(title: "Drawing"))
+                delegate?.pushViewController(viewController: DrawingViewController(title: mediasLabels[1].text!))
             } else {
                 // Fallback on earlier versions
             }
         case 2:
-            delegate?.pushViewController(viewController: NotesViewController())
+            if #available(iOS 13.0, *) {
+                delegate?.pushViewController(viewController: AudioViewController(title: "Audio"))
+            } else {
+                // Fallback on earlier versions
+            }
         case 3:
-            delegate?.pushViewController(viewController: VideoRecordViewController(title: "Videos"))
+            delegate?.pushViewController(viewController: VideoRecordViewController(title: mediasLabels[2].text!))
         case 4:
-            delegate?.pushViewController(viewController: CapturesViewController(title: "Captures"))
+            delegate?.pushViewController(viewController: CapturesViewController(title: mediasLabels[3].text!))
         default:
             print("Error")
         }

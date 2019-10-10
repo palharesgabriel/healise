@@ -11,7 +11,21 @@ import UIKit
 
 struct HeaderViewFactory {
     
-    
+    var calendarLabel: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("Calendar", comment: "Calendar")
+        return label
+    }()
+    var goalsLabel: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("Goals", comment: "Goals")
+        return label
+    }()
+    var mediaLabel: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("Media", comment: "Media")
+        return label
+    }()
     var tableView: UITableView!
     var section = 0
     
@@ -25,15 +39,15 @@ struct HeaderViewFactory {
         switch section {
         case 0:
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: CalendarTableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else { return nil }
-            header.setupHeader(headerTitle: "Calendar")
+            header.setupHeader(headerTitle: calendarLabel.text!)
             return header
         case 1:
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: GoalsTableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else { return nil }
-            header.setupHeader(headerTitle: "Goals", buttonTitle: "Add")
+            header.setupHeader(headerTitle: goalsLabel.text!, buttonTitle: "Add")
             return header
         case 2:
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MediaTableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else { return nil }
-            header.setupHeader(headerTitle: "Media")
+            header.setupHeader(headerTitle: mediaLabel.text!)
             return header
         default:
             return nil

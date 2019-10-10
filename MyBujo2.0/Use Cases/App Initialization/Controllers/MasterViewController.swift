@@ -14,8 +14,8 @@ class MasterViewController: UIViewController, ViewCode {
     
     
     // MARK: Properties
-    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"SelectionColor")!)
-    let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"SelectionColor")!)
+    let nameLabel = UILabel(text: "Lucas,", font: "Avenir Next", fontSize: 24, textColor: UIColor(named:"SelectionColor")!,localizableString: "Lucas")
+    let dayStatusLabel = UILabel(text: "Good morning.", font: "Avenir Next", fontSize: 24, textColor:  UIColor(named:"SelectionColor")!,localizableString: "Good morning.")
     lazy var myTodayButton: NavigationButton = {
         if #available(iOS 13.0, *) {
             return NavigationButton(title: "Daily", icon: "person", idColor: 0)

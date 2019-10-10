@@ -21,6 +21,7 @@ class CounterGoalsCard: IncrementCollectionViewCell, ViewCode {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        localizableLabel()
         setupView()
     }
     
@@ -33,6 +34,12 @@ class CounterGoalsCard: IncrementCollectionViewCell, ViewCode {
     
     
     // MARK: Functions
+    func localizableLabel() {
+        let formatStringGoalLabel = NSLocalizedString("Your goals this month",
+                                             comment: "Your goals this month")
+        goalLabel.text = String.localizedStringWithFormat(formatStringGoalLabel)
+    }
+    
     func buildViewHierarchy() {
         self.rainView.addSubviews([number,goalLabel])
         self.rainView.layer.addSublayer(circleLayer)
