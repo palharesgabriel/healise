@@ -11,12 +11,41 @@ import Photos
 
 
 class CapturesViewController: GalleryViewController {
-    override func viewDidLoad() {
+	var canEdit: Bool = false
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
-		
 		galleryCollectionView.dataSource = self
 		galleryCollectionView.delegate = self
-    }
+		editGalleryButton.addTarget(self, action: #selector(shouldEnableEditGallery), for: .touchDown)
+	}
+	
+	@objc func shouldEnableEditGallery() {
+		canEdit = !canEdit
+		if canEdit {
+			enableEdit()
+		} else {
+			disableEdit()
+		}
+	}
+	
+	func enableEdit() {
+		editGalleryButton.setTitle("Cancel", for: .normal)
+		for cell in galleryCollectionView.visibleCells {
+			guard let captureCell = cell as? CaptureCollectionViewCell else { continue }
+			captureCell.editable = true
+			captureCell.shake()
+		}
+	}
+	
+	func disableEdit() {
+		editGalleryButton.setTitle("Edit", for: .normal)
+		for cell in galleryCollectionView.visibleCells {
+			guard let captureCell = cell as? CaptureCollectionViewCell else { continue }
+			captureCell.editable = false
+			captureCell.stopShake()
+		}
+	}
 }
 
 extension CapturesViewController: UICollectionViewDataSource {
@@ -33,11 +62,14 @@ extension CapturesViewController: UICollectionViewDataSource {
 			return cell
         default:
 			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
+			cell.delegate = self
 			guard let images = day.media!.photos else { return UICollectionViewCell()}
 			cell.setupCell(image: images[indexPath.row - 1])
             return cell
         }
     }
+	
+	
 }
 
 extension CapturesViewController: UICollectionViewDelegateFlowLayout {
@@ -49,9 +81,19 @@ extension CapturesViewController: UICollectionViewDelegateFlowLayout {
         switch indexPath.row {
         case 0:
             presentImagePickerController()
+			disableEdit()
         default:
             let testController = FocusedPhotoViewController(row: indexPath.row - 1, photos: CalendarManager.shared.selectedDay.media?.photos)
             present(testController, animated: true, completion: nil)
         }
     }
+}
+
+extension CapturesViewController: CaptureCollectionViewCellDelegate {
+	func didDeleteSelectedCell(selected: UICollectionViewCell) {
+		let indexPath = galleryCollectionView.indexPath(for: selected)
+		if (day.media?.removePhoto(index: indexPath!.row-1))! {
+			galleryCollectionView.deleteItems(at: [indexPath!])
+		}
+	}
 }

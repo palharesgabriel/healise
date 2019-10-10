@@ -10,6 +10,18 @@ import UIKit
 
 class GalleryViewController: MediaViewController, ViewCode, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+	
+	let editGalleryButton: UIButton = {
+		let button = UIButton()
+		button.backgroundColor = UIColor(named: "ActionColor")
+		button.setTitle("Edit", for: .normal)
+		button.setTitleColor(.white, for: .normal)
+		button.layer.cornerRadius = 15
+		button.clipsToBounds = true
+		button.translatesAutoresizingMaskIntoConstraints = false
+		return button
+	}()
+	
     let galleryCollectionView:UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -33,12 +45,17 @@ class GalleryViewController: MediaViewController, ViewCode, UINavigationControll
     }
     
     func buildViewHierarchy() {
-        view.addSubview(galleryCollectionView)
+        view.addSubviews([editGalleryButton, galleryCollectionView])
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            galleryCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
+			editGalleryButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+			editGalleryButton.heightAnchor.constraint(equalToConstant: 40),
+			editGalleryButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+			editGalleryButton.widthAnchor.constraint(equalToConstant: 80),
+			
+			galleryCollectionView.topAnchor.constraint(equalTo: editGalleryButton.bottomAnchor, constant: 4),
             galleryCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             galleryCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             galleryCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
