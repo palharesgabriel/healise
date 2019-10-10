@@ -92,7 +92,7 @@ extension CapturesViewController: UICollectionViewDelegateFlowLayout {
 extension CapturesViewController: CaptureCollectionViewCellDelegate {
 	func didDeleteSelectedCell(selected: UICollectionViewCell) {
 		let indexPath = galleryCollectionView.indexPath(for: selected)
-		if (day.media?.removePhoto(index: indexPath!.row-1))! {
+        if (day.media?.remove(index: indexPath!.row-1, mediaPath: (day.media?.photosPath)!))! {
 			galleryCollectionView.deleteItems(at: [indexPath!])
 		}
 	}
