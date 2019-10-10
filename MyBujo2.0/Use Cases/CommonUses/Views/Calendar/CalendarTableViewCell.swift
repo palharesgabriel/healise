@@ -167,4 +167,3 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         }
         return false }
     }
-

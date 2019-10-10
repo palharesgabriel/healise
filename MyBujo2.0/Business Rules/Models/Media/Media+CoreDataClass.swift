@@ -34,6 +34,13 @@ public class Media: NSManagedObject {
 		}
 	}
     
+    var audios: [Audio]? {
+        guard let paths = FileManager.default.getPaths(for: voiceRecordsPath!) else { return nil }
+        let sortedPaths = FileManager.default.sortPaths(paths: paths, mediaPath: voiceRecordsPath!)
+        guard let audios: [Audio] = FileManager.default.getMedia(from: sortedPaths, mediaPath: voiceRecordsPath!) else { return nil }
+        return audios
+    }
+    
     func addTo(photos image: UIImage) {
 		guard let photosPath = photosPath else { return }
         FileManager.default.saveToFileManager(media: image, mediaPath: photosPath)
