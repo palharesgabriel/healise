@@ -39,7 +39,7 @@ class MediaViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
         
-        view.backgroundColor = UIColor(named: "BlueBackground")
+		view.backgroundColor = UIColor(named: "CardsColor")
     
     }
 
