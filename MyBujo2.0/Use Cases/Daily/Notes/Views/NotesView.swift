@@ -16,7 +16,7 @@ class NotesView: UIView, ViewCode {
         textField.text = ""
         textField.backgroundColor = .clear
         textField.font = UIFont(name: "AvenirNext-Medium", size: 16)
-        textField.textColor = .black
+        textField.textColor = UIColor(named: "TitleColor")
         textField.returnKeyType = UIReturnKeyType.done
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 16
