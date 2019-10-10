@@ -16,19 +16,28 @@ enum Feeling: String {
     case angry = "Angry"
     case anxious = "Anxious"
     case indiferent = "Indiferent"
+    case grateful = "Grateful"
+    case surprised = "Surprised"
+    case tired = "Tired"
     
     var color: UIColor {
         switch self {
         case .happy:
-            return UIColor(displayP3Red: 248/255, green: 231/255, blue: 28/255, alpha: 1)
+            return UIColor(named: "Happy")!
         case .sad:
-            return UIColor(displayP3Red: 60/255, green: 89/255, blue: 122/255, alpha: 1)
+            return UIColor(named: "Sad")!
         case .angry:
-            return UIColor(displayP3Red: 255/255, green: 59/255, blue: 48/255, alpha: 1)
+            return UIColor(named: "Angry")!
         case .anxious:
-            return UIColor(displayP3Red: 88/255, green: 86/255, blue: 214/255, alpha: 1)
+            return UIColor(named: "Anxious")!
         case .indiferent:
-            return UIColor(displayP3Red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
+            return UIColor(named: "Happy")!
+        case .grateful:
+            return UIColor(named: "Grateful")!
+        case .surprised:
+            return UIColor(named: "Surprised")!
+        case .tired:
+            return UIColor(named: "Tired")!
         }
     }
 }

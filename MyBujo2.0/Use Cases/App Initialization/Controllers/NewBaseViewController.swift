@@ -25,7 +25,7 @@ class NewBaseViewController: UIViewController, Blurable {
         visualEffect = addBlur()
         view.addSubview(reusableView)
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissWhenTouchedOnBlured))
-        view.addGestureRecognizer(tapGesture)
+		tapGesture.delegate = self
     }
     
     @objc func dismissWhenTouchedOnBlured() {
