@@ -28,7 +28,9 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     
     var touched = false
     // MARK: Properties
+    
     static let reuseIdentifier = "CalendarTableViewCellIdentifier"
+    
     var type: CalendarType!
     weak var delegate: CalendarTableViewCellDelegate!
     
