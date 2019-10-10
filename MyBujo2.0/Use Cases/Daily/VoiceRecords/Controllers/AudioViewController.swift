@@ -30,7 +30,7 @@ class AudioViewController: MediaViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(named: "CardsColor")
+        self.view.backgroundColor = UIColor(named: "BlueBackground")
         self.contentView.backgroundColor = UIColor(named: "BlueBackground")
         audioManager = AudioRecordManager()
         audioManager.recordDelegate = self
@@ -198,6 +198,7 @@ extension AudioViewController: AudioPlayerDelegate {
         guard let path = selectedAudio?.path else { return }
         audioManager.playAudio(withPath: path)
         audioPlayerView.isPlaying = true
+        recordButton.isUserInteractionEnabled = false
     }
     
     func updateProgressView() {
@@ -218,6 +219,8 @@ extension AudioViewController: AudioPlayerDelegate {
         guard let duration = audioDuration else { return }
         audioPlayerView.setPlayerLeftLabel(currentTime: audioManager.audioPlayer.currentTime)
         audioPlayerView.setPlayerRightLabel(audioDuration: duration)
+        
+        recordButton.isUserInteractionEnabled = true
     }
     
 }
