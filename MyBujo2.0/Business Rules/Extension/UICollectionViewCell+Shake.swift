@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 // MARK: CollectionViewCell Animation
 
-extension UICollectionViewCell {
+extension CaptureCollectionViewCell {
 	func shake() {
+		
+		deleteCellButton.isHidden = false
+		editable = true
+		
+	
 		let	shakeAnimation = CABasicAnimation(keyPath: "transform.rotation")
 //		Duration of animation
-		shakeAnimation.duration = 0.05
+		shakeAnimation.duration = 0.1
 //		Times the animation will perform
 		shakeAnimation.repeatCount = 2
 //		When animation over, will plays backwards.
@@ -26,24 +31,21 @@ extension UICollectionViewCell {
 //		Initial position of animation
 		shakeAnimation.fromValue = NSNumber(value: startAngle)
 //		Final position of animation
-		shakeAnimation.toValue = NSNumber(value: 3*stopAngle)
+		shakeAnimation.toValue = NSNumber(value: stopAngle)
 
 		shakeAnimation.autoreverses = true
-		shakeAnimation.duration = 0.15
+		shakeAnimation.duration = 0.5
 		shakeAnimation.repeatCount = 10000
 		shakeAnimation.timeOffset = Double.random(in: 0...290)
-		
-		UIView.animate(withDuration: 0.5) {
-			self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-		}
-		
-		let layer: CALayer = self.layer
-		layer.add(shakeAnimation, forKey: "shaking")
+	
+		self.backgroundColor = .clear
+		captureImageView.layer.add(shakeAnimation, forKey: "shaking")
 	}
 	
 	
 	func stopShake() {
-		let layer: CALayer = self.layer
-		layer.removeAnimation(forKey: "shaking")
+		deleteCellButton.isHidden = true
+		editable = false
+		captureImageView.layer.removeAnimation(forKey: "shaking")
 	}
 }

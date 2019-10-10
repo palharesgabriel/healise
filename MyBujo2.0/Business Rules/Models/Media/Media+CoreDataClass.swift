@@ -19,6 +19,20 @@ public class Media: NSManagedObject {
         guard let images: [UIImage] = FileManager.default.getMedia(from: sortedPaths, mediaPath: photosPath!) else { return nil }
 		return images
     }
+	
+	func removePhoto(index: Int) -> Bool {
+		guard let paths = FileManager.default.getPaths(for: photosPath!) else { return false }
+		let sortedPaths = FileManager.default.sortPaths(paths: paths, mediaPath: photosPath!)
+		do {
+			let mainPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+			let pathToBeRemoved = mainPath.appendingPathComponent(photosPath!).appendingPathComponent(sortedPaths[index])
+			try FileManager.default.removeItem(at: pathToBeRemoved)
+			return true
+		} catch {
+			print(error)
+			return false
+		}
+	}
     
     func addTo(photos image: UIImage) {
 		guard let photosPath = photosPath else { return }
