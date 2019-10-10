@@ -9,8 +9,13 @@
 import UIKit
 
 class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
-    
-    
+        
+	override var isSelected: Bool {
+		didSet {
+			didSelect()
+		}
+	}
+	
     static let reuseIdentifier = "feelingCell"
     
     // MARK: Properties
@@ -41,7 +46,6 @@ class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
         feelingTitle.text = feeling.rawValue
         feelingCircle.backgroundColor = feeling.color
         didSelect()
-        
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -76,14 +80,12 @@ class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
     
     func didSelect() {
         if isSelected {
-            feelingCircle.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
+			feelingCircle.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
             feelingCircle.self.layer.borderWidth = 3
+
         } else {
             feelingCircle.layer.borderColor = UIColor.clear.cgColor
             feelingCircle.self.layer.borderWidth = 1
-        }
-
-        self.isSelected = !isSelected
+		}
     }
-    
 }
