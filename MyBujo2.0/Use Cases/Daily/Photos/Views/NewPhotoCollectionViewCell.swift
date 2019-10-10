@@ -55,4 +55,3 @@ class NewItemGalleryCollectionViewCell: UICollectionViewCell, ViewCode {
 		
 	}
 }
-
