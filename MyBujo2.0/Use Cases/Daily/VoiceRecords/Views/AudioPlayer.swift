@@ -106,8 +106,7 @@ class AudioPlayer: UIView {
     func setPlayButtonState() {
         if isPlaying {
             playButton.isSelected = true
-        }
-        else{
+        } else {
             playButton.isSelected = false
         }
     }

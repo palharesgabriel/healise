@@ -16,16 +16,20 @@ class AudioViewController: MediaViewController {
     var audioManager: AudioRecordManager!
     var selectedAudio: Audio?
     var audioDuration: TimeInterval?
-        
+    let shadowView = ShadowView()
+    
     let recordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemPink
+        button.backgroundColor = UIColor(named: "CardsColor")
+        let configuration = UIImage.SymbolConfiguration(pointSize: 40, weight: .light)
+        button.setImage(UIImage(systemName: "mic.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setImage(UIImage(systemName: "stop.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .selected)
+        button.tintColor = UIColor(named: "ActionColor")
+        button.setShadow()
         button.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
         return button
     }()
-    
-    let shadowView = ShadowView()
     
     
     override func viewDidLoad() {
@@ -54,10 +58,19 @@ class AudioViewController: MediaViewController {
         } else {
             audioManager.finishRecording(success: true)
         }
+        setPlayButtonState()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         audioManager.stopAudio()
+    }
+    
+    func setPlayButtonState() {
+        if audioManager.audioRecorder != nil {
+            recordButton.isSelected = true
+        } else {
+            recordButton.isSelected = false
+        }
     }
     
 }
@@ -168,23 +181,22 @@ extension AudioViewController {
 extension AudioViewController: AudioRecordDelegate {
     
     func didFinishRecord() {
-        self.recordButton.setTitle("Tap to Re-record", for: .normal)
         audioTableView.reloadData()
     }
     
     func didBeginRecord() {
-        self.recordButton.setBackgroundColor(color: .blue, forState: .normal)
+//        self.recordButton.setBackgroundColor(color: .blue, forState: .normal)
     }
     
 }
 
 @available(iOS 13.0, *)
 extension AudioViewController: AudioPlayerDelegate {
+    
     func didTapPause() {
         audioManager.pauseAudio()
         audioPlayerView.isPlaying = false
     }
-    
     
     func didTapFastForwardButton() {
         audioManager.fastForward()

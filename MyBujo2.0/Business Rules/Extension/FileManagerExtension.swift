@@ -30,7 +30,7 @@ extension FileManager {
         let path = mainPath.appendingPathComponent(date).appendingPathComponent("/" + type.rawValue)
            try? self.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
 		return "\(date)/\(type.rawValue)"
-       }
+    }
     
     func directoryExists(path: String) -> Bool {
         var directory: ObjCBool = ObjCBool(false)
