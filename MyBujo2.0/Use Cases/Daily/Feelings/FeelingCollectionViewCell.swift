@@ -8,11 +8,12 @@
 
 import UIKit
 
-class FeelingView: UIView, ViewCode {
+class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
     
+    
+    static let reuseIdentifier = "feelingCell"
     
     // MARK: Properties
-    var isSelected = false
     var feeling: Feeling!
     
     let feelingCircle: UIView = {
@@ -34,11 +35,12 @@ class FeelingView: UIView, ViewCode {
         translatesAutoresizingMaskIntoConstraints = false
         setupView()
     }
-    convenience init(feeling: Feeling, circleColor: UIColor) {
-        self.init()
+    
+    func setupCell(feeling: Feeling) {
         self.feeling = feeling
         feelingTitle.text = feeling.rawValue
-        feelingCircle.backgroundColor = circleColor
+        feelingCircle.backgroundColor = feeling.color
+        didSelect()
         
     }
     required init?(coder aDecoder: NSCoder) {
@@ -48,21 +50,21 @@ class FeelingView: UIView, ViewCode {
     
     // MARK: Functions
     func buildViewHierarchy() {
-        addSubview(feelingCircle)
-        addSubview(feelingTitle)
+        contentView.addSubview(feelingCircle)
+        contentView.addSubview(feelingTitle)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            feelingCircle.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            feelingCircle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             feelingCircle.widthAnchor.constraint(equalToConstant: 24),
             feelingCircle.heightAnchor.constraint(equalToConstant: 24),
-            feelingCircle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            feelingCircle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         
             feelingTitle.topAnchor.constraint(equalTo: feelingCircle.bottomAnchor, constant: 8),
-            feelingTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            feelingTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            feelingTitle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            feelingTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            feelingTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            feelingTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
     
@@ -72,13 +74,13 @@ class FeelingView: UIView, ViewCode {
         feelingCircle.layer.cornerRadius = 12
     }
     
-    func didSelected() {
+    func didSelect() {
         if isSelected {
-            feelingCircle.layer.borderColor = UIColor.clear.cgColor
-            feelingCircle.self.layer.borderWidth = 1
-        } else {
             feelingCircle.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
             feelingCircle.self.layer.borderWidth = 3
+        } else {
+            feelingCircle.layer.borderColor = UIColor.clear.cgColor
+            feelingCircle.self.layer.borderWidth = 1
         }
 
         self.isSelected = !isSelected

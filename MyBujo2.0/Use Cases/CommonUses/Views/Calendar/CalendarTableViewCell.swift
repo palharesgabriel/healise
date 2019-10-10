@@ -28,7 +28,9 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     
     var touched = false
     // MARK: Properties
+    
     static let reuseIdentifier = "CalendarTableViewCellIdentifier"
+    
     var type: CalendarType!
     weak var delegate: CalendarTableViewCellDelegate!
     
@@ -121,7 +123,7 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
             let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .sunday)
             return configParameters
         } else {
-            let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forFirstMonthOnly, generateOutDates: .off, firstDayOfWeek: .sunday)
+            let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .sunday)
             return configParameters
         }
         

@@ -48,7 +48,7 @@ class NewFeelingViewController: NewBaseViewController, ViewCode {
 
     // MARK: Action Buttons
     @objc func didDismissModal() {
-        CalendarManager.shared.selectedDay.feeling = feelingsView.feelingsCardView.selectedFeeling?.feeling
+//        CalendarManager.shared.selectedDay.feeling = feelingsView.feelingsCardView.selectedFeeling.feeling
         CalendarManager.shared.selectedDay.save()
         delegate.didAddFeeling(date: CalendarManager.shared.selectedDay.date!)
         dismiss(animated: true, completion: nil)
