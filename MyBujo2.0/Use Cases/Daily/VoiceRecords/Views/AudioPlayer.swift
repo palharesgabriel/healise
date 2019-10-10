@@ -33,7 +33,7 @@ class AudioPlayer: UIView {
     let progressBar: UIProgressView = {
         let progressBar = UIProgressView()
         progressBar.translatesAutoresizingMaskIntoConstraints = false
-        progressBar.trackTintColor = .gray
+        progressBar.trackTintColor = UIColor(named: "BlueBackground")
         progressBar.progressTintColor = UIColor(named: "SelectionColor")
         return progressBar
     }()
@@ -72,7 +72,10 @@ class AudioPlayer: UIView {
     let fastForwardButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .gray
+        button.backgroundColor = .clear
+        let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
+        button.setImage(UIImage(systemName: "forward.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = UIColor(named: "ActionColor")
         button.addTarget(self, action: #selector(fastForwardButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -80,7 +83,10 @@ class AudioPlayer: UIView {
     let fastBackwardButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .gray
+        button.backgroundColor = .clear
+        let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
+        button.setImage(UIImage(systemName: "backward.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = UIColor(named: "ActionColor")
         button.addTarget(self, action: #selector(fastBackwardButtonTapped), for: .touchUpInside)
         return button
     }()

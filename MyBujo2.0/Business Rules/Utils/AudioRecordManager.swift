@@ -138,25 +138,29 @@ class AudioRecordManager: NSObject {
     }
     
     func fastForward() {
-        if audioPlayer.isPlaying {
-            var time = audioPlayer.currentTime
-            time += 5.0
-            if time >= audioPlayer.duration {
-                stopAudio()
-            } else {
-                audioPlayer.currentTime = time
-            }
+        if audioPlayer != nil {
+            if audioPlayer.isPlaying {
+                 var time = audioPlayer.currentTime
+                 time += 5.0
+                 if time >= audioPlayer.duration {
+                     stopAudio()
+                 } else {
+                     audioPlayer.currentTime = time
+                 }
+             }
         }
     }
     
     func fastBackward() {
-        if audioPlayer.isPlaying {
-            var time: TimeInterval = audioPlayer.currentTime
-            time -= 5.0
-            if time <= 0 {
-                stopAudio()
-            } else {
-                audioPlayer.currentTime = time
+        if audioPlayer != nil {
+            if audioPlayer.isPlaying {
+                var time: TimeInterval = audioPlayer.currentTime
+                time -= 5.0
+                if time <= 0 {
+                    stopAudio()
+                } else {
+                    audioPlayer.currentTime = time
+                }
             }
         }
     }
