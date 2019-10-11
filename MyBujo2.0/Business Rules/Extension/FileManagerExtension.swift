@@ -95,4 +95,15 @@ extension FileManager {
         }
         return media
     }
+    
+    func removePath(relativePath: String, mediaPath: String) {
+        let pathToBeRemoved = mainPath.appendingPathComponent(mediaPath).appendingPathComponent(relativePath)
+        do {
+            try FileManager.default.removeItem(at: pathToBeRemoved)
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+        
+    }
 }
