@@ -77,7 +77,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     func setupCounterGoalsCell( cell: CounterGoalsCard, numberCount: Int) {
         cell.incrementLabel(to: numberCount, labelNumber: cell.number)
         cell.createCircularPath(colorCircular: "SelectionColor")
-        cell.winRain(bubble: UIImage(named: "bubble")!, birdRate: 10, stop: true, scale: 0.03)
+        cell.winRain(bubble: UIImage(named: "bubble")!, birdRate: 4, stop: true, scale: 0.03)
     }
     
 }
