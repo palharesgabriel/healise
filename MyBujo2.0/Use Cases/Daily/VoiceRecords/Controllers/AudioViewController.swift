@@ -17,6 +17,7 @@ class AudioViewController: MediaViewController {
     var selectedAudio: Audio?
     var audioDuration: TimeInterval?
     let shadowView = ShadowView()
+    let day = CalendarManager.shared.selectedDay
     
     let recordButton: UIButton = {
         let button = UIButton()
@@ -47,7 +48,7 @@ class AudioViewController: MediaViewController {
         
         setupView()
         
-        guard let audios = CalendarManager.shared.selectedDay.media?.audios else { return }
+        guard let audios = day?.media?.audios else { return }
         audioManager.recordedAudios = audios
         
     }
@@ -115,6 +116,7 @@ extension AudioViewController: UITableViewDataSource {
         if editingStyle == .delete {
             audioManager.recordedAudios.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            day?.media?.remove(index: indexPath.row, mediaPath: DirectoryType.voiceRecord.rawValue)
         }
     }
     
