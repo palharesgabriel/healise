@@ -13,10 +13,10 @@ Healise can help improve your undestand about self care mental healh .
   - Draw anithing you want
   r:${package.json.version} .
 
-License
+Release
 ----
 
-Coming soon
+Coming soon on AppStore
 
 
 **Free Software, Hell Yeah!**
