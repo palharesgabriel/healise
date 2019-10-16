@@ -100,8 +100,7 @@ extension FileManager {
         let pathToBeRemoved = mainPath.appendingPathComponent(mediaPath).appendingPathComponent(relativePath)
         do {
             try FileManager.default.removeItem(at: pathToBeRemoved)
-        }
-        catch {
+        } catch {
             print(error.localizedDescription)
         }
         
