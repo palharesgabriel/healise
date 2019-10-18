@@ -11,9 +11,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let splitViewController = CustomSplitViewController()
+        let customPageViewController = CustomPageViewController()
         
         splitViewController.delegate = self
-        window?.rootViewController = splitViewController
+//        window?.rootViewController = splitViewController
+        window?.rootViewController = customPageViewController
         window?.makeKeyAndVisible()
         // Override point for customization after application launch.
         return true

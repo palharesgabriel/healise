@@ -11,12 +11,34 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     let pageControllView = PageControlView()
+    let welcomeLabel = TitleLabel(title: "Bem vindo ao ")
+    
+    let logoImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view = pageControllView
-        
+        self.view.addSubviews([welcomeLabel, logoImageView])
+        setupLabelConstraints()
+        setupLogoImageViewConstraints()
     }
 
+}
+
+
+extension WelcomeViewController {
+    
+    func setupLabelConstraints() {
+        
+    }
+    
+    func setupLogoImageViewConstraints() {
+        
+    }
+    
 }

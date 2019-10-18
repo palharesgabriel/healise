@@ -11,6 +11,7 @@ import UIKit
 class CustomPageViewController: UIPageViewController {
 
     private var pages = [UIViewController]()
+    private let pageControlView = PageControlView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +49,10 @@ extension CustomPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
                if viewControllerIndex == 0 {
-                   // wrap to last page in array
+                   
                    return self.pages.last
                } else {
-                   // go to previous page in array
+                   
                    return self.pages[viewControllerIndex - 1]
                }
            }
@@ -61,10 +62,10 @@ extension CustomPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
             if viewControllerIndex < self.pages.count - 1 {
-                // go to next page in array
+                
                 return self.pages[viewControllerIndex + 1]
             } else {
-                // wrap to first page in array
+                
                 return self.pages.first
             }
         }
@@ -74,5 +75,12 @@ extension CustomPageViewController: UIPageViewControllerDataSource {
 }
 
 extension CustomPageViewController: UIPageViewControllerDelegate {
-    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        if let viewControllers = self.viewControllers {
+            if let viewControllerIndex = self.pages.firstIndex(of: viewControllers[0]) {
+                pageControlView.updatePageControl(currentPageIndex: viewControllerIndex)
+            }
+        }
+    }
 }
