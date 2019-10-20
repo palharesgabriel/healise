@@ -16,7 +16,7 @@ Healise can help improve your undestand about self care mental healh .
 Release
 ----
 
-Coming soon on AppStore
+healise.github.io
 
 
 **Free Software, Hell Yeah!**
