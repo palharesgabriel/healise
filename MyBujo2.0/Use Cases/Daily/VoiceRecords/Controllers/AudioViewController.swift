@@ -116,7 +116,7 @@ extension AudioViewController: UITableViewDataSource {
         if editingStyle == .delete {
             audioManager.recordedAudios.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            day?.media?.remove(index: indexPath.row, mediaPath: DirectoryType.voiceRecord.rawValue)
+            day?.media?.remove(index: indexPath.row, mediaPath: (day?.media!.voiceRecordsPath)!)
         }
     }
     
