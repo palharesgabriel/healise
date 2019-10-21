@@ -12,7 +12,7 @@ class MediaTableViewCell: UITableViewCell {
     
     
     // MARK: Properties
-    let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
+    let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "camera", normal: "camera"), (sf: "video", normal: "videoCamera")]
     
     static let reuseIdentifier = "MediaTableCell"
     weak var delegate: MediaCollectionViewDelegate?
@@ -35,7 +35,7 @@ class MediaTableViewCell: UITableViewCell {
         contentView.backgroundColor = .clear
         setupView()
     }
-    let mediasLabel = ["Note","Drawing", "Videos","Captures"]
+    let mediasLabel = ["Note","Drawing", "Captures", "Videos"]
     lazy var mediasLabels: [UILabel] = {
         var labels = [UILabel]()
         self.mediasLabel.forEach { name in
@@ -101,7 +101,7 @@ extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
 extension MediaTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -121,9 +121,9 @@ extension MediaTableViewCell: UICollectionViewDataSource {
                 // Fallback on earlier versions
             }
         case 3:
-            delegate?.pushViewController(viewController: VideoRecordViewController(title: mediasLabels[2].text!))
-        case 4:
-            delegate?.pushViewController(viewController: CapturesViewController(title: mediasLabels[3].text!))
+			delegate?.pushViewController(viewController: CapturesViewController(title: mediasLabels[2].text!))
+//        case 4:
+//            delegate?.pushViewController(viewController: VideoRecordViewController(title: mediasLabels[3].text!))
         default:
             print("Error")
         }
