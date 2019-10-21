@@ -39,14 +39,14 @@ class MediaViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
         
-		view.backgroundColor = UIColor(named: "CardsColor")
-    
+		view.backgroundColor = UIColor(named: "BlueBackground")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialView()
         exitButton.addTarget(self, action: #selector(exitButtonClicked(sender:)), for: .touchUpInside)
+		exitButton.titleLabel?.textAlignment = .right
         // Do any additional setup after loading the view.
     }
     

@@ -18,6 +18,7 @@ class ExitButton: UIButton {
         titleLabel!.font = UIFont.systemFont(ofSize: 16)
         setTitleColor(UIColor(named: "TitleColor"), for: .normal)
         backgroundColor = .clear
+		titleLabel?.textAlignment = .right
         
     }
     
