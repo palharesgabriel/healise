@@ -31,7 +31,7 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
 			let trashImage = UIImage(systemName: "trash.circle.fill", compatibleWith: .current)
 			let redTrashImage = trashImage?.withTintColor(UIColor(named: "ActionColor")!, renderingMode: .alwaysOriginal)
 			button.setBackgroundImage(redTrashImage, for: .normal)
-		} else {
+		} else { 
 			button.setImage(UIImage(named: "camerabubble"), for: .normal)
 		}
 		return button

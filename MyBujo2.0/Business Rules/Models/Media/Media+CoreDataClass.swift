@@ -24,7 +24,7 @@ public class Media: NSManagedObject {
 		guard let paths = FileManager.default.getPaths(for: mediaPath) else { return false }
 		let sortedPaths = FileManager.default.sortPaths(paths: paths, mediaPath: mediaPath)
 		do {
-            try FileManager.default.removePath(relativePath: sortedPaths[index], mediaPath: photosPath!)
+            try FileManager.default.removePath(relativePath: sortedPaths[index], mediaPath: mediaPath)
 			return true
 		} catch {
 			print(error)

@@ -74,6 +74,10 @@
 		AB6A65C4230AD994009CFE7E /* MyBujo2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */; };
 		AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */; };
 		AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */; };
+		AB8A330823574BEF00D27AD4 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A330723574BEF00D27AD4 /* CustomPageViewController.swift */; };
+		AB8A330A23574FAD00D27AD4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A330923574FAD00D27AD4 /* WelcomeViewController.swift */; };
+		AB8A330C2357502D00D27AD4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A330B2357502D00D27AD4 /* SecondViewController.swift */; };
+		AB8A330E2357536000D27AD4 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A330D2357536000D27AD4 /* PageControlView.swift */; };
 		AB8C8829233518280093E29C /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C8828233518280093E29C /* AudioViewController.swift */; };
 		AB8C882B233518540093E29C /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882A233518540093E29C /* AudioPlayer.swift */; };
 		AB8C882D233518AC0093E29C /* AudioTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8C882C233518AC0093E29C /* AudioTableView.swift */; };
@@ -185,6 +189,10 @@
 		AB6A65C5230AD994009CFE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissControllerDelegate.swift; sourceTree = "<group>"; };
+		AB8A330723574BEF00D27AD4 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
+		AB8A330923574FAD00D27AD4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		AB8A330B2357502D00D27AD4 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		AB8A330D2357536000D27AD4 /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
 		AB8C8828233518280093E29C /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		AB8C882A233518540093E29C /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		AB8C882C233518AC0093E29C /* AudioTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTableView.swift; sourceTree = "<group>"; };
@@ -290,6 +298,7 @@
 		30740286233272ED0058D997 /* Use Cases */ = {
 			isa = PBXGroup;
 			children = (
+				AB8A330423574B2A00D27AD4 /* Tutorial */,
 				307402A62332779C0058D997 /* App Initialization */,
 				3074028A2332732C0058D997 /* CommonUses */,
 				30740287233273000058D997 /* Daily */,
@@ -722,6 +731,33 @@
 			path = MyBujo2.0Tests;
 			sourceTree = "<group>";
 		};
+		AB8A330423574B2A00D27AD4 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				AB8A330623574B6B00D27AD4 /* Views */,
+				AB8A330523574B6000D27AD4 /* Controllers */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		AB8A330523574B6000D27AD4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB8A330723574BEF00D27AD4 /* CustomPageViewController.swift */,
+				AB8A330923574FAD00D27AD4 /* WelcomeViewController.swift */,
+				AB8A330B2357502D00D27AD4 /* SecondViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AB8A330623574B6B00D27AD4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AB8A330D2357536000D27AD4 /* PageControlView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		AB8C8826233517F40093E29C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,6 +1066,7 @@
 				E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */,
 				AB8D30DB2338F1AC0009409F /* AudioRecordDelegate.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
+				AB8A330E2357536000D27AD4 /* PageControlView.swift in Sources */,
 				1549195E231D4B8C00766609 /* FeelingCollectionViewCell.swift in Sources */,
 				E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */,
 				15DA58902338FBE300009949 /* NewPhotoCollectionViewCell.swift in Sources */,
@@ -1045,7 +1082,9 @@
 				AB8C882F23351D240093E29C /* AudioRecordManager.swift in Sources */,
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
 				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
+				AB8A330A23574FAD00D27AD4 /* WelcomeViewController.swift in Sources */,
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
+				AB8A330C2357502D00D27AD4 /* SecondViewController.swift in Sources */,
 				309DC7F5233E3CF800F3218E /* UIImageExtension.swift in Sources */,
 				30C6FD9C233122FF00F69F79 /* FileManagerExtension.swift in Sources */,
 				AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */,
@@ -1057,6 +1096,7 @@
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
+				AB8A330823574BEF00D27AD4 /* CustomPageViewController.swift in Sources */,
 				1549195823193EDD00766609 /* FormView.swift in Sources */,
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
 				E8ADD1942335119B00AA80C4 /* CounterGoalsCard.swift in Sources */,

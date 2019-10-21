@@ -51,6 +51,7 @@ class MediaCards: IncrementCollectionViewCell, ViewCode {
     func setupAdditionalConfigurantion() {
         
     }
+    
     func setupCell(imageName: String, numberToIncrement: Int) {
         if #available(iOS 13.0, *) {
             let configuration = UIImage.SymbolConfiguration(pointSize: 80, weight: .light)

@@ -30,7 +30,7 @@ extension FileManager {
         let path = mainPath.appendingPathComponent(date).appendingPathComponent("/" + type.rawValue)
            try? self.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
 		return "\(date)/\(type.rawValue)"
-       }
+    }
     
     func directoryExists(path: String) -> Bool {
         var directory: ObjCBool = ObjCBool(false)
@@ -96,12 +96,11 @@ extension FileManager {
         return media
     }
     
-    func removePath(relativePath: String, mediaPath: String) {
+    func removePath(relativePath: String, mediaPath: String) throws {
         let pathToBeRemoved = mainPath.appendingPathComponent(mediaPath).appendingPathComponent(relativePath)
         do {
             try FileManager.default.removeItem(at: pathToBeRemoved)
-        }
-        catch {
+        } catch {
             print(error.localizedDescription)
         }
         
