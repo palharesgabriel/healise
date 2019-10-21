@@ -16,21 +16,26 @@ class AudioViewController: MediaViewController {
     var audioManager: AudioRecordManager!
     var selectedAudio: Audio?
     var audioDuration: TimeInterval?
-        
+    let shadowView = ShadowView()
+    let day = CalendarManager.shared.selectedDay
+    
     let recordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemPink
+        button.backgroundColor = UIColor(named: "CardsColor")
+        let configuration = UIImage.SymbolConfiguration(pointSize: 40, weight: .light)
+        button.setImage(UIImage(systemName: "mic.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.setImage(UIImage(systemName: "stop.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .selected)
+        button.tintColor = UIColor(named: "ActionColor")
+        button.setShadow()
         button.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    let shadowView = ShadowView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(named: "CardsColor")
+        self.view.backgroundColor = UIColor(named: "BlueBackground")
         self.contentView.backgroundColor = UIColor(named: "BlueBackground")
         audioManager = AudioRecordManager()
         audioManager.recordDelegate = self
@@ -43,7 +48,7 @@ class AudioViewController: MediaViewController {
         
         setupView()
         
-        guard let audios = CalendarManager.shared.selectedDay.media?.audios else { return }
+        guard let audios = day?.media?.audios else { return }
         audioManager.recordedAudios = audios
         
     }
@@ -54,10 +59,19 @@ class AudioViewController: MediaViewController {
         } else {
             audioManager.finishRecording(success: true)
         }
+        setPlayButtonState()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         audioManager.stopAudio()
+    }
+    
+    func setPlayButtonState() {
+        if audioManager.audioRecorder != nil {
+            recordButton.isSelected = true
+        } else {
+            recordButton.isSelected = false
+        }
     }
     
 }
@@ -102,6 +116,7 @@ extension AudioViewController: UITableViewDataSource {
         if editingStyle == .delete {
             audioManager.recordedAudios.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            day?.media?.remove(index: indexPath.row, mediaPath: (day?.media!.voiceRecordsPath)!)
         }
     }
     
@@ -168,23 +183,22 @@ extension AudioViewController {
 extension AudioViewController: AudioRecordDelegate {
     
     func didFinishRecord() {
-        self.recordButton.setTitle("Tap to Re-record", for: .normal)
         audioTableView.reloadData()
     }
     
     func didBeginRecord() {
-        self.recordButton.setBackgroundColor(color: .blue, forState: .normal)
+//        self.recordButton.setBackgroundColor(color: .blue, forState: .normal)
     }
     
 }
 
 @available(iOS 13.0, *)
 extension AudioViewController: AudioPlayerDelegate {
+    
     func didTapPause() {
         audioManager.pauseAudio()
         audioPlayerView.isPlaying = false
     }
-    
     
     func didTapFastForwardButton() {
         audioManager.fastForward()
@@ -198,6 +212,7 @@ extension AudioViewController: AudioPlayerDelegate {
         guard let path = selectedAudio?.path else { return }
         audioManager.playAudio(withPath: path)
         audioPlayerView.isPlaying = true
+        recordButton.isUserInteractionEnabled = false
     }
     
     func updateProgressView() {
@@ -218,6 +233,8 @@ extension AudioViewController: AudioPlayerDelegate {
         guard let duration = audioDuration else { return }
         audioPlayerView.setPlayerLeftLabel(currentTime: audioManager.audioPlayer.currentTime)
         audioPlayerView.setPlayerRightLabel(audioDuration: duration)
+        
+        recordButton.isUserInteractionEnabled = true
     }
     
 }
