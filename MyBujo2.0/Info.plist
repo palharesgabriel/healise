@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Record audios to be heard later by you or people of your choice.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Let&apos;s get some media for Healise</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -29,7 +25,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Let&apos;s take some photos for Healise</string>
+	<string>Record moments, these photos will only be seen by you or people of your choice.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Record audios to be heard later only by you or people of your choice.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Record moments, these photos will only be seen by you or people of your choice.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AvenirNextLTPro-MediumCn.otf</string>
