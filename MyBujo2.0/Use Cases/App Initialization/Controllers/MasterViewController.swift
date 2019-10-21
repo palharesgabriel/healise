@@ -81,22 +81,22 @@ class MasterViewController: UIViewController, ViewCode {
     }
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
-            nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 28),
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 32),
             
             
             dayStatusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0),
-            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
+            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             
             myTodayButton.topAnchor.constraint(equalTo: dayStatusLabel.bottomAnchor, constant: 112),
             myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor,constant: 0),
-            myTodayButton.widthAnchor.constraint(equalTo:self.view.widthAnchor,constant: -16),
-            myTodayButton.heightAnchor.constraint(equalToConstant: 45),
+            myTodayButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+            myTodayButton.heightAnchor.constraint(equalToConstant: 44),
             
             myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 32),
             myJourneyButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
-            myJourneyButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
-            myJourneyButton.heightAnchor.constraint(equalToConstant: 45),
+            myJourneyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+            myJourneyButton.heightAnchor.constraint(equalToConstant: 44)
             
 //            supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 32),
 //            supportButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
