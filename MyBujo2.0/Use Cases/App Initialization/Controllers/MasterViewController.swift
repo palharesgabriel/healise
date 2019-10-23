@@ -71,9 +71,6 @@ class MasterViewController: UIViewController, ViewCode {
                                  for: .normal)
 //        supportButton.setTitle(NSLocalizedString("Support", comment: "You Support page"),for: .normal)
 //        settingsButton.setTitle(NSLocalizedString("Settings", comment: "You Settings page"),for: .normal)
-        let formatStringDay = NSLocalizedString("Good Morning.",
-                                             comment: "Goog Morning.")
-        dayStatusLabel.text = String.localizedStringWithFormat(formatStringDay)
     }
     func buildViewHierarchy() {
         view.addSubviews([nameLabel, dayStatusLabel, myTodayButton,
@@ -130,9 +127,13 @@ class MasterViewController: UIViewController, ViewCode {
         let splitHourString = hourString.components(separatedBy: " ")
         
         if splitHourString[1] == "AM"{
-            return "Good Morning."
+            let formatStringDay = NSLocalizedString("Good Morning.",
+            comment: "Goog Morning.")
+            return formatStringDay
         } else {
-            return "Good Evening."
+            let formatStringNight = NSLocalizedString("Good Evening.",
+            comment: "Good Evening.")
+            return formatStringNight
         }
 
     }
