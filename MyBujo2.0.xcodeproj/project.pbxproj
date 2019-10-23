@@ -36,6 +36,7 @@
 		30117AD0233CE16200F0D5F1 /* MonthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117ACF233CE16200F0D5F1 /* MonthData.swift */; };
 		30117AD3233CE18800F0D5F1 /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */; };
 		301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F35342316AAC500AD5477 /* CoreDataManager.swift */; };
+		3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
 		3074027B233257990058D997 /* HealthCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074027A233257990058D997 /* HealthCollectionViewCell.swift */; };
 		3074027E2332583E0058D997 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074027D2332583E0058D997 /* StatusView.swift */; };
@@ -143,6 +144,7 @@
 		30117ACF233CE16200F0D5F1 /* MonthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthData.swift; sourceTree = "<group>"; };
 		30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStructs.swift; sourceTree = "<group>"; };
 		301F35342316AAC500AD5477 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderDelegate.swift; sourceTree = "<group>"; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		3074027A233257990058D997 /* HealthCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCollectionViewCell.swift; sourceTree = "<group>"; };
 		3074027D2332583E0058D997 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
@@ -287,6 +289,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3033EE2423608017000B7374 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		305CC97D232A6BC100969B52 /* Animator */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +346,7 @@
 		3074028A2332732C0058D997 /* CommonUses */ = {
 			isa = PBXGroup;
 			children = (
+				3033EE2423608017000B7374 /* Delegates */,
 				307402A3233276950058D997 /* Views */,
 				3094B177233A57B500576EDF /* Controllers */,
 			);
@@ -1102,6 +1113,7 @@
 				E8ADD1942335119B00AA80C4 /* CounterGoalsCard.swift in Sources */,
 				E851AE19233A39C5008BB798 /* IncrementCollectionViewCell.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
+				3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
 				308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
@@ -1282,7 +1294,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1307,7 +1319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
