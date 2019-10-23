@@ -18,7 +18,7 @@ class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
 	
     static let reuseIdentifier = "feelingCell"
     
-    // MARK: Properties
+    // MARK: Propertiesq
     var feeling: Feeling!
     
     let feelingCircle: UIView = {
