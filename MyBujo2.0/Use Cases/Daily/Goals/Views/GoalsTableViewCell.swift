@@ -81,8 +81,6 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
         contentView.backgroundColor = .clear
         selectionStyle = .none
         setupView()
-        
-        
     }
 }
 

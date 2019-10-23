@@ -31,6 +31,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
+		self.title = "Journey"
 
     }
     override func viewDidAppear(_ animated: Bool) {
