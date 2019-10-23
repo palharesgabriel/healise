@@ -37,6 +37,7 @@ class NavigationButton: UIButton {
         self.layer.borderColor = UIColor.clear.cgColor
         self.layer.backgroundColor = UIColor.clear.cgColor
         self.layer.cornerRadius = 15
+        
     }
     
     func changeColors() {

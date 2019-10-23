@@ -31,6 +31,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
+		self.title = "Journey"
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -60,7 +61,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
     }

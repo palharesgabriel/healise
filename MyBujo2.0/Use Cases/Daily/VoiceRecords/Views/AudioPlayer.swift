@@ -221,16 +221,16 @@ extension AudioPlayer {
     
     func setupAdvance15SecondsButtonConstraints() {
         NSLayoutConstraint.activate([
-            fastForwardButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
             fastForwardButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 16),
             fastForwardButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-            fastForwardButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
+            fastForwardButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2),
+            fastForwardButton.centerYAnchor.constraint(equalTo: playButton.centerYAnchor)
         ])
     }
     
     func setupBack15SecondsButtonConstraints() {
         NSLayoutConstraint.activate([
-            fastBackwardButton.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 24),
+            fastBackwardButton.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
             fastBackwardButton.trailingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: -16),
             fastBackwardButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
             fastBackwardButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)

@@ -107,7 +107,7 @@ extension FeelingsView: UICollectionViewDataSource, UICollectionViewDelegateFlow
 	}
 	
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width - 32)/3, height: collectionView.frame.size.height)
+		return CGSize(width: (collectionView.frame.size.width - 16)/3.5, height: collectionView.frame.size.height)
     }
 
 }

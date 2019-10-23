@@ -12,7 +12,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     
     // MARK: Properties
     var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
+		let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
@@ -28,6 +28,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         self.day = CalendarManager.shared.currentDay
         CalendarManager.shared.selectedDay = self.day
         tableView.reloadData()
+		self.title = "Daily"
     }
     
     
@@ -52,7 +53,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 		])
     }
@@ -91,7 +92,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
             return calendarCell
         case 1:
             guard let goalsCell = tableView.dequeueReusableCell(withIdentifier: GoalsTableViewCell.reuseIdentifier, for: indexPath) as? GoalsTableViewCell else { return UITableViewCell() }
-            guard let goals = day.goals?.array as? [Goal] else { return GoalsTableViewCell() }
+            guard let goals = day.goals?.array as? [Goal] else { return UITableViewCell() }
             goalsCell.setupCell(goals: goals, day: day)
             return goalsCell
         case 2:
