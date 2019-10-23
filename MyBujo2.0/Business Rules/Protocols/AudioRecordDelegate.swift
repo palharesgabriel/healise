@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AudioRecordDelegate {
+protocol AudioRecordDelegate: class {
     func didBeginRecord()
     func didFinishRecord()
 }
