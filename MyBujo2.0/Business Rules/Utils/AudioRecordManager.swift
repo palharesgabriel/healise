@@ -20,10 +20,12 @@ class AudioRecordManager: NSObject {
     var recordedAudios: [Audio] = []
     let fileManager = FileManager.default
     var playbackTimer: Timer
+    var timeForPlay: TimeInterval
     
     override init() {
         recordingSession = AVAudioSession.sharedInstance()
         playbackTimer = Timer()
+        timeForPlay = 0.0
     }
     
     func requestAudioRecordPermission() {
@@ -104,6 +106,7 @@ class AudioRecordManager: NSObject {
             audioPlayer.delegate = self
             audioPlayer.prepareToPlay()
             audioPlayer.volume = 1.0
+            audioPlayer.currentTime = timeForPlay
             
         } catch {
             print(error)
@@ -120,7 +123,7 @@ class AudioRecordManager: NSObject {
         let player = setupPlayer(withAudioPath: withPath)
         if !player.isPlaying {
             player.play()
-        }
+        } 
         startPlaybackTimer()
     }
     
@@ -134,6 +137,7 @@ class AudioRecordManager: NSObject {
     func pauseAudio() {
         if audioPlayer.isPlaying {
             audioPlayer.pause()
+            timeForPlay = audioPlayer.currentTime
         }
    }
     
@@ -188,6 +192,7 @@ extension AudioRecordManager: AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         playbackTimer.invalidate()
         playDelegate?.didFinishPlay(isPlaying: player.isPlaying)
+        timeForPlay = 0.0
     }
     
 }
