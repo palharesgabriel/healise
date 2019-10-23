@@ -31,7 +31,7 @@ enum Feeling: String {
         case .anxious:
             return UIColor(named: "Anxious")!
         case .indiferent:
-            return UIColor(named: "Happy")!
+            return UIColor(named: "Indiferent")!
         case .grateful:
             return UIColor(named: "Grateful")!
         case .surprised:

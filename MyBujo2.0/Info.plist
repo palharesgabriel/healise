@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
@@ -25,11 +25,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Let's take some photos for Healise</string>
+	<string>Record moments, these photos will only be seen by you or people of your choice.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Record audios to be heard later by you or people of your choice.</string>
+	<string>Record audios to be heard later only by you or people of your choice.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Let's get some media for Healise</string>
+	<string>Record moments, these photos will only be seen by you or people of your choice.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AvenirNextLTPro-MediumCn.otf</string>

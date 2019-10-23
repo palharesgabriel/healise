@@ -110,6 +110,3 @@ class CalendarManager: NSObject {
         year.months[month] = monthReference
     }
 }
-
-
-

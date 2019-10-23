@@ -32,21 +32,21 @@ class MasterViewController: UIViewController, ViewCode {
             return NavigationButton(title: "Journey",icon: "today", idColor: 1)
         }
     }()
-    lazy var supportButton: NavigationButton = {
-        if #available(iOS 13.0, *) {
-            return NavigationButton(title: "Support",icon: "person.2", idColor: 2)
-        } else {
-            return NavigationButton(title: "Journey",icon: "support", idColor: 2)
-        }
-    }()
-    let settingsButton: NavigationButton = {
-        if #available(iOS 13.0, *) {
-            return NavigationButton (title: "Settings",icon: "gear", idColor: 3)
-        } else {
-            return NavigationButton (title: "Settings",icon: "settings", idColor: 3)
-        }
-    }()
-   
+//    lazy var supportButton: NavigationButton = {
+//        if #available(iOS 13.0, *) {
+//            return NavigationButton(title: "Support",icon: "person.2", idColor: 2)
+//        } else {
+//            return NavigationButton(title: "Journey",icon: "support", idColor: 2)
+//        }
+//    }()
+//    let settingsButton: NavigationButton = {
+//        if #available(iOS 13.0, *) {
+//            return NavigationButton (title: "Settings",icon: "gear", idColor: 3)
+//        } else {
+//            return NavigationButton (title: "Settings",icon: "settings", idColor: 3)
+//        }
+//    }()
+//
     var viewControllers: [UINavigationController] = []
     
     
@@ -69,47 +69,45 @@ class MasterViewController: UIViewController, ViewCode {
                                 for: .normal)
         myJourneyButton.setTitle(NSLocalizedString("Journey", comment: "You journey page"),
                                  for: .normal)
-        supportButton.setTitle(NSLocalizedString("Support", comment: "You Support page"),
-                               for: .normal)
-        settingsButton.setTitle(NSLocalizedString("Settings", comment: "You Settings page"),
-                               for: .normal)
+//        supportButton.setTitle(NSLocalizedString("Support", comment: "You Support page"),for: .normal)
+//        settingsButton.setTitle(NSLocalizedString("Settings", comment: "You Settings page"),for: .normal)
         let formatStringDay = NSLocalizedString("Good Morning.",
                                              comment: "Goog Morning.")
         dayStatusLabel.text = String.localizedStringWithFormat(formatStringDay)
     }
     func buildViewHierarchy() {
         view.addSubviews([nameLabel, dayStatusLabel, myTodayButton,
-                          myJourneyButton, supportButton, settingsButton ])
+                          myJourneyButton])
     }
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 36),
-            nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 28),
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            nameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 32),
             
             
             dayStatusLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 0),
-            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
+            dayStatusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             
             myTodayButton.topAnchor.constraint(equalTo: dayStatusLabel.bottomAnchor, constant: 112),
             myTodayButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor,constant: 0),
-            myTodayButton.widthAnchor.constraint(equalTo:self.view.widthAnchor,constant: -16),
-            myTodayButton.heightAnchor.constraint(equalToConstant: 45),
+            myTodayButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+            myTodayButton.heightAnchor.constraint(equalToConstant: 44),
             
             myJourneyButton.topAnchor.constraint(equalTo: myTodayButton.bottomAnchor, constant: 32),
             myJourneyButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
-            myJourneyButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
-            myJourneyButton.heightAnchor.constraint(equalToConstant: 45),
+            myJourneyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+            myJourneyButton.heightAnchor.constraint(equalToConstant: 44)
             
-            supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 32),
-            supportButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
-            supportButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
-            supportButton.heightAnchor.constraint(equalToConstant: 45),
-            
-            
-            settingsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32),
-            settingsButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
-            settingsButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
-            settingsButton.heightAnchor.constraint(equalToConstant: 45)
+//            supportButton.topAnchor.constraint(equalTo: myJourneyButton.bottomAnchor, constant: 32),
+//            supportButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor,constant: 0),
+//            supportButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
+//            supportButton.heightAnchor.constraint(equalToConstant: 45),
+//
+//
+//            settingsButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -32),
+//            settingsButton.centerXAnchor.constraint(equalTo: myTodayButton.centerXAnchor),
+//            settingsButton.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: -16),
+//            settingsButton.heightAnchor.constraint(equalToConstant: 45)
             ])
     }
     func setupAdditionalConfigurantion() {
@@ -121,8 +119,8 @@ class MasterViewController: UIViewController, ViewCode {
         
         myTodayButton.changeColors()
         myJourneyButton.changeColors()
-        supportButton.changeColors()
-        settingsButton.changeColors()
+//        supportButton.changeColors()
+//        settingsButton.changeColors()
     }
     
     func getTimeDayLabel() -> String {
