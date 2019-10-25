@@ -11,14 +11,18 @@ import UIKit
 @available(iOS 13.0, *)
 class AudioViewController: MediaViewController {
     
+    // MARK: Properties
     let audioTableView = AudiosTableView(frame: .zero, style: .plain)
-    var audioPlayerView: AudioPlayer!
-    var audioManager: AudioRecordManager!
     var selectedAudio: Audio?
     var audioDuration: TimeInterval?
+    
+    var audioPlayerView = AudioPlayer()
+    var audioManager = AudioRecordManager()
     let shadowView = ShadowView()
+    
     let day = CalendarManager.shared.selectedDay
     
+    // MARK: View closures
     let recordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -32,16 +36,13 @@ class AudioViewController: MediaViewController {
         return button
     }()
     
-    
+    // MARK: Controller methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "BlueBackground")
         self.contentView.backgroundColor = UIColor(named: "BlueBackground")
-        audioManager = AudioRecordManager()
         audioManager.recordDelegate = self
         audioManager.requestAudioRecordPermission()
-        
-        audioPlayerView = AudioPlayer()
         
         audioPlayerView.playDelegate = self
         audioManager.playDelegate = self
@@ -50,7 +51,6 @@ class AudioViewController: MediaViewController {
         
         guard let audios = day?.media?.audios else { return }
         audioManager.recordedAudios = audios
-        
     }
     
     @objc func recordButtonTapped() {
@@ -74,8 +74,21 @@ class AudioViewController: MediaViewController {
         }
     }
     
+    func animateRecordingView() {
+        UIView.animateKeyframes(withDuration: 1.0, delay: 0, options: .repeat, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
+//                self.recordingButtonView.alpha = 0.3
+                self.recordButton.imageView?.alpha = 0.3
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
+//                self.recordingButtonView.alpha = 1.0
+                self.recordButton.imageView?.alpha = 1.0
+            })
+        })
+    }
 }
 
+// MARK: View configuration
 @available(iOS 13.0, *)
 extension AudioViewController: ViewCode {
     
@@ -94,9 +107,9 @@ extension AudioViewController: ViewCode {
         audioTableView.dataSource = self
         audioTableView.delegate = self
     }
-    
 }
 
+// MARK: TableView methods
 @available(iOS 13.0, *)
 extension AudioViewController: UITableViewDataSource {
     
@@ -119,7 +132,6 @@ extension AudioViewController: UITableViewDataSource {
             day?.media?.remove(index: indexPath.row, mediaPath: (day?.media!.voiceRecordsPath)!)
         }
     }
-    
 }
 
 @available(iOS 13.0, *)
@@ -135,9 +147,9 @@ extension AudioViewController: UITableViewDelegate {
         audioPlayerView.setPlayerLeftLabel(currentTime: (selectedAudio?.audioPlayer.currentTime)!)
         audioPlayerView.setPlayerRightLabel(audioDuration: duration)
     }
-    
 }
 
+// MARK: Constraints
 @available(iOS 13.0, *)
 extension AudioViewController {
     
@@ -176,20 +188,20 @@ extension AudioViewController {
             recordButton.topAnchor.constraint(equalTo: self.audioPlayerView.bottomAnchor, constant: 28)
         ])
     }
-    
 }
 
+// MARK: Audio Record and Play delegates
 @available(iOS 13.0, *)
 extension AudioViewController: AudioRecordDelegate {
     
     func didFinishRecord() {
         audioTableView.reloadData()
+        recordButton.imageView?.layer.removeAllAnimations()
     }
     
     func didBeginRecord() {
-//        self.recordButton.setBackgroundColor(color: .blue, forState: .normal)
+        animateRecordingView()
     }
-    
 }
 
 @available(iOS 13.0, *)
@@ -236,5 +248,4 @@ extension AudioViewController: AudioPlayerDelegate {
         
         recordButton.isUserInteractionEnabled = true
     }
-    
 }
