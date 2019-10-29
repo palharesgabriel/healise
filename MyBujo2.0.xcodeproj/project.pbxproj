@@ -67,6 +67,7 @@
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
 		30F091FC4D6DD65676165420 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */; };
 		86B2717C09121F8791F4DCB7 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */; };
+		AB38B94C2368634800F9A9CA /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38B94B2368634800F9A9CA /* RecordButtonView.swift */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
 		AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */; };
 		AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65B2230AD990009CFE7E /* MyBujo2_0.xcdatamodeld */; };
@@ -179,6 +180,7 @@
 		84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
 		996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9BD351423C88B3EC62A77941 /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
+		AB38B94B2368634800F9A9CA /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
 		AB6A65A8230AD990009CFE7E /* MyBujo2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBujo2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65AB230AD990009CFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyJourneyViewController.swift; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 			children = (
 				AB8C882A233518540093E29C /* AudioPlayer.swift */,
 				AB8C882C233518AC0093E29C /* AudioTableView.swift */,
+				AB38B94B2368634800F9A9CA /* RecordButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1106,6 +1109,7 @@
 				E86043A62337A048001A416E /* MediaCards.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
 				308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */,
+				AB38B94C2368634800F9A9CA /* RecordButtonView.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
 				AB8A330823574BEF00D27AD4 /* CustomPageViewController.swift in Sources */,
 				1549195823193EDD00766609 /* FormView.swift in Sources */,

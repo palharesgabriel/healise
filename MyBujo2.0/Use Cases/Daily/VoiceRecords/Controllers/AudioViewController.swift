@@ -13,6 +13,7 @@ class AudioViewController: MediaViewController {
     
     // MARK: Properties
     let audioTableView = AudiosTableView(frame: .zero, style: .plain)
+    let recordButtonView = RecordButtonView()
     var selectedAudio: Audio?
     var audioDuration: TimeInterval?
     
@@ -22,29 +23,16 @@ class AudioViewController: MediaViewController {
     
     let day = CalendarManager.shared.selectedDay
     
-    // MARK: View closures
-    let recordButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "CardsColor")
-        let configuration = UIImage.SymbolConfiguration(pointSize: 40, weight: .light)
-        button.setImage(UIImage(systemName: "mic.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.setImage(UIImage(systemName: "stop.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .selected)
-        button.tintColor = UIColor(named: "ActionColor")
-        button.setShadow()
-        button.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
-        return button
-    }()
-    
     // MARK: Controller methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(named: "BlueBackground")
         self.contentView.backgroundColor = UIColor(named: "BlueBackground")
-        audioManager.recordDelegate = self
         audioManager.requestAudioRecordPermission()
         
         audioPlayerView.playDelegate = self
+        recordButtonView.recordButtonDelegate = self
+        audioManager.recordDelegate = self
         audioManager.playDelegate = self
         
         setupView()
@@ -53,36 +41,25 @@ class AudioViewController: MediaViewController {
         audioManager.recordedAudios = audios
     }
     
-    @objc func recordButtonTapped() {
-        if audioManager.audioRecorder == nil {
-            audioManager.startRecording()
-        } else {
-            audioManager.finishRecording(success: true)
-        }
-        setPlayButtonState()
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         audioManager.stopAudio()
     }
     
-    func setPlayButtonState() {
+    func setRecordButtonState() {
         if audioManager.audioRecorder != nil {
-            recordButton.isSelected = true
+            recordButtonView.setButtonSelection(true)
         } else {
-            recordButton.isSelected = false
+            recordButtonView.setButtonSelection(false)
         }
     }
     
     func animateRecordingView() {
         UIView.animateKeyframes(withDuration: 1.0, delay: 0, options: .repeat, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-//                self.recordingButtonView.alpha = 0.3
-                self.recordButton.imageView?.alpha = 0.3
+                self.recordButtonView.recordButton.imageView?.alpha = 0.3
             })
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
-//                self.recordingButtonView.alpha = 1.0
-                self.recordButton.imageView?.alpha = 1.0
+                self.recordButtonView.recordButton.imageView?.alpha = 1.0
             })
         })
     }
@@ -93,13 +70,13 @@ class AudioViewController: MediaViewController {
 extension AudioViewController: ViewCode {
     
     func buildViewHierarchy() {
-        self.contentView.addSubviews([shadowView, audioTableView, audioPlayerView, recordButton])
+        self.contentView.addSubviews([shadowView, audioTableView, audioPlayerView, recordButtonView])
     }
     
     func setupConstraints() {
         setupTableViewConstraints()
         setupAudioPlayerConstraints()
-        setupRecordButtonConstraints()
+        setupRecordButtonViewConstraints()
         setupShadowViewConstraints()
     }
     
@@ -180,12 +157,12 @@ extension AudioViewController {
         ])
     }
     
-    func setupRecordButtonConstraints() {
+    func setupRecordButtonViewConstraints() {
         NSLayoutConstraint.activate([
-            recordButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            recordButton.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.25),
-            recordButton.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.15),
-            recordButton.topAnchor.constraint(equalTo: self.audioPlayerView.bottomAnchor, constant: 28)
+            recordButtonView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            recordButtonView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.25),
+            recordButtonView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.15),
+            recordButtonView.topAnchor.constraint(equalTo: self.audioPlayerView.bottomAnchor, constant: 28)
         ])
     }
 }
@@ -194,9 +171,18 @@ extension AudioViewController {
 @available(iOS 13.0, *)
 extension AudioViewController: AudioRecordDelegate {
     
+    func didTapRecordButton() {
+        if audioManager.audioRecorder == nil {
+            audioManager.startRecording()
+        } else {
+            audioManager.finishRecording(success: true)
+        }
+        setRecordButtonState()
+    }
+    
     func didFinishRecord() {
         audioTableView.reloadData()
-        recordButton.imageView?.layer.removeAllAnimations()
+        recordButtonView.recordButton.imageView?.layer.removeAllAnimations()
     }
     
     func didBeginRecord() {
@@ -224,7 +210,7 @@ extension AudioViewController: AudioPlayerDelegate {
         guard let path = selectedAudio?.path else { return }
         audioManager.playAudio(withPath: path)
         audioPlayerView.isPlaying = true
-        recordButton.isUserInteractionEnabled = false
+        recordButtonView.setButtonInteractivity(false)
     }
     
     func updateProgressView() {
@@ -246,6 +232,6 @@ extension AudioViewController: AudioPlayerDelegate {
         audioPlayerView.setPlayerLeftLabel(currentTime: audioManager.audioPlayer.currentTime)
         audioPlayerView.setPlayerRightLabel(audioDuration: duration)
         
-        recordButton.isUserInteractionEnabled = true
+        recordButtonView.setButtonInteractivity(true)
     }
 }
