@@ -11,7 +11,6 @@ Healise can help improve your undestand about self care mental healh .
   - Capture photos and record videos
   - record songs
   - Draw anithing you want
-  r:${package.json.version} .
 
 Release
 ----
