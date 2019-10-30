@@ -7,7 +7,7 @@ function_body_length:
 - 150 # warning
 
 force_cast:
-- severity: error
+- severity: error # explicitly
 
 disabled_rules:
 - leading_whitespace
