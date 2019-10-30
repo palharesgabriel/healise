@@ -18,11 +18,15 @@ class NavigationButton: UIButton {
         self.init()
         self.identifier = idColor
         var image = UIImage()
-        if #available(iOS 13.0, *) {
-            image = (UIImage(systemName: icon, compatibleWith: .current)?.withRenderingMode(.alwaysTemplate)) ?? (UIImage(named: icon)?.withRenderingMode(.alwaysTemplate))!
-        } else {
-            image = (UIImage(named: icon)?.withRenderingMode(.alwaysTemplate))!
-        }
+		
+		if let iconImage = UIImage(named: icon)?.withRenderingMode(.alwaysTemplate) {
+		  if #available(iOS 13.0, *) {
+			   image = (UIImage(systemName: icon, compatibleWith: .current)?.withRenderingMode(.alwaysTemplate)) ??
+			iconImage
+		   } else {
+			   image = iconImage
+		   }
+		}
         
         self.setImage(image, for: .normal)
         self.imageView?.tintColor = UIColor(named: "TitleColor")
@@ -32,7 +36,11 @@ class NavigationButton: UIButton {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setTitle(title, for: .normal)
         self.contentHorizontalAlignment = .left
-        self.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
+		
+		if let titleColor = UIColor(named: "TitleColor") {
+			self.setTitleColor(titleColor, for: .normal)
+		}
+		
         self.layer.borderWidth = 2.0
         self.layer.borderColor = UIColor.clear.cgColor
         self.layer.backgroundColor = UIColor.clear.cgColor

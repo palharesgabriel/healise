@@ -53,11 +53,12 @@ class CalendarManager: NSObject {
     }
     
     func getDaysInMonth(month: Int) -> Int {
-        return (year.months[month]?.days.count)!
+        return year.months[month]?.days.count ?? 0
     }
     
     func getFirstWeekDayOfMonth(month: Int) -> Int {
-        return Calendar.current.component(.weekday, from: (year.months[month]?.days.first)!)
+		guard let day = year.months[month]?.days.first else { return 0}
+        return Calendar.current.component(.weekday, from: day)
     }
     
     private func fillYear(year: Int) {
@@ -87,24 +88,20 @@ class CalendarManager: NSObject {
     
     
     private func fillDaysInAndOut(month: Int) {
-        var monthReference = year.months[month]!
-        var firstDay = monthReference.days.first!
-        var lastDay = monthReference.days.last!
-        let firstWeekDay = getFirstWeekDayOfMonth(month: month)
-        
-        
+		guard var monthReference = year.months[month], var firstDay = monthReference.days.first, var lastDay = monthReference.days.last else { return }
+		let firstWeekDay = getFirstWeekDayOfMonth(month: month)
+		
         for _ in 0..<firstWeekDay - 1 {
             firstDay = Calendar.current.date(byAdding: .day, value: -1, to: firstDay)!
             monthReference.daysIn.append(firstDay)
         }
         monthReference.daysIn.sort(by: <)
-        
-        
-        
-        
+		
         let numberOfDaysOut = 6 * 7 - monthReference.days.count - monthReference.daysIn.count
         for _ in 0..<numberOfDaysOut {
-            lastDay = Calendar.current.date(byAdding: .day, value: 1, to: lastDay)!
+			if let day = Calendar.current.date(byAdding: .day, value: 1, to: lastDay) {
+				lastDay = day
+			}
             monthReference.daysOut.append(lastDay)
         }
         year.months[month] = monthReference

@@ -109,8 +109,8 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
         switch indexPath.row {
         case 0:
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                self.setupCounterGoalsCell(cell: (cell as? CounterGoalsCard)!, numberCount: self.monthData.numberOfGoals)
-                
+				guard let cell = cell as? CounterGoalsCard else { return }
+                self.setupCounterGoalsCell(cell: cell, numberCount: self.monthData.numberOfGoals)
             }
             
         default:
