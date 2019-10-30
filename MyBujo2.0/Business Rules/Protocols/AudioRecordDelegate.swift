@@ -9,6 +9,7 @@
 import Foundation
 
 protocol AudioRecordDelegate: class {
+    func didTapRecordButton()
     func didBeginRecord()
     func didFinishRecord()
 }
