@@ -18,11 +18,11 @@ class StatusView: UIView, ViewCode {
     }
     
     func setupConstraints() {
-        //
+
     }
     
     func setupAdditionalConfigurantion() {
-        //
+   
     }
     
     override init(frame: CGRect) {

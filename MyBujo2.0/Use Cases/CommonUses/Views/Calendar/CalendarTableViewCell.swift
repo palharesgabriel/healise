@@ -171,7 +171,7 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         return false }
     }
 
-extension CalendarTableViewCell: CalendarHeaderDelegate{
+extension CalendarTableViewCell: CalendarHeaderDelegate {
     func didTapLeftButton() {
         calendarView.scrollToSegment(.previous)
     }

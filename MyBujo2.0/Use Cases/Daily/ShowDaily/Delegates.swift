@@ -73,14 +73,14 @@ extension MyTodayViewController: NewFeelingViewControllerDelegate {
 
 extension MyTodayViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let _ = presented as? NewBaseViewController {
+        if presented != nil {
             return AddGoalsAnimator(transitionType: .presenting)
         }
         return nil
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let _ = dismissed as? NewBaseViewController {
+        if dismissed != nil {
             return AddGoalsAnimator(transitionType: .dismissing)        }
         return nil
     }

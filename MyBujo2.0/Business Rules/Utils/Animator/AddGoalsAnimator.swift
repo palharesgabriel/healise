@@ -61,14 +61,12 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                        options: .curveEaseOut,
                        animations: {
                         fromVC.reusableView.transform = CGAffineTransform.init(scaleX: 0.001, y: 0.001)
-        })
-        { (completed) in
+        }) { (completed) in
             UIView.animate(withDuration: 2*duration/10,
                            delay: 0,
                            animations: {
                             fromVC.view.alpha = 0
-            })
-{ (completed) in
+            }) { (completed) in
                 transitionContext.completeTransition(
                     !transitionContext.transitionWasCancelled)
             }

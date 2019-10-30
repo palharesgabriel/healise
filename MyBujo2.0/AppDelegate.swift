@@ -10,12 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        let splitViewController = CustomSplitViewController()
-        let customPageViewController = CustomPageViewController()
-        
-        splitViewController.delegate = self
-//        window?.rootViewController = splitViewController
-        window?.rootViewController = customPageViewController
+		window?.rootViewController = UINavigationController(rootViewController: MyJourneyViewController())
         window?.makeKeyAndVisible()
         // Override point for customization after application launch.
         return true

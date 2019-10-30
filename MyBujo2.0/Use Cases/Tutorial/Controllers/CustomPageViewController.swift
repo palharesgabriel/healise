@@ -10,21 +10,28 @@ import UIKit
 
 class CustomPageViewController: UIPageViewController {
 
-    private var pages = [UIViewController]()
+	private var orderedViewControllers: [UIViewController]?
     private let pageControlView = PageControlView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let initialPage = 0
-        let firstPage = WelcomeViewController()
-        let secondPage = SecondViewController()
-        
-        pages.append(firstPage)
-        pages.append(secondPage)
-        
-        setViewControllers([pages[initialPage]], direction: .forward, animated: true, completion: nil)
+       
+        setupView()
+		setupPages()
+		
+		if let firstViewController = orderedViewControllers?.first {
+			setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+		}
     }
 
+	func setupPages() {
+		let firstPage = WelcomeViewController()
+		let secondPage = SecondViewController()
+		orderedViewControllers?.append(firstPage)
+		orderedViewControllers?.append(secondPage)
+	}
+	
 }
 
 extension CustomPageViewController: ViewCode {
@@ -47,40 +54,17 @@ extension CustomPageViewController: ViewCode {
 extension CustomPageViewController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
-               if viewControllerIndex == 0 {
-                   
-                   return self.pages.last
-               } else {
-                   
-                   return self.pages[viewControllerIndex - 1]
-               }
-           }
-           return nil
+//       guard let viewControllerIndex =
+		return UIViewController()
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
-            if viewControllerIndex < self.pages.count - 1 {
-                
-                return self.pages[viewControllerIndex + 1]
-            } else {
-                
-                return self.pages.first
-            }
-        }
-        return nil
+        return UIViewController()
     }
-    
 }
 
 extension CustomPageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
-        if let viewControllers = self.viewControllers {
-            if let viewControllerIndex = self.pages.firstIndex(of: viewControllers[0]) {
-                pageControlView.updatePageControl(currentPageIndex: viewControllerIndex)
-            }
-        }
+		
     }
 }

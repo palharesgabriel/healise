@@ -13,7 +13,7 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
     
     
     // MARK: Properties
-    var delegate: CalendarHeaderDelegate?
+    weak var delegate: CalendarHeaderDelegate?
     var titleLabel = UILabel()
     var weekDaysHeader = WeekDaysView()
     
@@ -65,11 +65,11 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func didTapLeftButton(){
+    @objc func didTapLeftButton() {
         delegate?.didTapLeftButton()
     }
     
-    @objc func didTapRightButton(){
+    @objc func didTapRightButton() {
         delegate?.didTapRightButton()
     }
     
