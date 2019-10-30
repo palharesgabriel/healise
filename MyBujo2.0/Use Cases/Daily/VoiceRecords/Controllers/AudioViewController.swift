@@ -106,6 +106,7 @@ extension AudioViewController: UITableViewDataSource {
         if editingStyle == .delete {
             audioManager.recordedAudios.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+			
             day?.media?.remove(index: indexPath.row, mediaPath: (day?.media!.voiceRecordsPath)!)
         }
     }
@@ -121,7 +122,9 @@ extension AudioViewController: UITableViewDelegate {
         audioPlayerView.setTitleLabelText(audioName: audioName)
         
         guard let duration = audioDuration else { return }
-        audioPlayerView.setPlayerLeftLabel(currentTime: (selectedAudio?.audioPlayer.currentTime)!)
+		guard let audio = selectedAudio?.audioPlayer.currentTime else {return}
+		
+		audioPlayerView.setPlayerLeftLabel(currentTime: audio)
         audioPlayerView.setPlayerRightLabel(audioDuration: duration)
     }
 }

@@ -7,7 +7,10 @@ function_body_length:
 - 150 # warning
 
 force_cast:
-- severity: error
+  - severity: error # explicity
+
+opt_in_rules:
+  - force_unwrapping
 
 disabled_rules:
 - leading_whitespace

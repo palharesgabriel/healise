@@ -18,8 +18,6 @@ class AudioRecordManager: NSObject {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var audioPath: URL!
-    weak var recordDelegate: AudioRecordDelegate?
-    weak var playDelegate: AudioPlayerDelegate?
     var recordedAudios: [Audio] = []
     let fileManager = FileManager.default
     var playbackTimer: Timer

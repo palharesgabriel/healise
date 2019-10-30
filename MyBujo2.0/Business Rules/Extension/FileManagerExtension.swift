@@ -19,24 +19,21 @@ extension FileManager {
     private var mainPath: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
-    
     func createDirectory (day: Day, directoryOf type: DirectoryType) -> String {
-        
 		let dateFormmater = DateFormatter()
         dateFormmater.dateFormat = "yyyy-MM-dd"
-        let date = dateFormmater.string(from: day.date!)
-			
+		let date = dateFormmater.string(from: day.date!)
 		let mainPath = self.urls(for: .documentDirectory, in: .userDomainMask).first!
         let path = mainPath.appendingPathComponent(date).appendingPathComponent("/" + type.rawValue)
            try? self.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
 		return "\(date)/\(type.rawValue)"
     }
-    
+
     func directoryExists(path: String) -> Bool {
         var directory: ObjCBool = ObjCBool(false)
         return fileExists(atPath: path, isDirectory: &directory)
     }
-
+	
     func saveFileTo(path filepath: URL, withData data: Data) -> Bool {
         do {
             try data.write(to: filepath)
@@ -45,8 +42,8 @@ extension FileManager {
         }
         return fileExists(atPath: filepath.path)
     }
-    
-    
+
+
     func sortPaths (paths: [String], mediaPath: String) -> [String] {
         var sortedPaths = paths
         sortedPaths.sort { (firstPath, secondPath) -> Bool in
@@ -59,7 +56,7 @@ extension FileManager {
         }
         return sortedPaths
     }
-    
+
     func getCreatedDateFromFile (filename: String, mediaPath: String) -> Date? {
         do {
             let filePath = mainPath.appendingPathComponent(mediaPath).appendingPathComponent(filename)
@@ -69,7 +66,7 @@ extension FileManager {
             return nil
         }
     }
-    
+
     func getPaths(for path: String) -> [String]? {
         do {
             let paths = try FileManager.default.contentsOfDirectory(atPath: self.mainPath.appendingPathComponent(path).path)
@@ -79,7 +76,7 @@ extension FileManager {
             return nil
         }
     }
-    
+
     func saveToFileManager<T: FileManagerInitiable>(media: T, mediaPath: String) {
         let path = mainPath.appendingPathComponent(mediaPath).appendingPathComponent(media.relativePathName)
         guard let data = media.dataRepresentation() else {  return }
