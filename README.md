@@ -7,7 +7,7 @@ Healise can help improve your undestand about self care mental healh .
 
 # New Features!
 
-## Eu sou lindo
+## Eu sou lindo DEMAIS!
 
   - Take some daily notes
   - Capture photos and record videos
