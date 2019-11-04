@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AudioPlayerDelegate {
+protocol AudioPlayerDelegate: class {
     func didBeginPlay()
     func updateProgressView()
     func didTapFastForwardButton()

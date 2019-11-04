@@ -41,8 +41,9 @@ class PageControlView: UIView {
     // MARK: Initialization
     
     override init(frame: CGRect) {
-           super.init(frame: .zero)
-       }
+        super.init(frame: .zero)
+        self.backgroundColor = .white
+    }
        
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -51,6 +52,10 @@ class PageControlView: UIView {
     convenience init() {
         self.init(frame: .zero)
         setupView()
+    }
+    
+    func updatePageControl(currentPageIndex: Int) {
+        pageControl.currentPage = currentPageIndex
     }
     
 }
@@ -81,30 +86,28 @@ extension PageControlView {
     
     func setupPageControlConstraints() {
         NSLayoutConstraint.activate([
-            pageControl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            pageControl.widthAnchor.constraint(equalToConstant: 20),
+            pageControl.centerYAnchor.constraint(equalTo: skipButton.centerYAnchor),
             pageControl.heightAnchor.constraint(equalToConstant: 20),
-            pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            pageControl.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            pageControl.leadingAnchor.constraint(equalTo: skipButton.trailingAnchor, constant: 32),
+            pageControl.trailingAnchor.constraint(equalTo: nextButton.leadingAnchor, constant: -32)
         ])
     }
     
     func setupSkipButtonConstraints() {
         NSLayoutConstraint.activate([
-            skipButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            skipButton.widthAnchor.constraint(equalToConstant: 20),
-            skipButton.heightAnchor.constraint(equalToConstant: 20),
-            skipButton.trailingAnchor.constraint(equalTo: pageControl.leadingAnchor, constant: -24)
+            skipButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -24),
+            skipButton.heightAnchor.constraint(equalToConstant: 35),
+            skipButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
         ])
     }
     
     func setupNextButtonConstraints() {
         NSLayoutConstraint.activate([
-            nextButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            nextButton.widthAnchor.constraint(equalToConstant: 20),
-            nextButton.heightAnchor.constraint(equalToConstant: 20),
-            nextButton.leadingAnchor.constraint(equalTo: pageControl.trailingAnchor, constant: 24)
+            nextButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -24),
+            nextButton.heightAnchor.constraint(equalToConstant: 35),
+            nextButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16)
         ])
     }
     
 }
-

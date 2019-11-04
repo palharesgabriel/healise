@@ -45,8 +45,8 @@ class NewItemGalleryCollectionViewCell: UICollectionViewCell, ViewCode {
 		NSLayoutConstraint.activate([
 			addItemImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
 			addItemImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-			addItemImageView.widthAnchor.constraint(equalToConstant: 80),
-			addItemImageView.heightAnchor.constraint(equalToConstant: 80)
+			addItemImageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5),
+			addItemImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
 		])
 		
 	}

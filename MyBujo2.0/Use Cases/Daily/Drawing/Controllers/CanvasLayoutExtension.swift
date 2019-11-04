@@ -29,7 +29,8 @@ extension DrawingViewController {
     
     // MARK: Breve inicialização da ToolPicker
     func setupToolPicker() {
-        if let toolPicker = PKToolPicker.shared(for: UIApplication.shared.keyWindow!) {
+		guard let windown = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else { return }
+        if let toolPicker = PKToolPicker.shared(for: windown) {
             toolPicker.setVisible(true, forFirstResponder: canvasView)
             toolPicker.addObserver(canvasView)
             toolPicker.addObserver(self)

@@ -24,7 +24,7 @@ class BlurableModalAnimationController: NSObject, UIViewControllerAnimatedTransi
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromVC = transitionContext.viewController(forKey: .from),
             let toVC = transitionContext.viewController(forKey: .to),
-            let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
+			let _ = toVC.view.snapshotView(afterScreenUpdates: true)
             else {
                 return
             }
