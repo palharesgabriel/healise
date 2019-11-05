@@ -151,6 +151,7 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         
         guard let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "monthHeader", for: indexPath) as? MonthHeader else { return  JTACMonthReusableView()}
         header.configureHeader(start: range.start)
+        header.delegate = self
         print(indexPath)
         return header
     }
@@ -169,3 +170,15 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         }
         return false }
     }
+
+extension CalendarTableViewCell: CalendarHeaderDelegate {
+    func didTapLeftButton() {
+        calendarView.scrollToSegment(.previous)
+    }
+    
+    func didTapRightButton() {
+        calendarView.scrollToSegment(.next)
+    }
+    
+    
+}

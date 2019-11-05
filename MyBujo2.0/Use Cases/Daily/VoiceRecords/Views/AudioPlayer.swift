@@ -12,12 +12,12 @@ import UIKit
 class AudioPlayer: UIView {
     
     var titleLabel: TitleLabel!
-    var playDelegate: AudioPlayerDelegate?
+    weak var playDelegate: AudioPlayerDelegate?
     var isPlaying: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-    }
+    }	
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

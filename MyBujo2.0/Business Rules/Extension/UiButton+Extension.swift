@@ -23,14 +23,4 @@ extension UIButton {
         }
     }
     
-    func setShadow() {
-        self.clipsToBounds = true
-        self.layer.masksToBounds = false
-        self.layer.cornerRadius = 16
-        self.backgroundColor = UIColor(named: "CardsColor")
-        self.layer.shadowRadius = 4
-        self.layer.shadowOffset = CGSize(width: 0, height: 4)
-        self.layer.shadowOpacity = 0.05
-        self.layer.shadowColor = UIColor.black.cgColor
-    }
 }

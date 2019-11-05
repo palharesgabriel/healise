@@ -31,7 +31,9 @@ class MyJourneyViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
-		self.title = "Journey"
+		self.title = "My Journey ⛰"
+		self.navigationController?.navigationBar.prefersLargeTitles = true
+//		self.navigationController?.navigationBar.ite
 
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -112,10 +114,10 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MyJourneyViewController: CalendarTableViewCellDelegate {
     func didSelectDate(date: Date) {
-        //
+        
     }
     
     func shouldShowAddFeelingModal() {
-        //
+        
     }
 }
