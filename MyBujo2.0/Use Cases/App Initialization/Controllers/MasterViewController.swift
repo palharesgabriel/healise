@@ -55,7 +55,7 @@ class MasterViewController: UIViewController, ViewCode {
                                 for: .normal)
         myJourneyButton.setTitle(NSLocalizedString("Journey", comment: "You journey page"),
                                  for: .normal)
-
+      
         let formatStringDay = NSLocalizedString("Good Morning.",
                                              comment: "Goog Morning.")
         dayStatusLabel.text = String.localizedStringWithFormat(formatStringDay)
@@ -103,9 +103,13 @@ class MasterViewController: UIViewController, ViewCode {
         let splitHourString = hourString.components(separatedBy: " ")
         
         if splitHourString[1] == "AM"{
-            return "Good Morning."
+            let formatStringDay = NSLocalizedString("Good Morning.",
+            comment: "Goog Morning.")
+            return formatStringDay
         } else {
-            return "Good Evening."
+            let formatStringNight = NSLocalizedString("Good Evening.",
+            comment: "Good Evening.")
+            return formatStringNight
         }
 
     }
