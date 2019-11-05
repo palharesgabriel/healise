@@ -85,9 +85,6 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             cell.setupCell(calendarType: .month, date: Date())
             return cell
-        case 1:
-            guard let cellCollection = tableView.dequeueReusableCell(withIdentifier: "cardsCell") as? CollectionTableViewCell else { return UITableViewCell() }
-            return cellCollection
         default:
             return UITableViewCell()
         }

@@ -5,7 +5,6 @@
 //  Created by Lucas Tavares on 12/09/19.
 //  Copyright © 2019 Gabriel Palhares. All rights reserved.
 //
-
 import UIKit
 
 class NewBaseViewController: UIViewController, Blurable {
@@ -25,7 +24,7 @@ class NewBaseViewController: UIViewController, Blurable {
         visualEffect = addBlur()
         view.addSubview(reusableView)
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissWhenTouchedOnBlured))
-		tapGesture.delegate = self
+        tapGesture.delegate = self
     }
     
     @objc func dismissWhenTouchedOnBlured() {

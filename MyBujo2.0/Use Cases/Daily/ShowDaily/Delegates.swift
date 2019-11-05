@@ -11,15 +11,11 @@ import UIKit
 
 extension MyTodayViewController:TableViewHeaderViewDelegate {
     func addGoal() {
-        guard let customSplitViewController = splitViewController as? CustomSplitViewController else { return }
-        let viewCont = customSplitViewController.controllers[1]
-        viewCont.definesPresentationContext = true
-        
         let newGoalViewController = NewGoalViewController()
         newGoalViewController.delegate = self
         newGoalViewController.transitioningDelegate = self
         newGoalViewController.modalPresentationStyle = .overCurrentContext
-        viewCont.present(newGoalViewController, animated: true, completion: nil)
+        present(newGoalViewController, animated: true, completion: nil)
     }
 }
 
@@ -27,29 +23,6 @@ extension MyTodayViewController: MediaCollectionViewDelegate {
     func pushViewController(viewController: UIViewController) {
 //        viewController.modalPresentationStyle = .overCurrentContext
         self.present(viewController, animated: true, completion: nil)
-    }
-}
-
-extension MyTodayViewController: CalendarTableViewCellDelegate {
-    func shouldShowAddFeelingModal() {
-        guard let customSplitViewController = splitViewController as? CustomSplitViewController else { return }
-        let viewCont = customSplitViewController.controllers[1]
-        viewCont.definesPresentationContext = true
-        
-        let newFeelingViewController = NewFeelingViewController()
-        newFeelingViewController.delegate = self
-        newFeelingViewController.transitioningDelegate = self
-        newFeelingViewController.modalPresentationStyle = .overCurrentContext
-        viewCont.present(newFeelingViewController, animated: true, completion: nil)
-    }
-    
-    /// Solve Later
-    func didSelectDate(date: Date) {
-        //do something
-        
-        self.day = CalendarManager.shared.getDay(date: date)
-        CalendarManager.shared.selectedDay = day
-        tableView.reloadData()
     }
 }
 
