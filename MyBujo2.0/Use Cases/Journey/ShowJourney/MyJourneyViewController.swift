@@ -42,11 +42,6 @@ class MyJourneyViewController: UIViewController, ViewCode {
     
     
     // MARK: Override Functions
-    override func viewWillAppear(_ animated: Bool) {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
-        cell.calendarView.selectDates([CalendarManager.shared.selectedDay.date!], triggerSelectionDelegate: true, keepSelectionIfMultiSelectionAllowed: false)
-    }
-    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         guard let calendarCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
@@ -114,7 +109,8 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MyJourneyViewController: CalendarTableViewCellDelegate {
     func didSelectDate(date: Date) {
-        
+        CalendarManager.shared.selectedDay = CalendarManager.shared.getDay(date: date)
+        navigationController?.pushViewController(MyTodayViewController(), animated: true)
     }
     
     func shouldShowAddFeelingModal() {

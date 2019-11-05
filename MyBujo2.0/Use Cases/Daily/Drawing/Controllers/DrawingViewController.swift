@@ -50,7 +50,7 @@ class DrawingViewController: MediaViewController {
         
         
         dismiss(animated: true, completion: {
-            guard let day = CalendarManager.shared.selectedDay else { return }
+            let day = CalendarManager.shared.selectedDay
             guard let media = day.media else {
                 let media = Media(context: CoreDataManager.context)
                 media.drawing = self.canvasView.drawing.dataRepresentation()
