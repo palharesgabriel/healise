@@ -19,12 +19,13 @@ class MediaTableViewCell: UITableViewCell {
     
     let mediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 16
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
-        collectionView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         collectionView.register(MediaCollectionViewCell.self, forCellWithReuseIdentifier: "MediaCell")
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
@@ -79,7 +80,7 @@ extension MediaTableViewCell: ViewCode {
             self.mediaCollectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             self.mediaCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             self.mediaCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            self.mediaCollectionView.heightAnchor.constraint(equalToConstant: 160)
+            self.mediaCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
@@ -93,7 +94,7 @@ extension MediaTableViewCell: ViewCode {
 extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 144, height: 144)
+        return CGSize(width: frame.width/2 - 16, height: frame.width/2)
     }
     
 }

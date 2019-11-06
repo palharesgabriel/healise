@@ -94,9 +94,9 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         type = calendarType
         setupView()
         calendarView.scrollToDate(date, animateScroll: false)
-        if calendarView.selectedDates.count == 0 {
-            calendarView.selectDates([date])
-        }
+//        if calendarView.selectedDates.count == 0 {
+//            calendarView.selectDates([date])
+//        }
     }
 
     func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

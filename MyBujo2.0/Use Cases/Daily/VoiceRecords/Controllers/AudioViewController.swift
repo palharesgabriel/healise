@@ -37,7 +37,7 @@ class AudioViewController: MediaViewController {
         
         setupView()
         
-        guard let audios = day?.media?.audios else { return }
+        guard let audios = day.media?.audios else { return }
         audioManager.recordedAudios = audios
     }
     
@@ -107,7 +107,7 @@ extension AudioViewController: UITableViewDataSource {
             audioManager.recordedAudios.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
 			
-            day?.media?.remove(index: indexPath.row, mediaPath: (day?.media!.voiceRecordsPath)!)
+            day.media?.remove(index: indexPath.row, mediaPath: (day.media!.voiceRecordsPath)!)
         }
     }
 }

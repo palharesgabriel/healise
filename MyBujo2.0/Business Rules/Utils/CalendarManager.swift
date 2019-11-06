@@ -20,17 +20,7 @@ class CalendarManager: NSObject {
     
     var year = Year()
     
-    var currentDay: Day {
-        return getDay(date: Date())
-    }
-    
-    lazy var selectedDay: Day! = {
-        if self.selectedDay == nil {
-            return self.currentDay
-        } else {
-            return self.selectedDay
-        }
-    }()
+    lazy var selectedDay: Day = self.getDay(date: Date())
     
     var currentDayComponent = Calendar.current.component(.day, from: Date())
     var currentMonthComponent = Calendar.current.component(.month, from: Date())

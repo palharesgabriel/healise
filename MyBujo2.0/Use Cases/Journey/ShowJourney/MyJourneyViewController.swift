@@ -42,11 +42,6 @@ class MyJourneyViewController: UIViewController, ViewCode {
     
     
     // MARK: Override Functions
-    override func viewWillAppear(_ animated: Bool) {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
-        cell.calendarView.selectDates([CalendarManager.shared.selectedDay.date!], triggerSelectionDelegate: true, keepSelectionIfMultiSelectionAllowed: false)
-    }
-    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         guard let calendarCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
@@ -63,7 +58,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
     }
@@ -87,9 +82,6 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             cell.setupCell(calendarType: .month, date: Date())
             return cell
-        case 1:
-            guard let cellCollection = tableView.dequeueReusableCell(withIdentifier: "cardsCell") as? CollectionTableViewCell else { return UITableViewCell() }
-            return cellCollection
         default:
             return UITableViewCell()
         }
@@ -117,7 +109,8 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MyJourneyViewController: CalendarTableViewCellDelegate {
     func didSelectDate(date: Date) {
-        
+        CalendarManager.shared.selectedDay = CalendarManager.shared.getDay(date: date)
+        navigationController?.pushViewController(MyTodayViewController(), animated: true)
     }
     
     func shouldShowAddFeelingModal() {
