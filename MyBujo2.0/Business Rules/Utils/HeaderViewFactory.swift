@@ -38,14 +38,10 @@ struct HeaderViewFactory {
         
         switch section {
         case 0:
-            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: CalendarTableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else { return nil }
-            header.setupHeader(headerTitle: calendarLabel.text!)
-            return header
-        case 1:
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: GoalsTableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else { return nil }
             header.setupHeader(headerTitle: goalsLabel.text!, buttonTitle: "Add")
             return header
-        case 2:
+        case 1:
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MediaTableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else { return nil }
             header.setupHeader(headerTitle: mediaLabel.text!)
             return header

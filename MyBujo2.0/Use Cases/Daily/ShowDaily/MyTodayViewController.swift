@@ -68,7 +68,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,11 +98,9 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 160
-        case 1:
             return tableView.frame.size.height/3
-        case 2:
-            return 168
+        case 1:
+            return tableView.frame.size.height * 2/3
         default:
             return 0
         }

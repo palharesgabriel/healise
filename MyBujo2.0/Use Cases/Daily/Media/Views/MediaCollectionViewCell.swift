@@ -10,6 +10,7 @@ import UIKit
 
 class MediaCollectionViewCell: UICollectionViewCell, Shadow {
     
+    let shadowView = ShadowView()
     
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -43,17 +44,24 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
 
 extension MediaCollectionViewCell: ViewCode {
     func buildViewHierarchy() {
+        contentView.addSubview(shadowView)
         self.contentView.addSubview(iconImageView)
+        
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            
             iconImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }
     
     func setupAdditionalConfigurantion() {
-        addShadow(view: self)
+        backgroundColor = .clear
     }
 }
