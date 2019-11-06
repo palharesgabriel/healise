@@ -20,7 +20,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         tableView.backgroundColor = .clear
         tableView.showsHorizontalScrollIndicator = false
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
-        tableView.register(CollectionTableViewCell.self, forCellReuseIdentifier: "cardsCell")
+        tableView.register(GradientChartTableViewCell.self, forCellReuseIdentifier: "gradientChartCell")
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -81,6 +81,9 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
             cell.delegate = self
             cell.setupCell(calendarType: .month, date: Date())
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "gradientChartCell") as? GradientChartTableViewCell else { return UITableViewCell()}
             return cell
         default:
             return UITableViewCell()

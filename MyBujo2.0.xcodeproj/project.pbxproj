@@ -34,6 +34,8 @@
 		3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
 		30641F4F2371C08600BF4D53 /* NewBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30641F4E2371C08600BF4D53 /* NewBaseViewController.swift */; };
+		30641F532372EC1900BF4D53 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30641F522372EC1900BF4D53 /* GradientView.swift */; };
+		30641F552372EFD600BF4D53 /* GradientChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30641F542372EFD600BF4D53 /* GradientChartTableViewCell.swift */; };
 		3074028123325CF30058D997 /* CustomizableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074028023325CF30058D997 /* CustomizableLabel.swift */; };
 		308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FC92327C391008012AA /* TitleLabel.swift */; };
 		308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCB2327C4AB008012AA /* ExitButton.swift */; };
@@ -132,6 +134,8 @@
 		3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderDelegate.swift; sourceTree = "<group>"; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		30641F4E2371C08600BF4D53 /* NewBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBaseViewController.swift; sourceTree = "<group>"; };
+		30641F522372EC1900BF4D53 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		30641F542372EFD600BF4D53 /* GradientChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientChartTableViewCell.swift; sourceTree = "<group>"; };
 		3074028023325CF30058D997 /* CustomizableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizableLabel.swift; sourceTree = "<group>"; };
 		308F6FC92327C391008012AA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		308F6FCB2327C4AB008012AA /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
@@ -268,6 +272,23 @@
 				3010248D232A840700BBE978 /* AddGoalsAnimator.swift */,
 			);
 			path = Animator;
+			sourceTree = "<group>";
+		};
+		30641F502372EC0200BF4D53 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				30641F512372EC0B00BF4D53 /* Views */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		30641F512372EC0B00BF4D53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30641F522372EC1900BF4D53 /* GradientView.swift */,
+				30641F542372EFD600BF4D53 /* GradientChartTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		30740286233272ED0058D997 /* Use Cases */ = {
@@ -413,6 +434,7 @@
 		30740297233275460058D997 /* Journey */ = {
 			isa = PBXGroup;
 			children = (
+				30641F502372EC0200BF4D53 /* Chart */,
 				307402A5233277260058D997 /* ShowJourney */,
 			);
 			path = Journey;
@@ -945,6 +967,7 @@
 				3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */,
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
+				30641F532372EC1900BF4D53 /* GradientView.swift in Sources */,
 				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
 				3074028123325CF30058D997 /* CustomizableLabel.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
@@ -953,6 +976,7 @@
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
 				30C6FD992331203500F69F79 /* Media+CoreDataProperties.swift in Sources */,
 				30641F4F2371C08600BF4D53 /* NewBaseViewController.swift in Sources */,
+				30641F552372EFD600BF4D53 /* GradientChartTableViewCell.swift in Sources */,
 				AB8D30DD233906290009409F /* AudioPlayerDelegate.swift in Sources */,
 				3094B17F233A5D9B00576EDF /* FocusedPhotoViewController.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
