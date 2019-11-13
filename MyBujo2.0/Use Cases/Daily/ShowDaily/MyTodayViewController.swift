@@ -33,14 +33,11 @@ class MyTodayViewController: UIViewController, ViewCode {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MMM"
         self.title = "\(dateFormatter.string(from: CalendarManager.shared.selectedDay.date?.ignoringTime() ?? Date()))"
+        
     }
     
     
     // MARK: Override Functions
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.backgroundColor = UIColor(named: "BlueBackground")
-        
-    }
     
     // MARK: Functions
     func buildViewHierarchy() {
