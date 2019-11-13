@@ -52,7 +52,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 		])
     }
@@ -115,7 +115,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return tableView.frame.size.height/3
         case 1:
-            return tableView.frame.size.height * 2/3
+            return 200
         default:
             return 0
         }
