@@ -136,8 +136,8 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
     }
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        guard let cell = cell as? DayCell else { return }
-        cell.setupCell(cellState: cellState)
+//        guard let cell = cell as? DayCell else { return }
+//        cell.setupCell(cellState: cellState)
         delegate.didSelectDate(date: date)
     }
     

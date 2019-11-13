@@ -5,7 +5,6 @@
 //  Created by Adauto Pinheiro on 19/08/19.
 //  Copyright © 2019 Gabriel Palhares. All rights reserved.
 //
-
 import Foundation
 import JTAppleCalendar
 
@@ -75,7 +74,7 @@ class DayCell: JTACDayCell, ViewCode {
     func setupCell(cellState: CellState) {
         label.text = cellState.text
         handleCellTextColor(cellState: cellState)
-        handleCellSelected(cellState: cellState)
+//        handleCellSelected(cellState: cellState)
         moodIndicator.isHidden = true
         guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(cellState.date.ignoringTime()!).predicate) else { return }
         guard let day = result.first as? Day else { return }

@@ -10,6 +10,11 @@ import UIKit
 
 class MyTodayViewController: UIViewController, ViewCode {
     
+    lazy var addFeelingButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "Add Feeling", style: UIBarButtonItem.Style.plain, target: self, action: #selector(addFeeling))
+        return button
+    }()
+    
     // MARK: Properties
     var tableView: UITableView = {
 		let tableView = UITableView(frame: .zero, style: .grouped)
@@ -61,6 +66,14 @@ class MyTodayViewController: UIViewController, ViewCode {
         tableView.register(MediaTableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: MediaTableViewHeaderView.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        navigationItem.setRightBarButton(addFeelingButton, animated: false)
+    }
+    
+    @objc func addFeeling() {
+        let controller = NewFeelingViewController()
+        controller.delegate = self
+        present(controller, animated: true, completion: nil)
     }
 }
 
