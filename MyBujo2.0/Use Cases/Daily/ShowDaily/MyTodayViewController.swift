@@ -30,7 +30,9 @@ class MyTodayViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         setupView()
         tableView.reloadData()
-		self.title = "Daily"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MMM"
+        self.title = "\(dateFormatter.string(from: CalendarManager.shared.selectedDay.date?.ignoringTime() ?? Date()))"
     }
     
     
