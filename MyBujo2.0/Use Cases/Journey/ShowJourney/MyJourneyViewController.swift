@@ -20,7 +20,6 @@ class MyJourneyViewController: UIViewController, ViewCode {
         tableView.backgroundColor = .clear
         tableView.showsHorizontalScrollIndicator = false
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
-        tableView.register(GradientChartTableViewCell.self, forCellReuseIdentifier: "gradientChartCell")
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -31,13 +30,14 @@ class MyJourneyViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
-		self.title = "My Journey ⛰"
+		self.title = "Journey"
 		self.navigationController?.navigationBar.prefersLargeTitles = true
 //		self.navigationController?.navigationBar.ite
 
     }
-    override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+    override func viewWillAppear(_ animated: Bool) {
+        guard let cell = tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? CalendarTableViewCell else { return }
+        cell.calendarView.reloadData()
     }
     
     
@@ -81,9 +81,6 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
             cell.delegate = self
             cell.setupCell(calendarType: .month, date: Date())
-            return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "gradientChartCell") as? GradientChartTableViewCell else { return UITableViewCell()}
             return cell
         default:
             return UITableViewCell()
