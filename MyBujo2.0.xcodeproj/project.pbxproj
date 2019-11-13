@@ -60,6 +60,7 @@
 		30E72933237C2EF200D73666 /* IncrementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E72932237C2EF200D73666 /* IncrementCollectionViewCell.swift */; };
 		30E7293E237C331200D73666 /* MediaCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7293C237C331200D73666 /* MediaCards.swift */; };
 		30E7293F237C331200D73666 /* CounterGoalsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7293D237C331200D73666 /* CounterGoalsCard.swift */; };
+		30E72941237C4D6700D73666 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E72940237C4D6700D73666 /* CustomNavigationController.swift */; };
 		30F091FC4D6DD65676165420 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */; };
 		86B2717C09121F8791F4DCB7 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */; };
 		AB38B94C2368634800F9A9CA /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38B94B2368634800F9A9CA /* RecordButtonView.swift */; };
@@ -163,6 +164,7 @@
 		30E72932237C2EF200D73666 /* IncrementCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementCollectionViewCell.swift; sourceTree = "<group>"; };
 		30E7293C237C331200D73666 /* MediaCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaCards.swift; path = "MyBujo2.0/Use Cases/Journey/Cards/MediaCards.swift"; sourceTree = SOURCE_ROOT; };
 		30E7293D237C331200D73666 /* CounterGoalsCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CounterGoalsCard.swift; path = "MyBujo2.0/Use Cases/Journey/Cards/CounterGoalsCard.swift"; sourceTree = SOURCE_ROOT; };
+		30E72940237C4D6700D73666 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
 		996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -562,6 +564,7 @@
 				3094B178233A57E400576EDF /* FocusedMediaViewController.swift */,
 				159DB6F9233CF16400CD9D5F /* GalleryViewController.swift */,
 				30641F4E2371C08600BF4D53 /* NewBaseViewController.swift */,
+				30E72940237C4D6700D73666 /* CustomNavigationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1014,6 +1017,7 @@
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
 				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
 				AB8A330A23574FAD00D27AD4 /* WelcomeViewController.swift in Sources */,
+				30E72941237C4D6700D73666 /* CustomNavigationController.swift in Sources */,
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
 				AB8A330C2357502D00D27AD4 /* SecondViewController.swift in Sources */,
 				309DC7F5233E3CF800F3218E /* UIImageExtension.swift in Sources */,

@@ -19,13 +19,13 @@ class MediaTableViewCell: UITableViewCell {
     
     let mediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         collectionView.register(MediaCollectionViewCell.self, forCellWithReuseIdentifier: "MediaCell")
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
