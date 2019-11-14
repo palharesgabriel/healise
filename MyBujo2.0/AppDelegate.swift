@@ -1,6 +1,5 @@
 import UIKit
 import CoreData
-import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
