@@ -7,7 +7,6 @@ target 'MyBujo2.0' do
 
   # Pods for MyBujo2.0
      pod 'JTAppleCalendar'
-     pod 'IQKeyboardManager'
 
   target 'MyBujo2.0Tests' do
     inherit! :search_paths
