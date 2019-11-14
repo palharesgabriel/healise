@@ -1,5 +1,6 @@
 import UIKit
 import CoreData
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -9,7 +10,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
+//
+		IQKeyboardManager.shared().isEnabled = true
+		
+//
 		window?.rootViewController = UINavigationController(rootViewController: MyJourneyViewController())
         window?.makeKeyAndVisible()
         // Override point for customization after application launch.

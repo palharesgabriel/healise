@@ -19,7 +19,7 @@ class MediaTableViewCell: UITableViewCell {
     
     let mediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+		layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -108,21 +108,21 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            delegate?.pushViewController(viewController: NotesViewController(title: mediasLabels[0].text!))
+			delegate?.pushMediaController(viewController: NotesViewController())
         case 1:
             if #available(iOS 13.0, *) {
-                delegate?.pushViewController(viewController: DrawingViewController(title: mediasLabels[1].text!))
+                delegate?.pushMediaController(viewController: DrawingViewController(title: mediasLabels[1].text!))
             } else {
                 // Fallback on earlier versions
             }
         case 2:
             if #available(iOS 13.0, *) {
-                delegate?.pushViewController(viewController: AudioViewController(title: "Audio"))
+                delegate?.pushMediaController(viewController: AudioViewController(title: "Audio"))
             } else {
                 // Fallback on earlier versions
             }
         case 3:
-			delegate?.pushViewController(viewController: CapturesViewController(title: mediasLabels[2].text!))
+			delegate?.pushMediaController(viewController: CapturesViewController(title: mediasLabels[2].text!))
 //        case 4:
 //            delegate?.pushViewController(viewController: VideoRecordViewController(title: mediasLabels[3].text!))
         default:
