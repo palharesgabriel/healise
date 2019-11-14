@@ -20,6 +20,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         tableView.backgroundColor = .clear
         tableView.showsHorizontalScrollIndicator = false
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
+        tableView.register(CollectionTableViewCell.self, forCellReuseIdentifier: "cardsCell")
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -81,11 +82,12 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
             cell.delegate = self
             cell.setupCell(calendarType: .month, date: Date())
             return cell
+        case 1:
+            guard let cellCollection = tableView.dequeueReusableCell(withIdentifier: "cardsCell") as? CollectionTableViewCell else { return UITableViewCell() }
+            return cellCollection
         default:
             return UITableViewCell()
         }
-        
-        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

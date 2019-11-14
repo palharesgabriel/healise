@@ -29,9 +29,12 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
         layout.minimumLineSpacing = 16
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.isPagingEnabled = true
         collection.backgroundColor = UIColor(named: "BlueBackground")
+        collection.register(CounterGoalsCard.self, forCellWithReuseIdentifier: "collectionCell")
+        collection.register(MediaCards.self, forCellWithReuseIdentifier: "mediaCell")
         return collection
     }()
     
@@ -72,7 +75,11 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
         
     }
     
-
+    func setupCounterGoalsCell( cell: CounterGoalsCard, numberCount: Int) {
+        cell.incrementLabel(to: numberCount, labelNumber: cell.number)
+        cell.createCircularPath(colorCircular: "SelectionColor")
+        cell.winRain(bubble: UIImage(named: "bubble")!, birdRate: 4, stop: true, scale: 0.03)
+    }
     
 }
 
@@ -82,15 +89,43 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        
+        switch indexPath.row {
+        case 0:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as? CounterGoalsCard else { return UICollectionViewCell()}
+            
+            return cell
+
+        default:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as? MediaCards else { return UICollectionViewCell()}
+            
+            return cell
+        }
         
     }
     
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-
-    }
+        switch indexPath.row {
+        case 0:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.setupCounterGoalsCell(cell: (cell as? CounterGoalsCard)!, numberCount: self.monthData.numberOfGoals)
+                
+            }
+            
+        default:
+            guard let cell = cell as? MediaCards else { return }
+            if #available(iOS 13.0, *) {
+                cell.setupCell(imageName: iconNames[indexPath.row - 1].sf, numberToIncrement: self.monthData.numberOfNotes) } else {
+                cell.setupCell(imageName: iconNames[indexPath.row - 1].normal, numberToIncrement: self.monthData.numberOfNotes)
+            
+            
+            }
+        }
+}
+    
+    
 }
 
 extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
