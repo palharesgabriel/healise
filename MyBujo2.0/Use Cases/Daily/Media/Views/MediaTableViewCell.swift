@@ -94,7 +94,7 @@ extension MediaTableViewCell: ViewCode {
 extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width/2 - 16, height: frame.width/2)
+        return CGSize(width: frame.height - 16, height: frame.height - 16)
     }
     
 }
@@ -140,5 +140,7 @@ extension MediaTableViewCell: UICollectionViewDataSource {
         }
         return cell
     }
+    
+    
     
 }

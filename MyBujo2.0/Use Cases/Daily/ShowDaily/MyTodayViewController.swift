@@ -72,6 +72,8 @@ class MyTodayViewController: UIViewController, ViewCode {
     @objc func addFeeling() {
         let controller = NewFeelingViewController()
         controller.delegate = self
+        controller.modalPresentationStyle = .overFullScreen
+        controller.transitioningDelegate = self
         present(controller, animated: true, completion: nil)
     }
 }
@@ -112,7 +114,7 @@ extension MyTodayViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return tableView.frame.size.height/3
         case 1:
-            return 200
+            return tableView.frame.size.height/3
         default:
             return 0
         }
