@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import IQKeyboardManager
 class NotesView: UIView, ViewCode {
     
     // MARK: Properties
