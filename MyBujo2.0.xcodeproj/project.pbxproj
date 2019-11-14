@@ -57,6 +57,10 @@
 		30C6FD9C233122FF00F69F79 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */; };
 		30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D4230C239100D56A41 /* MonthHeader.swift */; };
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
+		30E72933237C2EF200D73666 /* IncrementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E72932237C2EF200D73666 /* IncrementCollectionViewCell.swift */; };
+		30E7293E237C331200D73666 /* MediaCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7293C237C331200D73666 /* MediaCards.swift */; };
+		30E7293F237C331200D73666 /* CounterGoalsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7293D237C331200D73666 /* CounterGoalsCard.swift */; };
+		30E72941237C4D6700D73666 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E72940237C4D6700D73666 /* CustomNavigationController.swift */; };
 		30F091FC4D6DD65676165420 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */; };
 		86B2717C09121F8791F4DCB7 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */; };
 		AB38B94C2368634800F9A9CA /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38B94B2368634800F9A9CA /* RecordButtonView.swift */; };
@@ -157,6 +161,10 @@
 		30CBF8D7230C347200D56A41 /* WeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
 		30CBF8D9230C34F100D56A41 /* AvenirNextLTPro-MediumCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumCn.otf"; sourceTree = "<group>"; };
 		30CBF8DA230C34F100D56A41 /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
+		30E72932237C2EF200D73666 /* IncrementCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementCollectionViewCell.swift; sourceTree = "<group>"; };
+		30E7293C237C331200D73666 /* MediaCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaCards.swift; path = "MyBujo2.0/Use Cases/Journey/Cards/MediaCards.swift"; sourceTree = SOURCE_ROOT; };
+		30E7293D237C331200D73666 /* CounterGoalsCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CounterGoalsCard.swift; path = "MyBujo2.0/Use Cases/Journey/Cards/CounterGoalsCard.swift"; sourceTree = SOURCE_ROOT; };
+		30E72940237C4D6700D73666 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
 		996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -413,6 +421,7 @@
 		30740297233275460058D997 /* Journey */ = {
 			isa = PBXGroup;
 			children = (
+				30E72937237C2F2800D73666 /* Cards */,
 				307402A5233277260058D997 /* ShowJourney */,
 			);
 			path = Journey;
@@ -555,6 +564,7 @@
 				3094B178233A57E400576EDF /* FocusedMediaViewController.swift */,
 				159DB6F9233CF16400CD9D5F /* GalleryViewController.swift */,
 				30641F4E2371C08600BF4D53 /* NewBaseViewController.swift */,
+				30E72940237C4D6700D73666 /* CustomNavigationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -610,6 +620,16 @@
 				30B900562317FC3B000C0089 /* CalendarTableViewCellDelegate.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		30E72937237C2F2800D73666 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				30E7293D237C331200D73666 /* CounterGoalsCard.swift */,
+				30E7293C237C331200D73666 /* MediaCards.swift */,
+			);
+			name = Cards;
+			path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/mybujo-iphone/MyBujo2.0/Use Cases/Journey/Cards";
 			sourceTree = "<group>";
 		};
 		AB6A659F230AD990009CFE7E = {
@@ -716,6 +736,7 @@
 		E8588B63232EEE060011939B /* CardsViews */ = {
 			isa = PBXGroup;
 			children = (
+				30E72932237C2EF200D73666 /* IncrementCollectionViewCell.swift */,
 				E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */,
 				E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */,
 			);
@@ -942,11 +963,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30E7293F237C331200D73666 /* CounterGoalsCard.swift in Sources */,
 				3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */,
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
 				3074028123325CF30058D997 /* CustomizableLabel.swift in Sources */,
+				30E72933237C2EF200D73666 /* IncrementCollectionViewCell.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
@@ -981,6 +1004,7 @@
 				1549195E231D4B8C00766609 /* FeelingCollectionViewCell.swift in Sources */,
 				E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */,
 				15DA58902338FBE300009949 /* NewPhotoCollectionViewCell.swift in Sources */,
+				30E7293E237C331200D73666 /* MediaCards.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
 				E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */,
@@ -993,6 +1017,7 @@
 				AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */,
 				30B9005C231842A0000C0089 /* GoalExtension.swift in Sources */,
 				AB8A330A23574FAD00D27AD4 /* WelcomeViewController.swift in Sources */,
+				30E72941237C4D6700D73666 /* CustomNavigationController.swift in Sources */,
 				15341D842315C28B005E7328 /* HeaderViewFactory.swift in Sources */,
 				AB8A330C2357502D00D27AD4 /* SecondViewController.swift in Sources */,
 				309DC7F5233E3CF800F3218E /* UIImageExtension.swift in Sources */,
