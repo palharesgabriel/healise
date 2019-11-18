@@ -47,7 +47,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         if goal.completed {
             self.addSubview(checkMarkView)
             checkMarkView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 16).isActive = true
-            checkMarkView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 8).isActive = true
+            checkMarkView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
             goalDescription.textColor = UIColor(named: "SelectionColor")!
             selectedBackgroundView = UIView()
         } else {
