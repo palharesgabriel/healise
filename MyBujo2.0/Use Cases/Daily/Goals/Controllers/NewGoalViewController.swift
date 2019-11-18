@@ -32,7 +32,7 @@ class NewGoalViewController: NewBaseViewController, ViewCode {
             formView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             formView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
             formView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
-            ])
+        ])
     }
     func setupAdditionalConfigurantion() {
         formView.backgroundColor = .white

@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 
-class FeelingsView: UIView, Shadow, ViewCode {
+class FeelingsView: UIView, ViewCode {
     
     let feelings = [Feeling.angry, Feeling.anxious, Feeling.grateful, Feeling.happy, Feeling.indiferent, Feeling.sad, Feeling.surprised, Feeling.tired]
     // MARK: Properties
     
-	var selectedFeeling:Feeling?
+	var selectedFeeling: Feeling?
 	
     let feelingsCardTitle = UILabel(text: "How are you feeling today?", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!,localizableString: "How are you feeling today?")
     
@@ -51,9 +51,7 @@ class FeelingsView: UIView, Shadow, ViewCode {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.translatesAutoresizingMaskIntoConstraints = false
-        
         setupView()
-        addShadow(view: self)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

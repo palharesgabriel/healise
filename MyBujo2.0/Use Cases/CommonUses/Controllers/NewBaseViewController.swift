@@ -7,8 +7,7 @@
 //
 import UIKit
 
-class NewBaseViewController: UIViewController, Blurable {
-    var visualEffect: UIVisualEffectView?
+class NewBaseViewController: UIViewController {
     
     var reusableView: UIView = {
        let view = UIView()
@@ -21,7 +20,6 @@ class NewBaseViewController: UIViewController, Blurable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        visualEffect = addBlur()
         view.addSubview(reusableView)
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissWhenTouchedOnBlured))
         tapGesture.delegate = self
