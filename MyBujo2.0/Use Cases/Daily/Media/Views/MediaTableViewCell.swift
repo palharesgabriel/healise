@@ -94,7 +94,7 @@ extension MediaTableViewCell: ViewCode {
 extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width/2 - 16, height: frame.width/2)
+        return CGSize(width: frame.height - 16, height: frame.height - 16)
     }
     
 }
@@ -111,18 +111,18 @@ extension MediaTableViewCell: UICollectionViewDataSource {
 			delegate?.pushMediaController(viewController: NotesViewController())
         case 1:
             if #available(iOS 13.0, *) {
-                delegate?.pushMediaController(viewController: DrawingViewController(title: mediasLabels[1].text!))
+                delegate?.pushMediaController(viewController: DrawingViewController())
             } else {
                 // Fallback on earlier versions
             }
         case 2:
             if #available(iOS 13.0, *) {
-                delegate?.pushMediaController(viewController: AudioViewController(title: "Audio"))
+                delegate?.pushMediaController(viewController: AudioViewController())
             } else {
                 // Fallback on earlier versions
             }
         case 3:
-			delegate?.pushMediaController(viewController: CapturesViewController(title: mediasLabels[2].text!))
+			delegate?.pushMediaController(viewController: CapturesViewController())
 //        case 4:
 //            delegate?.pushViewController(viewController: VideoRecordViewController(title: mediasLabels[3].text!))
         default:
@@ -140,5 +140,7 @@ extension MediaTableViewCell: UICollectionViewDataSource {
         }
         return cell
     }
+    
+    
     
 }
