@@ -22,8 +22,9 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     }()
     
     let goalBullet: UIImageView = {
-        let configuration = UIImage.SymbolConfiguration(pointSize: 40, weight: .light)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 16, weight: .light)
         let view = UIImageView(image: UIImage(systemName: "circle", withConfiguration: configuration))
+        view.tintColor = .black
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -31,6 +32,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     let checkMarkView: UIImageView = {
         let configuration = UIImage.SymbolConfiguration(pointSize: 16, weight: .light)
         let view = UIImageView(image: UIImage(systemName: "checkmark.circle.fill", withConfiguration: configuration))
+        view.tintColor = UIColor(named: "SelectionColor")
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -46,7 +48,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         goalDescription.text = goal.descript
         if goal.completed {
             self.addSubview(checkMarkView)
-            checkMarkView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 16).isActive = true
+            checkMarkView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 14).isActive = true
             checkMarkView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
             goalDescription.textColor = UIColor(named: "SelectionColor")!
             selectedBackgroundView = UIView()
