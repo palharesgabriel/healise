@@ -32,7 +32,6 @@ class MyJourneyViewController: UIViewController, ViewCode {
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
 		self.title = "Journey"
-		self.navigationController?.navigationBar.prefersLargeTitles = true
 //		self.navigationController?.navigationBar.ite
 
     }
