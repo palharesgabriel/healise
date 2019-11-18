@@ -8,7 +8,7 @@
 import UIKit
 
 
-class NewGoalViewController: NewBaseViewController, ViewCode {
+class NewGoalViewController: UIViewController, ViewCode {
     // MARK: Properties
     let formView = FormView()
     weak var delegate: NewGoalViewControllerDelegate!
@@ -18,7 +18,6 @@ class NewGoalViewController: NewBaseViewController, ViewCode {
         super.viewDidLoad()
         setupView()
         formView.delegate = self
-        reusableView = formView
     }
     
     

@@ -20,9 +20,8 @@ class FeelingsView: UIView, ViewCode {
     
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumLineSpacing = 8
+        flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collection.register(FeelingCollectionViewCell.self, forCellWithReuseIdentifier: FeelingCollectionViewCell.reuseIdentifier)
         collection.backgroundColor = UIColor(named: "CardsColor")
@@ -65,26 +64,26 @@ class FeelingsView: UIView, ViewCode {
     // MARK: Functions
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            feelingsCardTitle.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            feelingsCardTitle.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             feelingsCardTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             feelingsCardTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
-            collectionView.topAnchor.constraint(equalTo: feelingsCardTitle.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: feelingsCardTitle.bottomAnchor, constant: 16),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: doneButton.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -16),
             
             doneButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             doneButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             doneButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
-            ])
+        ])
         
         doneButton.setContentHuggingPriority(.defaultHigh, for: .vertical)
         doneButton.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
     
     func setupAdditionalConfigurantion() {
-        
+        //
     }
 }
 
@@ -92,6 +91,10 @@ extension FeelingsView: UICollectionViewDataSource, UICollectionViewDelegateFlow
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -105,7 +108,7 @@ extension FeelingsView: UICollectionViewDataSource, UICollectionViewDelegateFlow
 	}
 	
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: (collectionView.frame.size.width - 16)/3.5, height: collectionView.frame.size.height)
+        return CGSize(width: (collectionView.frame.size.width)/4.5, height: (collectionView.frame.size.height)/5)
     }
-
+    
 }
