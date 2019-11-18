@@ -19,17 +19,16 @@ class NotesView: UIView, ViewCode {
 		textView.returnKeyType = UIReturnKeyType.default
         textView.clipsToBounds = true
         textView.translatesAutoresizingMaskIntoConstraints = false
-//        textView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        return textView
+		return textView
     }()
     
     // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-//		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//			self.noteTextView.becomeFirstResponder()
-//		}
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+			self.noteTextView.becomeFirstResponder()
+		}
 		setupView()
     }
 
@@ -53,5 +52,4 @@ class NotesView: UIView, ViewCode {
     func setupAdditionalConfigurantion() {
 		backgroundColor = .systemBackground
     }
-    // MARK: Actions Buttons
 }

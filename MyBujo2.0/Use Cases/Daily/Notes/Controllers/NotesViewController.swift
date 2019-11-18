@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotesViewController: UIViewController, ViewCode {
+class NotesViewController: MediaViewController, ViewCode {
 
     // MARK: Properties
 	let notesView = NotesView()
