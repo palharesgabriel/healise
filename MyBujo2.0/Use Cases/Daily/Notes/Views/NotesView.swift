@@ -27,9 +27,9 @@ class NotesView: UIView, ViewCode {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-			self.noteTextView.becomeFirstResponder()
-		}
+//		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//			self.noteTextView.becomeFirstResponder()
+//		}
 		setupView()
     }
 
@@ -51,6 +51,7 @@ class NotesView: UIView, ViewCode {
 		])
     }
     func setupAdditionalConfigurantion() {
+		backgroundColor = .systemBackground
     }
     // MARK: Actions Buttons
 }
