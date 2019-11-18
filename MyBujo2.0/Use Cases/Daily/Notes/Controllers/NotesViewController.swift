@@ -44,7 +44,6 @@ class NotesViewController: UIViewController, ViewCode {
 	}
 	
 	func setupAdditionalConfigurantion() {
-		view.backgroundColor = .systemBackground
 	}
 	
 	@objc func shouldCleanTextView() {
