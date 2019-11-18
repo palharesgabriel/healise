@@ -43,11 +43,11 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
+        setupView()
     }
     
     func setupCell(goal: Goal) {
         self.goal = goal
-        setupView()
         goalDescription.text = goal.descript
         if goal.completed {            self.addSubview(checkMarkView)
             checkMarkView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 16).isActive = true
@@ -81,7 +81,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         
         NSLayoutConstraint.activate([
             goalDescription.leadingAnchor.constraint(equalTo: goalBullet.trailingAnchor, constant: 16),
-            goalDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            goalDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             goalDescription.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             goalDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
 
