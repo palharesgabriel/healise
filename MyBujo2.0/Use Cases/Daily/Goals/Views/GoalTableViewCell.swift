@@ -21,22 +21,19 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         return lbl
     }()
     
-    let goalBullet: UIView = {
-        let view = UIView()
+    let goalBullet: UIImageView = {
+        let configuration = UIImage.SymbolConfiguration(pointSize: 16, weight: .light)
+        let view = UIImageView(image: UIImage(systemName: "circle", withConfiguration: configuration))
+        view.tintColor = .black
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderWidth = 2
-        view.layer.cornerRadius = 8
-        view.backgroundColor = .clear
-        view.layer.borderColor = UIColor(named: "TittleColor")?.cgColor
-        view.clipsToBounds = true
         return view
     }()
     
     let checkMarkView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "checkmark"))
+        let configuration = UIImage.SymbolConfiguration(pointSize: 16, weight: .light)
+        let view = UIImageView(image: UIImage(systemName: "checkmark.circle.fill", withConfiguration: configuration))
+        view.tintColor = UIColor(named: "SelectionColor")
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFill
-        view.clipsToBounds = true
         return view
     }()
     
@@ -49,9 +46,10 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         self.goal = goal
         setupView()
         goalDescription.text = goal.descript
-        if goal.completed {            self.addSubview(checkMarkView)
-            checkMarkView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 16).isActive = true
-            checkMarkView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 8).isActive = true
+        if goal.completed {
+            self.addSubview(checkMarkView)
+            checkMarkView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 14).isActive = true
+            checkMarkView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
             goalDescription.textColor = UIColor(named: "SelectionColor")!
             selectedBackgroundView = UIView()
         } else {

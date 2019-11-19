@@ -11,7 +11,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
 		window?.rootViewController = CustomNavigationController(rootViewController: MyJourneyViewController())
         window?.makeKeyAndVisible()
         

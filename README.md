@@ -17,7 +17,3 @@ Release
 
 healise.github.io
 
-
-**Free Software, Hell Yeah!**
-
-
