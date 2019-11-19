@@ -18,6 +18,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         lbl.numberOfLines = 0
         lbl.font = UIFont(name: "AvenirNext-Medium", size: 16)
         lbl.textColor = UIColor(named: "TitleColor")!
+		lbl.backgroundColor = .red
         return lbl
     }()
     
