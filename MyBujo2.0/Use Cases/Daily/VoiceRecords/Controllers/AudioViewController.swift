@@ -22,6 +22,10 @@ class AudioViewController: MediaViewController {
     let shadowView = ShadowView()
     
     let day = CalendarManager.shared.selectedDay
+	
+	override func viewWillAppear(_ animated: Bool) {
+		self.title = "Record"
+	}
     
     // MARK: Controller methods
     override func viewDidLoad() {
