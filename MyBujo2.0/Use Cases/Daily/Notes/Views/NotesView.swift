@@ -25,12 +25,11 @@ class NotesView: UIView, ViewCode {
     // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-			self.noteTextView.becomeFirstResponder()
-		}
+        translatesAutoresizingMaskIntoConstraints = false		
 		setupView()
     }
+	
+	
 
 	required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

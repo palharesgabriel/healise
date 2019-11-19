@@ -22,7 +22,14 @@ class NotesViewController: MediaViewController, ViewCode {
         }
 		setupView()
 		configureNavigationBar()
+		shouldDoNoteTextViewFirstResponder()
     }
+	
+	func shouldDoNoteTextViewFirstResponder() {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1, qos: .userInitiated, flags: .enforceQoS) {
+			self.notesView.noteTextView.becomeFirstResponder()
+		}
+	}
 	
 	func configureNavigationBar() {
 		self.title = "Notes"
