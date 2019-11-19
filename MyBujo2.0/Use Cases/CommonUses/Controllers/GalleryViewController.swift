@@ -33,7 +33,7 @@ class GalleryViewController: MediaViewController, ViewCode, UINavigationControll
         return collectionView
     }()
     
-    var day = CalendarManager.shared.selectedDay!
+    var day = CalendarManager.shared.selectedDay
 
     override func viewDidLoad() {
         super.viewDidLoad()

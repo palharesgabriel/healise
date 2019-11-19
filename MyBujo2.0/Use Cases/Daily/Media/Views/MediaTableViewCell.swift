@@ -20,11 +20,12 @@ class MediaTableViewCell: UITableViewCell {
     let mediaCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 16
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
-        collectionView.contentInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         collectionView.register(MediaCollectionViewCell.self, forCellWithReuseIdentifier: "MediaCell")
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
@@ -79,7 +80,7 @@ extension MediaTableViewCell: ViewCode {
             self.mediaCollectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
             self.mediaCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             self.mediaCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            self.mediaCollectionView.heightAnchor.constraint(equalToConstant: 160)
+            self.mediaCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
@@ -93,7 +94,7 @@ extension MediaTableViewCell: ViewCode {
 extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 144, height: 144)
+        return CGSize(width: frame.height - 16, height: frame.height - 16)
     }
     
 }
@@ -107,21 +108,21 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            delegate?.pushViewController(viewController: NotesViewController(title: mediasLabels[0].text!))
+			delegate?.pushMediaController(viewController: NotesViewController())
         case 1:
             if #available(iOS 13.0, *) {
-                delegate?.pushViewController(viewController: DrawingViewController(title: mediasLabels[1].text!))
+                delegate?.pushMediaController(viewController: DrawingViewController())
             } else {
                 // Fallback on earlier versions
             }
         case 2:
             if #available(iOS 13.0, *) {
-                delegate?.pushViewController(viewController: AudioViewController(title: "Audio"))
+                delegate?.pushMediaController(viewController: AudioViewController())
             } else {
                 // Fallback on earlier versions
             }
         case 3:
-			delegate?.pushViewController(viewController: CapturesViewController(title: mediasLabels[2].text!))
+			delegate?.pushMediaController(viewController: CapturesViewController())
 //        case 4:
 //            delegate?.pushViewController(viewController: VideoRecordViewController(title: mediasLabels[3].text!))
         default:
@@ -139,5 +140,7 @@ extension MediaTableViewCell: UICollectionViewDataSource {
         }
         return cell
     }
+    
+    
     
 }

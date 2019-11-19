@@ -32,19 +32,16 @@ class MyJourneyViewController: UIViewController, ViewCode {
         view.backgroundColor = UIColor(named: "BlueBackground")
         setupView()
 		self.title = "Journey"
+//		self.navigationController?.navigationBar.ite
 
     }
-    override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+    override func viewWillAppear(_ animated: Bool) {
+        guard let cell = tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? CalendarTableViewCell else { return }
+        cell.calendarView.reloadData()
     }
     
     
     // MARK: Override Functions
-    override func viewWillAppear(_ animated: Bool) {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
-        cell.calendarView.selectDates([CalendarManager.shared.selectedDay.date!], triggerSelectionDelegate: true, keepSelectionIfMultiSelectionAllowed: false)
-    }
-    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         guard let calendarCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
@@ -61,7 +58,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
             ])
     }
@@ -91,8 +88,6 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
-        
-        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -115,10 +110,11 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MyJourneyViewController: CalendarTableViewCellDelegate {
     func didSelectDate(date: Date) {
-        //
+        CalendarManager.shared.selectedDay = CalendarManager.shared.getDay(date: date)
+        navigationController?.pushViewController(MyTodayViewController(), animated: true)
     }
     
     func shouldShowAddFeelingModal() {
-        //
+        
     }
 }

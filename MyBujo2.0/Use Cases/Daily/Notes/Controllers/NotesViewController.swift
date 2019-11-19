@@ -8,45 +8,59 @@
 
 import UIKit
 
-class NotesViewController: MediaViewController {
-    
-    
+class NotesViewController: UIViewController, ViewCode {
+
     // MARK: Properties
-    let notesView = NotesView()
-    
+	let notesView = NotesView()
+	
+	
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
-        constraintNotesView()
-        
         if let text =  CalendarManager.shared.selectedDay.media?.note {
-            notesView.noteTextField.text = text
+			notesView.noteTextView.text = text
         }
+		setupView()
+		configureNavigationBar()
     }
-    
-    func constraintNotesView() {
-        contentView.addSubview(notesView)
-        NSLayoutConstraint.activate([
-            notesView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            notesView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            notesView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            notesView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-            ])
-    }
-    
-    override func exitButtonClicked(sender: ExitButton) {
-        if let text = notesView.noteTextField.text {
-            if let media = CalendarManager.shared.selectedDay.media {
-                media.note = text
-            } else {
-                let media = Media(context: CoreDataManager.context)
-                media.note = text
-                CalendarManager.shared.selectedDay.media = media
-                CalendarManager.shared.selectedDay.save()
-            }
-        }
-        
-        self.dismiss(animated: true, completion: nil)
-    }
+	
+	func configureNavigationBar() {
+		self.title = "Notes"
+		let eraseBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(shouldCleanTextView))
+		navigationItem.setRightBarButton(eraseBarButtonItem, animated: true)
+	}
+
+	func buildViewHierarchy() {
+		view.addSubview(notesView)
+	}
+	
+	func setupConstraints() {
+		NSLayoutConstraint.activate([
+			notesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+			notesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+			notesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			notesView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+		])
+	}
+	
+	func setupAdditionalConfigurantion() {
+	}
+	
+	@objc func shouldCleanTextView() {
+		notesView.noteTextView.text = String()
+	}
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		if let text = notesView.noteTextView.text {
+		   if let media = CalendarManager.shared.selectedDay.media {
+			   media.note = text
+		   } else {
+			   let media = Media(context: CoreDataManager.context)
+			   media.note = text
+			   CalendarManager.shared.selectedDay.media = media
+			   CalendarManager.shared.selectedDay.save()
+		   }
+	   }
+	}
+	   
 }

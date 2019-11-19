@@ -94,9 +94,9 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         type = calendarType
         setupView()
         calendarView.scrollToDate(date, animateScroll: false)
-        if calendarView.selectedDates.count == 0 {
-            calendarView.selectDates([date])
-        }
+//        if calendarView.selectedDates.count == 0 {
+//            calendarView.selectDates([date])
+//        }
     }
 
     func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -136,8 +136,8 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
     }
     
     func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
-        guard let cell = cell as? DayCell else { return }
-        cell.setupCell(cellState: cellState)
+//        guard let cell = cell as? DayCell else { return }
+//        cell.setupCell(cellState: cellState)
         delegate.didSelectDate(date: date)
     }
     
@@ -151,6 +151,7 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         
         guard let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "monthHeader", for: indexPath) as? MonthHeader else { return  JTACMonthReusableView()}
         header.configureHeader(start: range.start)
+        header.delegate = self
         print(indexPath)
         return header
     }
@@ -169,3 +170,15 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         }
         return false }
     }
+
+extension CalendarTableViewCell: CalendarHeaderDelegate {
+    func didTapLeftButton() {
+        calendarView.scrollToSegment(.previous)
+    }
+    
+    func didTapRightButton() {
+        calendarView.scrollToSegment(.next)
+    }
+    
+    
+}

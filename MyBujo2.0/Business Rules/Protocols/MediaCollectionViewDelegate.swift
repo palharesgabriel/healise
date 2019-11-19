@@ -9,5 +9,5 @@
 import UIKit
 
 protocol MediaCollectionViewDelegate: class {
-    func pushViewController(viewController: UIViewController)
+    func pushMediaController(viewController: UIViewController)
 }

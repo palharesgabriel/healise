@@ -19,9 +19,9 @@ extension Shadow {
         view.layer.masksToBounds = false
         view.layer.cornerRadius = 16
         view.backgroundColor = UIColor(named: "CardsColor")
-        view.layer.shadowRadius = 4
-        view.layer.shadowOffset = CGSize(width: 0, height: 4)
-        view.layer.shadowOpacity = 0.05
+        view.layer.shadowRadius = 8
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOpacity = 0.1
         view.layer.shadowColor = UIColor.black.cgColor
     }
 }

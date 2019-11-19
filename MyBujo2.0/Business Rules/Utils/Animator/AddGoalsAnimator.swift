@@ -61,14 +61,12 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                        options: .curveEaseOut,
                        animations: {
                         fromVC.reusableView.transform = CGAffineTransform.init(scaleX: 0.001, y: 0.001)
-        })
-        { (completed) in
+        }) { (_) in
             UIView.animate(withDuration: 2*duration/10,
                            delay: 0,
                            animations: {
                             fromVC.view.alpha = 0
-            })
-{ (completed) in
+            }) { (_) in
                 transitionContext.completeTransition(
                     !transitionContext.transitionWasCancelled)
             }
@@ -103,8 +101,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                               animations: {
                                toVC.view?.alpha = 1
                                
-               })
-               { (completed) in
+               }) { (_) in
                    UIView.animate(withDuration: 8*duration/10,
                                   delay: 0,
                                   usingSpringWithDamping: 0.8,
@@ -114,8 +111,7 @@ class AddGoalsAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                     toVC.reusableView.transform = CGAffineTransform(scaleX: 1, y: 1)
                                    //
                                        
-                   })
-                   { (completed) in
+                   }) { (_) in
                        transitionContext.completeTransition(
                            !transitionContext.transitionWasCancelled)
                    }

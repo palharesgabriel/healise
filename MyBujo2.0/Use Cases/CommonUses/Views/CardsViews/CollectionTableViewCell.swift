@@ -29,6 +29,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
         layout.minimumLineSpacing = 16
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.isPagingEnabled = true
         collection.backgroundColor = UIColor(named: "BlueBackground")
