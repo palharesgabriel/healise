@@ -11,14 +11,43 @@ import UIKit
 class NotesViewController: MediaViewController, ViewCode {
 
     // MARK: Properties
-	let notesView = NotesView()
+    
+    // MARK: Properties
+    let noteTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "Aproveite esse espaço do seu modo"
+        textView.backgroundColor = .clear
+        textView.font = UIFont(name: "AvenirNext-Medium", size: 16)
+		textView.textColor = .label
+		textView.returnKeyType = UIReturnKeyType.default
+        textView.clipsToBounds = true
+        textView.translatesAutoresizingMaskIntoConstraints = false
+		return textView
+    }()
+    
+    // MARK: Functions
+    func buildViewHierarchy() {
+		view.addSubviews([noteTextView])
+    }
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+			noteTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 8),
+			noteTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 16),
+			noteTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+			noteTextView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -16)
+		])
+    }
+    
+	func setupAdditionalConfigurantion() {
+
+	}
 	
 	
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
         if let text =  CalendarManager.shared.selectedDay.media?.note {
-			notesView.noteTextView.text = text
+			noteTextView.text = text
         }
 		setupView()
 		configureNavigationBar()
@@ -26,9 +55,7 @@ class NotesViewController: MediaViewController, ViewCode {
     }
 	
 	func shouldDoNoteTextViewFirstResponder() {
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1, qos: .userInitiated, flags: .enforceQoS) {
-			self.notesView.noteTextView.becomeFirstResponder()
-		}
+		self.noteTextView.becomeFirstResponder()
 	}
 	
 	func configureNavigationBar() {
@@ -37,28 +64,12 @@ class NotesViewController: MediaViewController, ViewCode {
 		navigationItem.setRightBarButton(eraseBarButtonItem, animated: true)
 	}
 
-	func buildViewHierarchy() {
-		view.addSubview(notesView)
-	}
-	
-	func setupConstraints() {
-		NSLayoutConstraint.activate([
-			notesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			notesView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			notesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			notesView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-		])
-	}
-	
-	func setupAdditionalConfigurantion() {
-	}
-	
 	@objc func shouldCleanTextView() {
-		notesView.noteTextView.text = String()
+		noteTextView.text = String()
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
-		if let text = notesView.noteTextView.text {
+		if let text = noteTextView.text {
 		   if let media = CalendarManager.shared.selectedDay.media {
 			   media.note = text
 		   } else {

@@ -31,9 +31,6 @@ class DrawingViewController: MediaViewController {
 		self.title = "Drawing"
     }
 	
-	
-	
-
     override func viewDidLoad() {
         super.viewDidLoad()
         canvasWidth = contentView.frame.width
