@@ -13,7 +13,7 @@ class MediaTableViewCell: UITableViewCell {
     
     // MARK: Properties
     let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "camera", normal: "camera"), (sf: "video", normal: "videoCamera")]
-    
+    let iconName = ["Note","Sketch","Audio","Photo"]
     static let reuseIdentifier = "MediaTableCell"
     weak var delegate: MediaCollectionViewDelegate?
     
@@ -134,9 +134,9 @@ extension MediaTableViewCell: UICollectionViewDataSource {
         guard let cell = self.mediaCollectionView.dequeueReusableCell(withReuseIdentifier: "MediaCell", for: indexPath) as? MediaCollectionViewCell else { return MediaCollectionViewCell() }
         
         if #available(iOS 13.0, *) {
-            cell.setupCell(imageName: iconNames[indexPath.row].sf)
+            cell.setupCell(imageName: iconNames[indexPath.row].sf,mediaName: iconName[indexPath.row])
         } else {
-            cell.setupCell(imageName: iconNames[indexPath.row].normal)
+            cell.setupCell(imageName: iconNames[indexPath.row].normal,mediaName: iconName[indexPath.row])
         }
         return cell
     }
