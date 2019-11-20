@@ -19,6 +19,11 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
         return imageView
     }()
     
+    let nameMedia: TitleLabel = {
+        let lbl = TitleLabel(title: "midia")
+        return lbl
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +32,7 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
         setupView()
     }
     
-    func setupCell(imageName: String) {
+    func setupCell(imageName: String, mediaName: String) {
         if #available(iOS 13.0, *) {
             let configuration = UIImage.SymbolConfiguration(pointSize: 48, weight: .light)
             iconImageView.image = UIImage(systemName: imageName, withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate) ?? UIImage(named: "notes")!.withRenderingMode(.alwaysTemplate)
@@ -35,6 +40,7 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
             iconImageView.image =  UIImage(named: imageName)!.withRenderingMode(.alwaysTemplate)
         }
         iconImageView.tintColor = UIColor(named: "TitleColor")
+        nameMedia.text = mediaName
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,6 +52,7 @@ extension MediaCollectionViewCell: ViewCode {
     func buildViewHierarchy() {
         contentView.addSubview(shadowView)
         self.contentView.addSubview(iconImageView)
+        self.contentView.addSubview(nameMedia)
         
     }
     
@@ -57,7 +64,9 @@ extension MediaCollectionViewCell: ViewCode {
             shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
             iconImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            nameMedia.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            nameMedia.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
     
