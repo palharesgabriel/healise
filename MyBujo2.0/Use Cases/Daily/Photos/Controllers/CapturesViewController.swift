@@ -11,13 +11,21 @@ import Photos
 
 
 class CapturesViewController: GalleryViewController {
+
 	var canEdit: Bool = false
+	
+	lazy var editGalleryBarButtomItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(shouldEnableEditGallery))
+	
+	override func viewWillAppear(_ animated: Bool) {
+		self.title = "Fotos"
+		let addPhotoBarButtomItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentImagePickerController))
+		navigationItem.setRightBarButtonItems([addPhotoBarButtomItem, editGalleryBarButtomItem], animated: true)
+	}
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		galleryCollectionView.dataSource = self
 		galleryCollectionView.delegate = self
-		editGalleryButton.addTarget(self, action: #selector(shouldEnableEditGallery), for: .touchDown)
 	}
 	
 	@objc func shouldEnableEditGallery() {
@@ -30,7 +38,7 @@ class CapturesViewController: GalleryViewController {
 	}
 	
 	func enableEdit() {
-		editGalleryButton.setTitle("Cancel", for: .normal)
+		editGalleryBarButtomItem.title = "Cancelar"
 		for cell in galleryCollectionView.visibleCells {
 			guard let captureCell = cell as? CaptureCollectionViewCell else { continue }
 			captureCell.editable = true
@@ -39,7 +47,7 @@ class CapturesViewController: GalleryViewController {
 	}
 	
 	func disableEdit() {
-		editGalleryButton.setTitle("Edit", for: .normal)
+		editGalleryBarButtomItem.title = "Editar"
 		for cell in galleryCollectionView.visibleCells {
 			guard let captureCell = cell as? CaptureCollectionViewCell else { continue }
 			captureCell.editable = false
@@ -51,25 +59,16 @@ class CapturesViewController: GalleryViewController {
 extension CapturesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		guard let media = day.media, let photos = media.photos else { return 1 }
-		return photos.count + 1
+		return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.row {
-        case 0:
-			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewItemGalleryCollectionViewCell.reuseIdentifier, for: indexPath) as? NewItemGalleryCollectionViewCell else { return UICollectionViewCell()}
-			cell.setupCell(sfImage: "camera.circle.fill", image: "camerabubble")
-			return cell
-        default:
-			guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
-			cell.delegate = self
-			guard let images = day.media!.photos else { return UICollectionViewCell()}
-			cell.setupCell(image: images[indexPath.row - 1])
-            return cell
-        }
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CaptureCollectionViewCell else { return UICollectionViewCell()}
+		cell.delegate = self
+		guard let media = day.media, let images = media.photos else { return UICollectionViewCell()}
+		cell.setupCell(image: images[indexPath.row])
+		return cell
     }
-	
-	
 }
 
 extension CapturesViewController: UICollectionViewDelegateFlowLayout {
@@ -83,7 +82,7 @@ extension CapturesViewController: UICollectionViewDelegateFlowLayout {
             presentImagePickerController()
 			disableEdit()
         default:
-            let testController = FocusedPhotoViewController(row: indexPath.row - 1, photos: CalendarManager.shared.selectedDay.media?.photos)
+            let testController = FocusedPhotoViewController(row: indexPath.row, photos: CalendarManager.shared.selectedDay.media?.photos)
             present(testController, animated: true, completion: nil)
         }
     }
@@ -92,7 +91,7 @@ extension CapturesViewController: UICollectionViewDelegateFlowLayout {
 extension CapturesViewController: CaptureCollectionViewCellDelegate {
 	func didDeleteSelectedCell(selected: UICollectionViewCell) {
 		let indexPath = galleryCollectionView.indexPath(for: selected)
-        if (day.media?.remove(index: indexPath!.row-1, mediaPath: (day.media?.photosPath)!))! {
+        if (day.media?.remove(index: indexPath!.row, mediaPath: (day.media?.photosPath)!))! {
 			galleryCollectionView.deleteItems(at: [indexPath!])
 		}
 	}
