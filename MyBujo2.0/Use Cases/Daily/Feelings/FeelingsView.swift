@@ -27,7 +27,7 @@ class FeelingsView: UIView, ViewCode {
         collection.backgroundColor = UIColor(named: "CardsColor")
         collection.delegate = self
         collection.dataSource = self
-        collection.showsHorizontalScrollIndicator = false
+        collection.isScrollEnabled = false
         return collection
     }()
     
