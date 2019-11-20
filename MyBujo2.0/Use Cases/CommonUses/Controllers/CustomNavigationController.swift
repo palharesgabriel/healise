@@ -15,6 +15,7 @@ class CustomNavigationController: UINavigationController {
         navigationBar.tintColor = UIColor(named: "ActionColor")
         navigationBar.backgroundColor = UIColor(named: "BlueBackground")
         navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.prefersLargeTitles = true
 //        navigationBar.shadowImage = UIImage()
     }
     
