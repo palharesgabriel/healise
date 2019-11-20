@@ -17,7 +17,7 @@ class FormView: UIView, Shadow, ViewCode {
     
     // MARK: Properties
     weak var delegate: FormViewDelegate?
-    lazy var instructionLabel = UILabel(text: "Insert a new goal for today", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!, localizableString: "Insert a new goal for today")
+    lazy var instructionLabel = UILabel(text: "Insert a new goal for today", font: .title, textColor: UIColor(named: "TitleColor")!, localizableString: "Insert a new goal for today")
     
     lazy var goalTextField: UITextView = {
         let txtField = UITextView(frame: .zero)
