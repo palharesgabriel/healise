@@ -36,7 +36,7 @@ class FeelingsView: UIView, ViewCode {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Done", for: .normal)
         btn.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 24)
-        btn.setTitleColor(UIColor(named: "TitleColor"), for: .normal)
+        btn.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
         return btn
     }()
     let feelingsView: UIView = {
@@ -64,22 +64,19 @@ class FeelingsView: UIView, ViewCode {
     // MARK: Functions
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            feelingsCardTitle.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            feelingsCardTitle.topAnchor.constraint(equalTo: topAnchor, constant: 24),
             feelingsCardTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             feelingsCardTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
             collectionView.topAnchor.constraint(equalTo: feelingsCardTitle.bottomAnchor, constant: 16),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -16),
+            collectionView.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -36),
             
             doneButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             doneButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            doneButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            doneButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
         ])
-        
-        doneButton.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        doneButton.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }
     
     func setupAdditionalConfigurantion() {
@@ -108,7 +105,7 @@ extension FeelingsView: UICollectionViewDataSource, UICollectionViewDelegateFlow
 	}
 	
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width)/4.5, height: (collectionView.frame.size.height)/5)
+        return CGSize(width: (collectionView.frame.size.width)/4.5, height: (collectionView.frame.size.height)/2)
     }
     
 }

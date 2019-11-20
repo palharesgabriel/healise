@@ -18,6 +18,7 @@ class NewGoalViewController: UIViewController, ViewCode {
         super.viewDidLoad()
         setupView()
         formView.delegate = self
+        shouldDoGoalViewFirstResponder()
     }
     
     
@@ -25,6 +26,11 @@ class NewGoalViewController: UIViewController, ViewCode {
     func buildViewHierarchy() {
         view.addSubview(formView)
     }
+    
+    func shouldDoGoalViewFirstResponder() {
+        self.formView.goalTextField.becomeFirstResponder()
+    }
+    
     func setupConstraints() {
         NSLayoutConstraint.activate([
             formView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -33,6 +39,7 @@ class NewGoalViewController: UIViewController, ViewCode {
             formView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
+    
     func setupAdditionalConfigurantion() {
         formView.backgroundColor = .white
     }
