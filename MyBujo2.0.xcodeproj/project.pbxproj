@@ -26,7 +26,6 @@
 		15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFF5C62316FB8200F70860 /* Blurable.swift */; };
 		15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */; };
 		300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CAB7A2327C1E3002F066A /* DrawingViewController.swift */; };
-		3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3010248D232A840700BBE978 /* AddGoalsAnimator.swift */; };
 		301149102315721C0099E845 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3011490F2315721C0099E845 /* ShadowView.swift */; };
 		30117AD0233CE16200F0D5F1 /* MonthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117ACF233CE16200F0D5F1 /* MonthData.swift */; };
 		30117AD3233CE18800F0D5F1 /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */; };
@@ -34,8 +33,6 @@
 		3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */; };
 		303B49B02382C14100D0E6C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303B49AF2382C14100D0E6C7 /* CloudKit.framework */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
-		30641F4F2371C08600BF4D53 /* NewBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30641F4E2371C08600BF4D53 /* NewBaseViewController.swift */; };
-		3074028123325CF30058D997 /* CustomizableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074028023325CF30058D997 /* CustomizableLabel.swift */; };
 		308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FC92327C391008012AA /* TitleLabel.swift */; };
 		308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCB2327C4AB008012AA /* ExitButton.swift */; };
 		308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCD2327CAAD008012AA /* MediaViewController.swift */; };
@@ -84,6 +81,7 @@
 		AB8D30DB2338F1AC0009409F /* AudioRecordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DA2338F1AC0009409F /* AudioRecordDelegate.swift */; };
 		AB8D30DD233906290009409F /* AudioPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */; };
 		AB8D30DF23390F4D0009409F /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DE23390F4D0009409F /* Audio.swift */; };
+		AB991ECF23858258002C918D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB991ECE23858258002C918D /* UIFont+Extension.swift */; };
 		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
 		E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */; };
 		E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */; };
@@ -129,7 +127,6 @@
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
 		1A42B77BC5296E06887DA2E4 /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		300CAB7A2327C1E3002F066A /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
-		3010248D232A840700BBE978 /* AddGoalsAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalsAnimator.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		30117ACF233CE16200F0D5F1 /* MonthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthData.swift; sourceTree = "<group>"; };
 		30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStructs.swift; sourceTree = "<group>"; };
@@ -138,8 +135,6 @@
 		303B49AE2382C11500D0E6C7 /* MyBujo2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBujo2.0.entitlements; sourceTree = "<group>"; };
 		303B49AF2382C14100D0E6C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
-		30641F4E2371C08600BF4D53 /* NewBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBaseViewController.swift; sourceTree = "<group>"; };
-		3074028023325CF30058D997 /* CustomizableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizableLabel.swift; sourceTree = "<group>"; };
 		308F6FC92327C391008012AA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		308F6FCB2327C4AB008012AA /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		308F6FCD2327CAAD008012AA /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +191,7 @@
 		AB8D30DA2338F1AC0009409F /* AudioRecordDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordDelegate.swift; sourceTree = "<group>"; };
 		AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerDelegate.swift; sourceTree = "<group>"; };
 		AB8D30DE23390F4D0009409F /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		AB991ECE23858258002C918D /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiButton+Extension.swift"; sourceTree = "<group>"; };
@@ -273,14 +269,6 @@
 				3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */,
 			);
 			path = Delegates;
-			sourceTree = "<group>";
-		};
-		305CC97D232A6BC100969B52 /* Animator */ = {
-			isa = PBXGroup;
-			children = (
-				3010248D232A840700BBE978 /* AddGoalsAnimator.swift */,
-			);
-			path = Animator;
 			sourceTree = "<group>";
 		};
 		30740286233272ED0058D997 /* Use Cases */ = {
@@ -501,7 +489,6 @@
 				308F6FC92327C391008012AA /* TitleLabel.swift */,
 				308F6FCB2327C4AB008012AA /* ExitButton.swift */,
 				E813C1A62322A5F0002F170D /* NavigationButton.swift */,
-				3074028023325CF30058D997 /* CustomizableLabel.swift */,
 				1516C18E231555E5002EC623 /* TableViewHeaderView.swift */,
 				3011490F2315721C0099E845 /* ShadowView.swift */,
 			);
@@ -568,7 +555,6 @@
 				308F6FCD2327CAAD008012AA /* MediaViewController.swift */,
 				3094B178233A57E400576EDF /* FocusedMediaViewController.swift */,
 				159DB6F9233CF16400CD9D5F /* GalleryViewController.swift */,
-				30641F4E2371C08600BF4D53 /* NewBaseViewController.swift */,
 				30E72940237C4D6700D73666 /* CustomNavigationController.swift */,
 			);
 			path = Controllers;
@@ -577,7 +563,6 @@
 		30AD9B1E230AE12100B39434 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				305CC97D232A6BC100969B52 /* Animator */,
 				30AD9B26230AE98B00B39434 /* CalendarManager.swift */,
 				15341D832315C28B005E7328 /* HeaderViewFactory.swift */,
 				301F35342316AAC500AD5477 /* CoreDataManager.swift */,
@@ -769,6 +754,7 @@
 				30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */,
 				309DC7F4233E3CF800F3218E /* UIImageExtension.swift */,
 				15987CB7234CBF2F00E7BEE6 /* UICollectionViewCell+Shake.swift */,
+				AB991ECE23858258002C918D /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -970,18 +956,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E7293F237C331200D73666 /* CounterGoalsCard.swift in Sources */,
-				3010248E232A840700BBE978 /* AddGoalsAnimator.swift in Sources */,
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
-				3074028123325CF30058D997 /* CustomizableLabel.swift in Sources */,
 				30E72933237C2EF200D73666 /* IncrementCollectionViewCell.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
 				30C6FD992331203500F69F79 /* Media+CoreDataProperties.swift in Sources */,
-				30641F4F2371C08600BF4D53 /* NewBaseViewController.swift in Sources */,
 				AB8D30DD233906290009409F /* AudioPlayerDelegate.swift in Sources */,
 				3094B17F233A5D9B00576EDF /* FocusedPhotoViewController.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
@@ -1048,6 +1031,7 @@
 				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,
 				E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */,
 				159DB6FA233CF16400CD9D5F /* GalleryViewController.swift in Sources */,
+				AB991ECF23858258002C918D /* UIFont+Extension.swift in Sources */,
 				E813C1A72322A5F0002F170D /* NavigationButton.swift in Sources */,
 				AB8C882D233518AC0093E29C /* AudioTableView.swift in Sources */,
 				3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */,
@@ -1222,7 +1206,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 7SH46749RP;
+				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1230,7 +1214,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adauto.Healise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magauto.Healise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;
@@ -1249,7 +1233,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 7SH46749RP;
+				DEVELOPMENT_TEAM = 37CT2CQ23H;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1257,7 +1241,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adauto.Healise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magauto.Healise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_UIKITFORMAC = YES;

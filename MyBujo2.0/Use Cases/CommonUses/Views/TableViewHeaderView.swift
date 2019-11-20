@@ -21,7 +21,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     let headerLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont(name: "AvenirNext-Medium", size: 24)
+        lbl.font = .title
         lbl.textColor = UIColor(named: "TitleColor")!
         return lbl
     }()
@@ -30,7 +30,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
-        btn.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 24)
+        btn.titleLabel?.font = .title
         return btn
     }()
     

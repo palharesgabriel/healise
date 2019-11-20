@@ -17,7 +17,7 @@ class FormView: UIView, Shadow, ViewCode {
     
     // MARK: Properties
     weak var delegate: FormViewDelegate?
-    lazy var instructionLabel = UILabel(text: "Insert a new goal for today", font: "AvenirNext-Medium", fontSize: 24, textColor: UIColor(named: "TitleColor")!, localizableString: "Insert a new goal for today")
+    lazy var instructionLabel = UILabel(text: "Insert a new goal for today", font: .title, textColor: UIColor(named: "TitleColor")!, localizableString: "Insert a new goal for today")
     
     lazy var goalTextField: UITextView = {
         let txtField = UITextView(frame: .zero)
@@ -64,20 +64,19 @@ class FormView: UIView, Shadow, ViewCode {
     }
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            instructionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            instructionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 24),
             instructionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             instructionLabel.heightAnchor.constraint(equalToConstant: 40),
             instructionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
+            goalTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             goalTextField.topAnchor.constraint(equalTo: instructionLabel.bottomAnchor, constant: 16),
-            goalTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            goalTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            goalTextField.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -16),
+            goalTextField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
+            goalTextField.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15),
             
-            doneButton.topAnchor.constraint(equalTo: goalTextField.bottomAnchor, constant: 16),
-            doneButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            doneButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
-            ])
+            doneButton.topAnchor.constraint(equalTo: goalTextField.bottomAnchor, constant: 24),
+            doneButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
         doneButton.setContentHuggingPriority(.defaultHigh, for: .vertical)
         doneButton.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
     }

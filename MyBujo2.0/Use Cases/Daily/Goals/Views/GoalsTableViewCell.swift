@@ -17,18 +17,12 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
     
     var goals: [Goal] = [] {
         didSet {
-            if lastNumberOfGoals == goals.count - 1 {
-                tableView.insertRows(at: [IndexPath(row: goals.count - 1, section: 0)], with: .automatic)
-                if tableView.numberOfRows(inSection: 0) != 0 {
-                    tableView.scrollToRow(at: IndexPath(row: tableView.numberOfRows(inSection: 0) - 1, section: 0), at: .bottom, animated: true)
-                }
-            } else {
-                tableView.reloadData()
-            }
-            
+			tableView.reloadData()
             lastNumberOfGoals = goals.count
         }
     }
+	
+	
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -66,8 +60,6 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
             tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
-        
-        
     }
     
     func setupAdditionalConfigurantion() {
@@ -93,28 +85,31 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
 
 extension GoalsTableViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return goals.count
+        return goals.count == 0 ? 1 : goals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GoalTableViewCell.reuseIdentifier, for: indexPath) as? GoalTableViewCell else { return GoalTableViewCell() }
-        cell.setupCell(goal: goals[indexPath.row])
+        goals.count == 0 ? cell.goalDescription.text = "Add one goal here." : cell.setupCell(goal: goals[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        goals[indexPath.row].completed = !goals[indexPath.row].completed
-        goals[indexPath.row].save()
+        goals.count != 0 ? goals[indexPath.row].completed = !goals[indexPath.row].completed : nil
         tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete {
+        if editingStyle == UITableViewCell.EditingStyle.delete && goals.count != 0 {
             let goal = goals[indexPath.row]
             guard let day = day else { return }
             day.removeFromGoals(goal)
             day.save()
             goals.remove(at: indexPath.row)
+        }
+        else {
+            tableView.cellForRow(at: indexPath)?.removeFromSuperview()
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
