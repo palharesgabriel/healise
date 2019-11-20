@@ -13,17 +13,15 @@ protocol NewFeelingViewControllerDelegate: class {
     func didAddFeeling(date: Date)
 }
 
-class NewFeelingViewController: NewBaseViewController, ViewCode {
+class NewFeelingViewController: UIViewController, ViewCode {
     // MARK: Properties
-    let feelingsView =
-		FeelingsView()
+    let feelingsView = FeelingsView()
     weak var delegate: NewFeelingViewControllerDelegate!
     
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        reusableView = feelingsView
     }
     
     // MARK: Functions
@@ -33,10 +31,10 @@ class NewFeelingViewController: NewBaseViewController, ViewCode {
      }
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            feelingsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            feelingsView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            feelingsView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
-            feelingsView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
+            feelingsView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            feelingsView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            feelingsView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            feelingsView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
     }

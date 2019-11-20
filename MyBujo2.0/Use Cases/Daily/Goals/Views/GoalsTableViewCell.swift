@@ -29,6 +29,14 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
             lastNumberOfGoals = goals.count
         }
     }
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     let tableView: UITableView = {
         let tbView = UITableView()
@@ -78,7 +86,6 @@ class GoalsTableViewCell: UITableViewCell, ViewCode {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         selectionStyle = .none
-        setupView()
     }
 }
 

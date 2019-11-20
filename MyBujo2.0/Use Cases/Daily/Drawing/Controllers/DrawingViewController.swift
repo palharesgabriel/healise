@@ -26,8 +26,11 @@ class DrawingViewController: MediaViewController {
     override func viewWillAppear(_ animated: Bool) {
         constraintCanvasView()
         setupToolPicker()
+		setupNavigationBar()
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+		self.title = "Drawing"
     }
-
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         canvasWidth = contentView.frame.width
@@ -35,34 +38,41 @@ class DrawingViewController: MediaViewController {
         if let drawing = CalendarManager.shared.selectedDay.media?.drawing {
             try? canvasView.drawing = PKDrawing(data: drawing)
         }
-        
-        
-        // Do any additional setup after loading the view.
+
     }
-    
+
+	func setupNavigationBar() {
+		let shareButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareDraw))
+		navigationItem.setRightBarButton(shareButtonItem, animated: true)
+	}
+	
+	@objc func shareDraw() {
+		let image = canvasView.drawing.image(from: canvasView.frame, scale: 1)
+		let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+		present(activityController, animated: true, completion: nil)
+	}
+	
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         // sempre que as subviews atualizarem seu layout (Nesse caso mais usado quando a tela muda de orientação) devemos ajustar o layout do Canvas
         layoutCanvas()
         
     }
-    override func exitButtonClicked(sender: ExitButton) {
         
+	override func viewWillDisappear(_ animated: Bool) {
+		let day = CalendarManager.shared.selectedDay
+		guard let media = day.media else {
+			let media = Media(context: CoreDataManager.context)
+			media.drawing = self.canvasView.drawing.dataRepresentation()
+			day.media = media
+			day.save()
+			return
+		}
+		media.drawing = self.canvasView.drawing.dataRepresentation()
+		day.save()
+	}
+
         
-        dismiss(animated: true, completion: {
-            let day = CalendarManager.shared.selectedDay
-            guard let media = day.media else {
-                let media = Media(context: CoreDataManager.context)
-                media.drawing = self.canvasView.drawing.dataRepresentation()
-                day.media = media
-                day.save()
-                return
-            }
-            media.drawing = self.canvasView.drawing.dataRepresentation()
-            day.save()
-        })
-    }
-    
     func constraintCanvasView() {
         canvasView.delegate = self
         canvasView.alwaysBounceVertical = true
@@ -72,7 +82,7 @@ class DrawingViewController: MediaViewController {
         NSLayoutConstraint.activate([
             canvasView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             canvasView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            canvasView.topAnchor.constraint(equalTo: contentView.topAnchor),
+			canvasView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
             canvasView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             ])
         

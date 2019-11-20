@@ -49,7 +49,7 @@ class MyTodayViewController: UIViewController, ViewCode {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+			tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 		])
     }
@@ -72,8 +72,6 @@ class MyTodayViewController: UIViewController, ViewCode {
     @objc func addFeeling() {
         let controller = NewFeelingViewController()
         controller.delegate = self
-        controller.modalPresentationStyle = .overFullScreen
-        controller.transitioningDelegate = self
         present(controller, animated: true, completion: nil)
     }
 }

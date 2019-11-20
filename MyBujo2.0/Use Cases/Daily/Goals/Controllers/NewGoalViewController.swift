@@ -8,7 +8,7 @@
 import UIKit
 
 
-class NewGoalViewController: NewBaseViewController, ViewCode {
+class NewGoalViewController: UIViewController, ViewCode {
     // MARK: Properties
     let formView = FormView()
     weak var delegate: NewGoalViewControllerDelegate!
@@ -18,7 +18,7 @@ class NewGoalViewController: NewBaseViewController, ViewCode {
         super.viewDidLoad()
         setupView()
         formView.delegate = self
-        reusableView = formView
+        shouldDoGoalViewFirstResponder()
     }
     
     
@@ -26,14 +26,20 @@ class NewGoalViewController: NewBaseViewController, ViewCode {
     func buildViewHierarchy() {
         view.addSubview(formView)
     }
+    
+    func shouldDoGoalViewFirstResponder() {
+        self.formView.goalTextField.becomeFirstResponder()
+    }
+    
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            formView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            formView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            formView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
-            formView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
-            ])
+            formView.topAnchor.constraint(equalTo: view.topAnchor),
+            formView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            formView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            formView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
+    
     func setupAdditionalConfigurantion() {
         formView.backgroundColor = .white
     }

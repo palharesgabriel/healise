@@ -18,7 +18,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         lbl.numberOfLines = 0
         lbl.font = UIFont(name: "AvenirNext-Medium", size: 16)
         lbl.textColor = UIColor(named: "TitleColor")!
-        return lbl
+		return lbl
     }()
     
     let goalBullet: UIImageView = {
@@ -80,7 +80,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         
         NSLayoutConstraint.activate([
             goalDescription.leadingAnchor.constraint(equalTo: goalBullet.trailingAnchor, constant: 16),
-            goalDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            goalDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             goalDescription.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             goalDescription.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
 

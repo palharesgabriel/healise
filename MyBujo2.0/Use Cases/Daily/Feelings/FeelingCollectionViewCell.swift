@@ -64,28 +64,28 @@ class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
             feelingCircle.widthAnchor.constraint(equalToConstant: 24),
             feelingCircle.heightAnchor.constraint(equalToConstant: 24),
             feelingCircle.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-			
-				feelingTitle.topAnchor.constraint(equalTo: feelingCircle.bottomAnchor, constant: 8),
-				feelingTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-				feelingTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-				feelingTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
-			])
-		}
+            
+            feelingTitle.topAnchor.constraint(equalTo: feelingCircle.bottomAnchor, constant: 8),
+            feelingTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            feelingTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            feelingTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+        ])
+    }
 		
-		func setupAdditionalConfigurantion() {
-			feelingCircle.clipsToBounds = true
-			feelingCircle.layer.masksToBounds = false
-			feelingCircle.layer.cornerRadius = 12
-		}
-		
-		func didSelect() {
-			if isSelected {
-				feelingCircle.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
-				feelingCircle.self.layer.borderWidth = 3
-
-			} else {
-				feelingCircle.layer.borderColor = UIColor.clear.cgColor
-				feelingCircle.self.layer.borderWidth = 1
-			}
-		}
-	}
+    func setupAdditionalConfigurantion() {
+        feelingCircle.clipsToBounds = true
+        feelingCircle.layer.masksToBounds = false
+        feelingCircle.layer.cornerRadius = 12
+    }
+    
+    func didSelect() {
+        if isSelected {
+            feelingCircle.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
+            feelingCircle.self.layer.borderWidth = 3
+            
+        } else {
+            feelingCircle.layer.borderColor = UIColor.clear.cgColor
+            feelingCircle.self.layer.borderWidth = 1
+        }
+    }
+}
