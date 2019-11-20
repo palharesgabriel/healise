@@ -33,7 +33,6 @@
 		3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */; };
 		303B49B02382C14100D0E6C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303B49AF2382C14100D0E6C7 /* CloudKit.framework */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
-		3074028123325CF30058D997 /* CustomizableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3074028023325CF30058D997 /* CustomizableLabel.swift */; };
 		308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FC92327C391008012AA /* TitleLabel.swift */; };
 		308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCB2327C4AB008012AA /* ExitButton.swift */; };
 		308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCD2327CAAD008012AA /* MediaViewController.swift */; };
@@ -82,6 +81,7 @@
 		AB8D30DB2338F1AC0009409F /* AudioRecordDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DA2338F1AC0009409F /* AudioRecordDelegate.swift */; };
 		AB8D30DD233906290009409F /* AudioPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */; };
 		AB8D30DF23390F4D0009409F /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DE23390F4D0009409F /* Audio.swift */; };
+		AB991ECF23858258002C918D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB991ECE23858258002C918D /* UIFont+Extension.swift */; };
 		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
 		E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */; };
 		E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */; };
@@ -135,7 +135,6 @@
 		303B49AE2382C11500D0E6C7 /* MyBujo2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBujo2.0.entitlements; sourceTree = "<group>"; };
 		303B49AF2382C14100D0E6C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
-		3074028023325CF30058D997 /* CustomizableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizableLabel.swift; sourceTree = "<group>"; };
 		308F6FC92327C391008012AA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		308F6FCB2327C4AB008012AA /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		308F6FCD2327CAAD008012AA /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +191,7 @@
 		AB8D30DA2338F1AC0009409F /* AudioRecordDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordDelegate.swift; sourceTree = "<group>"; };
 		AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerDelegate.swift; sourceTree = "<group>"; };
 		AB8D30DE23390F4D0009409F /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		AB991ECE23858258002C918D /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiButton+Extension.swift"; sourceTree = "<group>"; };
@@ -489,7 +489,6 @@
 				308F6FC92327C391008012AA /* TitleLabel.swift */,
 				308F6FCB2327C4AB008012AA /* ExitButton.swift */,
 				E813C1A62322A5F0002F170D /* NavigationButton.swift */,
-				3074028023325CF30058D997 /* CustomizableLabel.swift */,
 				1516C18E231555E5002EC623 /* TableViewHeaderView.swift */,
 				3011490F2315721C0099E845 /* ShadowView.swift */,
 			);
@@ -755,6 +754,7 @@
 				30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */,
 				309DC7F4233E3CF800F3218E /* UIImageExtension.swift */,
 				15987CB7234CBF2F00E7BEE6 /* UICollectionViewCell+Shake.swift */,
+				AB991ECE23858258002C918D /* UIFont+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -959,7 +959,6 @@
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
-				3074028123325CF30058D997 /* CustomizableLabel.swift in Sources */,
 				30E72933237C2EF200D73666 /* IncrementCollectionViewCell.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
@@ -1032,6 +1031,7 @@
 				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,
 				E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */,
 				159DB6FA233CF16400CD9D5F /* GalleryViewController.swift in Sources */,
+				AB991ECF23858258002C918D /* UIFont+Extension.swift in Sources */,
 				E813C1A72322A5F0002F170D /* NavigationButton.swift in Sources */,
 				AB8C882D233518AC0093E29C /* AudioTableView.swift in Sources */,
 				3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */,

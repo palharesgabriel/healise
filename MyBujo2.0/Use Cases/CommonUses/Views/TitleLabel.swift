@@ -24,7 +24,7 @@ class TitleLabel: UILabel {
         backgroundColor = .clear
         text = title
         textColor = UIColor(named: "TitleColor")
-        font = UIFont(name: "AvenirNext-Medium", size: 24)
+        font = .title
         
     }
     
