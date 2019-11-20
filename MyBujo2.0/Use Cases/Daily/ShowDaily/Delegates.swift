@@ -13,8 +13,8 @@ extension MyTodayViewController:TableViewHeaderViewDelegate {
     func addGoal() {
         let newGoalViewController = NewGoalViewController()
         newGoalViewController.delegate = self
-        newGoalViewController.transitioningDelegate = self
-        newGoalViewController.modalPresentationStyle = .overCurrentContext
+//        newGoalViewController.transitioningDelegate = self
+//        newGoalViewController.modalPresentationStyle = .overCurrentContext
         present(newGoalViewController, animated: true, completion: nil)
     }
 }
@@ -43,17 +43,17 @@ extension MyTodayViewController: NewFeelingViewControllerDelegate {
     }
 }
 
-extension MyTodayViewController: UIViewControllerTransitioningDelegate {
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if presented as? NewBaseViewController != nil {
-            return AddGoalsAnimator(transitionType: .presenting)
-        }
-        return nil
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if dismissed as? NewBaseViewController != nil {
-            return AddGoalsAnimator(transitionType: .dismissing)        }
-        return nil
-    }
-}
+//extension MyTodayViewController: UIViewControllerTransitioningDelegate {
+//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        if presented as? NewBaseViewController != nil {
+//            return AddGoalsAnimator(transitionType: .presenting)
+//        }
+//        return nil
+//    }
+//
+//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        if dismissed as? NewBaseViewController != nil {
+//            return AddGoalsAnimator(transitionType: .dismissing)        }
+//        return nil
+//    }
+//}
