@@ -72,8 +72,6 @@ class MyTodayViewController: UIViewController, ViewCode {
     @objc func addFeeling() {
         let controller = NewFeelingViewController()
         controller.delegate = self
-        controller.modalPresentationStyle = .overFullScreen
-        controller.transitioningDelegate = self
         present(controller, animated: true, completion: nil)
     }
 }
