@@ -69,7 +69,7 @@ class FormView: UIView, Shadow, ViewCode {
             instructionLabel.heightAnchor.constraint(equalToConstant: 40),
             instructionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            goalTextField.topAnchor.constraint(equalTo: instructionLabel.bottomAnchor, constant: 16),
+            goalTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             goalTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             goalTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             goalTextField.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -16),

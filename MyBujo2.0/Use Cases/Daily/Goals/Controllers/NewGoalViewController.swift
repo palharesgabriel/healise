@@ -27,10 +27,10 @@ class NewGoalViewController: UIViewController, ViewCode {
     }
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            formView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            formView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            formView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
-            formView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3)
+            formView.topAnchor.constraint(equalTo: view.topAnchor),
+            formView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            formView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            formView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     func setupAdditionalConfigurantion() {
