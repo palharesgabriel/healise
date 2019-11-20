@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 import CoreData
 
+struct DayData {
+    var hasPhotosInDay = false
+    var hasNotesInDay = false
+    var hasAudiosInDay = false
+    var hasDrawsInDay = false
+}
+
 enum EntityType {
     case day(_: Date)
     case media
@@ -106,6 +113,31 @@ class CoreDataManager: NSObject {
         }
 
         return monthData
+    }
+    
+    static func getDayData(day: Date) -> DayData? {
+//        Pega os dias da semana
+        guard let days = fetch(entityClass: Day.self, predicate: NSPredicate(value: true)) as? [Day] else { return nil }
+//        Filtra somente o dia que eu passei na função
+        guard let filtredDay = days.filter({$0.date == day}).first else { return nil }
+//        Instancia um DayData que vai ser retornado
+        var dayDate = DayData()
+//        Faz a validação do media.
+        if let media  = filtredDay.media {
+            if media.photos?.count != 0 {
+                dayDate.hasPhotosInDay = true
+            }
+            if media.audios?.count != 0 {
+                dayDate.hasAudiosInDay = true
+            }
+            if media.drawing != nil {
+                dayDate.hasDrawsInDay = true
+            }
+            if media.note != nil {
+                dayDate.hasNotesInDay = true
+            }
+        }
+        return dayDate
     }
     
     static func save() {
