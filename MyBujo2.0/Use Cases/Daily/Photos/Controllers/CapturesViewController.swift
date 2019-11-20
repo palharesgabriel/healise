@@ -77,14 +77,8 @@ extension CapturesViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            presentImagePickerController()
-			disableEdit()
-        default:
-            let testController = FocusedPhotoViewController(row: indexPath.row, photos: CalendarManager.shared.selectedDay.media?.photos)
-            present(testController, animated: true, completion: nil)
-        }
+		let testController = FocusedPhotoViewController(row: indexPath.row, photos: CalendarManager.shared.selectedDay.media?.photos)
+		present(testController, animated: true, completion: nil)
     }
 }
 
