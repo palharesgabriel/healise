@@ -27,12 +27,10 @@ class DrawingViewController: MediaViewController {
         constraintCanvasView()
         setupToolPicker()
 		setupNavigationBar()
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 		self.title = "Drawing"
     }
 	
-	
-	
-
     override func viewDidLoad() {
         super.viewDidLoad()
         canvasWidth = contentView.frame.width
@@ -60,23 +58,21 @@ class DrawingViewController: MediaViewController {
         layoutCanvas()
         
     }
-    override func exitButtonClicked(sender: ExitButton) {
         
+	override func viewWillDisappear(_ animated: Bool) {
+		let day = CalendarManager.shared.selectedDay
+		guard let media = day.media else {
+			let media = Media(context: CoreDataManager.context)
+			media.drawing = self.canvasView.drawing.dataRepresentation()
+			day.media = media
+			day.save()
+			return
+		}
+		media.drawing = self.canvasView.drawing.dataRepresentation()
+		day.save()
+	}
+
         
-        dismiss(animated: true, completion: {
-            let day = CalendarManager.shared.selectedDay
-            guard let media = day.media else {
-                let media = Media(context: CoreDataManager.context)
-                media.drawing = self.canvasView.drawing.dataRepresentation()
-                day.media = media
-                day.save()
-                return
-            }
-            media.drawing = self.canvasView.drawing.dataRepresentation()
-            day.save()
-        })
-    }
-    
     func constraintCanvasView() {
         canvasView.delegate = self
         canvasView.alwaysBounceVertical = true
