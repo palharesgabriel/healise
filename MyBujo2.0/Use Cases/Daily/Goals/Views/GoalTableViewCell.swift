@@ -40,12 +40,13 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
+        setupView()
     }
     
     func setupCell(goal: Goal) {
         self.goal = goal
-        setupView()
         goalDescription.text = goal.descript
+        goalBullet.isHidden = false
         if goal.completed {
             self.addSubview(checkMarkView)
             checkMarkView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 14).isActive = true
@@ -88,5 +89,6 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     
     func setupAdditionalConfigurantion() {
         contentView.backgroundColor = UIColor(named: "CardsColor")
+        goalBullet.isHidden = true
     }
 }
