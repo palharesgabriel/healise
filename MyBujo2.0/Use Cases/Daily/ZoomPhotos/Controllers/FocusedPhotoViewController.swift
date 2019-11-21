@@ -48,7 +48,9 @@ class FocusedPhotoViewController: FocusedMediaViewController {
     }
     
     @objc func shareImage() {
-        guard let image = focusedImageView.image else { return }
+        guard let indexPath = focusedCollectionView.indexPathsForVisibleItems.first else { return }
+        guard let cell = focusedCollectionView.cellForItem(at: indexPath) as? CaptureCollectionViewCell else { return }
+        guard let image = cell.captureImageView.image else { return }
         let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
