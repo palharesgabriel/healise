@@ -37,10 +37,10 @@ class FormView: UIView, Shadow, ViewCode {
     let maxCharCount = 50
     // MARK: Properties
     weak var delegate: FormViewDelegate?
-	
-	let instructionLabel = UILabel(text: "Insert a new goal for today", font: .title, textColor: UIColor(named: "TitleColor")!, localizableString: "Insert a new goal for today")
-	
-	lazy var charsCounterLabel = UILabel(text: "0|\(self.maxCharCount)", font: .normal, textColor: .black, localizableString: "0|\(self.maxCharCount)")
+ 
+	let instructionLabel = UILabel(text: "Insert a new goal for today", font: .title, textColor: UIColor(named: "TitleColor")!)
+		
+	lazy var charsCounterLabel = UILabel(text: "0|\(self.maxCharCount)", font: .normal, textColor: .black)
     
 	let goalTextView: UITextView = {
         let textView = UITextView(frame: .zero)
