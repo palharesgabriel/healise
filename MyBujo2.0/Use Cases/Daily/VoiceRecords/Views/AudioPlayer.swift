@@ -11,7 +11,6 @@ import UIKit
 @available(iOS 13.0, *)
 class AudioPlayer: UIView {
     
-    var titleLabel: UILabel!
     weak var playDelegate: AudioPlayerDelegate?
     var isPlaying: Bool = false
     
@@ -25,10 +24,15 @@ class AudioPlayer: UIView {
     
     convenience init() {
         self.init(frame: .zero)
-        titleLabel = UILabel(text: "Audio", font: .medium, textColor: .titleColor)
         setupView()
         addShadow(view: self)
     }
+    
+    let audioTitleLabel: UILabel = {
+        let label = UILabel(text: "Audio", font: .medium, textColor: .titleColor)
+        label.textAlignment = .left
+        return label
+    }()
     
     let progressBar: UIProgressView = {
         let progressBar = UIProgressView()
@@ -110,11 +114,7 @@ class AudioPlayer: UIView {
     }
     
     func setPlayButtonState() {
-        if isPlaying {
-            playButton.isSelected = true
-        } else {
-            playButton.isSelected = false
-        }
+        playButton.isSelected = isPlaying
     }
     
     func setPlayerFlag(isPlaying: Bool) {
@@ -122,7 +122,7 @@ class AudioPlayer: UIView {
     }
     
     func setTitleLabelText(audioName: String) {
-        titleLabel.text = audioName
+        audioTitleLabel.text = audioName
     }
     
     func setPlayerRightLabel(audioDuration: TimeInterval) {
@@ -152,7 +152,7 @@ class AudioPlayer: UIView {
 extension AudioPlayer: ViewCode, Shadow {
     
     func buildViewHierarchy() {
-        addSubviews([titleLabel, progressBar, leftLabel, rightLabel, playButton, fastForwardButton, fastBackwardButton])
+        addSubviews([audioTitleLabel, progressBar, leftLabel, rightLabel, playButton, fastForwardButton, fastBackwardButton])
     }
     
     func setupConstraints() {
@@ -177,16 +177,16 @@ extension AudioPlayer {
     
     func setupTitleViewConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            titleLabel.widthAnchor.constraint(equalToConstant: 200),
-            titleLabel.heightAnchor.constraint(equalToConstant: 28)
+            audioTitleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            audioTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            audioTitleLabel.widthAnchor.constraint(equalToConstant: 200),
+            audioTitleLabel.heightAnchor.constraint(equalToConstant: 28)
         ])
     }
     
     func setupProgressBarConstraints() {
         NSLayoutConstraint.activate([
-            progressBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 36),
+            progressBar.topAnchor.constraint(equalTo: audioTitleLabel.bottomAnchor, constant: 36),
             progressBar.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             progressBar.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             progressBar.heightAnchor.constraint(equalToConstant: 4)
