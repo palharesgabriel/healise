@@ -16,7 +16,7 @@ class ExitButton: UIButton {
         translatesAutoresizingMaskIntoConstraints = false
         setTitle("X", for: .normal)
         titleLabel!.font = UIFont.systemFont(ofSize: 16)
-        setTitleColor(UIColor(named: "TitleColor"), for: .normal)
+        setTitleColor(.titleColor, for: .normal)
         backgroundColor = .clear
 		titleLabel?.textAlignment = .right
         

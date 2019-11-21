@@ -9,7 +9,7 @@
 import UIKit
 
 class FocusedMediaViewController: UIViewController {
-    
+
     var focusedImageView = UIImageView()
     
     lazy var focusedCollectionView: UICollectionView = {
@@ -45,7 +45,7 @@ class FocusedMediaViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupConstraints()
-        view.backgroundColor = UIColor(named: "BlueBackground")
+        view.backgroundColor = .blueBackground
         focusedImageView.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }

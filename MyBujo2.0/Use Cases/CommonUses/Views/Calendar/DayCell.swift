@@ -29,7 +29,7 @@ class DayCell: JTACDayCell, ViewCode {
     var selectedView: UIView = {
         let selectedView = UIView()
         selectedView.clipsToBounds = true
-        selectedView.backgroundColor = UIColor(named: "SelectionColor")
+        selectedView.backgroundColor = .selectionColor
         selectedView.isHidden = true
         return selectedView
     }()
@@ -83,7 +83,7 @@ class DayCell: JTACDayCell, ViewCode {
     
     func handleCellTextColor(cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
-            label.textColor = UIColor(named:"TitleColor")!
+            label.textColor = .titleColor
         } else {
             label.textColor = UIColor.gray
         }

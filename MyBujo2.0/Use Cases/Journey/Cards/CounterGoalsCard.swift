@@ -12,10 +12,10 @@ class CounterGoalsCard: IncrementCollectionViewCell, ViewCode {
     
     
     // MARK: Properties
-     let number = TitleLabel(title: "0")
-     let goalLabel = TitleLabel(title: "Your goals this month")
-     let circleLayer = CAShapeLayer()
-     let progressLayer = CAShapeLayer()
+    let number = UILabel(text: "0", font: .medium, textColor: .titleColor)
+    let goalLabel = UILabel(text: "Suas metas mensais", font: .medium, textColor: .titleColor)
+    let circleLayer = CAShapeLayer()
+    let progressLayer = CAShapeLayer()
 
     
     

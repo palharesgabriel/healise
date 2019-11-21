@@ -33,7 +33,6 @@
 		3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */; };
 		303B49B02382C14100D0E6C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303B49AF2382C14100D0E6C7 /* CloudKit.framework */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
-		308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FC92327C391008012AA /* TitleLabel.swift */; };
 		308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCB2327C4AB008012AA /* ExitButton.swift */; };
 		308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCD2327CAAD008012AA /* MediaViewController.swift */; };
 		308F6FD02327EB96008012AA /* CanvasLayoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCF2327EB96008012AA /* CanvasLayoutExtension.swift */; };
@@ -70,6 +69,7 @@
 		AB6A65C4230AD994009CFE7E /* MyBujo2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65C3230AD994009CFE7E /* MyBujo2_0Tests.swift */; };
 		AB79C01F2317F1590077A21E /* MediaCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */; };
 		AB79C0212317FFB40077A21E /* DismissControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */; };
+		AB872E7C2386C179008B334F /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB872E7B2386C179008B334F /* UIColor+Extension.swift */; };
 		AB8A330823574BEF00D27AD4 /* CustomPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A330723574BEF00D27AD4 /* CustomPageViewController.swift */; };
 		AB8A330A23574FAD00D27AD4 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A330923574FAD00D27AD4 /* WelcomeViewController.swift */; };
 		AB8A330C2357502D00D27AD4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8A330B2357502D00D27AD4 /* SecondViewController.swift */; };
@@ -87,7 +87,6 @@
 		E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */; };
 		E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */; };
 		E813C1A72322A5F0002F170D /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813C1A62322A5F0002F170D /* NavigationButton.swift */; };
-		E8535A0223156252009AB979 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A0123156252009AB979 /* NotesView.swift */; };
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
 		E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */; };
 		E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */; };
@@ -135,7 +134,6 @@
 		303B49AE2382C11500D0E6C7 /* MyBujo2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBujo2.0.entitlements; sourceTree = "<group>"; };
 		303B49AF2382C14100D0E6C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
-		308F6FC92327C391008012AA /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		308F6FCB2327C4AB008012AA /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
 		308F6FCD2327CAAD008012AA /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		308F6FCF2327EB96008012AA /* CanvasLayoutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasLayoutExtension.swift; sourceTree = "<group>"; };
@@ -157,8 +155,6 @@
 		30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		30CBF8D4230C239100D56A41 /* MonthHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeader.swift; sourceTree = "<group>"; };
 		30CBF8D7230C347200D56A41 /* WeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
-		30CBF8D9230C34F100D56A41 /* AvenirNextLTPro-MediumCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumCn.otf"; sourceTree = "<group>"; };
-		30CBF8DA230C34F100D56A41 /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
 		30E72932237C2EF200D73666 /* IncrementCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementCollectionViewCell.swift; sourceTree = "<group>"; };
 		30E7293C237C331200D73666 /* MediaCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaCards.swift; path = "MyBujo2.0/Use Cases/Journey/Cards/MediaCards.swift"; sourceTree = SOURCE_ROOT; };
 		30E7293D237C331200D73666 /* CounterGoalsCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CounterGoalsCard.swift; path = "MyBujo2.0/Use Cases/Journey/Cards/CounterGoalsCard.swift"; sourceTree = SOURCE_ROOT; };
@@ -180,6 +176,7 @@
 		AB6A65C5230AD994009CFE7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB79C01E2317F1590077A21E /* MediaCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		AB79C0202317FFB40077A21E /* DismissControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissControllerDelegate.swift; sourceTree = "<group>"; };
+		AB872E7B2386C179008B334F /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		AB8A330723574BEF00D27AD4 /* CustomPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageViewController.swift; sourceTree = "<group>"; };
 		AB8A330923574FAD00D27AD4 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AB8A330B2357502D00D27AD4 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -198,7 +195,6 @@
 		E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiLabel+Extension.swift"; sourceTree = "<group>"; };
 		E813C1A62322A5F0002F170D /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
-		E8535A0123156252009AB979 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -440,7 +436,6 @@
 		3074029D233275E40058D997 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E8535A0123156252009AB979 /* NotesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -486,7 +481,6 @@
 			children = (
 				E8588B63232EEE060011939B /* CardsViews */,
 				30CBF8DB230C40B000D56A41 /* Calendar */,
-				308F6FC92327C391008012AA /* TitleLabel.swift */,
 				308F6FCB2327C4AB008012AA /* ExitButton.swift */,
 				E813C1A62322A5F0002F170D /* NavigationButton.swift */,
 				1516C18E231555E5002EC623 /* TableViewHeaderView.swift */,
@@ -520,7 +514,6 @@
 				E8FF9D452316C538006C2B49 /* Extension */,
 				15C339C3230D8A04009ED5CD /* Protocols */,
 				30AD9B1E230AE12100B39434 /* Utils */,
-				30CBF8D6230C344600D56A41 /* fonts */,
 			);
 			path = "Business Rules";
 			sourceTree = "<group>";
@@ -589,15 +582,6 @@
 				30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */,
 			);
 			path = Media;
-			sourceTree = "<group>";
-		};
-		30CBF8D6230C344600D56A41 /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				30CBF8D9230C34F100D56A41 /* AvenirNextLTPro-MediumCn.otf */,
-				30CBF8DA230C34F100D56A41 /* AvenirNextLTPro-Regular.otf */,
-			);
-			path = fonts;
 			sourceTree = "<group>";
 		};
 		30CBF8DB230C40B000D56A41 /* Calendar */ = {
@@ -755,6 +739,7 @@
 				309DC7F4233E3CF800F3218E /* UIImageExtension.swift */,
 				15987CB7234CBF2F00E7BEE6 /* UICollectionViewCell+Shake.swift */,
 				AB991ECE23858258002C918D /* UIFont+Extension.swift */,
+				AB872E7B2386C179008B334F /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -956,6 +941,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E7293F237C331200D73666 /* CounterGoalsCard.swift in Sources */,
+				AB872E7C2386C179008B334F /* UIColor+Extension.swift in Sources */,
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
@@ -970,7 +956,6 @@
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				3094B179233A57E400576EDF /* FocusedMediaViewController.swift in Sources */,
 				1516C18F231555E5002EC623 /* TableViewHeaderView.swift in Sources */,
-				E8535A0223156252009AB979 /* NotesView.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
 				ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */,
@@ -1016,7 +1001,6 @@
 				308F6FCE2327CAAD008012AA /* MediaViewController.swift in Sources */,
 				15B4C04A2327E294009B6067 /* CapturesViewController.swift in Sources */,
 				30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */,
-				308F6FCA2327C391008012AA /* TitleLabel.swift in Sources */,
 				AB38B94C2368634800F9A9CA /* RecordButtonView.swift in Sources */,
 				30AD9B27230AE98B00B39434 /* CalendarManager.swift in Sources */,
 				AB8A330823574BEF00D27AD4 /* CustomPageViewController.swift in Sources */,
