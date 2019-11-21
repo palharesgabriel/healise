@@ -31,7 +31,7 @@ class WeekDaysView: UIStackView {
         distribution = .fillEqually
         for index in daysLabels {
             let label = UILabel()
-            label.font = UIFont(name: "AvenirNext-Medium", size: 16)
+            label.font = .normal
             label.textAlignment = .center
             label.text = index.text
             label.textColor = UIColor(named:"TitleColor")!
