@@ -32,7 +32,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
         collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.isPagingEnabled = true
-        collection.backgroundColor = UIColor(named: "BlueBackground")
+        collection.backgroundColor = .blueBackground
         collection.register(CounterGoalsCard.self, forCellWithReuseIdentifier: "collectionCell")
         collection.register(MediaCards.self, forCellWithReuseIdentifier: "mediaCell")
         return collection

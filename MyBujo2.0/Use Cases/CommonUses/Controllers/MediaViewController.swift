@@ -13,7 +13,7 @@ class MediaViewController: UIViewController {
     var contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(named: "BlueBackground")
+        view.backgroundColor = .blueBackground
         return view
     }()
     
@@ -26,7 +26,7 @@ class MediaViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 		])
-		view.backgroundColor = UIColor(named: "BlueBackground")
+        view.backgroundColor = .blueBackground
     }
 
     override func viewDidLoad() {

@@ -13,7 +13,7 @@ class FocusedMediaViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Back", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
+        button.setTitleColor(.actionColor, for: .normal)
         button.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -39,7 +39,7 @@ class FocusedMediaViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupConstraints()
-        view.backgroundColor = UIColor(named: "BlueBackground")
+        view.backgroundColor = .blueBackground
         focusedImageView.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }

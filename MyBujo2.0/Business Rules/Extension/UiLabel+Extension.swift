@@ -9,12 +9,12 @@
 import UIKit
 
 extension UILabel {
-    convenience init(text: String, font: UIFont, textColor: UIColor, localizableString: String) {
+    convenience init(text: String, font: UIFont, textColor: UIColor) {
         self.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.text = text
         self.font = font
-        self.text = NSLocalizedString(localizableString, comment: localizableString)
+        self.text = NSLocalizedString(text, comment: text)
         self.textAlignment = .center
         self.textColor = textColor
         self.adjustsFontSizeToFitWidth = true

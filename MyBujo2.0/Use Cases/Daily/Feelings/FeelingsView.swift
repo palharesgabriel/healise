@@ -16,7 +16,7 @@ class FeelingsView: UIView, ViewCode {
     
 	var selectedFeeling: Feeling?
 	
-    let feelingsCardTitle = UILabel(text: "How are you feeling today?", font: .title, textColor: UIColor(named: "TitleColor")!, localizableString: "How are you feeling today?")
+    let feelingsCardTitle = UILabel(text: "Como você está se sentindo hoje?", font: .title, textColor: .titleColor)
     
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -24,7 +24,7 @@ class FeelingsView: UIView, ViewCode {
         flowLayout.sectionInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collection.register(FeelingCollectionViewCell.self, forCellWithReuseIdentifier: FeelingCollectionViewCell.reuseIdentifier)
-        collection.backgroundColor = UIColor(named: "CardsColor")
+        collection.backgroundColor = .cardsColor
         collection.delegate = self
         collection.dataSource = self
         collection.isScrollEnabled = false
@@ -35,8 +35,8 @@ class FeelingsView: UIView, ViewCode {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Done", for: .normal)
-        btn.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 24)
-        btn.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
+        btn.titleLabel!.font = .medium
+        btn.setTitleColor(.actionColor, for: .normal)
         return btn
     }()
     let feelingsView: UIView = {
