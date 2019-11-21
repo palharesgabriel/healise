@@ -100,7 +100,11 @@ extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension MediaTableViewCell: UICollectionViewDataSource {
+extension MediaTableViewCell: UICollectionViewDataSource, MediaCollectionViewTargetDelegate {
+    func mediaTarget() {
+        mediaCollectionView.reloadData()
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
@@ -109,21 +113,29 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
+            let notesVC = NotesViewController()
+            notesVC.delegateTarget = self
 			delegate?.pushMediaController(viewController: NotesViewController())
         case 1:
             if #available(iOS 13.0, *) {
-                delegate?.pushMediaController(viewController: DrawingViewController())
+                let drawingVC = DrawingViewController()
+                drawingVC.delegateTarget = self
+                delegate?.pushMediaController(viewController: drawingVC)
             } else {
                 // Fallback on earlier versions
             }
         case 2:
             if #available(iOS 13.0, *) {
-                delegate?.pushMediaController(viewController: AudioViewController())
+                let audioVC = AudioViewController()
+                audioVC.delegateTarget = self
+                delegate?.pushMediaController(viewController: audioVC)
             } else {
                 // Fallback on earlier versions
             }
         case 3:
-			delegate?.pushMediaController(viewController: CapturesViewController())
+            let photosVC = CapturesViewController()
+            photosVC.delegateTarget = self
+			delegate?.pushMediaController(viewController: photosVC)
 //        case 4:
 //            delegate?.pushViewController(viewController: VideoRecordViewController(title: mediasLabels[3].text!))
         default:

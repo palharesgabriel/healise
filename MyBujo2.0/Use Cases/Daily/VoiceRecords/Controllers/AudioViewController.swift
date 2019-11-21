@@ -22,7 +22,8 @@ class AudioViewController: MediaViewController {
     let shadowView = ShadowView()
     
     let day = CalendarManager.shared.selectedDay
-	
+	weak var delegateTarget: MediaCollectionViewTargetDelegate?
+    
 	override func viewWillAppear(_ animated: Bool) {
 		self.title = "Record"
 	}
@@ -47,6 +48,7 @@ class AudioViewController: MediaViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         audioManager.stopAudio()
+        delegateTarget?.mediaTarget()
     }
     
     func setRecordButtonState() {

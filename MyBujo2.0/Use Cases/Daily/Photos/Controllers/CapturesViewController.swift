@@ -15,7 +15,7 @@ class CapturesViewController: GalleryViewController {
 	var canEdit: Bool = false
 	
 	lazy var editGalleryBarButtomItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(shouldEnableEditGallery))
-	
+    weak var delegateTarget: MediaCollectionViewTargetDelegate?
 	override func viewWillAppear(_ animated: Bool) {
 		self.title = "Fotos"
 		let addPhotoBarButtomItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentImagePickerController))
@@ -36,7 +36,10 @@ class CapturesViewController: GalleryViewController {
 			disableEdit()
 		}
 	}
-	
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        delegateTarget?.mediaTarget()
+    }
 	func enableEdit() {
 		editGalleryBarButtomItem.title = "Cancelar"
 		for cell in galleryCollectionView.visibleCells {
