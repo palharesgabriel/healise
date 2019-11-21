@@ -115,7 +115,7 @@ extension MediaTableViewCell: UICollectionViewDataSource, MediaCollectionViewTar
         case 0:
             let notesVC = NotesViewController()
             notesVC.delegateTarget = self
-			delegate?.pushMediaController(viewController: NotesViewController())
+			delegate?.pushMediaController(viewController: notesVC)
         case 1:
             if #available(iOS 13.0, *) {
                 let drawingVC = DrawingViewController()
