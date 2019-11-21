@@ -31,6 +31,9 @@ class DrawingViewController: MediaViewController {
 		self.title = "Drawing"
     }
 	
+	override func viewDidDisappear(_ animated: Bool) {
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         canvasWidth = contentView.frame.width
@@ -60,6 +63,12 @@ class DrawingViewController: MediaViewController {
     }
         
 	override func viewWillDisappear(_ animated: Bool) {
+		saveDraw()
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+	}
+
+	
+	func saveDraw() {
 		let day = CalendarManager.shared.selectedDay
 		guard let media = day.media else {
 			let media = Media(context: CoreDataManager.context)
@@ -71,7 +80,6 @@ class DrawingViewController: MediaViewController {
 		media.drawing = self.canvasView.drawing.dataRepresentation()
 		day.save()
 	}
-
         
     func constraintCanvasView() {
         canvasView.delegate = self
