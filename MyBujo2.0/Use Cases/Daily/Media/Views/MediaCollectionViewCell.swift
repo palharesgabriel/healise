@@ -29,10 +29,12 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
         super.init(frame: frame)
         backgroundColor = .white
         contentView.backgroundColor = .clear
+        shadowView.layer.borderWidth = 2
+        shadowView.layer.borderColor = UIColor.clear.cgColor
         setupView()
     }
     
-    func setupCell(imageName: String, mediaName: String) {
+    func setupCell(imageName: String, mediaName: String, validateMedia: Bool) {
         if #available(iOS 13.0, *) {
             let configuration = UIImage.SymbolConfiguration(pointSize: 48, weight: .light)
             iconImageView.image = UIImage(systemName: imageName, withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate) ?? UIImage(named: "notes")!.withRenderingMode(.alwaysTemplate)
@@ -40,7 +42,12 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
             iconImageView.image =  UIImage(named: imageName)!.withRenderingMode(.alwaysTemplate)
         }
         iconImageView.tintColor = UIColor(named: "TitleColor")
+        
         nameMedia.text = mediaName
+        if validateMedia == true
+        {
+            shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -66,7 +73,7 @@ extension MediaCollectionViewCell: ViewCode {
             iconImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             nameMedia.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            nameMedia.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
+            nameMedia.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -14)
         ])
     }
     
