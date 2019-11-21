@@ -16,7 +16,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         lbl.text = "Teste"
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.numberOfLines = 0
-        lbl.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        lbl.font = .normal
         lbl.textColor = UIColor(named: "TitleColor")!
 		return lbl
     }()

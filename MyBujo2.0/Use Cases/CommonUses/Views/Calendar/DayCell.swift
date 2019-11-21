@@ -16,7 +16,7 @@ class DayCell: JTACDayCell, ViewCode {
     var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        label.font = .normal
         return label
     }()
     var moodIndicator: UIView = {
