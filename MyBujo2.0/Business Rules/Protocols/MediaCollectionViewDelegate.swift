@@ -11,3 +11,8 @@ import UIKit
 protocol MediaCollectionViewDelegate: class {
     func pushMediaController(viewController: UIViewController)
 }
+
+
+protocol MediaCollectionViewTargetDelegate: class {
+    func mediaTarget()
+}

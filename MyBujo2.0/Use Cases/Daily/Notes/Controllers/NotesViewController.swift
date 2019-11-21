@@ -13,6 +13,7 @@ class NotesViewController: MediaViewController, ViewCode {
     // MARK: Properties
     
     // MARK: Properties
+    weak var delegateTarget: MediaCollectionViewTargetDelegate?
     let noteTextView: UITextView = {
         let textView = UITextView()
         textView.text = "Aproveite esse espaço do seu modo"
@@ -69,6 +70,7 @@ class NotesViewController: MediaViewController, ViewCode {
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
+        delegateTarget?.mediaTarget()
 		if let text = noteTextView.text {
 		   if let media = CalendarManager.shared.selectedDay.media {
 			   media.note = text
@@ -79,6 +81,7 @@ class NotesViewController: MediaViewController, ViewCode {
 			   CalendarManager.shared.selectedDay.save()
 		   }
 	   }
+        
 	}
 	   
 }

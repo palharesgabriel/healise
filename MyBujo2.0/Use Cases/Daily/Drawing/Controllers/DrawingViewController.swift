@@ -12,6 +12,7 @@ import PencilKit
 @available(iOS 13.0, *)
 class DrawingViewController: MediaViewController {
     
+    
     lazy var canvasView: PKCanvasView = {
         let canvasView = PKCanvasView()
         canvasView.translatesAutoresizingMaskIntoConstraints = false
@@ -22,6 +23,7 @@ class DrawingViewController: MediaViewController {
     var canvasWidth: CGFloat = 0
     var canvasOverscrollHeight: CGFloat = 500 // número que define quanto a mais da altura da tela você quer que o canvas tenha de altura
     var isZoomed = false
+    weak var delegateTarget: MediaCollectionViewTargetDelegate?
     
     override func viewWillAppear(_ animated: Bool) {
         constraintCanvasView()
@@ -70,6 +72,7 @@ class DrawingViewController: MediaViewController {
 		}
 		media.drawing = self.canvasView.drawing.dataRepresentation()
 		day.save()
+        delegateTarget?.mediaTarget()
 	}
 
         
