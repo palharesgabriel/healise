@@ -17,7 +17,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.numberOfLines = 0
         lbl.font = .normal
-        lbl.textColor = UIColor(named: "TitleColor")!
+        lbl.textColor = .titleColor
 		return lbl
     }()
     
@@ -32,7 +32,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     let checkMarkView: UIImageView = {
         let configuration = UIImage.SymbolConfiguration(pointSize: 16, weight: .light)
         let view = UIImageView(image: UIImage(systemName: "checkmark.circle.fill", withConfiguration: configuration))
-        view.tintColor = UIColor(named: "SelectionColor")
+        view.tintColor = .selectionColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -51,11 +51,11 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
             self.addSubview(checkMarkView)
             checkMarkView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 14).isActive = true
             checkMarkView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor).isActive = true
-            goalDescription.textColor = UIColor(named: "SelectionColor")!
+            goalDescription.textColor = .selectionColor
             selectedBackgroundView = UIView()
         } else {
             checkMarkView.removeFromSuperview()
-            goalDescription.textColor = UIColor(named: "TitleColor")!
+            goalDescription.textColor = .titleColor
             selectedBackgroundView = UIView()
         }
         
@@ -88,7 +88,7 @@ class GoalTableViewCell: UITableViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        contentView.backgroundColor = UIColor(named: "CardsColor")
+        contentView.backgroundColor = .cardsColor
         goalBullet.isHidden = true
     }
 }

@@ -9,18 +9,23 @@
 import UIKit
 
 class FocusedMediaViewController: UIViewController {
-    lazy var backButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Back", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
-        button.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
+
     var focusedImageView = UIImageView()
     
+    lazy var focusedCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = CGSize(width: view.frame.width, height: view.frame.height * 0.8)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "CaptureCell")
+        collectionView.backgroundColor = .clear
+        collectionView.isPagingEnabled = true
+        return collectionView
+    }()
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 1
@@ -32,6 +37,7 @@ class FocusedMediaViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "CaptureCell")
         collectionView.backgroundColor = .clear
+        collectionView.isPagingEnabled = true
         return collectionView
     }()
     
@@ -39,34 +45,31 @@ class FocusedMediaViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupConstraints()
-        view.backgroundColor = UIColor(named: "BlueBackground")
+        view.backgroundColor = .blueBackground
         focusedImageView.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }
     
-    @objc func backButtonClicked(sender: UIButton) {
+    @objc func backButtonClicked(sender: UIBarButtonItem) {
 //        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     func setupHierarchy() {
-        view.addSubviews([backButton, focusedImageView, collectionView])
+        view.addSubviews([focusedCollectionView, collectionView])
     }
     
     func setupConstraints() {
-        focusedImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             
-            focusedImageView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 8),
-            focusedImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            focusedImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            focusedImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),
+            focusedCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            focusedCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            focusedCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            focusedCollectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),
             
-            collectionView.topAnchor.constraint(equalTo: focusedImageView.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: focusedImageView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: focusedImageView.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: focusedCollectionView.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: focusedCollectionView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: focusedCollectionView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }

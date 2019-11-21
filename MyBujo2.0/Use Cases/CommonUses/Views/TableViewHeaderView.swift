@@ -21,16 +21,16 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     let headerLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = .title
-        lbl.textColor = UIColor(named: "TitleColor")!
+        lbl.font = .medium
+        lbl.textColor = .titleColor
         return lbl
     }()
     
     lazy var buttonAddGoal: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
-        btn.titleLabel?.font = .title
+        btn.setTitleColor(.actionColor, for: .normal)
+        btn.titleLabel?.font = .medium
         return btn
     }()
     
@@ -77,7 +77,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     
     func setupAdditionalConfigurantion() {
         let view = UIView()
-        view.backgroundColor = UIColor(named: "BlueBackground")
+        view.backgroundColor = .blueBackground
         backgroundView = view
     }
 }

@@ -27,7 +27,7 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
             // Fallback on earlier versions
         }
         imageView.setImage(image, for: .normal)
-        imageView.tintColor = UIColor(named: "ActionColor")
+        imageView.tintColor = .actionColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.addTarget(self, action: #selector(didTapRightButton), for: .touchUpInside)
         return imageView
@@ -43,7 +43,7 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
             // Fallback on earlier versions
         }
         imageView.setImage(image, for: .normal)
-        imageView.tintColor = UIColor(named: "ActionColor")
+    imageView.tintColor = .actionColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.addTarget(self, action: #selector(didTapLeftButton), for: .touchUpInside)
         return imageView
@@ -97,13 +97,13 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        titleLabel.textColor = UIColor(named:"TitleColor")!
+        titleLabel.textColor = .titleColor
     }
     
     func configureHeader(start: Date) {
         let formatter = DateFormatter()  // Declare this outside, to avoid instancing this heavy class multiple times.
         formatter.dateFormat = "MMMM"
         titleLabel.text = formatter.string(from: start)
-        titleLabel.font = .title
+        titleLabel.font = .medium
     }
 }

@@ -17,7 +17,7 @@ class FormView: UIView, Shadow, ViewCode {
     
     // MARK: Properties
     weak var delegate: FormViewDelegate?
-    lazy var instructionLabel = UILabel(text: "Insert a new goal for today", font: .title, textColor: UIColor(named: "TitleColor")!, localizableString: "Insert a new goal for today")
+    lazy var instructionLabel = UILabel(text: "Insira uma nova meta", font: .title, textColor: .titleColor)
     
     lazy var goalTextField: UITextView = {
         let txtField = UITextView(frame: .zero)
@@ -25,12 +25,12 @@ class FormView: UIView, Shadow, ViewCode {
         txtField.backgroundColor = .white
         txtField.isEditable = true
         txtField.font = .normal
-        txtField.textColor = UIColor(named: "TitleColor")
+        txtField.textColor = .titleColor
         txtField.layer.borderWidth = 0.1
         txtField.layer.borderColor = UIColor.gray.cgColor
         txtField.layer.cornerRadius = 16
         txtField.clipsToBounds = true
-        txtField.backgroundColor = UIColor(named: "CardsColor")
+        txtField.backgroundColor = .cardsColor
         txtField.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         return txtField
     }()
@@ -38,7 +38,7 @@ class FormView: UIView, Shadow, ViewCode {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Done", for: .normal)
-        btn.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
+        btn.setTitleColor(.actionColor, for: .normal)
         return btn
     }()
     
@@ -81,7 +81,7 @@ class FormView: UIView, Shadow, ViewCode {
     }
     func setupAdditionalConfigurantion() {
         DispatchQueue.main.async {
-            self.backgroundColor = UIColor(named: "CardsColor")
+            self.backgroundColor = .cardsColor
         }
         doneButton.addTarget(self, action: #selector(tapDoneButton), for: .touchDown)
     }

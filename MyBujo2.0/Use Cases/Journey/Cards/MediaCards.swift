@@ -11,7 +11,7 @@ import UIKit
 class MediaCards: IncrementCollectionViewCell, ViewCode {
     
     // MARK: Properties
-    let number = TitleLabel(title: "0")
+    let number = UILabel(text: "0", font: .medium, textColor: .titleColor)
     
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -60,7 +60,7 @@ class MediaCards: IncrementCollectionViewCell, ViewCode {
         } else {
             iconImageView.image =  UIImage(named: imageName)!.withRenderingMode(.alwaysTemplate)
         }
-        iconImageView.tintColor = UIColor(named: "SelectionColor")
+        iconImageView.tintColor = .selectionColor
         
         DispatchQueue.main.async {
             self.winRain(bubble: UIImage(named: "bubble")!, birdRate: 4, stop: true, scale: 0.03)

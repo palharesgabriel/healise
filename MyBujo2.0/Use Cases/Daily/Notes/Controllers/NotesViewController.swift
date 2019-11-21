@@ -18,7 +18,7 @@ class NotesViewController: MediaViewController, ViewCode {
         let textView = UITextView()
         textView.text = "Aproveite esse espaço do seu modo"
         textView.backgroundColor = .clear
-        textView.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        textView.font = .normal
 		textView.textColor = .label
 		textView.returnKeyType = UIReturnKeyType.default
         textView.clipsToBounds = true

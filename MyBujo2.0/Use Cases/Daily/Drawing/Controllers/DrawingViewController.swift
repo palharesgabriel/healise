@@ -16,7 +16,7 @@ class DrawingViewController: MediaViewController {
     lazy var canvasView: PKCanvasView = {
         let canvasView = PKCanvasView()
         canvasView.translatesAutoresizingMaskIntoConstraints = false
-        canvasView.backgroundColor = UIColor(named: "BlueBackground")
+        canvasView.backgroundColor = .blueBackground
         return canvasView
     }()
     
