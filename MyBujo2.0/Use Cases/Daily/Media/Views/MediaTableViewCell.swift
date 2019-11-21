@@ -13,7 +13,7 @@ class MediaTableViewCell: UITableViewCell {
     
     // MARK: Properties
     let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "camera", normal: "camera"), (sf: "video", normal: "videoCamera")]
-    let iconName = ["Note","Sketch","Audio","Photo"]
+    let iconName = ["Notas","Desenho","Áudio","Foto"]
     static let reuseIdentifier = "MediaTableCell"
     weak var delegate: MediaCollectionViewDelegate?
     

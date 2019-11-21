@@ -104,6 +104,6 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
         let formatter = DateFormatter()  // Declare this outside, to avoid instancing this heavy class multiple times.
         formatter.dateFormat = "MMMM"
         titleLabel.text = formatter.string(from: start)
-        titleLabel.font = .title
+        titleLabel.font = .medium
     }
 }

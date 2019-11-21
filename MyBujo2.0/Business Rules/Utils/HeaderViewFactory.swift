@@ -18,12 +18,12 @@ struct HeaderViewFactory {
     }()
     var goalsLabel: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("Goals", comment: "Goals")
+        label.text = NSLocalizedString("Metas", comment: "Goals")
         return label
     }()
     var mediaLabel: UILabel = {
         let label = UILabel()
-        label.text = NSLocalizedString("Media", comment: "Media")
+        label.text = NSLocalizedString("Mídias", comment: "Media")
         return label
     }()
     var tableView: UITableView!
