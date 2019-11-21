@@ -21,6 +21,7 @@ class FocusedPhotoViewController: FocusedMediaViewController {
         if let photos = photos {
             self.photos = photos
         }
+        
     }
     
     required init?(coder: NSCoder) {
@@ -32,6 +33,23 @@ class FocusedPhotoViewController: FocusedMediaViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.scrollToItem(at: IndexPath(row: row, section: 0), at: .centeredVertically, animated: false)
+        aditionalConfiguration()
+    }
+    
+    func aditionalConfiguration() {
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.close, target: self, action: #selector(backButtonClicked(sender:)))
+        let shareButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareImage))
+        navigationItem.setRightBarButton(shareButtonItem, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = false
+//        navigationController?.navigationBar.tintColor = UIColor(named: "ActionColor")
+        navigationItem.setLeftBarButton(button, animated: false)
+        navigationItem.setRightBarButton(shareButtonItem, animated: false)
+    }
+    
+    @objc func shareImage() {
+        guard let image = focusedImageView.image else { return }
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        present(activityController, animated: true, completion: nil)
     }
 }
 
