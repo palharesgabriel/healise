@@ -24,10 +24,10 @@ class FormView: UIView, Shadow, ViewCode {
         txtField.translatesAutoresizingMaskIntoConstraints = false
         txtField.backgroundColor = .white
         txtField.isEditable = true
-        txtField.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        txtField.font = .normal
         txtField.textColor = UIColor(named: "TitleColor")
         txtField.layer.borderWidth = 0.1
-        txtField.layer.borderColor = UIColor(named: "AvenirNext-Medium")?.cgColor
+        txtField.layer.borderColor = UIColor.gray.cgColor
         txtField.layer.cornerRadius = 16
         txtField.clipsToBounds = true
         txtField.backgroundColor = UIColor(named: "CardsColor")
@@ -38,7 +38,6 @@ class FormView: UIView, Shadow, ViewCode {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle("Done", for: .normal)
-        btn.titleLabel!.font = UIFont(name: "AvenirNext-Medium", size: 24)
         btn.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
         return btn
     }()
