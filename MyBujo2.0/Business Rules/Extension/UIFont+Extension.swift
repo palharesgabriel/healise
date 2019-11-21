@@ -10,5 +10,5 @@ import UIKit
 
 extension UIFont {
     static let title = UIFont.boldSystemFont(ofSize: 24)
-    static let normal = UIFont.systemFont(ofSize: 18, weight: .regular)
+    static let normal = UIFont.systemFont(ofSize: 16, weight: .regular)
 }
