@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FocusedMediaViewController: UIViewController {    
+class FocusedMediaViewController: UIViewController {
+    
     var focusedImageView = UIImageView()
     
     lazy var collectionView: UICollectionView = {
