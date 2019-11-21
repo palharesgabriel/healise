@@ -34,7 +34,7 @@ extension AudiosTableView: ViewCode, Shadow {
     func setupAdditionalConfigurantion() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.showsVerticalScrollIndicator = false
-        self.backgroundColor = UIColor(named: "CardsColor")
+        self.backgroundColor = .cardsColor
         self.separatorStyle = .none
         self.register(UITableViewCell.self, forCellReuseIdentifier: "AudioCell")
         self.clipsToBounds = true

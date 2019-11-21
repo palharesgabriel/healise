@@ -29,7 +29,7 @@ class CaptureCollectionViewCell: UICollectionViewCell, ViewCode {
 		button.translatesAutoresizingMaskIntoConstraints = false
 		if #available(iOS 13.0, *) {
 			let trashImage = UIImage(systemName: "trash.circle.fill", compatibleWith: .current)
-			let redTrashImage = trashImage?.withTintColor(UIColor(named: "ActionColor")!, renderingMode: .alwaysOriginal)
+            let redTrashImage = trashImage?.withTintColor(.actionColor, renderingMode: .alwaysOriginal)
 			button.setBackgroundImage(redTrashImage, for: .normal)
 		} else { 
 			button.setImage(UIImage(named: "camerabubble"), for: .normal)

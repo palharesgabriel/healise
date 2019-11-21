@@ -11,7 +11,7 @@ import UIKit
 class WelcomeViewController: UIViewController {
     
     let pageControllView = PageControlView()
-    let welcomeLabel = TitleLabel(title: "Bem vindo ao Healise")
+    let welcomeLabel = UILabel(text: "Bem vindo ao Healise", font: .title, textColor: .titleColor)
     
     let logoImageView: UIImageView = {
         let imageView = UIImageView()

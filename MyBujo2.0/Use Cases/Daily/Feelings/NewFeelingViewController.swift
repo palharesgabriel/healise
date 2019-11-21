@@ -39,7 +39,7 @@ class NewFeelingViewController: UIViewController, ViewCode {
         
     }
     func setupAdditionalConfigurantion() {
-        feelingsView.backgroundColor = UIColor(named: "CardsColor")
+        feelingsView.backgroundColor = .cardsColor
     }
 
     // MARK: Action Buttons

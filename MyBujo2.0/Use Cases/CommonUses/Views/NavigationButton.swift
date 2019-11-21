@@ -25,14 +25,14 @@ class NavigationButton: UIButton {
         }
         
         self.setImage(image, for: .normal)
-        self.imageView?.tintColor = UIColor(named: "TitleColor")
+        self.imageView?.tintColor = .titleColor
         self.imageView?.contentMode = .scaleAspectFit
         self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 30)
         self.titleEdgeInsets = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
         self.translatesAutoresizingMaskIntoConstraints = false
         self.setTitle(title, for: .normal)
         self.contentHorizontalAlignment = .left
-        self.setTitleColor(UIColor(named:"TitleColor")!, for: .normal)
+        self.setTitleColor(.titleColor, for: .normal)
         self.layer.borderWidth = 2.0
         self.layer.borderColor = UIColor.clear.cgColor
         self.layer.backgroundColor = UIColor.clear.cgColor
@@ -45,10 +45,10 @@ class NavigationButton: UIButton {
             imageView?.tintColor = .white
             setTitleColor(UIColor.white, for: .normal)
             titleLabel?.textColor = .white
-            backgroundColor = UIColor(named: "SelectionColor")
+            backgroundColor = .selectionColor
         } else {
-            imageView?.tintColor = UIColor(named: "TitleColor")
-            titleLabel?.textColor = UIColor(named: "TitleColor")
+            imageView?.tintColor = .titleColor
+            titleLabel?.textColor = .titleColor
             backgroundColor = .clear
         }
     }
