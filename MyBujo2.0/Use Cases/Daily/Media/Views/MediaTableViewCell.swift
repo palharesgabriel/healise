@@ -36,6 +36,7 @@ class MediaTableViewCell: UITableViewCell {
         contentView.backgroundColor = .clear
         setupView()
     }
+    
     let mediasLabel = ["Note","Drawing", "Captures", "Videos"]
     lazy var mediasLabels: [UILabel] = {
         var labels = [UILabel]()
@@ -133,10 +134,40 @@ extension MediaTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = self.mediaCollectionView.dequeueReusableCell(withReuseIdentifier: "MediaCell", for: indexPath) as? MediaCollectionViewCell else { return MediaCollectionViewCell() }
         
+        if let dayData = CoreDataManager.getDayData(day:CalendarManager.shared.selectedDay.date!) {
+            print(dayData)
+            switch indexPath.row {
+            case 0:
+                   if dayData.hasNotesInDay {
+                    cell.shadowView.layer.borderWidth = 2
+                    cell.shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
+                   }
+            case 1:
+                if dayData.hasDrawsInDay {
+                   cell.shadowView.layer.borderWidth = 2
+                   cell.shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
+                    }
+            case 2:
+                   if dayData.hasAudiosInDay {
+                   cell.shadowView.layer.borderWidth = 2
+                   cell.shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
+                    }
+            case 3:
+                   if dayData.hasPhotosInDay {
+                   cell.shadowView.layer.borderWidth = 2
+                   cell.shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
+                    }
+            default:
+                   print("erro ao retornar Media gravada no dia")
+               }
+        }
+        
+        
+       
         if #available(iOS 13.0, *) {
-            cell.setupCell(imageName: iconNames[indexPath.row].sf,mediaName: iconName[indexPath.row])
+            cell.setupCell(imageName: iconNames[indexPath.row].sf,mediaName: iconName[indexPath.row],validateMedia: false)
         } else {
-            cell.setupCell(imageName: iconNames[indexPath.row].normal,mediaName: iconName[indexPath.row])
+            cell.setupCell(imageName: iconNames[indexPath.row].normal,mediaName: iconName[indexPath.row],validateMedia: false)
         }
         return cell
     }
