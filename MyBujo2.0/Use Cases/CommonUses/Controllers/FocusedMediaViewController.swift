@@ -9,16 +9,7 @@
 import UIKit
 
 class FocusedMediaViewController: UIViewController {
-    lazy var backButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Back", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        button.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
-        button.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
+
     var focusedImageView = UIImageView()
     
     lazy var collectionView: UICollectionView = {
@@ -39,27 +30,25 @@ class FocusedMediaViewController: UIViewController {
         super.viewDidLoad()
         setupHierarchy()
         setupConstraints()
-        view.backgroundColor = UIColor(named: "BlueBackground")
+        view.backgroundColor = .blueBackground
         focusedImageView.contentMode = .scaleAspectFill
         // Do any additional setup after loading the view.
     }
     
-    @objc func backButtonClicked(sender: UIButton) {
+    @objc func backButtonClicked(sender: UIBarButtonItem) {
 //        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true, completion: nil)
     }
     
     func setupHierarchy() {
-        view.addSubviews([backButton, focusedImageView, collectionView])
+        view.addSubviews([focusedImageView, collectionView])
     }
     
     func setupConstraints() {
         focusedImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             
-            focusedImageView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 8),
+            focusedImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             focusedImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             focusedImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             focusedImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),

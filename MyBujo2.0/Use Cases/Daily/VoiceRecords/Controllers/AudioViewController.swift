@@ -30,8 +30,8 @@ class AudioViewController: MediaViewController {
     // MARK: Controller methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(named: "BlueBackground")
-        self.contentView.backgroundColor = UIColor(named: "BlueBackground")
+        self.view.backgroundColor = .blueBackground
+        self.contentView.backgroundColor = .blueBackground
         audioManager.requestAudioRecordPermission()
         
         audioPlayerView.playDelegate = self
@@ -101,8 +101,8 @@ extension AudioViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = audioTableView.dequeueReusableCell(withIdentifier: "AudioCell")
         cell?.textLabel?.text = audioManager.recordedAudios[indexPath.row].name
-        cell?.textLabel?.textColor = UIColor(named: "TitleColor")
-        cell?.backgroundColor = UIColor(named: "CardsColor")
+        cell?.textLabel?.textColor = .titleColor
+        cell?.backgroundColor = .cardsColor
         return cell ?? UITableViewCell()
     }
     

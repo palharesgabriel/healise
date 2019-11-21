@@ -27,7 +27,7 @@ class NewItemGalleryCollectionViewCell: UICollectionViewCell, ViewCode {
 		if #available(iOS 13.0, *) {
 			addItemImageView.image = UIImage(systemName: sfImage, compatibleWith: .current)
 			addItemImageView.contentMode = .scaleAspectFill
-			addItemImageView.tintColor = UIColor(named: "ActionColor")
+            addItemImageView.tintColor = .actionColor
 		} else {
 			addItemImageView.image = UIImage(named: image)
 		}

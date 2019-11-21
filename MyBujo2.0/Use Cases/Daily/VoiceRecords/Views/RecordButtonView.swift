@@ -17,11 +17,11 @@ class RecordButtonView: UIView {
     let recordButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "CardsColor")
+        button.backgroundColor = .cardsColor
         let configuration = UIImage.SymbolConfiguration(pointSize: 40, weight: .light)
         button.setImage(UIImage(systemName: "mic.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.setImage(UIImage(systemName: "stop.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .selected)
-        button.tintColor = UIColor(named: "ActionColor")
+        button.tintColor = .actionColor
         button.setShadow()
         button.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
         return button

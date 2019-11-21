@@ -55,7 +55,7 @@ class MyTodayViewController: UIViewController, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        self.view.backgroundColor = UIColor(named: "BlueBackground")
+        self.view.backgroundColor = .blueBackground
         
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: CalendarTableViewCell.reuseIdentifier)
         tableView.register(GoalsTableViewCell.self, forCellReuseIdentifier: GoalsTableViewCell.reuseIdentifier)

@@ -19,8 +19,8 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
         return imageView
     }()
     
-    let nameMedia: TitleLabel = {
-        let lbl = TitleLabel(title: "midia")
+    let nameMedia: UILabel = {
+        let lbl = UILabel(text: "media", font: .medium, textColor: .titleColor)
         return lbl
     }()
     
@@ -41,11 +41,10 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
         } else {
             iconImageView.image =  UIImage(named: imageName)!.withRenderingMode(.alwaysTemplate)
         }
-        iconImageView.tintColor = UIColor(named: "TitleColor")
+        iconImageView.tintColor = .titleColor
         
         nameMedia.text = mediaName
-        if validateMedia == true
-        {
+        if validateMedia == true {
             shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
         }
     }

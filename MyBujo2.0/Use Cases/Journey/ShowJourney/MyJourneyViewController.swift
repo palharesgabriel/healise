@@ -29,7 +29,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
     // MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(named: "BlueBackground")
+        view.backgroundColor = .blueBackground
         setupView()
 		self.title = "Journey"
 //		self.navigationController?.navigationBar.ite

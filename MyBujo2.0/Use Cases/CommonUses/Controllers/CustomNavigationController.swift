@@ -12,8 +12,8 @@ class CustomNavigationController: UINavigationController {
     
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
-        navigationBar.tintColor = UIColor(named: "ActionColor")
-        navigationBar.backgroundColor = UIColor(named: "BlueBackground")
+        navigationBar.tintColor = .actionColor
+        navigationBar.backgroundColor = .blueBackground
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.prefersLargeTitles = true
 //        navigationBar.shadowImage = UIImage()

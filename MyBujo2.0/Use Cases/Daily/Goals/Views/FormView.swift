@@ -60,8 +60,6 @@ class FormView: UIView, Shadow, ViewCode {
 	
     let doneButton = DoneButton()
 	
-    
-    
     // MARK: Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -105,7 +103,7 @@ class FormView: UIView, Shadow, ViewCode {
     }
     func setupAdditionalConfigurantion() {
         DispatchQueue.main.async {
-            self.backgroundColor = UIColor(named: "CardsColor")
+            self.backgroundColor = .cardsColor
         }
         doneButton.addTarget(self, action: #selector(tapDoneButton), for: .touchDown)
 		charsCounterLabel.textColor = .systemGreen

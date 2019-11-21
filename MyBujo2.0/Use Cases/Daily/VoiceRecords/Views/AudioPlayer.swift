@@ -11,7 +11,7 @@ import UIKit
 @available(iOS 13.0, *)
 class AudioPlayer: UIView {
     
-    var titleLabel: TitleLabel!
+    var titleLabel: UILabel!
     weak var playDelegate: AudioPlayerDelegate?
     var isPlaying: Bool = false
     
@@ -25,7 +25,7 @@ class AudioPlayer: UIView {
     
     convenience init() {
         self.init(frame: .zero)
-        titleLabel = TitleLabel(title: "Audio")
+        titleLabel = UILabel(text: "Audio", font: .medium, textColor: .titleColor)
         setupView()
         addShadow(view: self)
     }
@@ -33,27 +33,27 @@ class AudioPlayer: UIView {
     let progressBar: UIProgressView = {
         let progressBar = UIProgressView()
         progressBar.translatesAutoresizingMaskIntoConstraints = false
-        progressBar.trackTintColor = UIColor(named: "BlueBackground")
-        progressBar.progressTintColor = UIColor(named: "SelectionColor")
+        progressBar.trackTintColor = .blueBackground
+        progressBar.progressTintColor = .selectionColor
         return progressBar
     }()
     
     let leftLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "AvenirNextLTPro-Regular", size: 10)
+        label.font = .smallText
         label.text = "-- : --"
-        label.textColor = UIColor(named: "TitleColor")
+        label.textColor = .titleColor
         return label
     }()
     
     let rightLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "AvenirNextLTPro-Regular", size: 10)
+        label.font = .smallText
         label.textAlignment = .right
         label.text = "-- : --"
-        label.textColor = UIColor(named: "TitleColor")
+        label.textColor = .titleColor
         return label
     }()
     
@@ -64,7 +64,7 @@ class AudioPlayer: UIView {
         let configuration = UIImage.SymbolConfiguration(pointSize: 40, weight: .light)
         button.setImage(UIImage(systemName: "play.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
         button.setImage(UIImage(systemName: "playpause.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .selected)
-        button.tintColor = UIColor(named: "ActionColor")
+        button.tintColor = .actionColor
         button.addTarget(self, action: #selector(playTapped), for: .touchUpInside)
         return button
     }()
@@ -75,7 +75,7 @@ class AudioPlayer: UIView {
         button.backgroundColor = .clear
         let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
         button.setImage(UIImage(systemName: "forward.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = UIColor(named: "ActionColor")
+        button.tintColor = .actionColor
         button.addTarget(self, action: #selector(fastForwardButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -86,7 +86,7 @@ class AudioPlayer: UIView {
         button.backgroundColor = .clear
         let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
         button.setImage(UIImage(systemName: "backward.fill", withConfiguration: configuration)?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = UIColor(named: "ActionColor")
+        button.tintColor = .actionColor
         button.addTarget(self, action: #selector(fastBackwardButtonTapped), for: .touchUpInside)
         return button
     }()

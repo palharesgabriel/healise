@@ -38,7 +38,7 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
     
     var calendarView: JTACMonthView = {
         let calendarView = JTACMonthView(frame: .zero)
-        calendarView.backgroundColor = UIColor(named: "CardsColor")
+        calendarView.backgroundColor = .cardsColor
         calendarView.clipsToBounds = true
         calendarView.layer.cornerRadius = 16
         calendarView.scrollingMode = .stopAtEachCalendarFrame
