@@ -28,7 +28,7 @@ class NewGoalViewController: UIViewController, ViewCode {
     }
     
     func shouldDoGoalViewFirstResponder() {
-        self.formView.goalTextField.becomeFirstResponder()
+        self.formView.goalTextView.becomeFirstResponder()
     }
     
     func setupConstraints() {

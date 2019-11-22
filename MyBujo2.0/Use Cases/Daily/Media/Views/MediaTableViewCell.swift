@@ -103,7 +103,6 @@ extension MediaTableViewCell: UICollectionViewDelegateFlowLayout {
 extension MediaTableViewCell: UICollectionViewDataSource, MediaCollectionViewTargetDelegate {
     func mediaTarget() {
         mediaCollectionView.reloadData()
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -147,31 +146,19 @@ extension MediaTableViewCell: UICollectionViewDataSource, MediaCollectionViewTar
         guard let cell = self.mediaCollectionView.dequeueReusableCell(withReuseIdentifier: "MediaCell", for: indexPath) as? MediaCollectionViewCell else { return MediaCollectionViewCell() }
         
         if let dayData = CoreDataManager.getDayData(day:CalendarManager.shared.selectedDay.date!) {
-            print(dayData)
+			print(indexPath.row)
             switch indexPath.row {
             case 0:
-                   if dayData.hasNotesInDay {
-                    cell.shadowView.layer.borderWidth = 2
-                    cell.shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
-                   }
+				cell.showShadow(dayData.hasNotesInDay)
             case 1:
-                if dayData.hasDrawsInDay {
-                   cell.shadowView.layer.borderWidth = 2
-                   cell.shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
-                    }
+				cell.showShadow(dayData.hasDrawsInDay)
             case 2:
-                   if dayData.hasAudiosInDay {
-                   cell.shadowView.layer.borderWidth = 2
-                   cell.shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
-                    }
+				cell.showShadow(dayData.hasAudiosInDay)
             case 3:
-                   if dayData.hasPhotosInDay {
-                   cell.shadowView.layer.borderWidth = 2
-                   cell.shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
-                    }
+				cell.showShadow(dayData.hasPhotosInDay)
             default:
-                   print("erro ao retornar Media gravada no dia")
-               }
+				print("erro ao retornar Media gravada no dia")
+			}
         }
         
         

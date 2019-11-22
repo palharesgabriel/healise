@@ -48,6 +48,15 @@ class MediaCollectionViewCell: UICollectionViewCell, Shadow {
             shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
         }
     }
+	
+	func showShadow(_ bool: Bool) {
+		if bool {
+			shadowView.layer.borderWidth = 2
+		    shadowView.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
+		} else {
+			shadowView.layer.borderWidth = 0
+		}
+	}
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not benn implemented")
