@@ -12,7 +12,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     
     
     // MARK: Properties
-    let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "video", normal: "videoCamera"), (sf: "camera", normal: "camera")]
+    let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "camera", normal: "camera")]
     
     var monthData: MonthData {
             if let month = CoreDataManager.getMonthData(month: CalendarManager.shared.currentMonthComponent) {
@@ -85,7 +85,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
 
 extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

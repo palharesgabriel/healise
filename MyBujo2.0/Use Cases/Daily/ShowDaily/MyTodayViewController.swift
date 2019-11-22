@@ -14,8 +14,8 @@ class MyTodayViewController: UIViewController, ViewCode {
         let customButton = UIButton()
         customButton.translatesAutoresizingMaskIntoConstraints = false
         customButton.setImage(UIImage(named: "AddFeelingsIcon"), for: .normal)
-        customButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        customButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        customButton.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        customButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         customButton.addTarget(self, action: #selector(addFeeling), for: .touchDown)
         let barButton = UIBarButtonItem(customView: customButton)
         return barButton
