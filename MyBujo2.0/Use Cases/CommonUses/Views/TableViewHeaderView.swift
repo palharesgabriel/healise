@@ -29,8 +29,9 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     lazy var buttonAddGoal: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitleColor(.actionColor, for: .normal)
-        btn.titleLabel?.font = .medium
+        let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
+        btn.setImage(UIImage(systemName: "plus.circle.fill", withConfiguration: configuration), for: .normal)
+        btn.tintColor = .actionColor
         return btn
     }()
     
@@ -44,12 +45,9 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     
     
     // MARK: Functions
-    func setupHeader(headerTitle: String, buttonTitle: String? = nil) {
+    func setupHeader(headerTitle: String, hasButton: Bool = false) {
         headerLabel.text = headerTitle
-        if let buttonTitle = buttonTitle {
-            hasButton = true
-            buttonAddGoal.setTitle(buttonTitle, for: .normal)
-        }
+        self.hasButton = hasButton
         setupView()
     }
  

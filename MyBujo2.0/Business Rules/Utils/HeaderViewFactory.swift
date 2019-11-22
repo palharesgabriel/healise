@@ -39,7 +39,7 @@ struct HeaderViewFactory {
         switch section {
         case 0:
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: GoalsTableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else { return nil }
-            header.setupHeader(headerTitle: goalsLabel.text!, buttonTitle: "Add")
+            header.setupHeader(headerTitle: goalsLabel.text!, hasButton: true)
             return header
         case 1:
             guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: MediaTableViewHeaderView.reuseIdentifier) as? TableViewHeaderView else { return nil }

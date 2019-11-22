@@ -11,8 +11,14 @@ import UIKit
 class MyTodayViewController: UIViewController, ViewCode {
     
     lazy var addFeelingButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "Add Feeling", style: UIBarButtonItem.Style.plain, target: self, action: #selector(addFeeling))
-        return button
+        let customButton = UIButton()
+        customButton.translatesAutoresizingMaskIntoConstraints = false
+        customButton.setImage(UIImage(named: "AddFeelingsIcon"), for: .normal)
+        customButton.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        customButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        customButton.addTarget(self, action: #selector(addFeeling), for: .touchDown)
+        let barButton = UIBarButtonItem(customView: customButton)
+        return barButton
     }()
     
     // MARK: Properties
