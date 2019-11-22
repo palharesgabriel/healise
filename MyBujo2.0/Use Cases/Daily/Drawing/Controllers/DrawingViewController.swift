@@ -11,8 +11,7 @@ import PencilKit
 
 @available(iOS 13.0, *)
 class DrawingViewController: MediaViewController {
-    
-    
+
     lazy var canvasView: PKCanvasView = {
         let canvasView = PKCanvasView()
         canvasView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +31,9 @@ class DrawingViewController: MediaViewController {
 		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
 		self.title = "Drawing"
     }
+	
+	override func viewDidDisappear(_ animated: Bool) {
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +64,12 @@ class DrawingViewController: MediaViewController {
     }
         
 	override func viewWillDisappear(_ animated: Bool) {
+		saveDraw()
+		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+	}
+
+	
+	func saveDraw() {
 		let day = CalendarManager.shared.selectedDay
 		guard let media = day.media else {
 			let media = Media(context: CoreDataManager.context)
@@ -74,7 +82,6 @@ class DrawingViewController: MediaViewController {
 		day.save()
         delegateTarget?.mediaTarget()
 	}
-
         
     func constraintCanvasView() {
         canvasView.delegate = self
