@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 extension CapturesViewController {
 	@objc func presentImagePickerController() {
@@ -26,18 +27,23 @@ extension CapturesViewController {
 	}
 	
 	func openCamera() {
-		if UIImagePickerController.isSourceTypeAvailable(.camera) {
-			let imagePickerViewController = UIImagePickerController()
-			imagePickerViewController.sourceType = .camera
-			imagePickerViewController.allowsEditing = true
-			imagePickerViewController.delegate = self
-			self.present(imagePickerViewController, animated: true, completion: nil)
-		} else {
-			let alert = UIAlertController(title: "Camera Not Available", message: "Camera access not permited", preferredStyle: .alert)
-			alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
-			present(alert, animated: false, completion: nil)
+		AVCaptureDevice.requestAccess(for: .video) { [weak self] permitted in
+			if permitted {
+				DispatchQueue.main.async {
+					let imagePickerViewController = UIImagePickerController()
+					imagePickerViewController.sourceType = .camera
+					imagePickerViewController.allowsEditing = true
+					imagePickerViewController.delegate = self
+					self?.present(imagePickerViewController, animated: true, completion: nil)
+				}
+			} else {
+				let alert = UIAlertController(title:  "Camera Not Available", message: "Camera access not permited", preferredStyle: .alert)
+				alert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: nil))
+				DispatchQueue.main.async {
+					self?.present(alert, animated: false, completion: nil)
+				}
+			}
 		}
-		
 	}
 	
 	func openLibrary() {

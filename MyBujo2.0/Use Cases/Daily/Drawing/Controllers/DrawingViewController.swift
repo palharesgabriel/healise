@@ -11,8 +11,7 @@ import PencilKit
 
 @available(iOS 13.0, *)
 class DrawingViewController: MediaViewController {
-    
-    
+
     lazy var canvasView: PKCanvasView = {
         let canvasView = PKCanvasView()
         canvasView.translatesAutoresizingMaskIntoConstraints = false
