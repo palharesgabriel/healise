@@ -17,6 +17,7 @@ class DoneButton: UIButton {
 		super.init(frame: frame)
 		self.translatesAutoresizingMaskIntoConstraints = false
 		self.setTitle("Done", for: .normal)
+        self.titleLabel?.font = .medium
 		self.isEnabled = false
 	}
 	
@@ -58,14 +59,7 @@ class FormView: UIView, Shadow, ViewCode {
         return textView
     }()
 
-    lazy var doneButton: UIButton = {
-        let btn = UIButton()
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Done", for: .normal)
-        btn.titleLabel?.font = .medium
-        btn.setTitleColor(.actionColor, for: .normal)
-        return btn
-    }()
+    lazy var doneButton = DoneButton()
 
     // MARK: Initialization
     override init(frame: CGRect) {
