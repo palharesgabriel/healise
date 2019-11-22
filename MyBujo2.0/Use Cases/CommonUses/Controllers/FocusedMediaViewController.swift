@@ -12,6 +12,20 @@ class FocusedMediaViewController: UIViewController {
 
     var focusedImageView = UIImageView()
     
+    lazy var focusedCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.itemSize = CGSize(width: view.frame.width, height: view.frame.height * 0.8)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "CaptureCell")
+        collectionView.backgroundColor = .clear
+        collectionView.isPagingEnabled = true
+        return collectionView
+    }()
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 1
@@ -23,6 +37,7 @@ class FocusedMediaViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(CaptureCollectionViewCell.self, forCellWithReuseIdentifier: "CaptureCell")
         collectionView.backgroundColor = .clear
+        collectionView.isPagingEnabled = true
         return collectionView
     }()
     
@@ -41,21 +56,20 @@ class FocusedMediaViewController: UIViewController {
     }
     
     func setupHierarchy() {
-        view.addSubviews([focusedImageView, collectionView])
+        view.addSubviews([focusedCollectionView, collectionView])
     }
     
     func setupConstraints() {
-        focusedImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             
-            focusedImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            focusedImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            focusedImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            focusedImageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),
+            focusedCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            focusedCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            focusedCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            focusedCollectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8),
             
-            collectionView.topAnchor.constraint(equalTo: focusedImageView.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: focusedImageView.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: focusedImageView.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: focusedCollectionView.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: focusedCollectionView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: focusedCollectionView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
