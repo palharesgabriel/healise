@@ -29,7 +29,7 @@ class TableViewHeaderView: UITableViewHeaderFooterView, ViewCode {
     lazy var buttonAddGoal: UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .light)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 24, weight: .light)
         btn.setImage(UIImage(systemName: "plus.circle.fill", withConfiguration: configuration), for: .normal)
         btn.tintColor = .actionColor
         return btn
