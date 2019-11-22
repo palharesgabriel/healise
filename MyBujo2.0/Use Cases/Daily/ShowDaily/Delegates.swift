@@ -20,6 +20,8 @@ extension MyTodayViewController:TableViewHeaderViewDelegate {
 }
 
 extension MyTodayViewController: MediaCollectionViewDelegate {
+
+    
     func pushMediaController(viewController: UIViewController) {
 		navigationController?.pushViewController(viewController, animated: true)
     }
