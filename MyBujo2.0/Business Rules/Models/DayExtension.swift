@@ -23,21 +23,21 @@ enum Feeling: String {
     var color: UIColor {
         switch self {
         case .happy:
-            return UIColor(named: "Happy")!
+            return UIColor(named: "Happy") ?? UIColor.yellow
         case .sad:
-            return UIColor(named: "Sad")!
+            return UIColor(named: "Sad") ?? UIColor.darkGray
         case .angry:
-            return UIColor(named: "Angry")!
+            return UIColor(named: "Angry") ?? UIColor.red
         case .anxious:
-            return UIColor(named: "Anxious")!
+            return UIColor(named: "Anxious") ?? UIColor.purple
         case .indiferent:
-            return UIColor(named: "Indiferent")!
+            return UIColor(named: "Indiferent") ?? UIColor.gray
         case .grateful:
-            return UIColor(named: "Grateful")!
+            return UIColor(named: "Grateful") ?? UIColor.systemYellow
         case .surprised:
-            return UIColor(named: "Surprised")!
+            return UIColor(named: "Surprised") ?? UIColor.systemBlue
         case .tired:
-            return UIColor(named: "Tired")!
+            return UIColor(named: "Tired") ?? UIColor.systemGray
         }
     }
 }
