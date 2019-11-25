@@ -4,6 +4,7 @@ import UserNotifications
 import CloudKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
     
     var window: UIWindow?
