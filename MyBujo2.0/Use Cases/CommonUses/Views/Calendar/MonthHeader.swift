@@ -103,7 +103,8 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
     func configureHeader(start: Date) {
         let formatter = DateFormatter()  // Declare this outside, to avoid instancing this heavy class multiple times.
         formatter.dateFormat = "MMMM"
-        titleLabel.text = formatter.string(from: start)
+		titleLabel.text = formatter.string(from: start).capitalizingFirstLetter()
+		
         titleLabel.font = .medium
     }
 }
