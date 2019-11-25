@@ -9,11 +9,11 @@
 import UIKit
 import JTAppleCalendar
 
-class MonthHeader: JTACMonthReusableView, ViewCode {
+class NavigationHeader: JTACMonthReusableView, ViewCode {
     
     
     // MARK: Properties
-    weak var delegate: CalendarHeaderDelegate?
+    weak var delegate: NavigationHeaderDelegate?
     var titleLabel = UILabel()
     var weekDaysHeader = WeekDaysView()
     
@@ -43,7 +43,7 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
             // Fallback on earlier versions
         }
         imageView.setImage(image, for: .normal)
-    imageView.tintColor = .actionColor
+		imageView.tintColor = .actionColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.addTarget(self, action: #selector(didTapLeftButton), for: .touchUpInside)
         return imageView
@@ -103,7 +103,12 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
     func configureHeader(start: Date) {
         let formatter = DateFormatter()  // Declare this outside, to avoid instancing this heavy class multiple times.
         formatter.dateFormat = "MMMM"
-        titleLabel.text = formatter.string(from: start)
+		titleLabel.text = formatter.string(from: start).capitalizingFirstLetter()
+        titleLabel.font = .medium
+    }
+    
+    func configureHeader(title: String) {
+		titleLabel.text = title.capitalizingFirstLetter()
         titleLabel.font = .medium
     }
 }
