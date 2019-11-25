@@ -9,11 +9,11 @@
 import UIKit
 import JTAppleCalendar
 
-class MonthHeader: JTACMonthReusableView, ViewCode {
+class NavigationHeader: JTACMonthReusableView, ViewCode {
     
     
     // MARK: Properties
-    weak var delegate: CalendarHeaderDelegate?
+    weak var delegate: NavigationHeaderDelegate?
     var titleLabel = UILabel()
     var weekDaysHeader = WeekDaysView()
     
@@ -105,6 +105,11 @@ class MonthHeader: JTACMonthReusableView, ViewCode {
         formatter.dateFormat = "MMMM"
 		titleLabel.text = formatter.string(from: start).capitalizingFirstLetter()
 		
+        titleLabel.font = .medium
+    }
+    
+    func configureHeader(title: String){
+        titleLabel.text = title
         titleLabel.font = .medium
     }
 }

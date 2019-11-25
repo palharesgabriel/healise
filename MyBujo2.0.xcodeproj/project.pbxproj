@@ -53,13 +53,11 @@
 		30C6FD992331203500F69F79 /* Media+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD972331203500F69F79 /* Media+CoreDataProperties.swift */; };
 		30C6FD9A2331203500F69F79 /* Media+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */; };
 		30C6FD9C233122FF00F69F79 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */; };
-		30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D4230C239100D56A41 /* MonthHeader.swift */; };
+		30CBF8D5230C239100D56A41 /* NavigationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D4230C239100D56A41 /* NavigationHeader.swift */; };
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
-		30E72933237C2EF200D73666 /* IncrementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E72932237C2EF200D73666 /* IncrementCollectionViewCell.swift */; };
-		30E7293E237C331200D73666 /* MediaCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7293C237C331200D73666 /* MediaCards.swift */; };
-		30E7293F237C331200D73666 /* CounterGoalsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7293D237C331200D73666 /* CounterGoalsCard.swift */; };
 		30E72941237C4D6700D73666 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E72940237C4D6700D73666 /* CustomNavigationController.swift */; };
 		30F091FC4D6DD65676165420 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */; };
+		57EF6AF9238C13E6005380C8 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */; };
 		86B2717C09121F8791F4DCB7 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */; };
 		AB38B94C2368634800F9A9CA /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38B94B2368634800F9A9CA /* RecordButtonView.swift */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
@@ -89,8 +87,6 @@
 		E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */; };
 		E813C1A72322A5F0002F170D /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E813C1A62322A5F0002F170D /* NavigationButton.swift */; };
 		E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8535A03231562AB009AB979 /* NotesViewController.swift */; };
-		E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */; };
-		E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */; };
 		E8662C49234B7ADC000D55E3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8662C4B234B7ADC000D55E3 /* Localizable.strings */; };
 		E88784762331223C00BFFE10 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88784752331223C00BFFE10 /* Defaults.swift */; };
 		E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FF9D462316C55D006C2B49 /* UiView+Extension.swift */; };
@@ -155,12 +151,10 @@
 		30C6FD972331203500F69F79 /* Media+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Media+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		30C6FD982331203500F69F79 /* Media+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Media+CoreDataClass.swift"; sourceTree = "<group>"; };
 		30C6FD9B233122FF00F69F79 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
-		30CBF8D4230C239100D56A41 /* MonthHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthHeader.swift; sourceTree = "<group>"; };
+		30CBF8D4230C239100D56A41 /* NavigationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeader.swift; sourceTree = "<group>"; };
 		30CBF8D7230C347200D56A41 /* WeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
-		30E72932237C2EF200D73666 /* IncrementCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementCollectionViewCell.swift; sourceTree = "<group>"; };
-		30E7293C237C331200D73666 /* MediaCards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaCards.swift; path = "MyBujo2.0/Use Cases/Journey/Cards/MediaCards.swift"; sourceTree = SOURCE_ROOT; };
-		30E7293D237C331200D73666 /* CounterGoalsCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CounterGoalsCard.swift; path = "MyBujo2.0/Use Cases/Journey/Cards/CounterGoalsCard.swift"; sourceTree = SOURCE_ROOT; };
 		30E72940237C4D6700D73666 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionTableViewCell.swift; path = "MyBujo2.0/Use Cases/CommonUses/Views/CollectionTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
 		996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,8 +192,6 @@
 		E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiLabel+Extension.swift"; sourceTree = "<group>"; };
 		E813C1A62322A5F0002F170D /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		E8535A03231562AB009AB979 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
-		E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
-		E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8662C48234B7A9D000D55E3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		E8662C4A234B7ADC000D55E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E8662C4C234B7AFA000D55E3 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -412,7 +404,6 @@
 		30740297233275460058D997 /* Journey */ = {
 			isa = PBXGroup;
 			children = (
-				30E72937237C2F2800D73666 /* Cards */,
 				307402A5233277260058D997 /* ShowJourney */,
 			);
 			path = Journey;
@@ -481,8 +472,9 @@
 		307402A3233276950058D997 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E8588B63232EEE060011939B /* CardsViews */,
 				30CBF8DB230C40B000D56A41 /* Calendar */,
+				57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */,
+				30CBF8D4230C239100D56A41 /* NavigationHeader.swift */,
 				308F6FCB2327C4AB008012AA /* ExitButton.swift */,
 				E813C1A62322A5F0002F170D /* NavigationButton.swift */,
 				1516C18E231555E5002EC623 /* TableViewHeaderView.swift */,
@@ -592,20 +584,9 @@
 				30A348D023145AA30018DB13 /* CalendarTableViewCell.swift */,
 				30CBF8D7230C347200D56A41 /* WeekDaysView.swift */,
 				30AD9B28230AEF9100B39434 /* DayCell.swift */,
-				30CBF8D4230C239100D56A41 /* MonthHeader.swift */,
 				30B900562317FC3B000C0089 /* CalendarTableViewCellDelegate.swift */,
 			);
 			path = Calendar;
-			sourceTree = "<group>";
-		};
-		30E72937237C2F2800D73666 /* Cards */ = {
-			isa = PBXGroup;
-			children = (
-				30E7293D237C331200D73666 /* CounterGoalsCard.swift */,
-				30E7293C237C331200D73666 /* MediaCards.swift */,
-			);
-			name = Cards;
-			path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/mybujo-iphone/MyBujo2.0/Use Cases/Journey/Cards";
 			sourceTree = "<group>";
 		};
 		AB6A659F230AD990009CFE7E = {
@@ -708,16 +689,6 @@
 				996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		E8588B63232EEE060011939B /* CardsViews */ = {
-			isa = PBXGroup;
-			children = (
-				30E72932237C2EF200D73666 /* IncrementCollectionViewCell.swift */,
-				E8588B64232EEE6B0011939B /* CollectionTableViewCell.swift */,
-				E8588B66232F112A0011939B /* ReusableCollectionViewCell.swift */,
-			);
-			path = CardsViews;
 			sourceTree = "<group>";
 		};
 		E88784742331222100BFFE10 /* Structs */ = {
@@ -943,18 +914,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30E7293F237C331200D73666 /* CounterGoalsCard.swift in Sources */,
 				AB872E7C2386C179008B334F /* UIColor+Extension.swift in Sources */,
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
-				30E72933237C2EF200D73666 /* IncrementCollectionViewCell.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
 				AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */,
 				AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */,
 				15C339C5230D8A14009ED5CD /* ViewCode.swift in Sources */,
 				30C6FD992331203500F69F79 /* Media+CoreDataProperties.swift in Sources */,
 				AB8D30DD233906290009409F /* AudioPlayerDelegate.swift in Sources */,
+				57EF6AF9238C13E6005380C8 /* CollectionTableViewCell.swift in Sources */,
 				3094B17F233A5D9B00576EDF /* FocusedPhotoViewController.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				3094B179233A57E400576EDF /* FocusedMediaViewController.swift in Sources */,
@@ -974,17 +944,14 @@
 				15347D37231D8E8F00848335 /* FeelingsView.swift in Sources */,
 				AB8C8829233518280093E29C /* AudioViewController.swift in Sources */,
 				30ADD66D231D396D001CAF1C /* Delegates.swift in Sources */,
-				E8588B65232EEE6B0011939B /* CollectionTableViewCell.swift in Sources */,
 				AB8D30DB2338F1AC0009409F /* AudioRecordDelegate.swift in Sources */,
 				E8FF9D472316C55D006C2B49 /* UiView+Extension.swift in Sources */,
 				AB8A330E2357536000D27AD4 /* PageControlView.swift in Sources */,
 				1549195E231D4B8C00766609 /* FeelingCollectionViewCell.swift in Sources */,
 				E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */,
 				15DA58902338FBE300009949 /* NewPhotoCollectionViewCell.swift in Sources */,
-				30E7293E237C331200D73666 /* MediaCards.swift in Sources */,
 				30AD9B29230AEF9100B39434 /* DayCell.swift in Sources */,
 				154B139323143B3600F03C6C /* GoalTableViewCell.swift in Sources */,
-				E8588B67232F112A0011939B /* ReusableCollectionViewCell.swift in Sources */,
 				AB8D30DF23390F4D0009409F /* Audio.swift in Sources */,
 				30117AD3233CE18800F0D5F1 /* CalendarStructs.swift in Sources */,
 				30117AD0233CE16200F0D5F1 /* MonthData.swift in Sources */,
@@ -1014,7 +981,7 @@
 				3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
 				308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */,
-				30CBF8D5230C239100D56A41 /* MonthHeader.swift in Sources */,
+				30CBF8D5230C239100D56A41 /* NavigationHeader.swift in Sources */,
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,
 				E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */,
