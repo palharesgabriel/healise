@@ -85,7 +85,7 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
         contentView.backgroundColor = .clear
         selectionStyle = .none
         calendarView.register(DayCell.self, forCellWithReuseIdentifier: "dateCell")
-        calendarView.register(MonthHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "monthHeader")
+        calendarView.register(NavigationHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "monthHeader")
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
     }
@@ -149,7 +149,7 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
     func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
         
         
-        guard let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "monthHeader", for: indexPath) as? MonthHeader else { return  JTACMonthReusableView()}
+        guard let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "monthHeader", for: indexPath) as? NavigationHeader else { return  JTACMonthReusableView()}
         header.configureHeader(start: range.start)
         header.delegate = self
         print(indexPath)
@@ -171,7 +171,7 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         return false }
     }
 
-extension CalendarTableViewCell: CalendarHeaderDelegate {
+extension CalendarTableViewCell: NavigationHeaderDelegate {
     func didTapLeftButton() {
         calendarView.scrollToSegment(.previous)
     }
