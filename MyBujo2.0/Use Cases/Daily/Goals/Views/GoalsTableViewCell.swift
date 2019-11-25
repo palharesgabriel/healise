@@ -90,7 +90,9 @@ extension GoalsTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: GoalTableViewCell.reuseIdentifier, for: indexPath) as? GoalTableViewCell else { return GoalTableViewCell() }
-        goals.count == 0 ? cell.goalDescription.text = "Add one goal here." : cell.setupCell(goal: goals[indexPath.row])
+        let addGoal = NSLocalizedString("Add one goal here.",
+        comment: "Add one goal here.")
+        goals.count == 0 ? cell.goalDescription.text = addGoal : cell.setupCell(goal: goals[indexPath.row])
         return cell
     }
     
