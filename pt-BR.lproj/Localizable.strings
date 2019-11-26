@@ -29,3 +29,15 @@ aa
 "Drawing" = "Desenho";
 "Videos" = "Videos" ;
 "Captures" = "Fotos";
+"Record" = "Audio";
+"Happy" = "Feliz";
+"Sad" = "Triste";
+"Angry" = "Raiva";
+"Anxious" = "Ansioso";
+"Indiferent" = "Indiferente";
+"Grateful" = "Grato";
+"Surprised" = "Surpreso";
+"Tired" = "Cansado";
+"Edit" = "Editar";
+"Cancel" = "Cancelar";
+"Add one goal here." = "Adicione uma meta aqui.";

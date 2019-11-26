@@ -7,7 +7,7 @@
 //
 
 import UIKit
-protocol CalendarHeaderDelegate: class {
+protocol NavigationHeaderDelegate: class {
     func didTapLeftButton()
     func didTapRightButton()
 }

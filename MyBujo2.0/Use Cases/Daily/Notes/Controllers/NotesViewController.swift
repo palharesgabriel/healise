@@ -60,10 +60,16 @@ class NotesViewController: MediaViewController, ViewCode {
 	}
 	
 	func configureNavigationBar() {
-		self.title = "Notes"
+        localizableLabel()
 		let eraseBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(shouldCleanTextView))
 		navigationItem.setRightBarButton(eraseBarButtonItem, animated: true)
 	}
+    
+    func localizableLabel() {
+        let formatStringGoalLabel = NSLocalizedString("Note",
+                                             comment: "Note")
+        self.title = String.localizedStringWithFormat(formatStringGoalLabel)
+    }
 
 	@objc func shouldCleanTextView() {
 		noteTextView.text = String()

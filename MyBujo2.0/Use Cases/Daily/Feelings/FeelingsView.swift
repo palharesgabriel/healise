@@ -16,7 +16,7 @@ class FeelingsView: UIView, ViewCode {
     
 	var selectedFeeling: Feeling?
 	
-    let feelingsCardTitle = UILabel(text: "Como você está se sentindo hoje?", font: .title, textColor: .titleColor)
+    let feelingsCardTitle = UILabel(text: "How are you feeling today?", font: .title, textColor: .titleColor)
     
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
@@ -68,14 +68,14 @@ class FeelingsView: UIView, ViewCode {
             feelingsCardTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             feelingsCardTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             
-            collectionView.topAnchor.constraint(equalTo: feelingsCardTitle.bottomAnchor, constant: 16),
+            collectionView.topAnchor.constraint(equalTo: feelingsCardTitle.bottomAnchor, constant: 8),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+			collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
             collectionView.bottomAnchor.constraint(equalTo: doneButton.topAnchor, constant: -36),
             
             doneButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            doneButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            doneButton.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+            doneButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
     }
     
