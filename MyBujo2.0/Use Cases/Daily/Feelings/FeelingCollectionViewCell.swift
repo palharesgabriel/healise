@@ -30,6 +30,7 @@ class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
        let lbl = UILabel()
        lbl.translatesAutoresizingMaskIntoConstraints = false
        lbl.textAlignment = .center
+	   lbl.numberOfLines = 0
        return lbl
     }()
     
@@ -43,7 +44,7 @@ class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
     
     func setupCell(feeling: Feeling) {
         self.feeling = feeling
-        feelingTitle.text = feeling.rawValue
+        feelingTitle.text = self.feeling.localizedString()
         feelingCircle.backgroundColor = feeling.color
         didSelect()
     }
@@ -82,7 +83,6 @@ class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
         if isSelected {
             feelingCircle.layer.borderColor = UIColor(named: "SelectionColor")?.cgColor
             feelingCircle.self.layer.borderWidth = 3
-            
         } else {
             feelingCircle.layer.borderColor = UIColor.clear.cgColor
             feelingCircle.self.layer.borderWidth = 1

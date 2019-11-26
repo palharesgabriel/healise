@@ -29,7 +29,12 @@ class DrawingViewController: MediaViewController {
         setupToolPicker()
 		setupNavigationBar()
 		self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-		self.title = "Drawing"
+        localizableLabel()
+    }
+    func localizableLabel() {
+        let formatStringGoalLabel = NSLocalizedString("Drawing",
+                                             comment: "Drawing")
+        self.title = String.localizedStringWithFormat(formatStringGoalLabel)
     }
 	
 	override func viewDidDisappear(_ animated: Bool) {

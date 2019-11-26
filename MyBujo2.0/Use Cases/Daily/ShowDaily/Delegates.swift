@@ -40,22 +40,7 @@ extension MyTodayViewController: NewGoalViewControllerDelegate {
 
 extension MyTodayViewController: NewFeelingViewControllerDelegate {
     func didAddFeeling(date: Date) {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
+		guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CalendarTableViewCell else { return }
         cell.calendarView.reloadData(withAnchor: date, completionHandler: nil)
     }
 }
-
-//extension MyTodayViewController: UIViewControllerTransitioningDelegate {
-//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        if presented as? NewBaseViewController != nil {
-//            return AddGoalsAnimator(transitionType: .presenting)
-//        }
-//        return nil
-//    }
-//
-//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        if dismissed as? NewBaseViewController != nil {
-//            return AddGoalsAnimator(transitionType: .dismissing)        }
-//        return nil
-//    }
-//}

@@ -13,11 +13,13 @@ import Photos
 class CapturesViewController: GalleryViewController {
 
 	var canEdit: Bool = false
-	
-	lazy var editGalleryBarButtomItem = UIBarButtonItem(title: "Editar", style: .plain, target: self, action: #selector(shouldEnableEditGallery))
+    let formatStringEdit = NSLocalizedString("Edit",
+    comment: "Edit")
+    lazy var editGalleryBarButtomItem = UIBarButtonItem(title: self.formatStringEdit, style: .plain, target: self, action: #selector(shouldEnableEditGallery))
     weak var delegateTarget: MediaCollectionViewTargetDelegate?
+    
 	override func viewWillAppear(_ animated: Bool) {
-		self.title = "Fotos"
+		localizableLabel()
 		let addPhotoBarButtomItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentImagePickerController))
 		navigationItem.setRightBarButtonItems([addPhotoBarButtomItem, editGalleryBarButtomItem], animated: true)
 	}
@@ -27,7 +29,11 @@ class CapturesViewController: GalleryViewController {
 		galleryCollectionView.dataSource = self
 		galleryCollectionView.delegate = self
 	}
-	
+	func localizableLabel() {
+        let formatStringGoalLabel = NSLocalizedString("Captures",
+                                             comment: "Captures")
+        self.title = String.localizedStringWithFormat(formatStringGoalLabel)
+    }
 	@objc func shouldEnableEditGallery() {
 		canEdit = !canEdit
 		if canEdit {
@@ -41,7 +47,9 @@ class CapturesViewController: GalleryViewController {
         delegateTarget?.mediaTarget()
     }
 	func enableEdit() {
-		editGalleryBarButtomItem.title = "Cancelar"
+        let formatStringCancel = NSLocalizedString("Cancel",
+        comment: "Cancel")
+		editGalleryBarButtomItem.title = formatStringCancel
 		for cell in galleryCollectionView.visibleCells {
 			guard let captureCell = cell as? CaptureCollectionViewCell else { continue }
 			captureCell.editable = true
@@ -50,7 +58,9 @@ class CapturesViewController: GalleryViewController {
 	}
 	
 	func disableEdit() {
-		editGalleryBarButtomItem.title = "Editar"
+        let formatStringEdit = NSLocalizedString("Edit",
+        comment: "Edit")
+		editGalleryBarButtomItem.title = formatStringEdit
 		for cell in galleryCollectionView.visibleCells {
 			guard let captureCell = cell as? CaptureCollectionViewCell else { continue }
 			captureCell.editable = false

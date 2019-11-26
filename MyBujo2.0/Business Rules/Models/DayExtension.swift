@@ -9,7 +9,22 @@
 import Foundation
 import CoreData
 import UIKit
-
+let happyT = NSLocalizedString("Happy",
+comment: "Happy")
+let sadT = NSLocalizedString("Sad",
+comment: "Sad")
+let angryT = NSLocalizedString("Angry",
+comment: "Angry")
+let anxiouaT = NSLocalizedString("Anxious",
+comment: "Anxious")
+let indiferentT = NSLocalizedString("Indiferent",
+comment: "Indiferent")
+let gratefulT = NSLocalizedString("Grateful",
+comment: "Grateful")
+let surprisedT = NSLocalizedString("Surprised",
+comment: "Surprised")
+let tiredT = NSLocalizedString("Tired",
+comment: "Tired")
 enum Feeling: String {
     case happy = "Happy"
     case sad = "Sad"
@@ -19,6 +34,10 @@ enum Feeling: String {
     case grateful = "Grateful"
     case surprised = "Surprised"
     case tired = "Tired"
+    
+    func localizedString() -> String {
+        return NSLocalizedString(self.rawValue, comment: "")
+    }
     
     var color: UIColor {
         switch self {
