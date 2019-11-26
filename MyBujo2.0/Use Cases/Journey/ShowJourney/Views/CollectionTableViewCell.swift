@@ -9,30 +9,21 @@
 import UIKit
 
 class CollectionTableViewCell: UITableViewCell, ViewCode {
+    let shadowView = ShadowView()
     
     
     // MARK: Properties
     let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "camera", normal: "camera")]
     
-    var monthData: MonthData {
-            if let month = CoreDataManager.getMonthData(month: CalendarManager.shared.currentMonthComponent) {
-                return month
-            }
-            return MonthData()
-    }
-    
     let  collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 16, right: 8)
-        layout.itemSize = CGSize(width: 400, height: 100)
-        layout.minimumInteritemSpacing = CGFloat(16.0)
-        layout.minimumLineSpacing = 16
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.isPagingEnabled = true
-        collection.backgroundColor = .blueBackground
+        collection.backgroundColor = .white
+        collection.layer.cornerRadius = 16
         return collection
     }()
     
@@ -41,8 +32,9 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
+        collectionView.register(PieChartCollectionViewCell.self, forCellWithReuseIdentifier: "pieChartCell")
+
+        
         NotificationCenter.default.addObserver(self,selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
@@ -58,19 +50,25 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
         print(orientation.isLandscape)
     }
     func buildViewHierarchy() {
-        addSubviews([collectionView])
+        addSubviews([shadowView, collectionView])
     }
     func setupConstraints() {
         NSLayoutConstraint.activate([
-        collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-        collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-        collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-        collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+            shadowView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            shadowView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            shadowView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            shadowView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16)
         ])
     }
     
     func setupAdditionalConfigurantion() {
-        
+        backgroundColor = .clear
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     
@@ -78,17 +76,14 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
 
 extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pieChartCell", for: indexPath) as? PieChartCollectionViewCell else { return UICollectionViewCell()}
+        cell.populateChartView()
+        return cell
         
-        switch indexPath.row {
-        
-        default:
-            break
-        }
-        return UICollectionViewCell()
     }
     
     
@@ -109,18 +104,11 @@ extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
         
         switch UIDevice.current.model {
         case "iPhone":
-            return CGSize(width: UIScreen.main.bounds.width - 16 , height: 300)
+            return CGSize(width: collectionView.frame.width , height: 300)
         default:
-            let portraitSize = CGSize(width: UIScreen.main.bounds.width/2 - 16 , height: 300)
-            let width = UIScreen.main.bounds.width * 0.8
-            let landscapeSize = CGSize(width: width/2 - 16, height: 300)
+            let portraitSize = CGSize(width: collectionView.frame.width , height: 300)
+            let landscapeSize = CGSize(width: collectionView.frame.width, height: 300)
             return UIDevice.current.orientation.isLandscape ? landscapeSize : portraitSize
         }
-        
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10.0
     }
 }
