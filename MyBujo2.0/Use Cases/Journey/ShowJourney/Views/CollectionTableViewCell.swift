@@ -81,7 +81,9 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pieChartCell", for: indexPath) as? PieChartCollectionViewCell else { return UICollectionViewCell()}
-        cell.populateChartView()
+        if let numberOfFeelings = CoreDataManager.getMonthData(month: CalendarManager.shared.currentMonthComponent)?.feelingsNumber{
+            cell.populateChartView(numberOfFeelings: numberOfFeelings)
+        }
         return cell
         
     }

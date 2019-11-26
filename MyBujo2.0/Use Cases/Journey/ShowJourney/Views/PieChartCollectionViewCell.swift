@@ -27,19 +27,24 @@ class PieChartCollectionViewCell: UICollectionViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
-        
+        pieChartView.drawHoleEnabled = false
     }
     
-    func populateChartView(){
-        var dataEntries: [ChartDataEntry] = []
-        dataEntries.append(ChartDataEntry(x: 0, y: 33))
-        dataEntries.append(ChartDataEntry(x: 1, y: 67))
+    func populateChartView(numberOfFeelings: [FeelingNumber]){
+        var dataEntries: [PieChartDataEntry] = []
         
-        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "Test")
+        numberOfFeelings.forEach({
+            if $0.number > 0 {
+                let dataEntry = PieChartDataEntry(value: $0.number, label: $0.feeling.rawValue)
+                dataEntries.append(dataEntry)
+            }
+        })
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries)
+        pieChartDataSet.drawValuesEnabled = false
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        pieChartDataSet.colors = [Feeling.happy.color, Feeling.sad.color]
+        pieChartDataSet.colors = numberOfFeelings.map({ $0.feeling.color})
         pieChartView.data = pieChartData
-       }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
