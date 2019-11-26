@@ -25,8 +25,14 @@ class AudioViewController: MediaViewController {
 	weak var delegateTarget: MediaCollectionViewTargetDelegate?
     
 	override func viewWillAppear(_ animated: Bool) {
-		self.title = "Record"
+		localizableLabel()
 	}
+    func localizableLabel() {
+        let formatStringGoalLabel = NSLocalizedString("Record",
+                                             comment: "Record")
+        self.title = String.localizedStringWithFormat(formatStringGoalLabel)
+    }
+    
     
     // MARK: Controller methods
     override func viewDidLoad() {

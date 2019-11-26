@@ -16,7 +16,7 @@ class FeelingsView: UIView, ViewCode {
     
 	var selectedFeeling: Feeling?
 	
-    let feelingsCardTitle = UILabel(text: "Como você está se sentindo hoje?", font: .title, textColor: .titleColor)
+    let feelingsCardTitle = UILabel(text: "How are you feeling today?", font: .title, textColor: .titleColor)
     
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()

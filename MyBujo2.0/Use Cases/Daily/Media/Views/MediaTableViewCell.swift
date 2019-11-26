@@ -13,7 +13,16 @@ class MediaTableViewCell: UITableViewCell {
     
     // MARK: Properties
     let iconNames = [(sf: "text.justifyleft", normal: "notes"), (sf: "pencil.and.outline", normal: "pencil"), (sf: "mic", normal: "mic"), (sf: "camera", normal: "camera"), (sf: "video", normal: "videoCamera")]
-    let iconName = ["Notas","Desenho","Áudio","Foto"]
+    let noteT = NSLocalizedString("Note",
+    comment: "Note")
+    let drawingT = NSLocalizedString("Drawing",
+    comment: "Drawing")
+    let recordt = NSLocalizedString("Record",
+    comment: "Record")
+    let capturest = NSLocalizedString("Captures",
+    comment: "Captures")
+    
+    lazy var iconName = [self.noteT, self.drawingT, self.recordt, self.capturest]
     static let reuseIdentifier = "MediaTableCell"
     weak var delegate: MediaCollectionViewDelegate?
     

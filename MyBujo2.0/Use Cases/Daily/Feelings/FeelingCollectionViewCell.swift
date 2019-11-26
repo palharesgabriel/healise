@@ -44,7 +44,7 @@ class FeelingCollectionViewCell: UICollectionViewCell, ViewCode {
     
     func setupCell(feeling: Feeling) {
         self.feeling = feeling
-        feelingTitle.text = feeling.rawValue
+        feelingTitle.text = self.feeling.localizedString()
         feelingCircle.backgroundColor = feeling.color
         didSelect()
     }
