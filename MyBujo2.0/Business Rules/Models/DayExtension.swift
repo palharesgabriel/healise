@@ -25,7 +25,7 @@ let surprisedT = NSLocalizedString("Surprised",
 comment: "Surprised")
 let tiredT = NSLocalizedString("Tired",
 comment: "Tired")
-enum Feeling: String {
+enum Feeling: String, CaseIterable {
     case happy = "Happy"
     case sad = "Sad"
     case angry = "Angry"
