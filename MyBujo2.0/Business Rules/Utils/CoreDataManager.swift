@@ -110,8 +110,17 @@ class CoreDataManager: NSObject {
                     monthData.numberOfPhotos += photos.count
                 }
             }
+            if let feeling = day.feeling{
+                monthData.feelingsNumber = monthData.feelingsNumber.map({
+                    if $0.feeling == feeling{
+                        return ($0.feeling, $0.number + 1)
+                    }
+                    else{
+                        return $0
+                    }
+                })
+            }
         }
-
         return monthData
     }
     
