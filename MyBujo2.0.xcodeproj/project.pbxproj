@@ -60,6 +60,10 @@
 		57EF6AF9238C13E6005380C8 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */; };
 		57EF6AFC238D4DCF005380C8 /* CustomPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF6AFB238D4DCF005380C8 /* CustomPieChart.swift */; };
 		9FFFB00D5C631D33E15BA3B9 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53498486092DE92827AD1DAE /* Pods_MyBujo2_0.framework */; };
+		AB14DDBF238E9E6B00F08627 /* NewAudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DDBE238E9E6B00F08627 /* NewAudioView.swift */; };
+		AB14DDC1238EA57D00F08627 /* NewAudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DDC0238EA57D00F08627 /* NewAudioViewController.swift */; };
+		AB14DDC3238EB43100F08627 /* NewAudioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DDC2238EB43100F08627 /* NewAudioDelegate.swift */; };
+		AB14DDC5238EB86900F08627 /* SaveAudioName.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB14DDC4238EB86900F08627 /* SaveAudioName.swift */; };
 		AB38B94C2368634800F9A9CA /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38B94B2368634800F9A9CA /* RecordButtonView.swift */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
 		AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */; };
@@ -163,6 +167,10 @@
 		583E3E00E01FA8D07B658400 /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
 		A19B30E0355C07F332AE23DA /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A61EB4F4767CBABEAAF41702 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
+		AB14DDBE238E9E6B00F08627 /* NewAudioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAudioView.swift; sourceTree = "<group>"; };
+		AB14DDC0238EA57D00F08627 /* NewAudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAudioViewController.swift; sourceTree = "<group>"; };
+		AB14DDC2238EB43100F08627 /* NewAudioDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAudioDelegate.swift; sourceTree = "<group>"; };
+		AB14DDC4238EB86900F08627 /* SaveAudioName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAudioName.swift; sourceTree = "<group>"; };
 		AB38B94B2368634800F9A9CA /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
 		AB6A65A8230AD990009CFE7E /* MyBujo2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBujo2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65AB230AD990009CFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +243,8 @@
 				AB8D30DA2338F1AC0009409F /* AudioRecordDelegate.swift */,
 				AB8D30DC233906290009409F /* AudioPlayerDelegate.swift */,
 				309DC7F2233E3C9400F3218E /* FileManagerInitiable.swift */,
+				AB14DDC2238EB43100F08627 /* NewAudioDelegate.swift */,
+				AB14DDC4238EB86900F08627 /* SaveAudioName.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -632,7 +642,6 @@
 			isa = PBXGroup;
 			children = (
 				AB6A65BA230AD994009CFE7E /* Info.plist */,
-				303B49AE2382C11500D0E6C7 /* MyBujo2.0.entitlements */,
 				307402AD23327C390058D997 /* Business Rules */,
 				30740286233272ED0058D997 /* Use Cases */,
 			);
@@ -679,6 +688,7 @@
 			isa = PBXGroup;
 			children = (
 				AB8C8828233518280093E29C /* AudioViewController.swift */,
+				AB14DDC0238EA57D00F08627 /* NewAudioViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -689,6 +699,7 @@
 				AB8C882A233518540093E29C /* AudioPlayer.swift */,
 				AB8C882C233518AC0093E29C /* AudioTableView.swift */,
 				AB38B94B2368634800F9A9CA /* RecordButtonView.swift */,
+				AB14DDBE238E9E6B00F08627 /* NewAudioView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -929,6 +940,7 @@
 			files = (
 				AB872E7C2386C179008B334F /* UIColor+Extension.swift in Sources */,
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
+				AB14DDC1238EA57D00F08627 /* NewAudioViewController.swift in Sources */,
 				5708D5FA238D529D006F1997 /* PieChartCollectionViewCell.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
@@ -941,6 +953,7 @@
 				57EF6AF9238C13E6005380C8 /* CollectionTableViewCell.swift in Sources */,
 				3094B17F233A5D9B00576EDF /* FocusedPhotoViewController.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
+				AB14DDC3238EB43100F08627 /* NewAudioDelegate.swift in Sources */,
 				3094B179233A57E400576EDF /* FocusedMediaViewController.swift in Sources */,
 				1516C18F231555E5002EC623 /* TableViewHeaderView.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
@@ -949,6 +962,7 @@
 				308F6FD02327EB96008012AA /* CanvasLayoutExtension.swift in Sources */,
 				157D9D69232A9285009659F4 /* CaptureCollectionViewCell.swift in Sources */,
 				E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */,
+				AB14DDC5238EB86900F08627 /* SaveAudioName.swift in Sources */,
 				309DC7F3233E3C9400F3218E /* FileManagerInitiable.swift in Sources */,
 				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
 				AB8C882B233518540093E29C /* AudioPlayer.swift in Sources */,
@@ -999,6 +1013,7 @@
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,
 				E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */,
+				AB14DDBF238E9E6B00F08627 /* NewAudioView.swift in Sources */,
 				57EF6AFC238D4DCF005380C8 /* CustomPieChart.swift in Sources */,
 				159DB6FA233CF16400CD9D5F /* GalleryViewController.swift in Sources */,
 				AB991ECF23858258002C918D /* UIFont+Extension.swift in Sources */,
@@ -1185,7 +1200,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mentalists.Healise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1209,7 +1223,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-        
 				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
@@ -1218,7 +1231,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mentalists.Healise;
 				PRODUCT_NAME = "$(TARGET_NAME)";

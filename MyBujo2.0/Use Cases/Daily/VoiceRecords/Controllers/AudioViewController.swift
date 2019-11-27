@@ -75,6 +75,12 @@ class AudioViewController: MediaViewController {
             })
         })
     }
+    
+    func presentNewAudioController() {
+        let viewController = NewAudioViewController()
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: View configuration
@@ -198,6 +204,7 @@ extension AudioViewController: AudioRecordDelegate {
     func didFinishRecord() {
         audioTableView.reloadData()
         recordButtonView.recordButton.imageView?.layer.removeAllAnimations()
+        presentNewAudioController()
     }
     
     func didBeginRecord() {
@@ -241,7 +248,6 @@ extension AudioViewController: AudioPlayerDelegate {
         audioPlayerView.progressBar.setProgress(0, animated: false)
         audioPlayerView.setPlayerFlag(isPlaying: isPlaying)
         audioPlayerView.setPlayButtonState()
-        
         
         guard let duration = audioDuration else { return }
         audioPlayerView.setPlayerLeftLabel(currentTime: audioManager.audioPlayer.currentTime)

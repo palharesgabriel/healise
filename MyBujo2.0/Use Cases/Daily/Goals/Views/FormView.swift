@@ -27,7 +27,7 @@ class DoneButton: UIButton {
 	
 	override var isEnabled: Bool {
 		didSet {
-			self.isEnabled ? self.setTitleColor(UIColor(named: "ActionColor"), for: .normal)
+            self.isEnabled ? self.setTitleColor(.actionColor, for: .normal)
 			 : self.setTitleColor(UIColor.systemGray, for: .normal)
 		}
 	}
@@ -49,12 +49,12 @@ class FormView: UIView, Shadow, ViewCode {
         textView.backgroundColor = .white
         textView.isEditable = true
         textView.font = .normal
-        textView.textColor = UIColor(named: "TitleColor")
+        textView.textColor = .titleColor
         textView.layer.borderWidth = 0.1
         textView.layer.borderColor = UIColor.gray.cgColor
         textView.layer.cornerRadius = 16
         textView.clipsToBounds = true
-        textView.backgroundColor = UIColor(named: "CardsColor")
+        textView.backgroundColor = .cardsColor
         textView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         return textView
     }()
