@@ -66,6 +66,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
+        selectionStyle = .none
         backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self

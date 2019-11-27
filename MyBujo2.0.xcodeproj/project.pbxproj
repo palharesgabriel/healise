@@ -31,7 +31,7 @@
 		30117AD0233CE16200F0D5F1 /* MonthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117ACF233CE16200F0D5F1 /* MonthData.swift */; };
 		30117AD3233CE18800F0D5F1 /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */; };
 		301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F35342316AAC500AD5477 /* CoreDataManager.swift */; };
-		3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */; };
+		3033EE2623608028000B7374 /* NavigationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033EE2523608028000B7374 /* NavigationHeader.swift */; };
 		303B49B02382C14100D0E6C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303B49AF2382C14100D0E6C7 /* CloudKit.framework */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
 		308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCB2327C4AB008012AA /* ExitButton.swift */; };
@@ -129,7 +129,7 @@
 		30117ACF233CE16200F0D5F1 /* MonthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthData.swift; sourceTree = "<group>"; };
 		30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStructs.swift; sourceTree = "<group>"; };
 		301F35342316AAC500AD5477 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderDelegate.swift; sourceTree = "<group>"; };
+		3033EE2523608028000B7374 /* NavigationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeader.swift; sourceTree = "<group>"; };
 		303B49AE2382C11500D0E6C7 /* MyBujo2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBujo2.0.entitlements; sourceTree = "<group>"; };
 		303B49AF2382C14100D0E6C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 		3033EE2423608017000B7374 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */,
+				3033EE2523608028000B7374 /* NavigationHeader.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -993,7 +993,7 @@
 				1549195823193EDD00766609 /* FormView.swift in Sources */,
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
-				3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */,
+				3033EE2623608028000B7374 /* NavigationHeader.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
 				308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* NavigationHeader.swift in Sources */,
