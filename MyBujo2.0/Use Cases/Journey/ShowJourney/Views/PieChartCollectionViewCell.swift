@@ -39,10 +39,11 @@ class PieChartCollectionViewCell: UICollectionViewCell, ViewCode {
                 dataEntries.append(dataEntry)
             }
         })
-        let pieChartDataSet = PieChartDataSet(entries: dataEntries)
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "Feelings")
         pieChartDataSet.drawValuesEnabled = false
+        pieChartDataSet.colors = []
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
-        pieChartDataSet.colors = numberOfFeelings.map({ $0.feeling.color})
+        numberOfFeelings.forEach({$0.number > 0 ? pieChartDataSet.colors.append($0.feeling.color) : nil})
         pieChartView.data = pieChartData
     }
     

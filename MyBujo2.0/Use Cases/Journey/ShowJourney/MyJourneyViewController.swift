@@ -99,7 +99,7 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 360
+            return 368
         case 1:
             return 344
         default:
