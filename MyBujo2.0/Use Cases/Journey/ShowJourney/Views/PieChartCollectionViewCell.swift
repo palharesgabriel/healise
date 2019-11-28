@@ -11,7 +11,11 @@ import Charts
 
 class PieChartCollectionViewCell: UICollectionViewCell, ViewCode {
     
-    let pieChartView = CustomPieChart()
+    let pieChartView: PieChartView = {
+        let pieChart = PieChartView()
+        pieChart.translatesAutoresizingMaskIntoConstraints = false
+        return pieChart
+    }()
     
     func buildViewHierarchy() {
         contentView.addSubview(pieChartView)
@@ -31,6 +35,7 @@ class PieChartCollectionViewCell: UICollectionViewCell, ViewCode {
     }
     
     func populateChartView(numberOfFeelings: [FeelingNumber]){
+        pieChartView.noDataText = "No Data"
         var dataEntries: [PieChartDataEntry] = []
         
         numberOfFeelings.forEach({

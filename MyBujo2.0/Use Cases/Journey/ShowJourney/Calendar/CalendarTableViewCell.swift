@@ -73,12 +73,12 @@ class CalendarTableViewCell: UITableViewCell, ViewCode {
             shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             shadowView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            shadowView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
-            calendarView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            calendarView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            calendarView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            calendarView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+            calendarView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor, constant: 4),
+            calendarView.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor, constant: -4),
+            calendarView.topAnchor.constraint(equalTo: shadowView.topAnchor, constant: 4),
+            calendarView.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor, constant: -4)
             ])
     }
     func setupAdditionalConfigurantion() {

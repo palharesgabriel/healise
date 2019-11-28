@@ -109,6 +109,9 @@ class CoreDataManager: NSObject {
                 if let photos = media.photos {
                     monthData.numberOfPhotos += photos.count
                 }
+                if let audios = media.audios{
+                    monthData.numberOfVoiceRecords += audios.count
+                }
             }
             if let feeling = day.feeling{
                 monthData.feelingsNumber = monthData.feelingsNumber.map({

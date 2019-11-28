@@ -64,7 +64,7 @@ class DayCell: JTACDayCell, ViewCode {
             moodIndicator.widthAnchor.constraint(equalToConstant: 6),
             moodIndicator.heightAnchor.constraint(equalToConstant: 6),
             
-            selectedView.widthAnchor.constraint(equalToConstant: 48),
+            selectedView.widthAnchor.constraint(equalToConstant: 40),
             selectedView.heightAnchor.constraint(equalTo: selectedView.widthAnchor),
             selectedView.centerXAnchor.constraint(equalTo: label.centerXAnchor),
             selectedView.centerYAnchor.constraint(equalTo: label.centerYAnchor)
@@ -91,7 +91,7 @@ class DayCell: JTACDayCell, ViewCode {
     
     func handleCellSelected(cellState: CellState) {
         selectedView.isHidden = cellState.date.ignoringTime() == Date().ignoringTime() ? false : true
-        selectedView.layer.cornerRadius = 24
+        selectedView.layer.cornerRadius = 20
     }
     func handleMoodIndicator(feeling: Feeling?) {
         if let feeling = feeling {

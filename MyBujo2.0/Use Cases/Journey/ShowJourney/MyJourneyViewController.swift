@@ -22,6 +22,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
         tableView.register(CollectionTableViewCell.self, forCellReuseIdentifier: "cardsCell")
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
@@ -38,6 +39,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
     override func viewWillAppear(_ animated: Bool) {
         guard let cell = tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? CalendarTableViewCell else { return }
         cell.calendarView.reloadData()
+        tableView.reloadData()
     }
     
     
@@ -99,9 +101,9 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 368
+            return 320
         case 1:
-            return 344
+            return 340
         default:
             return 0
         }
