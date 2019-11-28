@@ -56,9 +56,10 @@
 		30CBF8D5230C239100D56A41 /* NavigationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D4230C239100D56A41 /* NavigationHeader.swift */; };
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
 		30E72941237C4D6700D73666 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E72940237C4D6700D73666 /* CustomNavigationController.swift */; };
-		30F091FC4D6DD65676165420 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */; };
+		5708D5FA238D529D006F1997 /* PieChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5708D5F9238D529D006F1997 /* PieChartCollectionViewCell.swift */; };
 		57EF6AF9238C13E6005380C8 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */; };
-		86B2717C09121F8791F4DCB7 /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */; };
+		57EF6AFC238D4DCF005380C8 /* CustomPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF6AFB238D4DCF005380C8 /* CustomPieChart.swift */; };
+		9FFFB00D5C631D33E15BA3B9 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53498486092DE92827AD1DAE /* Pods_MyBujo2_0.framework */; };
 		AB38B94C2368634800F9A9CA /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38B94B2368634800F9A9CA /* RecordButtonView.swift */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
 		AB6A65AE230AD990009CFE7E /* MyJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */; };
@@ -82,6 +83,7 @@
 		AB8D30DF23390F4D0009409F /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8D30DE23390F4D0009409F /* Audio.swift */; };
 		AB991ECF23858258002C918D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB991ECE23858258002C918D /* UIFont+Extension.swift */; };
 		ABC6819D2316AA6D0039E7CC /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */; };
+		B68E37529C3A98E9BA2FECFA /* Pods_MyBujo2_0Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4618FC2FEDC8B95F26D7A70D /* Pods_MyBujo2_0Tests.framework */; };
 		E811D12E232004E600FBCAC8 /* UiButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */; };
 		E811D1302320952900FBCAC8 /* NewGoalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */; };
 		E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */; };
@@ -122,14 +124,12 @@
 		15DFF5C42316C3AD00F70860 /* NewGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
 		15DFF5C62316FB8200F70860 /* Blurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blurable.swift; sourceTree = "<group>"; };
 		15EF7188230DA7BA001F79D9 /* MyTodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTodayViewController.swift; sourceTree = "<group>"; };
-		1A42B77BC5296E06887DA2E4 /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		300CAB7A2327C1E3002F066A /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		3011490F2315721C0099E845 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		30117ACF233CE16200F0D5F1 /* MonthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthData.swift; sourceTree = "<group>"; };
 		30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStructs.swift; sourceTree = "<group>"; };
 		301F35342316AAC500AD5477 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderDelegate.swift; sourceTree = "<group>"; };
-		303B49AE2382C11500D0E6C7 /* MyBujo2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBujo2.0.entitlements; sourceTree = "<group>"; };
 		303B49AF2382C14100D0E6C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		308F6FCB2327C4AB008012AA /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
@@ -154,11 +154,15 @@
 		30CBF8D4230C239100D56A41 /* NavigationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeader.swift; sourceTree = "<group>"; };
 		30CBF8D7230C347200D56A41 /* WeekDaysView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDaysView.swift; sourceTree = "<group>"; };
 		30E72940237C4D6700D73666 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
-		57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionTableViewCell.swift; path = "MyBujo2.0/Use Cases/CommonUses/Views/CollectionTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
-		996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9BD351423C88B3EC62A77941 /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
+		4618FC2FEDC8B95F26D7A70D /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		465C57CA4CF317594F79E56B /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
+		53498486092DE92827AD1DAE /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5708D5F9238D529D006F1997 /* PieChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionTableViewCell.swift; path = "MyBujo2.0/Use Cases/Journey/ShowJourney/Views/CollectionTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		57EF6AFB238D4DCF005380C8 /* CustomPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPieChart.swift; sourceTree = "<group>"; };
+		583E3E00E01FA8D07B658400 /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
+		A19B30E0355C07F332AE23DA /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A61EB4F4767CBABEAAF41702 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
 		AB38B94B2368634800F9A9CA /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
 		AB6A65A8230AD990009CFE7E /* MyBujo2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBujo2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB6A65AB230AD990009CFE7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,7 +190,6 @@
 		AB8D30DE23390F4D0009409F /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		AB991ECE23858258002C918D /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		ABC6819C2316AA6D0039E7CC /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
-		B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E811D12D232004E600FBCAC8 /* UiButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiButton+Extension.swift"; sourceTree = "<group>"; };
 		E811D12F2320952900FBCAC8 /* NewGoalViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E811D131232096F800FBCAC8 /* UiLabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiLabel+Extension.swift"; sourceTree = "<group>"; };
@@ -204,8 +207,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30F091FC4D6DD65676165420 /* Pods_MyBujo2_0.framework in Frameworks */,
 				303B49B02382C14100D0E6C7 /* CloudKit.framework in Frameworks */,
+				9FFFB00D5C631D33E15BA3B9 /* Pods_MyBujo2_0.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86B2717C09121F8791F4DCB7 /* Pods_MyBujo2_0Tests.framework in Frameworks */,
+				B68E37529C3A98E9BA2FECFA /* Pods_MyBujo2_0Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,8 +250,8 @@
 			isa = PBXGroup;
 			children = (
 				303B49AF2382C14100D0E6C7 /* CloudKit.framework */,
-				7073002E8EAFF65F0E78C213 /* Pods_MyBujo2_0.framework */,
-				B255C441080AC122C15A5C5B /* Pods_MyBujo2_0Tests.framework */,
+				53498486092DE92827AD1DAE /* Pods_MyBujo2_0.framework */,
+				4618FC2FEDC8B95F26D7A70D /* Pods_MyBujo2_0Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -473,7 +476,6 @@
 			isa = PBXGroup;
 			children = (
 				30CBF8DB230C40B000D56A41 /* Calendar */,
-				57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */,
 				30CBF8D4230C239100D56A41 /* NavigationHeader.swift */,
 				308F6FCB2327C4AB008012AA /* ExitButton.swift */,
 				E813C1A62322A5F0002F170D /* NavigationButton.swift */,
@@ -495,6 +497,7 @@
 		307402A5233277260058D997 /* ShowJourney */ = {
 			isa = PBXGroup;
 			children = (
+				57EF6AFA238D4DB1005380C8 /* Views */,
 				AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */,
 			);
 			path = ShowJourney;
@@ -503,6 +506,10 @@
 		307402AD23327C390058D997 /* Business Rules */ = {
 			isa = PBXGroup;
 			children = (
+				AB6A65AB230AD990009CFE7E /* AppDelegate.swift */,
+				AB6A65B5230AD994009CFE7E /* Assets.xcassets */,
+				AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */,
+				AB6A65B2230AD990009CFE7E /* MyBujo2_0.xcdatamodeld */,
 				E88784742331222100BFFE10 /* Structs */,
 				30B9005823184235000C0089 /* Models */,
 				E8FF9D452316C538006C2B49 /* Extension */,
@@ -589,6 +596,16 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		57EF6AFA238D4DB1005380C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */,
+				57EF6AFB238D4DCF005380C8 /* CustomPieChart.swift */,
+				5708D5F9238D529D006F1997 /* PieChartCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		AB6A659F230AD990009CFE7E = {
 			isa = PBXGroup;
 			children = (
@@ -614,14 +631,10 @@
 		AB6A65AA230AD990009CFE7E /* MyBujo2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				AB6A65BA230AD994009CFE7E /* Info.plist */,
 				303B49AE2382C11500D0E6C7 /* MyBujo2.0.entitlements */,
 				307402AD23327C390058D997 /* Business Rules */,
 				30740286233272ED0058D997 /* Use Cases */,
-				AB6A65AB230AD990009CFE7E /* AppDelegate.swift */,
-				AB6A65B5230AD994009CFE7E /* Assets.xcassets */,
-				AB6A65B7230AD994009CFE7E /* LaunchScreen.storyboard */,
-				AB6A65BA230AD994009CFE7E /* Info.plist */,
-				AB6A65B2230AD990009CFE7E /* MyBujo2_0.xcdatamodeld */,
 			);
 			path = MyBujo2.0;
 			sourceTree = "<group>";
@@ -683,10 +696,10 @@
 		B10888BBE6C5CE81382D8853 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9BD351423C88B3EC62A77941 /* Pods-MyBujo2.0.debug.xcconfig */,
-				84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */,
-				1A42B77BC5296E06887DA2E4 /* Pods-MyBujo2.0Tests.debug.xcconfig */,
-				996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */,
+				465C57CA4CF317594F79E56B /* Pods-MyBujo2.0.debug.xcconfig */,
+				583E3E00E01FA8D07B658400 /* Pods-MyBujo2.0.release.xcconfig */,
+				A19B30E0355C07F332AE23DA /* Pods-MyBujo2.0Tests.debug.xcconfig */,
+				A61EB4F4767CBABEAAF41702 /* Pods-MyBujo2.0Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -725,12 +738,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB6A65C8230AD994009CFE7E /* Build configuration list for PBXNativeTarget "MyBujo2.0" */;
 			buildPhases = (
-				F3B06E7A1F46759BD09FBED8 /* [CP] Check Pods Manifest.lock */,
+				1EE8E65A3176E964D4F34655 /* [CP] Check Pods Manifest.lock */,
 				AB6A65A4230AD990009CFE7E /* Sources */,
 				AB6A65A5230AD990009CFE7E /* Frameworks */,
 				AB6A65A6230AD990009CFE7E /* Resources */,
 				AB3FBDD9231412F30072A5EC /* Swift Lint */,
-				F6B4751E381A869D54E5CEF7 /* [CP] Embed Pods Frameworks */,
+				775ADE9167351FFB9298F469 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -745,7 +758,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB6A65CB230AD994009CFE7E /* Build configuration list for PBXNativeTarget "MyBujo2.0Tests" */;
 			buildPhases = (
-				499274A619F8C656796029D4 /* [CP] Check Pods Manifest.lock */,
+				84F92AB1911EDE4B7CB7DDCF /* [CP] Check Pods Manifest.lock */,
 				AB6A65BB230AD994009CFE7E /* Sources */,
 				AB6A65BC230AD994009CFE7E /* Frameworks */,
 				AB6A65BD230AD994009CFE7E /* Resources */,
@@ -828,7 +841,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		499274A619F8C656796029D4 /* [CP] Check Pods Manifest.lock */ = {
+		1EE8E65A3176E964D4F34655 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBujo2.0-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		775ADE9167351FFB9298F469 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84F92AB1911EDE4B7CB7DDCF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -868,45 +920,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		F3B06E7A1F46759BD09FBED8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MyBujo2.0-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6B4751E381A869D54E5CEF7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -916,6 +929,7 @@
 			files = (
 				AB872E7C2386C179008B334F /* UIColor+Extension.swift in Sources */,
 				E88784762331223C00BFFE10 /* Defaults.swift in Sources */,
+				5708D5FA238D529D006F1997 /* PieChartCollectionViewCell.swift in Sources */,
 				1549195A231D44EE00766609 /* NewFeelingViewController.swift in Sources */,
 				15DA589223390ADA00009949 /* CapturesViewController+ImagePickerController.swift in Sources */,
 				30B9005A2318424A000C0089 /* DayExtension.swift in Sources */,
@@ -985,6 +999,7 @@
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,
 				E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */,
+				57EF6AFC238D4DCF005380C8 /* CustomPieChart.swift in Sources */,
 				159DB6FA233CF16400CD9D5F /* GalleryViewController.swift in Sources */,
 				AB991ECF23858258002C918D /* UIFont+Extension.swift in Sources */,
 				E813C1A72322A5F0002F170D /* NavigationButton.swift in Sources */,
@@ -1153,25 +1168,30 @@
 		};
 		AB6A65C9230AD994009CFE7E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BD351423C88B3EC62A77941 /* Pods-MyBujo2.0.debug.xcconfig */;
+			baseConfigurationReference = 465C57CA4CF317594F79E56B /* Pods-MyBujo2.0.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyBujo2.0/MyBujo2.0.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 37CT2CQ23H;
+				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.magauto.Healise;
+
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mentalists.Healise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1180,25 +1200,31 @@
 		};
 		AB6A65CA230AD994009CFE7E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84C1F76D61EB421EF9272186 /* Pods-MyBujo2.0.release.xcconfig */;
+			baseConfigurationReference = 583E3E00E01FA8D07B658400 /* Pods-MyBujo2.0.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MyBujo2.0/MyBujo2.0.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 37CT2CQ23H;
+        
+				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.magauto.Healise;
+
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mentalists.Healise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1207,7 +1233,7 @@
 		};
 		AB6A65CC230AD994009CFE7E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A42B77BC5296E06887DA2E4 /* Pods-MyBujo2.0Tests.debug.xcconfig */;
+			baseConfigurationReference = A19B30E0355C07F332AE23DA /* Pods-MyBujo2.0Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1229,7 +1255,7 @@
 		};
 		AB6A65CD230AD994009CFE7E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 996BCF63229CD2F3D0D56838 /* Pods-MyBujo2.0Tests.release.xcconfig */;
+			baseConfigurationReference = A61EB4F4767CBABEAAF41702 /* Pods-MyBujo2.0Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
