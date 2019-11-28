@@ -78,7 +78,7 @@ class CoreDataManager: NSObject {
             let result = try context.fetch(request)
             return result
         } catch {
-            print("\(error.localizedDescription) buceta")
+            print(error.localizedDescription)
         }
         return nil
     }
