@@ -120,11 +120,27 @@ extension CalendarTableViewCell: JTACMonthViewDelegate, JTACMonthViewDataSource 
         dateFormatter.dateFormat = "yyyy MM dd"
         
         if type.number == 6 {
-            let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .sunday)
-            return configParameters
+			if
+				let startDate = dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01"),
+				let endDate = dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")
+			{
+				let configParameters = ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .sunday)
+				return configParameters
+			} else {
+				return ConfigurationParameters(startDate: Date(), endDate: Date())
+			}
+			
         } else {
-            let configParameters = ConfigurationParameters(startDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01")!, endDate: dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")!, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .sunday)
-            return configParameters
+
+			if
+				let startDate = dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 01 01"),
+				let endDate = dateFormatter.date(from: "\(Calendar.current.component(.year, from: Date())) 12 31")
+			{
+				let configParameters = ConfigurationParameters(startDate: startDate, endDate: endDate, numberOfRows: type.number,calendar: Calendar.current, generateInDates: .forAllMonths, generateOutDates: .tillEndOfRow, firstDayOfWeek: .sunday)
+				return configParameters
+			} else {
+				return ConfigurationParameters(startDate: Date(), endDate: Date())
+			}
         }
         
     }

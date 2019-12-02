@@ -3,20 +3,24 @@ PODS:
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
   - JTAppleCalendar (8.0.2)
+  - Onboard (2.3.3)
 
 DEPENDENCIES:
   - Charts
   - JTAppleCalendar
+  - Onboard (~> 2.3)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Charts
     - JTAppleCalendar
+    - Onboard
 
 SPEC CHECKSUMS:
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   JTAppleCalendar: bb3dd3752e2bcc85cb798ab763fbdd6e142715fc
+  Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
 
-PODFILE CHECKSUM: baacd4b2c39e182873a81171108f5049e9631046
+PODFILE CHECKSUM: 82b846602a49ce148a059accfd652bad9d3a35df
 
 COCOAPODS: 1.8.4
