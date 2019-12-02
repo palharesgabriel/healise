@@ -34,7 +34,8 @@ class PieChartCollectionViewCell: UICollectionViewCell, ViewCode {
         pieChartView.drawHoleEnabled = false
     }
     
-    func populateChartView(numberOfFeelings: [FeelingNumber]){
+    func populateChartView(numberOfFeelings: [FeelingNumber]) {
+        pieChartView.clear()
         pieChartView.noDataText = "No Data"
         var dataEntries: [PieChartDataEntry] = []
         

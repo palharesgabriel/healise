@@ -47,6 +47,8 @@ class BarChartCollectionViewCell: UICollectionViewCell, ViewCode {
     }
     
     func populateChartView(monthData: MonthData) {
+        barChartView.clear()
+        dataEntries = []
         barChartView.noDataText = "No Data"
         appendDataEntry(xxx: 0, yyy: monthData.numberOfDrawings, image: "pencil.and.outline" )
         appendDataEntry(xxx: 1, yyy: monthData.numberOfNotes, image: "text.justifyleft")
