@@ -30,7 +30,7 @@ class PieChartCollectionViewCell: UICollectionViewCell, ViewCode {
         pieChartView.drawHoleEnabled = false
     }
     
-    func populateChartView(numberOfFeelings: [FeelingNumber]){
+    func populateChartView(numberOfFeelings: [FeelingNumber]) {
         var dataEntries: [PieChartDataEntry] = []
         
         numberOfFeelings.forEach({
