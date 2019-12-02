@@ -7,7 +7,12 @@
 //
 
 import Foundation
+enum Direction{
+    case left
+    case right
+}
 protocol CalendarTableViewCellDelegate: class {
     func didSelectDate(date: Date)
     func shouldShowAddFeelingModal()
+    func didScroll(direction: Direction)
 }

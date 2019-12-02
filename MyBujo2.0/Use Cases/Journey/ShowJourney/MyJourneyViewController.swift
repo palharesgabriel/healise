@@ -21,6 +21,7 @@ class MyJourneyViewController: UIViewController, ViewCode {
         tableView.showsHorizontalScrollIndicator = false
         tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: "calendarCell")
         tableView.register(CollectionTableViewCell.self, forCellReuseIdentifier: "cardsCell")
+        tableView.register(TableViewHeaderView.self, forHeaderFooterViewReuseIdentifier: "header")
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         return tableView
@@ -37,9 +38,12 @@ class MyJourneyViewController: UIViewController, ViewCode {
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        guard let cell = tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? CalendarTableViewCell else { return }
+        guard var cell = tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? CalendarTableViewCell else { return }
         cell.calendarView.reloadData()
-        tableView.reloadData()
+        guard let cell2 = tableView.cellForRow(at: IndexPath(item: 0, section: 1)) as? CollectionTableViewCell else { return }
+        cell2.collectionView.reloadData()
+        
+        
     }
     
     
@@ -72,13 +76,17 @@ class MyJourneyViewController: UIViewController, ViewCode {
 
 
 extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell") as? CalendarTableViewCell else { return UITableViewCell()}
             cell.delegate = self
@@ -89,6 +97,21 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
             return cellCollection
         default:
             return UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? TableViewHeaderView else { return nil }
+        cell.setupHeader(headerTitle: "Overview")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 0
+        default:
+            return 30
         }
     }
     
@@ -111,6 +134,11 @@ extension MyJourneyViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MyJourneyViewController: CalendarTableViewCellDelegate {
+    func didScroll(direction: Direction) {
+        guard let cell2 = tableView.cellForRow(at: IndexPath(item: 0, section: 1)) as? CollectionTableViewCell else { return }
+        cell2.collectionView.reloadData()
+    }
+    
     func didSelectDate(date: Date) {
         CalendarManager.shared.selectedDay = CalendarManager.shared.getDay(date: date)
         navigationController?.pushViewController(MyTodayViewController(), animated: true)

@@ -9,7 +9,7 @@ DEPENDENCIES:
   - JTAppleCalendar
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Charts
     - JTAppleCalendar
 
@@ -19,4 +19,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: baacd4b2c39e182873a81171108f5049e9631046
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

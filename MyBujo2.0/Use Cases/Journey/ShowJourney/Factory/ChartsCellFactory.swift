@@ -16,17 +16,17 @@ struct ChartsCellFactory {
         self.indexPath = indexPath
     }
     
-    var cell: UICollectionViewCell?{
+    var cell: UICollectionViewCell? {
         switch indexPath.row {
         case 0:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pieChartCell", for: indexPath) as? PieChartCollectionViewCell else { return nil }
-            if let numberOfFeelings = CoreDataManager.getMonthData(month: CalendarManager.shared.currentMonthComponent)?.feelingsNumber{
+            if let numberOfFeelings = CoreDataManager.getMonthData(month: CalendarManager.shared.selectedMonthComponent)?.feelingsNumber {
                 cell.populateChartView(numberOfFeelings: numberOfFeelings)
             }
             return cell
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "barChartCell", for: indexPath) as? BarChartCollectionViewCell else { return nil }
-            if let monthData = CoreDataManager.getMonthData(month: CalendarManager.shared.currentMonthComponent){
+            if let monthData = CoreDataManager.getMonthData(month: CalendarManager.shared.selectedMonthComponent) {
                 cell.populateChartView(monthData: monthData)
             }
             return cell

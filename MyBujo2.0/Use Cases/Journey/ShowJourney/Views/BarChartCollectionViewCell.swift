@@ -46,12 +46,12 @@ class BarChartCollectionViewCell: UICollectionViewCell, ViewCode {
         
     }
     
-    func populateChartView(monthData: MonthData){
+    func populateChartView(monthData: MonthData) {
         barChartView.noDataText = "No Data"
-        appendDataEntry(x: 0, y: monthData.numberOfDrawings, image: "pencil.and.outline" )
-        appendDataEntry(x: 1, y: monthData.numberOfNotes, image: "text.justifyleft")
-        appendDataEntry(x: 2, y: monthData.numberOfPhotos, image: "camera")
-        appendDataEntry(x: 3, y: monthData.numberOfVoiceRecords, image: "mic")
+        appendDataEntry(xxx: 0, yyy: monthData.numberOfDrawings, image: "pencil.and.outline" )
+        appendDataEntry(xxx: 1, yyy: monthData.numberOfNotes, image: "text.justifyleft")
+        appendDataEntry(xxx: 2, yyy: monthData.numberOfPhotos, image: "camera")
+        appendDataEntry(xxx: 3, yyy: monthData.numberOfVoiceRecords, image: "mic")
         
         let barChartDataSet = BarChartDataSet(entries: dataEntries, label: "Interactions")
         barChartDataSet.colors = [UIColor(named: "ActionColor") ?? .blue]
@@ -61,10 +61,10 @@ class BarChartCollectionViewCell: UICollectionViewCell, ViewCode {
         
     }
     
-    func appendDataEntry(x: Double, y: Int, image: String){
+    func appendDataEntry(xxx: Double, yyy: Int, image: String) {
         let configuration = UIImage.SymbolConfiguration(pointSize: 16, weight: .medium)
         let icon = UIImage(systemName: image, withConfiguration: configuration)
-        dataEntries.append(BarChartDataEntry(x: x, y: Double(y), icon: icon))
+        dataEntries.append(BarChartDataEntry(x: xxx, y: Double(yyy), icon: icon))
     }
     
     override init(frame: CGRect) {
