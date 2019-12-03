@@ -22,9 +22,13 @@ class CalendarManager: NSObject {
     
     lazy var selectedDay: Day = self.getDay(date: Date())
     
+    
     var currentDayComponent = Calendar.current.component(.day, from: Date())
     var currentMonthComponent = Calendar.current.component(.month, from: Date())
     var currentYearComponent = Calendar.current.component(.year, from: Date())
+    lazy var selectedMonthComponent: Int = {
+        return currentMonthComponent
+    }()
     
     func getDay(date: Date) -> Day {
         guard let result = CoreDataManager.fetch(entityClass: Day.self, predicate: EntityType.day(date).predicate)?.first as? Day else {

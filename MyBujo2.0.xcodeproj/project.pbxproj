@@ -31,7 +31,7 @@
 		30117AD0233CE16200F0D5F1 /* MonthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117ACF233CE16200F0D5F1 /* MonthData.swift */; };
 		30117AD3233CE18800F0D5F1 /* CalendarStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */; };
 		301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301F35342316AAC500AD5477 /* CoreDataManager.swift */; };
-		3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */; };
+		3033EE2623608028000B7374 /* NavigationHeaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033EE2523608028000B7374 /* NavigationHeaderDelegate.swift */; };
 		303B49B02382C14100D0E6C7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303B49AF2382C14100D0E6C7 /* CloudKit.framework */; };
 		3050424E230C879D0037AFB0 /* ShadowProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050424D230C879D0037AFB0 /* ShadowProtocol.swift */; };
 		308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F6FCB2327C4AB008012AA /* ExitButton.swift */; };
@@ -57,8 +57,9 @@
 		30CBF8D8230C347200D56A41 /* WeekDaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CBF8D7230C347200D56A41 /* WeekDaysView.swift */; };
 		30E72941237C4D6700D73666 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E72940237C4D6700D73666 /* CustomNavigationController.swift */; };
 		5708D5FA238D529D006F1997 /* PieChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5708D5F9238D529D006F1997 /* PieChartCollectionViewCell.swift */; };
+		5738FBF0238EA01C0040EADB /* ChartsCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5738FBEF238EA01C0040EADB /* ChartsCellFactory.swift */; };
+		5738FBF2238FF1320040EADB /* BarChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5738FBF1238FF1320040EADB /* BarChartCollectionViewCell.swift */; };
 		57EF6AF9238C13E6005380C8 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */; };
-		57EF6AFC238D4DCF005380C8 /* CustomPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EF6AFB238D4DCF005380C8 /* CustomPieChart.swift */; };
 		9FFFB00D5C631D33E15BA3B9 /* Pods_MyBujo2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53498486092DE92827AD1DAE /* Pods_MyBujo2_0.framework */; };
 		AB38B94C2368634800F9A9CA /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38B94B2368634800F9A9CA /* RecordButtonView.swift */; };
 		AB6A65AC230AD990009CFE7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6A65AB230AD990009CFE7E /* AppDelegate.swift */; };
@@ -129,7 +130,8 @@
 		30117ACF233CE16200F0D5F1 /* MonthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthData.swift; sourceTree = "<group>"; };
 		30117AD2233CE18800F0D5F1 /* CalendarStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStructs.swift; sourceTree = "<group>"; };
 		301F35342316AAC500AD5477 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderDelegate.swift; sourceTree = "<group>"; };
+		3033EE2523608028000B7374 /* NavigationHeaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeaderDelegate.swift; sourceTree = "<group>"; };
+		303B49AE2382C11500D0E6C7 /* MyBujo2.0.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBujo2.0.entitlements; sourceTree = "<group>"; };
 		303B49AF2382C14100D0E6C7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3050424D230C879D0037AFB0 /* ShadowProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowProtocol.swift; sourceTree = "<group>"; };
 		308F6FCB2327C4AB008012AA /* ExitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButton.swift; sourceTree = "<group>"; };
@@ -158,8 +160,9 @@
 		465C57CA4CF317594F79E56B /* Pods-MyBujo2.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.debug.xcconfig"; sourceTree = "<group>"; };
 		53498486092DE92827AD1DAE /* Pods_MyBujo2_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBujo2_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5708D5F9238D529D006F1997 /* PieChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		5738FBEF238EA01C0040EADB /* ChartsCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsCellFactory.swift; sourceTree = "<group>"; };
+		5738FBF1238FF1320040EADB /* BarChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCollectionViewCell.swift; sourceTree = "<group>"; };
 		57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionTableViewCell.swift; path = "MyBujo2.0/Use Cases/Journey/ShowJourney/Views/CollectionTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		57EF6AFB238D4DCF005380C8 /* CustomPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPieChart.swift; sourceTree = "<group>"; };
 		583E3E00E01FA8D07B658400 /* Pods-MyBujo2.0.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0/Pods-MyBujo2.0.release.xcconfig"; sourceTree = "<group>"; };
 		A19B30E0355C07F332AE23DA /* Pods-MyBujo2.0Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.debug.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A61EB4F4767CBABEAAF41702 /* Pods-MyBujo2.0Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBujo2.0Tests.release.xcconfig"; path = "Target Support Files/Pods-MyBujo2.0Tests/Pods-MyBujo2.0Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -259,7 +262,7 @@
 		3033EE2423608017000B7374 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				3033EE2523608028000B7374 /* CalendarHeaderDelegate.swift */,
+				3033EE2523608028000B7374 /* NavigationHeaderDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -303,7 +306,6 @@
 		3074028A2332732C0058D997 /* CommonUses */ = {
 			isa = PBXGroup;
 			children = (
-				3033EE2423608017000B7374 /* Delegates */,
 				307402A3233276950058D997 /* Views */,
 				3094B177233A57B500576EDF /* Controllers */,
 			);
@@ -475,8 +477,6 @@
 		307402A3233276950058D997 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				30CBF8DB230C40B000D56A41 /* Calendar */,
-				30CBF8D4230C239100D56A41 /* NavigationHeader.swift */,
 				308F6FCB2327C4AB008012AA /* ExitButton.swift */,
 				E813C1A62322A5F0002F170D /* NavigationButton.swift */,
 				1516C18E231555E5002EC623 /* TableViewHeaderView.swift */,
@@ -497,6 +497,9 @@
 		307402A5233277260058D997 /* ShowJourney */ = {
 			isa = PBXGroup;
 			children = (
+				3033EE2423608017000B7374 /* Delegates */,
+				30CBF8DB230C40B000D56A41 /* Calendar */,
+				5738FBEE238EA0000040EADB /* Factory */,
 				57EF6AFA238D4DB1005380C8 /* Views */,
 				AB6A65AD230AD990009CFE7E /* MyJourneyViewController.swift */,
 			);
@@ -596,12 +599,21 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		5738FBEE238EA0000040EADB /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				5738FBEF238EA01C0040EADB /* ChartsCellFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
 		57EF6AFA238D4DB1005380C8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				30CBF8D4230C239100D56A41 /* NavigationHeader.swift */,
 				57EF6AF8238C13E6005380C8 /* CollectionTableViewCell.swift */,
-				57EF6AFB238D4DCF005380C8 /* CustomPieChart.swift */,
 				5708D5F9238D529D006F1997 /* PieChartCollectionViewCell.swift */,
+				5738FBF1238FF1320040EADB /* BarChartCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -942,6 +954,7 @@
 				3094B17F233A5D9B00576EDF /* FocusedPhotoViewController.swift in Sources */,
 				AB6A65B4230AD991009CFE7E /* MyBujo2_0.xcdatamodeld in Sources */,
 				3094B179233A57E400576EDF /* FocusedMediaViewController.swift in Sources */,
+				5738FBF2238FF1320040EADB /* BarChartCollectionViewCell.swift in Sources */,
 				1516C18F231555E5002EC623 /* TableViewHeaderView.swift in Sources */,
 				15EF7189230DA7BA001F79D9 /* MyTodayViewController.swift in Sources */,
 				30A348D62314609C0018DB13 /* MediaTableViewCell.swift in Sources */,
@@ -953,6 +966,7 @@
 				15DFF5C72316FB8200F70860 /* Blurable.swift in Sources */,
 				AB8C882B233518540093E29C /* AudioPlayer.swift in Sources */,
 				300CAB7B2327C1E3002F066A /* DrawingViewController.swift in Sources */,
+				5738FBF0238EA01C0040EADB /* ChartsCellFactory.swift in Sources */,
 				301F35352316AAC500AD5477 /* CoreDataManager.swift in Sources */,
 				30A348D123145AA30018DB13 /* CalendarTableViewCell.swift in Sources */,
 				15347D37231D8E8F00848335 /* FeelingsView.swift in Sources */,
@@ -992,14 +1006,13 @@
 				1549195823193EDD00766609 /* FormView.swift in Sources */,
 				30B900572317FC3B000C0089 /* CalendarTableViewCellDelegate.swift in Sources */,
 				E8535A04231562AB009AB979 /* NotesViewController.swift in Sources */,
-				3033EE2623608028000B7374 /* CalendarHeaderDelegate.swift in Sources */,
+				3033EE2623608028000B7374 /* NavigationHeaderDelegate.swift in Sources */,
 				30B9006023185600000C0089 /* DateExtension.swift in Sources */,
 				308F6FCC2327C4AB008012AA /* ExitButton.swift in Sources */,
 				30CBF8D5230C239100D56A41 /* NavigationHeader.swift in Sources */,
 				301149102315721C0099E845 /* ShadowView.swift in Sources */,
 				15DFF5C52316C3AD00F70860 /* NewGoalViewController.swift in Sources */,
 				E811D132232096F800FBCAC8 /* UiLabel+Extension.swift in Sources */,
-				57EF6AFC238D4DCF005380C8 /* CustomPieChart.swift in Sources */,
 				159DB6FA233CF16400CD9D5F /* GalleryViewController.swift in Sources */,
 				AB991ECF23858258002C918D /* UIFont+Extension.swift in Sources */,
 				E813C1A72322A5F0002F170D /* NavigationButton.swift in Sources */,
@@ -1177,7 +1190,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1185,9 +1198,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mentalists.Healise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adauto.Healise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -1209,8 +1221,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 11;
 				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
-        
-				DEVELOPMENT_TEAM = 6Z5CB5T6U7;
+				DEVELOPMENT_TEAM = C2BTWK9QR9;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = NO;
 				INFOPLIST_FILE = MyBujo2.0/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1218,9 +1229,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-
 				MARKETING_VERSION = 2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = mentalists.Healise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adauto.Healise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";

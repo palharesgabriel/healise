@@ -33,6 +33,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
         collectionView.register(PieChartCollectionViewCell.self, forCellWithReuseIdentifier: "pieChartCell")
+        collectionView.register(BarChartCollectionViewCell.self, forCellWithReuseIdentifier: "barChartCell")
 
         
         NotificationCenter.default.addObserver(self,selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -54,11 +55,11 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     }
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            shadowView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            shadowView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             shadowView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
             shadowView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             shadowView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
+            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -16),
             collectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             collectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16)
@@ -66,6 +67,7 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
     }
     
     func setupAdditionalConfigurantion() {
+        selectionStyle = .none
         backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -76,14 +78,12 @@ class CollectionTableViewCell: UITableViewCell, ViewCode {
 
 extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pieChartCell", for: indexPath) as? PieChartCollectionViewCell else { return UICollectionViewCell()}
-        if let numberOfFeelings = CoreDataManager.getMonthData(month: CalendarManager.shared.currentMonthComponent)?.feelingsNumber{
-            cell.populateChartView(numberOfFeelings: numberOfFeelings)
-        }
+        let factory = ChartsCellFactory(collectionView: collectionView, indexPath: indexPath)
+        guard let cell = factory.cell else { return UICollectionViewCell()}
         return cell
         
     }
@@ -96,10 +96,10 @@ extension CollectionTableViewCell: UICollectionViewDataSource, UICollectionViewD
             break
         }
     }
+    
 }
 
 extension CollectionTableViewCell: UICollectionViewDelegateFlowLayout {
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

@@ -78,7 +78,7 @@ class CoreDataManager: NSObject {
             let result = try context.fetch(request)
             return result
         } catch {
-            print("\(error.localizedDescription) buceta")
+            print(error.localizedDescription)
         }
         return nil
     }
@@ -108,6 +108,9 @@ class CoreDataManager: NSObject {
                 }
                 if let photos = media.photos {
                     monthData.numberOfPhotos += photos.count
+                }
+                if let audios = media.audios{
+                    monthData.numberOfVoiceRecords += audios.count
                 }
             }
             if let feeling = day.feeling{
