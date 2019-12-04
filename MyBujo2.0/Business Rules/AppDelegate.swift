@@ -93,53 +93,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let colorLabelBlue = UIColor(displayP3Red: 116/255, green: 163/255, blue: 215/255, alpha: 1.0)
         
         firstPage.view.backgroundColor = colorBackground
-        firstPage.topPadding = 160
         firstPage.titleLabel.textColor = colorLabelBlue
         firstPage.bodyLabel.textColor = colorLabelBlue
-        
+		
         secondPage.view.backgroundColor = colorBackground
         secondPage.titleLabel.textColor = colorLabelBlue
         secondPage.bodyLabel.textColor = colorLabelBlue
-        secondPage.topPadding = 240
-        
         
         thirdPage.view.backgroundColor = colorBackground
         thirdPage.bodyLabel.textColor = colorLabelBlue
-        thirdPage.topPadding = 200
-        
+	
         fourthPage.view.backgroundColor = colorBackground
         fourthPage.bodyLabel.textColor = colorLabelBlue
-        fourthPage.topPadding = 200
         
         fifth.view.backgroundColor = colorBackground
         fifth.bodyLabel.textColor = colorLabelBlue
-        fifth.topPadding = 200
-
+		
         sixth.view.backgroundColor = colorBackground
         sixth.bodyLabel.textColor = colorLabelBlue
         sixth.titleLabel.textColor = colorLabelBlue
-        sixth.topPadding = 140
         
         seventh.view.backgroundColor = colorBackground
         seventh.bodyLabel.textColor = colorLabelBlue
         seventh.titleLabel.textColor = colorLabelBlue
-        seventh.topPadding = 150
-        seventh.actionButton.backgroundColor = .purple
+		seventh.actionButton.backgroundColor = .actionColor
         seventh.actionButton.layer.cornerRadius = 15
         seventh.actionButton.clipsToBounds = true
         
-        
-        
-        
-     
         onboardingVC = OnboardingViewController.onboard(withBackgroundImage: UIImage(named: "giga-banner"), contents: [firstPage, secondPage, thirdPage, fourthPage, fifth, sixth,seventh])
-        onboardingVC.skipButton.setTitleColor(.purple, for: .normal)
+		
+		onboardingVC.skipButton.setTitleColor(.actionColor, for: .normal)
         onboardingVC.shouldFadeTransitions = true
         onboardingVC.shouldMaskBackground = false
         onboardingVC.shouldBlurBackground = false
         onboardingVC.fadePageControlOnLastPage = true
-        onboardingVC.pageControl.pageIndicatorTintColor = UIColor.darkGray
-        onboardingVC.pageControl.currentPageIndicatorTintColor = UIColor.white
+		onboardingVC.pageControl.pageIndicatorTintColor = .lightGray
+		onboardingVC.pageControl.currentPageIndicatorTintColor = .selectionColor
        // onboardingVC.skipButton.setTitleColor(UIColor.white, for: .normal)
         onboardingVC.allowSkipping = true
         onboardingVC.fadeSkipButtonOnLastPage = true
